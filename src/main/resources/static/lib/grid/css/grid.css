@@ -1,0 +1,37 @@
+.grid {
+	display: none;
+}
+
+.row-selection {
+	background-color: #CCE6FF !important;
+}
+
+.row-hover {
+	background-color: #F5F5F5 !important;
+}
+
+.grid-column {
+	display: inline-table;
+}
+
+.row-value {
+	display: !important;
+}
+
+.row-value-disabled {
+	display: none !important;
+}
+
+.row-editor {
+	display:  !important;
+	margin-bottom: 0px !important;
+}
+
+.row-editor-disabled {
+	display: none !important;
+	margin-bottom: 0px !important;
+}
+
+.row-Default {
+	background-color: red;
+}
