@@ -3,11 +3,11 @@ package com.jinshun.contact.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="t_user")
+@Table(name = "t_user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -15,7 +15,6 @@ public class User {
     private String sex;
 
     private String phone;
-
 
     public Long getId() {
         return id;

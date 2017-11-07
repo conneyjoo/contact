@@ -1,8 +1,8 @@
 package com.jinshun.contact;
 
-
 import com.jinshun.contact.dao.UserRepository;
 import com.jinshun.contact.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/hello")
 public class HelloController {
 
+    @Autowired
     private UserRepository userRepository;
 
     @RequestMapping("first")
@@ -22,7 +23,7 @@ public class HelloController {
 
     @RequestMapping("getUserById")
     @ResponseBody
-    public User getUserById(Long id){
+    public User getUserById(Long id) {
         User u = userRepository.findOne(id);
         return u;
     }

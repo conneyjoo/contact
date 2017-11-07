@@ -8,10 +8,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude={JpaRepositoriesAutoConfiguration.class//禁止springboot自动加载持久化bean
-})
+@EnableAutoConfiguration(exclude = {JpaRepositoriesAutoConfiguration.class})
 @EnableJpaRepositories(basePackages = "com.jinshun.contact")
-@EntityScan(basePackages = "com.jinshun")
+@EntityScan(basePackages = "com.jinshun.contact")
 public class Bootstrap {
 
     public static void main(String[] args) {

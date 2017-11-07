@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.Table;
 
 @Repository
-@Table(name="t_user")
+@Table(name = "t_user")
 @Qualifier("userRepository")
-public interface UserRepository extends CrudRepository<User,Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
     public User findOne(Long id);
 
