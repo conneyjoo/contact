@@ -16,6 +16,10 @@ public class User {
 
     private String phone;
 
+    @ManyToOne()
+    @JoinColumn(name = "role_id")
+    private Role role;
+
     public Long getId() {
         return id;
     }
@@ -46,5 +50,13 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
