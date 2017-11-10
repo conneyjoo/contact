@@ -33,6 +33,10 @@ public class ControllerSupport {
 		return getRequest().getSession();
 	}
 
+	public void setCurrentUser(User user) {
+		getSession().setAttribute(Environment.LOGIN_USER_KEY, user);
+	}
+
 	public User getCurrentUser() {
 		Object obj = getSession().getAttribute(Environment.LOGIN_USER_KEY);
 		return obj != null ? (User) obj : null;

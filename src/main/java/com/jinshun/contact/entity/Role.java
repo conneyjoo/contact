@@ -18,9 +18,6 @@ public class Role {
     @Column(name = "permission")
     private Integer permission;
 
-    @Transient
-    private List<Module> modules = new ArrayList<Module>();
-
     public Long getId() {
         return id;
     }
@@ -43,13 +40,5 @@ public class Role {
 
     public void setPermission(Integer permission) {
         this.permission = permission;
-    }
-
-    public List<Module> getModules() {
-        return modules;
-    }
-
-    public void setModules(List<Module> modules) {
-        this.modules = modules;
     }
 }

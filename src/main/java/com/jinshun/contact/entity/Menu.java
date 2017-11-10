@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "t_module")
-public class Module {
+public class Menu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,6 +1,6 @@
 package com.jinshun.contact;
 
-import com.jinshun.contact.dao.UserRepository;
+import com.jinshun.contact.dao.sys.UserRepository;
 import com.jinshun.contact.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

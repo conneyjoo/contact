@@ -10,7 +10,8 @@ public class SampleConfigurerAdapter extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/**").excludePathPatterns("/login", "/login");
+        registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/user/login", "/user/login");
         super.addInterceptors(registry);
     }
 }
