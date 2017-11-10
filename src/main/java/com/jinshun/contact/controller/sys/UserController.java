@@ -1,4 +1,4 @@
-package com.jinshun.contact.controller.user;
+package com.jinshun.contact.controller.sys;
 
 import com.jinshun.contact.controller.common.ControllerSupport;
 import org.slf4j.Logger;
