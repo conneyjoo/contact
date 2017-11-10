@@ -22,22 +22,22 @@ public class SuccessBid {
     private String type;
 
     //订立时间
-    @Column(name="conclude_time")
+    @Column(name = "conclude_time")
     private Date concludeTime;
 
     //项目名称
     private String name;
 
     //工期
-    @Column(name="time_limit")
+    @Column(name = "time_limit")
     private String timeLimit;
 
     //合同价
-    @Column(name="contact_price")
+    @Column(name = "contact_price")
     private Integer contactPrice;
 
     //审定价
-    @Column(name="judgement_price")
+    @Column(name = "judgement_price")
     private Integer judgementPrice;
 
     //建造师
@@ -47,15 +47,15 @@ public class SuccessBid {
     private String principal;
 
     //管理费及所得税
-    @Column(name="management_cost")
+    @Column(name = "management_cost")
     private Integer managementCost;
 
     //工程保险费
-    @Column(name="premium_cost")
+    @Column(name = "premium_cost")
     private Integer premiumCost;
 
     //是否入库（0未入库，1已入库）
-    @Column(name="in_warehouse")
+    @Column(name = "in_warehouse")
     private Integer inWarehouse;
 
     public Long getId() {

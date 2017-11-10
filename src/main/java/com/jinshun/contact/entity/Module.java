@@ -1,12 +1,10 @@
 package com.jinshun.contact.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "t_role")
-public class Role {
+@Table(name = "t_module")
+public class Module {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,11 +13,11 @@ public class Role {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "url")
+    private String url;
+
     @Column(name = "permission")
     private Integer permission;
-
-    @Transient
-    private List<Module> modules = new ArrayList<Module>();
 
     public Long getId() {
         return id;
@@ -37,19 +35,19 @@ public class Role {
         this.name = name;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public Integer getPermission() {
         return permission;
     }
 
     public void setPermission(Integer permission) {
         this.permission = permission;
-    }
-
-    public List<Module> getModules() {
-        return modules;
-    }
-
-    public void setModules(List<Module> modules) {
-        this.modules = modules;
     }
 }
