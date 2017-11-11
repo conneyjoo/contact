@@ -1,10 +1,8 @@
 package com.jinshun.contact.controller.sys;
 
-import com.jinshun.contact.controller.common.Access;
+import com.jinshun.contact.auth.Access;
 import com.jinshun.contact.controller.common.ControllerSupport;
-import com.jinshun.contact.entity.User;
 import com.jinshun.contact.service.sys.MenuService;
-import com.jinshun.contact.service.sys.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,10 @@
 package com.jinshun.contact.controller.sys;
 
+import com.jinshun.contact.auth.Access;
 import com.jinshun.contact.controller.common.ControllerSupport;
+import com.jinshun.contact.entity.Action;
 import com.jinshun.contact.entity.User;
+import com.jinshun.contact.service.sys.ActionService;
 import com.jinshun.contact.service.sys.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +30,9 @@ public class UserController extends ControllerSupport {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ActionService actionService;
+
     @RequestMapping("login")
     public @ResponseBody Message login(String username, String password) {
         Message message = new Message();
@@ -36,6 +42,7 @@ public class UserController extends ControllerSupport {
 
             if (user != null) {
                 if (user.getPassword().equals(password)) {
+                    user.setActions(actionService.getActionSet(user.getRole().getId()));
                     setCurrentUser(user);
                     message.setStatus(LOGIN_SUCCESS);
                 } else {
@@ -47,6 +54,26 @@ public class UserController extends ControllerSupport {
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             message.setStatus(LOGIN_FAILED);
+        }
+
+        return message;
+    }
+
+    @RequestMapping("logout")
+    public @ResponseBody Message logout() {
+        setCurrentUser(null);
+        return SUCCESS;
+    }
+
+    @Access
+    @RequestMapping("findUser")
+    public @ResponseBody Message findUser(User user) {
+        Message message = new Message();
+
+        try {
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            message.setSuccess(false);
         }
 
         return message;

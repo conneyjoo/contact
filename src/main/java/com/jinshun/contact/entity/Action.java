@@ -3,8 +3,8 @@ package com.jinshun.contact.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "t_module")
-public class Menu {
+@Table(name = "t_action")
+public class Action {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,8 +13,8 @@ public class Menu {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "url")
-    private String url;
+    @Column(name = "method")
+    private String method;
 
     public Long getId() {
         return id;
@@ -32,11 +32,11 @@ public class Menu {
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
+    public String getMethod() {
+        return method;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setMethod(String method) {
+        this.method = method;
     }
 }

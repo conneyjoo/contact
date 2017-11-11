@@ -19,7 +19,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 public class ControllerSupport {
 
-	public Message message = new Message();
+	public static final Message SUCCESS = new Message();
 
 	public HttpServletRequest getRequest() {
 		return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -85,7 +85,7 @@ public class ControllerSupport {
 	   	return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.CREATED);
 	}
 
-	public class Message {
+	public static class Message {
 
 		private Boolean success = true;
 

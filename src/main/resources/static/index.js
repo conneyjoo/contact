@@ -34,3 +34,16 @@ content.load(function() {
     content.height($(content[0].contentDocument.body).height());
 });
 
+$('#logout').click(function() {
+    $.ajax({
+        type: 'POST',
+        url: root + '/user/logout',
+        success : function(msg) {
+            location.href = 'login.html';
+        },
+        error : function(msg) {
+            alert('注销失败');
+        }
+    });
+});
+

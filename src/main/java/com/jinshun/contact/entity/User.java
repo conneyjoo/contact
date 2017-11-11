@@ -1,6 +1,10 @@
 package com.jinshun.contact.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "t_user")
@@ -28,6 +32,9 @@ public class User {
     @ManyToOne()
     @JoinColumn(name = "role_id")
     private Role role;
+
+    @Transient
+    private Set<String> actions = new HashSet<String>();
 
     public Long getId() {
         return id;
@@ -83,5 +90,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Set<String> getActions() {
+        return actions;
+    }
+
+    public void setActions(Set<String> actions) {
+        this.actions = actions;
     }
 }
