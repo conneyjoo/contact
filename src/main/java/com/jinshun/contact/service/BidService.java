@@ -26,6 +26,19 @@ public class BidService {
     @Autowired
     private BidRepository bidRepository;
 
+    public Bid saveOrUpdate(Bid bid){
+        return bidRepository.save(bid);
+    }
+
+    public void delete(Long id){
+        bidRepository.delete(id);
+    }
+
+    public Bid getById(Long id){
+        return bidRepository.findOne(id);
+    }
+
+
     public List<Bid> queryBids(Long companyId , Bid bid){
         if(companyId == null){
             LOGGER.info("companyId为空！");
