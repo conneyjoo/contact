@@ -9,8 +9,32 @@
     <meta http-equiv="expires" content="0">
 
     <script type="text/javascript">
-        var config = {"webRoot":"\/","appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/theme\/","currentModule":"product","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","router":"\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
-        var lang = {"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+        var config = {
+            "webRoot": "\/",
+            "appName": "",
+            "cookieLife": 30,
+            "requestType": "PATH_INFO",
+            "requestFix": "-",
+            "moduleVar": "m",
+            "methodVar": "f",
+            "viewVar": "t",
+            "defaultView": "html",
+            "themeRoot": "\/theme\/",
+            "currentModule": "product",
+            "currentMethod": "browse",
+            "clientLang": "zh-cn",
+            "requiredFields": "",
+            "router": "\/index.php",
+            "save": "\u4fdd\u5b58",
+            "runMode": "",
+            "timeout": 30000,
+            "pingInterval": ""
+        };
+        var lang = {
+            "submitting": "\u7a0d\u5019...",
+            "save": "\u4fdd\u5b58",
+            "timeout": "\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"
+        };
     </script>
 
     <script src="../lib/zui/all.js" type="text/javascript"></script>
@@ -23,63 +47,132 @@
     <link href="../lib/grid/css/grid.css" type="text/css" rel="stylesheet" media="screen">
 
     <style>
-        #createActionMenu .dropdown-menu{width: 100%}
-        .dropdown-menu.with-search {padding: 0; min-width: 150px; overflow: hidden; max-height: 302px;}
-        .dropdown-menu > .menu-search .input-group {width:100%;}
-        .dropdown-menu > .menu-search .input-group-addon {position: absolute; right: 10px; top: 0; z-index: 10; background: none; border: none; color: #666}
-        .dropdown-menu > .menu-search .form-control {border: none!important; box-shadow: none!important; border-top: 1px solid #ddd!important;}
-        .dropdown-list {display: block; padding: 0; max-height: 270px; overflow-y: auto;}
-        .dropdown-list > li > a {display: block; padding: 3px 20px; clear: both; font-weight: normal; line-height: 1.53846154; color: #141414; white-space: nowrap;}
+        #createActionMenu .dropdown-menu {
+            width: 100%
+        }
+
+        .dropdown-menu.with-search {
+            padding: 0;
+            min-width: 150px;
+            overflow: hidden;
+            max-height: 302px;
+        }
+
+        .dropdown-menu > .menu-search .input-group {
+            width: 100%;
+        }
+
+        .dropdown-menu > .menu-search .input-group-addon {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            z-index: 10;
+            background: none;
+            border: none;
+            color: #666
+        }
+
+        .dropdown-menu > .menu-search .form-control {
+            border: none !important;
+            box-shadow: none !important;
+            border-top: 1px solid #ddd !important;
+        }
+
+        .dropdown-list {
+            display: block;
+            padding: 0;
+            max-height: 270px;
+            overflow-y: auto;
+        }
+
+        .dropdown-list > li > a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: 1.53846154;
+            color: #141414;
+            white-space: nowrap;
+        }
+
         .dropdown-list > li > a:hover,
-        .dropdown-list > li > a:focus {color: #1a4f85;text-decoration: none;background-color: #ddd;}
+        .dropdown-list > li > a:focus {
+            color: #1a4f85;
+            text-decoration: none;
+            background-color: #ddd;
+        }
 
-        .pl-5px{padding-left:5px;}
-        a.removeModule{color:#ddd}
-        a.removeModule:hover{color:red}
+        .pl-5px {
+            padding-left: 5px;
+        }
 
-        tbody > tr > td > .btn-icon {margin-right: 3px;}
+        a.removeModule {
+            color: #ddd
+        }
+
+        a.removeModule:hover {
+            color: red
+        }
+
+        tbody > tr > td > .btn-icon {
+            margin-right: 3px;
+        }
     </style>
 </head>
 <body>
-<div id="wrap" style="max-width: 3000px; margin: 0 auto">
+<div id="wrap" style="width: 3000px; margin: 0 auto">
     <div class="outer with-side with-transition" style="min-height: 900px;">
         <div id="featurebar">
-            <div id="querybox" class="show">
+            <div id="querybox" class="show" style="width:1200px">
                 <form id="searchform" class="form-condensed">
-                    <table class="table table-condensed table-form" id="bug-search" style="max-width: 100%; margin: 0 auto">
+                    <table class="table table-condensed table-form" id="bug-search"
+                           style="max-width: 100%; margin: 0 auto">
                         <tbody>
                         <tr>
                             <td class="w-400px">
                                 <table class="table active-disabled table-fixed">
                                     <tbody>
-                                    <tr id="searchbox1" class="">
+                                    <tr id="searchbox1" class="" style="max-width: 100%; margin: 0 auto">
                                         <td class="text-right w-90px"><span><strong>工程名称</strong></span></td>
                                         <td id="" style="overflow: visible">
-                                            <input type="text" class="form-control  searchInput" name="unitName" placeholder="请输入工程名称（可模糊查询）">
+                                            <input type="text" class="form-control  searchInput" name="unitName"
+                                                   placeholder="请输入工程名称（可模糊查询）">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>报名时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="licenceBegindate" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
+                                            <input type="text" class="form-control form-date" name="licenceBegindate"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="licenceEnddate" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
+                                            <input type="text" class="form-control form-date" name="licenceEnddate"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>保证金截止时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="licenceBegindate" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
+                                            <input type="text" class="form-control form-date" name="licenceBegindate"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="licenceEnddate" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
+                                            <input type="text" class="form-control form-date" name="licenceEnddate"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>开标时间</strong></span></td>
-                                     <td>
-                                            <input type="text" class="form-control form-date" name="licenceBegindate" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
+                                        <td>
+                                            <input type="text" class="form-control form-date" name="licenceBegindate"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="licenceEnddate" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
+                                            <input type="text" class="form-control form-date" name="licenceEnddate"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
                                         </td>
                                     </tr>
                                     </tbody>
@@ -102,41 +195,47 @@
                 <thead>
                 <tr>
                     <th class="w-60px">编号</th>
-                    <th class="w-80px">区域</th>
-                    <th class="w-80px">内部负责人</th>
-                    <th class="w-100px">信息发布时间</th>
-                    <th class="w-80px">工程名称</th>
-                    <th class="w-80px">工程类型</th>
-                    <th class="w-80px">招标价格</th>
+                    <th class="w-60px">区域</th>
+                    <th class="w-60px">内部负责人</th>
+                    <th class="w-80px">信息发布时间</th>
+                    <th class="w-60px">工程名称</th>
+                    <th class="w-60px">工程类型</th>
+                    <th class="w-60px">招标价格</th>
                     <th class="w-80px">报名时间</th>
-                    <th class="w-80px">建造师</th>
-                    <th class="w-100px">投标保证金数额</th>
-                    <th class="w-100px">保证金截止日期</th>
-					<th class="w-100px">交保证金审批</th>
-					<th class="w-100px">保证金汇出时间</th>
-					<th class="w-80px">开标时间</th>
-					<th class="w-80px">开标结果</th>
-					<th class="w-100px">保证金退回时间</th>
-					<th class="w-80px">银行凭证</th>
-					<th class="w-200px">备注</th>
-					<th class="w-80px">结束</th>
+                    <th class="w-60px">建造师</th>
+                    <th class="w-60px">投标保证金数额</th>
+                    <th class="w-80px">保证金截止日期</th>
+                    <th class="w-60px">交保证金审批</th>
+                    <th class="w-80px">保证金汇出时间</th>
+                    <th class="w-80px">开标时间</th>
+                    <th class="w-80px">开标结果</th>
+                    <th class="w-80px">保证金退回时间</th>
+                    <th class="w-80px">银行凭证</th>
+                    <th class="w-40px">查看</th>
+                    <th class="w-80px">结束</th>
                 </tr>
                 </thead>
                 <tbody class="">
                 <tr class="text-center">
                     <td>{rowIndex}</td>
-                    <td>{unitid}</td>
-                    <td>{unitName}</td>
-                    <td>{areaName}</td>
-                    <td>{governUnitName}</td>
-                    <td>{trueName}</td>
-                    <td>{createDate}</td>
-                    <td>{legalStandforperson}</td>
-                    <td>{corporationPhone}</td>
-                    <td>{beginManageDate}</td>
-                    <td>
-                        <a href="javascript:toTrain();" class="btn-icon iframe" title="查看">查看</a>
-                    </td>
+                    <td>{area}</td>
+                    <td>{principal}</td>
+                    <td>{pubDate}</td>
+                    <td>{name}</td>
+                    <td>{type}</td>
+                    <td>{bidPrice}</td>
+                    <td>{applyDate}</td>
+                    <td>{constructor}</td>
+                    <td>{depositPrice}</td>
+					<td>{depositDeadline}</td>
+					<td>{depositApproval}</td>
+					<td>{depositRemitTime}</td>
+					<td>{bidOpenTime}</td>
+					<td>{bidOpenResult}</td>
+					<td>{depositReturnTime}</td>
+					<td><input type="file" />上传</td>
+					<td>{remark}</td>
+					<td><input type="button" />选择</td>
                 </tr>
                 </tbody>
                 <tfoot>
@@ -158,19 +257,18 @@
 </body>
 <script>
     // 仅选择日期
-$(".form-date").datetimepicker(
-{
-    language:  "zh-CN",
-    weekStart: 1,
-    todayBtn:  1,
-    autoclose: 1,
-    todayHighlight: 1,
-    startView: 2,
-    minView: 2,
-    forceParse: 0,
-    format: "yyyy-mm-dd"
-});
-
+    $(".form-date").datetimepicker(
+        {
+            language: "zh-cn",
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: "yyyy-mm-dd"
+        });
 
 
 </script>
