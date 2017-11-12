@@ -349,24 +349,13 @@
 		
 		render: function(data) {
 			if (!data) return;
-			
-			if (data.datas) {
-				this.rows = this.createRows(data.datas);
-				this.grid.append(this.rows);
-				if (this.rows.length > 0) {
-					var pagination = this.createPagination(data);
-					if (pagination) {
-						var pr = this.paginationRender;
-						if (this.paginationRender)
-							this.paginationRender.append(pagination);
-						else
-							this.grid.append(pagination)
-					}
-				}
-			} else {
-				this.rows = this.createRows(data);
-				this.grid.append(this.rows)
-			}
+
+            this.rows = this.createRows(data);
+            this.grid.append(this.rows)
+
+            if (this.paginationRender) {
+                this.paginationRender.append(this.createPagination(data));
+            }
 		},
 
 		load: function(params, url, callback) {

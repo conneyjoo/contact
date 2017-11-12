@@ -3,7 +3,7 @@ $('#submit').click(function() {
 
     $.ajax({
         type: 'POST',
-        url: root + '/user/login',
+        url: '/user/login',
         data: data,
         success : function(msg) {
             if (msg.status == 1) {
