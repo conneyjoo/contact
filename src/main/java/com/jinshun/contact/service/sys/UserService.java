@@ -25,7 +25,9 @@ public class UserService extends CommonService {
         sql.addParam("and u.username = ?", user.getUsername());
         sql.addParam("and u.name = ?", user.getName());
         sql.addParam("and u.phone = ?", user.getPhone());
-        sql.append(!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(direction) ? "%s" : "order by id desc");
+
+        sort = StringUtils.isEmpty(sort) ? "id" : sort;
+        direction = StringUtils.isEmpty(direction) ? "desc" : direction;
 
         return findPage(sql.toString(), curPage, pageSize, sort, direction, sql.getParams());
     }

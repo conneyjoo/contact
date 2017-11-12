@@ -40,7 +40,7 @@ public class CommonService {
 
    public List<?> findPage(String sql, Integer curPage, Integer pageSize, String sort, String direction, Object ...params) {
        if (!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(direction)) {
-           sql = String.format(sql, "order by " + sort + " " + direction);
+           sql += " order by " + sort + " " + direction;
        }
 
        Query query = em.createNativeQuery(sql);
