@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Table;
+import java.util.List;
 
 @Repository
 @Table(name = "t_user")
@@ -18,4 +19,7 @@ public interface UserRepository extends CrudRepository<User, Long>, JpaSpecifica
 
     @Query(value = "select t from #{#entityName} t where username = :username")
     public User getUser(@Param("username") String username);
+
+    @Query(value = "select u.*, r.name rolename  from t_user u left join t_role r on r.id = u.role_id where 1 = 1", nativeQuery = true)
+    public List<User> findUser(User user);
 }

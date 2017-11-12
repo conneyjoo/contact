@@ -1,6 +1,7 @@
 package com.jinshun.contact.controller.sys;
 
 import com.jinshun.contact.auth.Access;
+import com.jinshun.contact.auth.Authorities;
 import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.entity.Action;
 import com.jinshun.contact.entity.User;
@@ -9,9 +10,12 @@ import com.jinshun.contact.service.sys.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -65,17 +69,10 @@ public class UserController extends ControllerSupport {
         return SUCCESS;
     }
 
-    @Access
+    @Access(authorities = Authorities.LOGIN)
     @RequestMapping("findUser")
-    public @ResponseBody Message findUser(User user) {
-        Message message = new Message();
-
-        try {
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-            message.setSuccess(false);
-        }
-
-        return message;
+    public @ResponseBody
+    List<?> findUser(User user, Integer curPage, Integer pageSize, String sort, String direction) {
+        return userService.findUser(user, curPage, pageSize, sort, direction);
     }
 }

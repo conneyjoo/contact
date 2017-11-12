@@ -20,8 +20,6 @@ public class AuthInterceptor implements HandlerInterceptor {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Access access = null;
 
-        System.out.println(handlerMethod.toString());
-
         if (handlerMethod != null) {
             access = handlerMethod.getMethodAnnotation(Access.class);
 
