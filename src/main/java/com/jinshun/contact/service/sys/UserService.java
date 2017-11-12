@@ -24,6 +24,8 @@ public class UserService extends CommonService {
 
         if (!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(direction)) {
             sql.append(" %s");
+        } else {
+            sql.append(" order by id desc");
         }
 
         return findPage(sql.toString(), curPage, pageSize, sort, direction);
