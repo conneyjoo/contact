@@ -45,22 +45,26 @@ $.fn.grid.defaults.template.pagination = '<div style="float: right; clear: none;
 $.fn.grid.defaults.prepagenum = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 100, 200, 500, 1000, 20000];
 
 $.fn.grid.Constructor.prototype.createSort = function() {
-    this.grid.prev().children().eq(0).children().each(function() {
-        var el = $(this);
-        var sort = el.data('sort');
+	if (!this.sorted) {
+        this.grid.prev().children().eq(0).children().each(function() {
+            var el = $(this);
+            var sort = el.data('sort');
 
-        if (sort) {
-            el.bind('click', function() {
-                var sort = el.data('sort'), direction = el.hasClass('sort-up') && el.hasClass('sort-up')
+            if (sort) {
+                el.bind('click', function() {
+                    var sort = el.data('sort'), direction = el.hasClass('sort-up') && el.hasClass('sort-up')
 
-                if (direction) {
-                    el.removeClass('sort-up').addClass('sort-down');
-				} else {
-                    el.removeClass('sort-down').addClass('sort-up');
-				}
+                    if (direction) {
+                        el.removeClass('sort-up').addClass('sort-down');
+                    } else {
+                        el.removeClass('sort-down').addClass('sort-up');
+                    }
 
-                grid.load({sort: sort, direction: direction ? 'desc' : 'asc'});
-            }).addClass('sort');
-		}
-	});
+                    grid.load({sort: sort, direction: direction ? 'desc' : 'asc'});
+                }).addClass('sort');
+            }
+        });
+
+        this.sorted = true;
+	}
 }
