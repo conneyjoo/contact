@@ -1,5 +1,6 @@
 package com.jinshun.contact.service.common;
 
+import com.jinshun.contact.util.SQLString;
 import org.hibernate.SQLQuery;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +23,29 @@ public class CommonService {
     @PersistenceContext
     private EntityManager em;
 
+    public int executeUpdate(String sql, Object ...params) {
+        Query query = em.createNativeQuery(sql);
+        int i = 1;
+
+        for (int len = params.length; i < len; i++) {
+            query.setParameter(i, params[i]);
+        }
+
+        return query.executeUpdate();
+    }
+
+    public List<?> findPage(SQLString sql, Integer curPage, Integer pageSize, String sort, String direction) {
+        return findPage(sql.toString(), curPage, pageSize, sort, direction, sql.getParams());
+    }
+
    public List<?> findPage(String sql, Integer curPage, Integer pageSize, String sort, String direction, Object ...params) {
        if (!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(direction)) {
            sql = String.format(sql, "order by " + sort + " " + direction);
        }
 
        Query query = em.createNativeQuery(sql);
-       int i = 1;
 
-       for (int len = params.length; i < len; i++) {
+       for (int i = 0, len = params.length; i < len; i++) {
            query.setParameter(i, params[i]);
        }
 
