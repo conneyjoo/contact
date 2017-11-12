@@ -1,11 +1,13 @@
 package com.jinshun.contact.configuration;
 
-import com.jinshun.contact.interceptor.AuthInterceptor;
+import com.jinshun.contact.auth.AuthInterceptor;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
+@ServletComponentScan
 public class SampleConfigurerAdapter extends WebMvcConfigurerAdapter {
 
     @Override
