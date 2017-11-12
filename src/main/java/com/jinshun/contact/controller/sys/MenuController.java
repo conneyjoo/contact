@@ -1,6 +1,7 @@
 package com.jinshun.contact.controller.sys;
 
 import com.jinshun.contact.auth.Access;
+import com.jinshun.contact.auth.Authorities;
 import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.service.sys.MenuService;
 import org.slf4j.Logger;
@@ -20,7 +21,7 @@ public class MenuController extends ControllerSupport {
     private MenuService menuService;
 
     @RequestMapping("getMenus")
-    @Access()
+    @Access(authorities = Authorities.LOGIN)
     public @ResponseBody Message getMenus() {
         Message message = new Message();
 
