@@ -39,13 +39,11 @@ public class SQLString {
 		return this;
 	}
 
-	public void addParam(String condition, Object value) {
+	public void addCondition(String condition, Object value) {
 		if (value != null && value instanceof String && !StringUtils.isEmpty(value)) {
-			sql.append(condition);
-			addParam(value);
+			append(condition, value);
 		} else if (value != null) {
-			sql.append(condition);
-			addParam(value);
+			append(condition, value);
 		}
 	}
 	
