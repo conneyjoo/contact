@@ -22,9 +22,9 @@ public class UserService extends CommonService {
 
     public List<?> findUser(User user, Integer curPage, Integer pageSize, String sort, String direction) {
         SQLString sql = new SQLString("select u.*, r.name rolename  from t_user u left join t_role r on r.id = u.role_id where 1 = 1");
-        sql.addParam("and u.username = ?", user.getUsername());
-        sql.addParam("and u.name = ?", user.getName());
-        sql.addParam("and u.phone = ?", user.getPhone());
+        sql.addCondition("and u.username = ?", user.getUsername());
+        sql.addCondition("and u.name = ?", user.getName());
+        sql.addCondition("and u.phone = ?", user.getPhone());
 
         sort = StringUtils.isEmpty(sort) ? "id" : sort;
         direction = StringUtils.isEmpty(direction) ? "desc" : direction;
