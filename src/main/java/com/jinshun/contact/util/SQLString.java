@@ -40,10 +40,12 @@ public class SQLString {
 	}
 
 	public void addCondition(String condition, Object value) {
-		if (value != null && value instanceof String && !StringUtils.isEmpty(value)) {
-			append(condition, value);
-		} else if (value != null) {
-			append(condition, value);
+		if (value != null) {
+			if (value instanceof String && !StringUtils.isEmpty(value)) {
+				append(condition, value);
+			} else if (!(value instanceof String)) {
+				append(condition, value);
+			}
 		}
 	}
 	
