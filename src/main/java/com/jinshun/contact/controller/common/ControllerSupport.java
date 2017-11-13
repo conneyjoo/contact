@@ -89,7 +89,7 @@ public class ControllerSupport {
 
 		private Boolean success = true;
 
-		private Integer status = -1;
+		private Integer status = 0;
 
 		private Object data;
 
