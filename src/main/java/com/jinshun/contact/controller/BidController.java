@@ -1,10 +1,13 @@
 package com.jinshun.contact.controller;
 
 import com.jinshun.contact.auth.Access;
+import com.jinshun.contact.auth.Authorities;
 import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.controller.sys.MenuController;
 import com.jinshun.contact.entity.Bid;
+import com.jinshun.contact.entity.User;
 import com.jinshun.contact.service.BidService;
+import com.jinshun.contact.utils.model.BidQueryModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,18 +28,20 @@ public class BidController {
 
     @RequestMapping("saveOrUpdate")
     @Access()
-    public @ResponseBody Bid saveOrUpdateBid(Bid bid){
-        if(bid==null){
+    public @ResponseBody
+    Bid saveOrUpdateBid(Bid bid) {
+        if (bid == null) {
             LOGGER.error("对象不能为空！");
             return null;
         }
-         return bidService.saveOrUpdate(bid);
+        return bidService.saveOrUpdate(bid);
     }
 
     @RequestMapping("delete")
     @Access()
-    public @ResponseBody void deleteBid(Long id){
-        if(id==null){
+    public @ResponseBody
+    void deleteBid(Long id) {
+        if (id == null) {
             LOGGER.error("ID不能为空！");
             return;
         }
@@ -45,15 +50,20 @@ public class BidController {
 
     @RequestMapping("getById")
     @Access()
-    public @ResponseBody Bid getById(Long id){
-        if(id==null){
+    public @ResponseBody
+    Bid getById(Long id) {
+        if (id == null) {
             LOGGER.error("ID不能为空！");
             return null;
         }
-       return  bidService.getById(id);
+        return bidService.getById(id);
     }
 
+    @Access(authorities = Authorities.LOGIN)
+    @RequestMapping("findBids")
+    public @ResponseBody
+    List<?> findBids(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
+        return bidService.queryBids(model, curPage, pageSize, sort, direction);
+    }
 
-
-     
 }

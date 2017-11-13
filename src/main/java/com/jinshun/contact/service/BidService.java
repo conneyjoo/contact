@@ -2,7 +2,10 @@ package com.jinshun.contact.service;
 
 import com.jinshun.contact.dao.BidRepository;
 import com.jinshun.contact.entity.Bid;
+import com.jinshun.contact.service.common.CommonService;
 import com.jinshun.contact.util.ConditionUtils;
+import com.jinshun.contact.util.SQLString;
+import com.jinshun.contact.utils.model.BidQueryModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,47 +22,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class BidService {
+public class BidService extends CommonService {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(BidService.class);
 
     @Autowired
     private BidRepository bidRepository;
 
-    public Bid saveOrUpdate(Bid bid){
+    public Bid saveOrUpdate(Bid bid) {
         return bidRepository.save(bid);
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         bidRepository.delete(id);
     }
 
-    public Bid getById(Long id){
+    public Bid getById(Long id) {
         return bidRepository.findOne(id);
     }
 
+    public List<?> queryBids(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
 
-    public List<Bid> queryBids(Long companyId , Bid bid){
-        if(companyId == null){
-            LOGGER.info("companyId为空！");
-            return null;
+        SQLString sql = new SQLString("select t.* from t_bid t where 1 = 1");
+        sql.addCondition("and t.company_id = ?0", model.getCompanyId());
+        if(ConditionUtils.checkNullOrBlank(model.getName())){
+            sql.addCondition("and t.name like ?1" , "%"+model.getName()+"%");
         }
+        sql.addCondition("and t.apply_date > ?2", model.getApply_date_min());
+        sql.addCondition("and t.apply_date < ?3", model.getApply_date_max());
+        sql.addCondition("and t.deposit_deadline > ?4", model.getDeposit_deadline_min());
+        sql.addCondition("and t.deposit_deadline < ?5", model.getDeposit_deadline_max());
 
-        List<Bid> bids = bidRepository.findAll(new Specification<Bid>() {
-            @Override
-            public Predicate toPredicate(Root<Bid> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
+        sql.addCondition("and t.bid_open_time > ?6", model.getBid_open_time_min());
+        sql.addCondition("and t.bid_open_time < ?7", model.getBid_open_time_max());
 
-                List<Predicate> list = new ArrayList<Predicate>();
+        sort = StringUtils.isEmpty(sort) ? "id" : sort;
+        direction = StringUtils.isEmpty(direction) ? "desc" : direction;
 
-                if(ConditionUtils.checkNullOrBlank(bid.getArea())){
-                    list.add(cb.equal(root.get("area").as(String.class),bid.getArea()));
-                }
-
-                Predicate[] p = new Predicate[list.size()];
-                return cb.and(list.toArray(p));
-            }
-        });
-         return bids;
+        return findPage(sql, curPage, pageSize, sort, direction);
     }
 
 
