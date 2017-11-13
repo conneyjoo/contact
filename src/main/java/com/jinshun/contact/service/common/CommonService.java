@@ -25,13 +25,29 @@ public class CommonService {
 
     public int executeUpdate(String sql, Object ...params) {
         Query query = em.createNativeQuery(sql);
-        int i = 1;
+        int i = 0;
 
         for (int len = params.length; i < len; i++) {
             query.setParameter(i, params[i]);
         }
 
         return query.executeUpdate();
+    }
+
+    public List<?> find(SQLString sql) {
+        return find(sql.toString(), sql.getParams());
+    }
+
+    public List<?> find(String sql, Object ...params) {
+        Query query = em.createNativeQuery(sql);
+
+        for (int i = 0, len = params.length; i < len; i++) {
+            query.setParameter(i, params[i]);
+        }
+
+        query.unwrap(SQLQuery.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+
+        return convertEntityList(query.getResultList());
     }
 
     public List<?> findPage(SQLString sql, Integer curPage, Integer pageSize, String sort, String direction) {
@@ -46,7 +62,7 @@ public class CommonService {
        Query query = em.createNativeQuery(sql);
 
        for (int i = 0, len = params.length; i < len; i++) {
-           query.setParameter(i, params[i]);
+           query.setParameter(i + 1, params[i]);
        }
 
        curPage = curPage == null ? 0 : curPage;
