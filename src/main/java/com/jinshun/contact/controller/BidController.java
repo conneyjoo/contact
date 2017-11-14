@@ -15,11 +15,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
 @RequestMapping("/bid")
-public class BidController {
+public class BidController extends ControllerSupport{
 
     private Logger LOGGER = LoggerFactory.getLogger(BidController.class);
 
@@ -37,15 +39,18 @@ public class BidController {
         return bidService.saveOrUpdate(bid);
     }
 
-    @RequestMapping("delete")
-    @Access()
+    @Access(authorities = Authorities.LOGIN)
+    @RequestMapping("remove")
     public @ResponseBody
-    void deleteBid(Long id) {
-        if (id == null) {
-            LOGGER.error("ID不能为空！");
-            return;
+    Message deleteBid(Long id) {
+        Message message = new Message();
+        try {
+            bidService.delete(id);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            message.setSuccess(false);
         }
-        bidService.delete(id);
+        return message;
     }
 
     @RequestMapping("getById")

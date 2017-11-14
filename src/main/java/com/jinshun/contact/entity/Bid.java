@@ -1,5 +1,7 @@
 package com.jinshun.contact.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -22,6 +24,7 @@ public class Bid {
     private String principal;
 
     //项目发布时间
+    @Temporal(TemporalType.DATE)
     @Column(name = "pub_date")
     private Date pubDate;
 
@@ -36,6 +39,7 @@ public class Bid {
     private Integer bidPrice;
 
     //报名时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "apply_date")
     private Date applyDate;
 

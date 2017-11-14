@@ -1,5 +1,10 @@
 package com.jinshun.contact.utils.model;
 
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Column;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 public class BidQueryModel {
@@ -8,16 +13,22 @@ public class BidQueryModel {
 
     private String name;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date apply_date_min;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date apply_date_max;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date deposit_deadline_min;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date deposit_deadline_max;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date bid_open_time_min;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date bid_open_time_max;
 
     public Long getCompanyId() {
