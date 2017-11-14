@@ -31,8 +31,14 @@ $.fn.extend({
 	    var obj = {};
 	    $.each(this.serializeArray(), function(index, param) {
 	        if (!(param.name in obj)) {
-	            obj[param.name] = param.value
-	        }
+                obj[param.name] = param.value
+	        } else {
+                if (obj[param.name] && obj[param.name] instanceof Array) {
+                    obj[param.name].push(param.value);
+                } else if (obj[param.name]) {
+                    obj[param.name] = [param.value, obj[param.name]]
+                }
+			}
 	    });
 	    return obj
 	},

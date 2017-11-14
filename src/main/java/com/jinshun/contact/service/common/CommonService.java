@@ -28,7 +28,7 @@ public class CommonService {
         int i = 0;
 
         for (int len = params.length; i < len; i++) {
-            query.setParameter(i, params[i]);
+            query.setParameter(i + 1, params[i]);
         }
 
         return query.executeUpdate();
@@ -42,7 +42,7 @@ public class CommonService {
         Query query = em.createNativeQuery(sql);
 
         for (int i = 0, len = params.length; i < len; i++) {
-            query.setParameter(i, params[i]);
+            query.setParameter(i + 1, params[i]);
         }
 
         query.unwrap(SQLQuery.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
