@@ -15,9 +15,6 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "permission")
-    private Integer permission;
-
     public Long getId() {
         return id;
     }
@@ -32,13 +29,5 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getPermission() {
-        return permission;
-    }
-
-    public void setPermission(Integer permission) {
-        this.permission = permission;
     }
 }
