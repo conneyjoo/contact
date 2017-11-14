@@ -257,12 +257,12 @@
                     <td>{constructor}</td>
                     <td>{depositPrice}</td>
 					<td>{depositDeadline}</td>
-					<td>{depositApproval}</td>
+					<td>{depositApprovalResult}</td>
 					<td>{depositRemitTime}</td>
 					<td>{bidOpenTime}</td>
-					<td>{bidOpenResult}</td>
+					<td>{bidOpenResultMessage}</td>
 					<td>{depositReturnTime}</td>
-					<td><button class="btn btn-info " type="button">上传</button></td>
+					<td><button class="btn btn-info " type="button">上传</button>&nbsp;<button type="reset"  class="btn btn-primary " ><i class="icon icon-double-angle-down"></i></button></td>
 					<td>{remark}</td>
 					<td><button class="btn btn-primary" type="button" name="editButton" onclick="bidEdit({id})">编辑</button>&nbsp;<button class="btn btn-success" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;<button class="btn btn-danger" type="button" name="deleteButton" onclick="bidDel({id})">删除</button></td>
                 </tr>
@@ -420,6 +420,26 @@ var grid = $('.grid').grid({
     autoload: true,
     paginationRender: 'pagination',
     setData: function (data) {
+        if(data.depositApproval == 0){
+            data.depositApprovalResult = "未审批";
+        }
+        if(data.depositApproval == 1){
+            data.depositApprovalResult = "同意";
+        }
+        if(data.depositApproval == 2){
+            data.depositApprovalResult = "不同意";
+        }
+
+        if(data.bidOpenResult == 0){
+            data.bidOpenResultMessage = "未开标";
+        }
+        if(data.bidOpenResult == 1){
+            data.bidOpenResultMessage = "中标";
+        }
+        if(data.bidOpenResult == 2){
+            data.bidOpenResultMessage = "未中标";
+        }
+
     }
 }).data('grid');
 
@@ -429,6 +449,7 @@ grid.on('rowdoubleclick', function(event) {
 	editpanel.toggle();	
 	fillBlanks(row);
 });
+
 
 //为编辑页面赋值
 fillBlanks = function(row){
