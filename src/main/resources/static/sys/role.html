@@ -33,14 +33,14 @@
             <div id="featurebar">
                 <ul class="nav">
                     <li><div class="label-angle">所有模块</div></li>
-                    <li class="active"><a href="user.html">用户管理</a></li>
-                    <li><a href="role.html">角色管理</a></li>
+                    <li ><a href="user.html">用户管理</a></li>
+                    <li class="active"><a href="role.html">角色</a></li>
                     <li><a href="">未签责任书员工</a></li>
                 </ul>
                 <div class="actions">
                     <a href="javascript:" class="btn" id="add"><i class="icon-plus"></i> 新增</a>
                 </div>
-                <div id="querybox" class="show">
+                <div id="querybox" class="" style="display: none;">
                     <form id="searchform" class="form-condensed">
                         <table class="table table-condensed table-form" id="bug-search" style="max-width: 1200px; margin: 0 auto">
                             <tbody>
@@ -51,15 +51,7 @@
                                             <tr id="searchbox1" class="">
                                                 <td class="text-right w-70px"><span><strong>用户名</strong></span></td>
                                                 <td id="" style="overflow: visible">
-                                                    <input type="text" class="form-control" name="username" placeholder="用户名：">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right w-70px"><span><strong>姓名</strong></span></td>
-                                                <td>
-                                                    <input type="text" class="form-control" name="name" placeholder="姓名：" style="width: 49%; float: left;">
-                                                    <span style="float: left; margin-top: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                    <input type="text" class="form-control" name="phone" placeholder="电话：" style="width: 49%; float: left;">
+                                                    <input type="text" class="form-control" name="username" placeholder="角色名：">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -82,22 +74,14 @@
                     <thead>
                         <tr>
                             <th class="w-id">#</th>
-                            <th class="w-200px" data-sort="username">用户名</th>
-                            <th class="text-left">姓名</th>
-                            <th class="w-120px" data-sort="sex">性别</th>
-                            <th class="w-220px" data-sort="phone">电话</th>
-                            <th class="w-120px">角色</th>
+                            <th class="text-left">角色名</th>
                             <th class="w-200px">操作</th>
                         </tr>
                     </thead>
-                    <tbody id="usergrid" class="grid">
+                    <tbody id="rolegrid" class="grid">
                         <tr class="text-center">
                             <td>{rowIndex}</td>
-                            <td>{username}</td>
                             <td class="text-left">{name}</td>
-                            <td>{sexName}</td>
-                            <td>{phone}</td>
-                            <td>{roleName}</td>
                             <td>
                                 <a href="javascript: showEditPanel();" class="btn-icon iframe" title="修改">修改</a>
                                 &nbsp;&nbsp;
@@ -105,18 +89,6 @@
                             </td>
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="7">
-                                <div class="table-actions clearfix">
-                                </div>
-                                <div class="text-right">
-                                    <div style="float: right; clear: none;" class="pager form-inline" id="pagination">
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
@@ -136,50 +108,31 @@
             <div class="container mw-1400px">
                 <div id="titlebar">
                     <div class="heading">
-                        <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 用户信息：</strong>
+                        <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 角色信息：</strong>
                     </div>
                 </div>
                 <form id="editform" class="form-horizontal">
                     <input type="text" class="form-control" id="id" name="id" style="display: none;">
 
                     <div class="form-group">
-                        <label for="username" class="col-sm-2">用户名</label>
+                        <label for="name" class="col-sm-2">角色名</label>
                         <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="角色名">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password" class="col-sm-2">密码</label>
+                        <label for="menuIds" class="col-sm-2">菜单</label>
                         <div class="col-md-8 col-sm-10">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="密码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2">姓名</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="电话">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" class="col-sm-2">电话</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="电话">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="sex" class="col-sm-2">性别</label>
-                        <div class="col-md-8 col-sm-10">
-                            <select id="sex" name="sex" class="form-control">
-                                <option value="M" selected>男</option>
-                                <option value="F">女</option>
+                            <select id="menuIds" name="menuIds" class="form-control grid" style="height: 200px;" multiple>
+                                <option value="{id}" {selected}>{name}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="roleId" class="col-sm-2">角色</label>
+                        <label for="actionIds" class="col-sm-2">接口</label>
                         <div class="col-md-8 col-sm-10">
-                            <select id="roleId" name="roleId" class="form-control dropdown grid" data-url="/role/findRole">
-                                <option value="{id}">{name}</option>
+                            <select id="actionIds" name="actionIds" class="form-control grid" style="height: 200px;" multiple>
+                                <option value="{id}" {selected}>{name}</option>
                             </select>
                         </div>
                     </div>
@@ -188,6 +141,6 @@
         </div>
     </div>
 
-    <script src="user.js" type="text/javascript"></script>
+    <script src="role.js" type="text/javascript"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.jinshun.contact.controller.sys;
 import com.jinshun.contact.auth.Access;
 import com.jinshun.contact.auth.Authorities;
 import com.jinshun.contact.controller.common.ControllerSupport;
+import com.jinshun.contact.entity.Menu;
 import com.jinshun.contact.service.sys.MenuService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/menu")
@@ -32,5 +35,11 @@ public class MenuController extends ControllerSupport {
         }
 
         return message;
+    }
+
+    @RequestMapping("findMenu")
+    @Access(authorities = Authorities.LOGIN)
+    public @ResponseBody List<?> findMenu(Menu menu) {
+        return menuService.findMenu(menu);
     }
 }

@@ -1,7 +1,6 @@
 package com.jinshun.contact.controller.sys;
 
 import com.jinshun.contact.auth.Access;
-import com.jinshun.contact.auth.Authorities;
 import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.entity.User;
 import com.jinshun.contact.service.sys.ActionService;
@@ -69,13 +68,13 @@ public class UserController extends ControllerSupport {
         return SUCCESS;
     }
 
-    @Access(authorities = Authorities.LOGIN)
+    @Access()
     @RequestMapping("findUser")
     public @ResponseBody List<?> findUser(User user, Integer curPage, Integer pageSize, String sort, String direction) {
         return userService.findUser(user, curPage, pageSize, sort, direction);
     }
 
-    @Access(authorities = Authorities.LOGIN)
+    @Access()
     @RequestMapping("save")
     public @ResponseBody Message save(User user) {
         Message message = new Message();
@@ -93,7 +92,7 @@ public class UserController extends ControllerSupport {
         return message;
     }
 
-    @Access(authorities = Authorities.LOGIN)
+    @Access()
     @RequestMapping("remove")
     public @ResponseBody Message remove(User user) {
         Message message = new Message();

@@ -3,33 +3,31 @@ var editpanel = $('.editpanel');
 var searchform = $('#searchform');
 var editform = $('#editform');
 
-var usergrid = $('#usergrid').grid({
+var rolegrid = $('#rolegrid').grid({
     method: 'GET',
-    url: '/user/findUser',
-    autoload: true,
-    paginationRender: 'pagination',
-    setData: function(data) {
-        data.sexName = data.sex == 'M' ? '男' : '女';
-    }
+    url: '/role/findRole',
+    autoload: true
 }).data('grid');
 
-usergrid.on('rowdoubleclick', function(event) {
+rolegrid.on('rowdoubleclick', function(event) {
     showEditPanel();
 });
 
 $('#searchbtn').click(function() {
     var data = searchform.serializeObject();
-    usergrid.load(data);
+    rolegrid.load(data);
 });
 
 $('#add').click(function() {
-    usergrid.unSelected();
+    rolegrid.unSelected();
     showEditPanel();
     editform[0].reset();
+    menugrid.load({id: null});
+    actiongrid.load({id: null});
 });
 
 $('#removeRow').click(function() {
-    usergrid.unSelected();
+    rolegrid.unSelected();
     showEditPanel();
     editform[0].reset();
 });
@@ -53,59 +51,35 @@ $('#save').click(function() {
     el.html(el.data('loading'));
 
     var data = editform.serializeObject();
-
-    if (!data.username) {
-        el.html(text);
-        alert('用户名不能为空');
-        return;
-    }
-
-    if (!data.password) {
-        el.html(text);
-        alert('密码不能为空');
-        return;
-    }
+    data.menuIds = $('#menuIds').val();
+    data.actionIds = $('#actionIds').val();
 
     if (!data.name) {
         el.html(text);
-        alert('姓名不能为空');
+        alert('角色名不能为空');
         return;
     }
 
-    if (!data.phone) {
+    if (!data.menuIds) {
         el.html(text);
-        alert('电话不能为空');
+        alert('请选择菜单');
         return;
     }
 
-    if (!data.sex) {
+    if (!data.actionIds) {
         el.html(text);
-        alert('性别不能为空');
+        alert('请选择接口');
         return;
     }
-
-    if (!data.roleId) {
-        el.html(text);
-        alert('角色不能为空');
-        return;
-    }
-
-    data['role.id'] = data.roleId;
 
     $.ajax({
         type: 'POST',
-        url: '/user/save',
+        url: '/role/save',
         data: data,
         success: function(msg) {
-            if (msg.success) {
-                el.html(text);
-                editform.loadForm(msg);
-                togglePanel();
-            } else if (msg.status == -1) {
-                alert('用户名已存在');
-            } else {
-                alert('保存失败');
-            }
+            el.html(text);
+            editform.loadForm(msg);
+            togglePanel();
         },
         error: function(msg) {
             el.html(text);
@@ -114,37 +88,55 @@ $('#save').click(function() {
     });
 });
 
+menugrid = $('#menuIds').grid({
+    method: 'GET',
+    url: '/role/getMenus',
+    autoload: false,
+    setData: function(data) {
+        data.selected = data.menuId ? 'selected' : '';
+    }
+}).data('grid');
+
+actiongrid = $('#actionIds').grid({
+    method: 'GET',
+    url: '/role/getActions',
+    autoload: false,
+    setData: function(data) {
+        data.selected = data.actionId ? 'selected' : '';
+    }
+}).data('grid');
+
 togglePanel = function() {
     editpanel.toggle();
     mainpanel.toggle();
 
     if (editpanel.is(':hidden')) {
-        usergrid.load();
-        $('#username').removeAttr('readonly');
+        rolegrid.load();
     }
 }
 
 showEditPanel = function() {
     togglePanel();
-    var row = usergrid.getSelected();
+    var row = rolegrid.getSelected();
 
     if (row) {
         editform.loadForm(row);
-        $('#username').attr('readonly', 'readonly');
+        menugrid.load(row);
+        actiongrid.load(row);
     }
 }
 
 removeRow = function() {
     if (confirm('是否删除')) {
-        var row = usergrid.getSelected();
+        var row = rolegrid.getSelected();
 
         if (row) {
             $.ajax({
                 type: 'POST',
-                url: '/user/remove',
+                url: '/role/remove',
                 data: row,
                 success: function(msg) {
-                    usergrid.load();
+                    rolegrid.load();
                 },
                 error: function(msg) {
                 }

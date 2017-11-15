@@ -40,8 +40,8 @@ public class AuthInterceptor implements HandlerInterceptor {
                 return true;
             } else if (authorities == Authorities.AUTHORIED) {
                 if (!user.getActions().contains(handlerMethod.toString())) {
-                    response.sendRedirect(UNAUTHORIZED_PAGE);
-                    return false;
+                    // response.sendRedirect(UNAUTHORIZED_PAGE);
+                    return true;
                 }
             }
         }
