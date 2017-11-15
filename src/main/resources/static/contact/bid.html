@@ -41,10 +41,11 @@
     <script src="../lib/grid/util.js" type="text/javascript"></script>
     <script src="../lib/grid/grid.js" type="text/javascript"></script>
     <script src="../lib/grid/zgrid.js" type="text/javascript"></script>
-	<script src="../lib/zui/uploader/zui.uploader-ext.js"></script>
+    <script src="../lib/zui/uploader/zui.uploader-ext.js"></script>
 
 
-	<link href="../lib/zui/uploader/zui.uploader.min.css" rel="stylesheet">
+    <link href="../lib/zui/uploader/zui.uploader.min.css" rel="stylesheet">
+    <link href="../lib/zui/css/zui.datatable.css" type="text/css" rel="stylesheet" media="screen">
     <link href="../lib/zui/css/zh-cn.default.css" type="text/css" rel="stylesheet" media="screen">
     <link href="../lib/zui/css/zui.min.css" type="text/css" rel="stylesheet" media="screen">
     <link href="../lib/grid/css/grid.css" type="text/css" rel="stylesheet" media="screen">
@@ -120,37 +121,41 @@
         tbody > tr > td > .btn-icon {
             margin-right: 3px;
         }
-		.table{width:98.5%}
-		
-		#addButton {
-			 width: 100px;
-			 height: 35px;
-			 position: absolute;
-			 right: 5%;
-			 top: 40%;
-		}
-		#querybox {
-			width: 1200px;
-			top: 30px;
-			right: 315px;
-		}
-		#featurebar{
-			height: 220px;
-		}
+        .table{width:98.5%}
 
+        #addButton {
+            width: 100px;
+            height: 35px;
+            position: absolute;
+            right: 5%;
+            top: 40%;
+        }
+        #querybox {
+            width: 1200px;
+            top: 30px;
+            right: 315px;
+        }
+        #featurebar{
+            height: 220px;
+        }
+        .division{
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
         .editpanel {display: none;}
+        .warning {display: none;}
     </style>
 </head>
 <body>
 <div id="wrap" style="width: 2500px; margin: 0 auto" class="mainpanel">
     <div class="outer with-side with-transition" style="min-height: 900px;">
         <div id="featurebar">
-		       <ul class="nav">
-                    <li><div class="label-angle">所有模块</div></li>
-                    <li class="active"><a href="">用户管理</a></li>
-                    <li><a href="">员工培训</a></li>
-                    <li><a href="">未签责任书员工</a></li>
-                </ul>
+            <ul class="nav">
+                <li><div class="label-angle">所有模块</div></li>
+                <li class="active"><a href="">用户管理</a></li>
+                <li><a href="">员工培训</a></li>
+                <li><a href="">未签责任书员工</a></li>
+            </ul>
             <div id="querybox" class="show" style="width:1200px">
                 <form id="searchform" class="form-condensed">
                     <table class="table table-condensed table-form" id="bug-search"
@@ -160,10 +165,10 @@
                             <td class="w-400px">
                                 <table class="table active-disabled table-fixed">
                                     <tbody>
-                                    <tr id="searchbox1" class="" style="max-width: 100%; margin: 0 auto">
+                                    <tr  class="" style="max-width: 100%; margin: 0 auto">
                                         <td class="text-right w-90px"><span><strong>工程名称</strong></span></td>
                                         <td id="" style="overflow: visible">
-                                            <input type="text" class="form-control  searchInput" name="unitName"
+                                            <input type="text" class="form-control  searchInput" name="name"
                                                    placeholder="请输入工程名称（可模糊查询）">
                                         </td>
                                     </tr>
@@ -211,7 +216,7 @@
                                     <a type="submit" id="searchbtn" class="btn btn-primary" data-loading="稍候...">搜索</a>
                                     <button type="reset" class="btn btn-default">重置</button>
                                 </div>
-								<button type="reset" id="addButton" class="btn btn-success" style="width:100px;height:35px"><i class="icon icon-plus"></i>新增记录</button>
+                                <button type="reset" id="addButton" class="btn btn-success" style="width:100px;height:35px"><i class="icon icon-plus"></i>新增记录</button>
                             </td>
                         </tr>
                         </tbody>
@@ -220,25 +225,25 @@
             </div>
         </div>
         <div>
-            <table class="table table-condensed table-hover table-striped tablesorter table-fixed" style="top: 230px;position: absolute;">
+            <table class="table table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;position: absolute;">
                 <thead>
                 <tr>
                     <th width="3%">编号</th>
-                    <th width="4%">区域</th>
-                    <th width="5%">内部负责人</th>
-                    <th width="5%">信息发布时间</th>
-                    <th width="5%">工程名称</th>
-                    <th width="5%">工程类型</th>
-                    <th width="5%">招标价格</th>
-                    <th width="5%">报名时间</th>
-                    <th width="5%">建造师</th>
-                    <th width="5%">投标保证金数额</th>
-                    <th width="5%">保证金截止日期</th>
-                    <th width="5%">交保证金审批</th>
-                    <th width="5%">保证金汇出时间</th>
-                    <th width="5%">开标时间</th>
-                    <th width="5%">开标结果</th>
-                    <th width="5%">保证金退回时间</th>
+                    <th width="4%" data-sort="area">区域</th>
+                    <th width="5%" data-sort="principal">内部负责人</th>
+                    <th width="5%" data-sort="pub_date">信息发布时间</th>
+                    <th width="5%" data-sort="name">工程名称</th>
+                    <th width="5%" data-sort="type">工程类型</th>
+                    <th width="5%" data-sort="bid_price">招标价格</th>
+                    <th width="5%" data-sort="bid_price">报名时间</th>
+                    <th width="5%" data-sort="constructor">建造师</th>
+                    <th width="5%" data-sort="deposit_price">投标保证金数额</th>
+                    <th width="5%" data-sort="deposit_deadline">保证金截止日期</th>
+                    <th width="5%" data-sort="deposit_approval">交保证金审批</th>
+                    <th width="5%" data-sort="deposit_remit_time">保证金汇出时间</th>
+                    <th width="5%" data-sort="bid_open_time">开标时间</th>
+                    <th width="5%" data-sort="bid_open_result">开标结果</th>
+                    <th width="5%" data-sort="deposit_return_time">保证金退回时间</th>
                     <th width="5%">银行凭证</th>
                     <th width="10%">备注</th>
                     <th>操作</th>
@@ -256,15 +261,15 @@
                     <td>{applyDate}</td>
                     <td>{constructor}</td>
                     <td>{depositPrice}</td>
-					<td>{depositDeadline}</td>
-					<td>{depositApprovalResult}</td>
-					<td>{depositRemitTime}</td>
-					<td>{bidOpenTime}</td>
-					<td>{bidOpenResultMessage}</td>
-					<td>{depositReturnTime}</td>
-					<td><button class="btn btn-info " type="button">上传</button>&nbsp;<button type="reset"  class="btn btn-primary " ><i class="icon icon-double-angle-down"></i></button></td>
-					<td>{remark}</td>
-					<td><button class="btn btn-primary" type="button" name="editButton" onclick="bidEdit({id})">编辑</button>&nbsp;<button class="btn btn-success" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;<button class="btn btn-danger" type="button" name="deleteButton" onclick="bidDel({id})">删除</button></td>
+                    <td>{depositDeadline}</td>
+                    <td style="color:{depositApprovalResultColor}">{depositApprovalResult}</td>
+                    <td>{depositRemitTime}</td>
+                    <td>{bidOpenTime}</td>
+                    <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
+                    <td>{depositReturnTime}</td>
+                    <td><button class="btn btn-info " type="button">上传/查看</button></td>
+                    <td>{remark}</td>
+                    <td><button class="btn btn-primary" type="button" name="editButton" onclick="bidEdit({id})">编辑</button>&nbsp;<button class="btn btn-success" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;<button class="btn btn-danger" type="button" name="deleteButton" onclick="bidDel({id})">删除</button></td>
                 </tr>
                 </tbody>
                 <tfoot>
@@ -284,120 +289,162 @@
     </div>
 </div>
 
-    <div id="wrap" class="editpanel">
-        <div class="outer" style="min-height: 501px;">
-            <div id="featurebar" style="height:75px">
-                <div class="heading" style="padding-right: 179px;" id="title">
-                    <i class="icon-edit"></i> 编辑：
-                </div>
-                <div class="actions">
-                    <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
-                    <a id="save" href="javascript:" class="btn btn-save"><i class="icon-save"></i> 保存</a>
-                </div>
+<div id="wrap" class="editpanel">
+    <div class="outer" style="min-height: 501px;">
+        <div id="featurebar" style="height:75px">
+            <div class="heading" style="padding-right: 179px;" id="title">
+                <i class="icon-edit"></i> 编辑：
             </div>
-            <div class="container mw-1400px">
-                <div id="titlebar">
-                    <div class="heading">
-                        <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 招标信息：</strong>
-                    </div>
-                </div>
-                <form id="editform" class="form-horizontal">
-                    <input type="text" class="form-control" id="id" name="id" style="display: none;">
-
-                    <div class="form-group">
-                        <label for="area" class="col-sm-2">区域</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="area" name="area" placeholder="区域">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="principal" class="col-sm-2">内部负责人</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="principal" name="principal" placeholder="内部负责人">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pubDate" class="col-sm-2">信息发布时间</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control form-date" id="pubDate" name="pubDate" placeholder="信息发布时间" readonly style="width: 100%; background-color: white; float: left;">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2">工程名称</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="工程名称">
-                        </div>
-                    </div>
-					<div class="form-group">
-                        <label for="type" class="col-sm-2">工程类型</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="type" name="type" placeholder="工程类型">
-                        </div>
-                    </div>
-					<div class="form-group">
-                        <label for="bidPrice" class="col-sm-2">招标价格</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="bidPrice" name="bidPrice" placeholder="招标价格">
-                        </div>
-                    </div>
-					<div class="form-group">
-                        <label for="applyDate" class="col-sm-2">报名时间</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control form-date" id="applyDate" name="applyDate" placeholder="报名时间" readonly style="width: 100%; background-color: white; float: left;">
-                        </div>
-                    </div>
-					<div class="form-group">
-                        <label for="constructor" class="col-sm-2">建造师</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="constructor" name="constructor" placeholder="建造师">
-                     </div>
-                    </div>
-					<div class="form-group">
-                        <label for="depositPrice" class="col-sm-2">投标保证金数额</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="depositPrice" name="depositPrice" placeholder="投标保证金数额">
-                        </div>
-                    </div>
-					<div class="form-group">
-                        <label for="depositDeadline" class="col-sm-2">保证金截止日期</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control form-date" id="depositDeadline" name="depositDeadline" placeholder="保证金截止日期" readonly style="width: 100%; background-color: white; float: left;">
-                        </div>
-                    </div>
-					<div class="form-group">
-                        <label for="depositRemitTime" class="col-sm-2">保证金汇出时间</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control form-date" id="depositRemitTime" name="depositRemitTime" placeholder="保证金汇出时间" readonly style="width: 100%; background-color: white; float: left;">
-                        </div>
-                    </div>
-					<div class="form-group">
-                        <label for="bidOpenTime" class="col-sm-2">开标时间</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control form-date" id="bidOpenTime" name="bidOpenTime" placeholder="开标时间" readonly style="width: 100%; background-color: white; float: left;">
-                        </div>
-                    </div>
-					<div class="form-group" id="depositReturnTimeDiv">
-                        <label for="depositReturnTime" class="col-sm-2">保证金退回时间</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control form-date" id="depositReturnTime" name="depositReturnTime" placeholder="保证金退回时间" readonly style="width: 100%; background-color: white; float: left;">
-                        </div>
-                    </div>
-					<div class="form-group">
-                        <label for="remark" class="col-sm-2">备注</label>
-                        <div class="col-md-8 col-sm-10">
-                            <input type="text" class="form-control" id="remark" name="remark" placeholder="备注">
-                        </div>
-                    </div>
-                </form>
+            <div class="actions">
+                <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
+                <a id="save" href="javascript:" class="btn btn-save"><i class="icon-save"></i> 保存</a>
             </div>
         </div>
+        <div class="container mw-1400px">
+            <div id="titlebar">
+                <div class="heading">
+                    <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 领导审批：</strong>
+                </div>
+            </div>
+            <form id="approvalform" class="form-horizontal">
+                <div class="form-group">
+                    <label for="depositApproval" class="col-sm-2">保证金审批</label>
+                    <div class="col-md-8 col-sm-10">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary active" style="width:75px" id="depositApproval0" >
+                                <input type="radio" name="options" checked> 未审批
+                            </label>
+                            <label class="btn btn-success" style="width:75px" id="depositApproval1">
+                                <input type="radio" name="options" > 同意
+                            </label>
+                            <label class="btn btn-danger" style="width:75px" id="depositApproval2">
+                                <input type="radio" name="options" > 否决
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="openResult" class="col-sm-2">开标结果</label>
+                    <div class="col-md-8 col-sm-10">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary active" style="width:75px" id="openResult0">
+                                <input type="radio" name="options"  checked> 未开标
+                            </label>
+                            <label class="btn btn-success" style="width:75px" id="openResult1">
+                                <input type="radio" name="options" > 中标
+                            </label>
+                            <label class="btn btn-danger" style="width:75px" id="openResult2">
+                                <input type="radio" name="options" > 未中标
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <hr class="division">
+            <div id="titlebar">
+                <div class="heading">
+                    <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 招标信息：</strong>
+                </div>
+            </div>
+            <form id="editform" class="form-horizontal">
+                <div class="form-group">
+                    <label for="area" class="col-sm-2">区域</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control" id="area" name="area" placeholder="区域">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="principal" class="col-sm-2">内部负责人</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control" id="principal" name="principal" placeholder="内部负责人">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pubDate" class="col-sm-2">信息发布时间</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control form-date" id="pubDate" name="pubDate" placeholder="信息发布时间" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2">工程名称</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="工程名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type" class="col-sm-2">工程类型</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control" id="type" name="type" placeholder="工程类型">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bidPrice" class="col-sm-2">招标价格</label>
+                    <div class="col-md-8 col-sm-10" id="bidPriceDiv">
+                        <input type="text" class="form-control" id="bidPrice" name="bidPrice" placeholder="招标价格">
+                        <span id="bidPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="applyDate" class="col-sm-2">报名时间</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control form-date" id="applyDate" name="applyDate" placeholder="报名时间" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="constructors" class="col-sm-2">建造师</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control" id="constructors" name="constructors" placeholder="建造师">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="depositPrice" class="col-sm-2">投标保证金数额</label>
+                    <div class="col-md-8 col-sm-10" id="depositPriceDiv">
+                        <input type="text" class="form-control" id="depositPrice" name="depositPrice" placeholder="投标保证金数额">
+                        <span id="depositPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="depositDeadline" class="col-sm-2">保证金截止日期</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control form-date" id="depositDeadline" name="depositDeadline" placeholder="保证金截止日期" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="depositRemitTime" class="col-sm-2">保证金汇出时间</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control form-date" id="depositRemitTime" name="depositRemitTime" placeholder="保证金汇出时间" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bidOpenTime" class="col-sm-2">开标时间</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control form-date" id="bidOpenTime" name="bidOpenTime" placeholder="开标时间" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group" id="depositReturnTimeDiv">
+                    <label for="depositReturnTime" class="col-sm-2">保证金退回时间</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control form-date" id="depositReturnTime" name="depositReturnTime" placeholder="保证金退回时间" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="remark" class="col-sm-2">备注</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control" id="remark" name="remark" placeholder="备注">
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 
 
 </body>
 <script>
-var mainpanel = $('.mainpanel');
-var editpanel = $('.editpanel');
+    var mainpanel = $('.mainpanel');
+    var editpanel = $('.editpanel');
+    var editId = null;
 
     // 仅选择日期
     $(".form-date").datetimepicker(
@@ -414,104 +461,250 @@ var editpanel = $('.editpanel');
         });
 
 
-var grid = $('.grid').grid({
-    method: 'GET',
-    url: '/bid/findBids',
-    autoload: true,
-    paginationRender: 'pagination',
-    setData: function (data) {
-        if(data.depositApproval == 0){
-            data.depositApprovalResult = "未审批";
-        }
-        if(data.depositApproval == 1){
-            data.depositApprovalResult = "同意";
-        }
-        if(data.depositApproval == 2){
-            data.depositApprovalResult = "不同意";
-        }
+    var grid = $('.grid').grid({
+        method: 'GET',
+        url: '/bid/findBids',
+        autoload: true,
+        paginationRender: 'pagination',
+        setData: function (data) {
+            if(data.depositApproval == 0){
+                data.depositApprovalResult = "未审批";
+            }
+            if(data.depositApproval == 1){
+                data.depositApprovalResult = "同意";
+                data.depositApprovalResultColor = "#055bf5";
+            }
+            if(data.depositApproval == 2){
+                data.depositApprovalResult = "不同意";
+                data.depositApprovalResultColor = "#ff0800";
+            }
 
-        if(data.bidOpenResult == 0){
-            data.bidOpenResultMessage = "未开标";
-        }
-        if(data.bidOpenResult == 1){
-            data.bidOpenResultMessage = "中标";
-        }
-        if(data.bidOpenResult == 2){
-            data.bidOpenResultMessage = "未中标";
-        }
+            if(data.bidOpenResult == 0){
+                data.bidOpenResultMessage = "未开标";
+            }
+            if(data.bidOpenResult == 1){
+                data.bidOpenResultMessage = "中标";
+                data.bidOpenResultColor = "#055bf5";
+            }
+            if(data.bidOpenResult == 2){
+                data.bidOpenResultMessage = "未中标";
+                data.bidOpenResultColor = "#ff0800";
+            }
 
+        }
+    }).data('grid');
+
+    $("#searchbtn").click(function () {
+        var data = $('#searchform').serializeObject();
+        grid.load(data);
+
+    })
+
+    grid.on('rowdoubleclick', function(event) {
+        var row = grid.getSelected();
+        editId = row.id;
+        togglePanel();
+        changeActive(row.depositApproval,row.bidOpenResult);
+        fillBlanks(row);
+    });
+
+
+    //为编辑页面赋值
+    fillBlanks = function(row){
+        $("#area").val(row.area);
+        $("#principal").val(row.principal);
+        $("#pubDate").val(row.pubDate);
+        $("#name").val(row.name);
+        $("#type").val(row.type);
+        $("#bidPrice").val(row.bidPrice);
+        $("#applyDate").val(row.applyDate);
+        $("#constructor").val(row.constructor);
+        $("#depositPrice").val(row.depositPrice);
+        $("#depositDeadline").val(row.depositDeadline);
+        $("#depositRemitTime").val(row.depositRemitTime);
+        $("#bidOpenTime").val(row.bidOpenTime);
+        $("#depositReturnTime").val(row.depositReturnTime);
+        $("#remark").val(row.remark);
     }
-}).data('grid');
 
-grid.on('rowdoubleclick', function(event) {
-	var row = grid.getSelected();
-	mainpanel.toggle();
-	editpanel.toggle();	
-	fillBlanks(row);
-});
+    //编辑
+    bidEdit = function(id){
+        togglePanel();
+        editId = id;
+        var data = null;
+        $.ajax({
+            type: 'POST',
+            url: '/bid/getById',
+            data: {id:editId},
+            async: false,
+            success : function(msg) {
+                data = msg;
+            }
+        });
+        changeActive(data.depositApproval,data.bidOpenResult);
+        fillBlanks(data);
+    }
 
+    //提交入库
+    bidSubmit = function(id){
+        if(confirm("确定提交该招标记录入库?")){
+            $.ajax({
+                type: 'POST',
+                url: '/bid/submit',
+                data: {id:id},
+                success : function(msg) {
+                    grid.load();
+                    new $.zui.Messager('提示消息：入库成功', {
+                        type: 'success' // 定义颜色主题
+                    }).show();
+                },
+                error : function(msg) {
+                    new $.zui.Messager('提示消息：入库失败', {
+                        type: 'danger' // 定义颜色主题
+                    }).show();
+                }
+            });
+        }
+    }
 
-//为编辑页面赋值
-fillBlanks = function(row){
-	$("#area").val(row.area);
-	$("#principal").val(row.principal);
-	$("#pubDate").val(row.pubDate);
-	$("#name").val(row.name);
-	$("#type").val(row.type);
-	$("#bidPrice").val(row.bidPrice);
-	$("#applyDate").val(row.applyDate);
-	$("#constructor").val(row.constructor);
-	$("#depositPrice").val(row.depositPrice);
-	$("#depositDeadline").val(row.depositDeadline);
-	$("#depositRemitTime").val(row.depositRemitTime);
-	$("#bidOpenTime").val(row.bidOpenTime);
-	$("#depositReturnTime").val(row.depositReturnTime);
-	$("#remark").val(row.remark);
-}
-
-//编辑
-bidEdit = function(id){
-	mainpanel.toggle();
-	editpanel.toggle();
-}
-
-//提交入库
-bidSubmit = function(id){
-	if(confirm("确定提交该招标记录入库?")){
-	}
-}
-
-//删除
-bidDel = function(id){
-	if(confirm("确定删除该招标记录?")){
+    //删除
+    bidDel = function(id){
+        if(confirm("确定删除该招标记录?")){
             $.ajax({
                 type: 'POST',
                 url: '/bid/remove',
                 data: {id:id},
                 success : function(msg) {
                     grid.load();
-                    alert("删除成功！");
+                    new $.zui.Messager('提示消息：删除成功', {
+                        type: 'success' // 定义颜色主题
+                    }).show();
                 },
                 error : function(msg) {
-					alert("删除失败!");
+                    new $.zui.Messager('提示消息：删除失败', {
+                        type: 'danger' // 定义颜色主题
+                    }).show();
                 }
             });
-	}
-}
+        }
+    }
 
-//新增
-$("#addButton").click(function(){
-	mainpanel.toggle();
-	editpanel.toggle();
-	$("#depositReturnTimeDiv").hide();
-})
+    //新增
+    $("#addButton").click(function(){
+        togglePanel();
+        $("#depositReturnTimeDiv").hide();
+        editId = null;
+    })
 
-$("#back").click(function(){
-	mainpanel.toggle();
-	editpanel.toggle();
-})
+    //返回
+    $("#back").click(function(){
+        togglePanel();
+    })
 
+    togglePanel = function(){
+        mainpanel.toggle();
+        editpanel.toggle();
+        //编辑面板初始化
+        $(':input','#editform').val('');
+        $("#depositApproval0").attr("class","btn btn-primary active");
+        $("#depositApproval1").attr("class","btn btn-success");
+        $("#depositApproval2").attr("class","btn btn-danger");
+        $("#openResult0").attr("class","btn btn-primary active");
+        $("#openResult1").attr("class","btn btn-success");
+        $("#openResult2").attr("class","btn btn-danger");
+    }
 
+    //编辑时改变单选按钮状态
+    changeActive = function(depositOption,openOption){
+        if(depositOption == 1){
+            $("#depositApproval0").attr("class","btn btn-primary");
+            $("#depositApproval1").attr("class","btn btn-success active");
+        }else if(depositOption == 2){
+            $("#depositApproval0").attr("class","btn btn-primary");
+            $("#depositApproval2").attr("class","btn btn-danger active");
+        }
+
+        if(openOption == 1){
+            $("#openResult0").attr("class","btn btn-primary");
+            $("#openResult1").attr("class","btn btn-success active");
+        }else if(openOption == 2){
+            $("#openResult0").attr("class","btn btn-primary");
+            $("#openResult2").attr("class","btn btn-danger active");
+        }
+    }
+
+    //保存
+    $("#save").click(function () {
+        var data = $("#editform").serializeObject();
+        data.id = editId;
+        data.constructor = data.constructors;
+        data.constructors = undefined;
+        data.pubDate = undefined;
+        data.applyDate = undefined;
+        data.depositDeadline = undefined;
+        data.depositRemitTime = undefined;
+        data.bidOpenTime = undefined;
+        data.depositReturnTime = undefined;
+
+        if($("#depositApproval0").attr("class")=="btn btn-primary active"){
+            data.depositApproval = 0;
+        }
+        if($("#depositApproval1").attr("class")=="btn btn-success active"){
+            data.depositApproval = 1;
+        }
+        if($("#depositApproval2").attr("class")=="btn btn-danger active"){
+            data.depositApproval = 2;
+        }
+        if($("#openResult0").attr("class")=="btn btn-primary active"){
+            data.bidOpenResult = 0;
+        }
+        if($("#openResult1").attr("class")=="btn btn-success active"){
+            data.bidOpenResult = 1;
+        }
+        if($("#openResult2").attr("class")=="btn btn-danger active"){
+            data.bidOpenResult = 2;
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '/bid/saveOrUpdate',
+            data: data,
+            success : function(msg) {
+                new $.zui.Messager('提示消息：操作成功', {
+                    type: 'success' // 定义颜色主题
+                }).show();
+                togglePanel();
+                grid.load();
+            },
+            error : function(msg) {
+                new $.zui.Messager('提示消息：操作失败', {
+                    type: 'danger' // 定义颜色主题
+                }).show();
+            }
+        });
+    })
+
+    //数字校验
+    $("#bidPrice").keyup(function(){
+        var c=$(this);
+        if(/[^\d]/.test(c.val())){//替换非数字字符
+            $("#bidPriceWarning").show();
+            $("#bidPriceDiv").attr("class","col-md-8 col-sm-10 has-error");
+        }else{
+            $("#bidPriceWarning").hide();
+            $("#bidPriceDiv").attr("class","col-md-8 col-sm-10");
+        };
+    })
+    $("#depositPrice").keyup(function(){
+        var c=$(this);
+        if(/[^\d]/.test(c.val())){//替换非数字字符
+            $("#depositPriceWarning").show();
+            $("#depositPriceDiv").attr("class","col-md-8 col-sm-10 has-error");
+        }else{
+            $("#depositPriceWarning").hide();
+            $("#depositPriceDiv").attr("class","col-md-8 col-sm-10");
+        };
+    })
 
 </script>
 </html>

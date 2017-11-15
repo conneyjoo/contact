@@ -48,13 +48,13 @@ public class BidService extends CommonService {
         if(ConditionUtils.checkNullOrBlank(model.getName())){
             sql.append(" and t.name like '%"+model.getName()+"%'");
         }
-        sql.addCondition("and t.apply_date > ?2", model.getApply_date_min());
-        sql.addCondition("and t.apply_date < ?3", model.getApply_date_max());
-        sql.addCondition("and t.deposit_deadline > ?4", model.getDeposit_deadline_min());
-        sql.addCondition("and t.deposit_deadline < ?5", model.getDeposit_deadline_max());
+        sql.addCondition("and t.apply_date >= ?2", model.getApply_date_min());
+        sql.addCondition("and t.apply_date <= ?3", model.getApply_date_max());
+        sql.addCondition("and t.deposit_deadline >= ?4", model.getDeposit_deadline_min());
+        sql.addCondition("and t.deposit_deadline <= ?5", model.getDeposit_deadline_max());
 
-        sql.addCondition("and t.bid_open_time > ?6", model.getBid_open_time_min());
-        sql.addCondition("and t.bid_open_time < ?7", model.getBid_open_time_max());
+        sql.addCondition("and t.bid_open_time >= ?6", model.getBid_open_time_min());
+        sql.addCondition("and t.bid_open_time <= ?7", model.getBid_open_time_max());
 
         sort = StringUtils.isEmpty(sort) ? "id" : sort;
         direction = StringUtils.isEmpty(direction) ? "desc" : direction;

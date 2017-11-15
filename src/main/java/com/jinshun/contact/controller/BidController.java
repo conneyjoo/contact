@@ -39,6 +39,21 @@ public class BidController extends ControllerSupport{
         return bidService.saveOrUpdate(bid);
     }
 
+    @RequestMapping("submit")
+    @Access()
+    public @ResponseBody Message submit(Long id){
+        Message message = new Message();
+        try {
+            Bid bid = bidService.getById(id);
+            bid.setInWarehouse(1);
+            bidService.saveOrUpdate(bid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            message.setSuccess(false);
+        }
+        return message;
+    }
+
     @Access(authorities = Authorities.LOGIN)
     @RequestMapping("remove")
     public @ResponseBody
