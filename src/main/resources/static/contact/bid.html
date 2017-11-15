@@ -175,11 +175,11 @@
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>报名时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="licenceBegindate"
+                                            <input type="text" class="form-control form-date" name="apply_date_min"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="licenceEnddate"
+                                            <input type="text" class="form-control form-date" name="apply_date_max"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                         </td>
@@ -187,11 +187,11 @@
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>保证金截止时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="licenceBegindate"
+                                            <input type="text" class="form-control form-date" name="deposit_deadline_min"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="licenceEnddate"
+                                            <input type="text" class="form-control form-date" name="deposit_deadline_max"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                         </td>
@@ -199,11 +199,11 @@
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>开标时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="licenceBegindate"
+                                            <input type="text" class="form-control form-date" name="bid_open_time_min"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="licenceEnddate"
+                                            <input type="text" class="form-control form-date" name="bid_open_time_max"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                         </td>
@@ -639,12 +639,12 @@
         data.id = editId;
         data.constructor = data.constructors;
         data.constructors = undefined;
-        data.pubDate = undefined;
+/*        data.pubDate = undefined;
         data.applyDate = undefined;
         data.depositDeadline = undefined;
         data.depositRemitTime = undefined;
         data.bidOpenTime = undefined;
-        data.depositReturnTime = undefined;
+        data.depositReturnTime = undefined;*/
 
         if($("#depositApproval0").attr("class")=="btn btn-primary active"){
             data.depositApproval = 0;

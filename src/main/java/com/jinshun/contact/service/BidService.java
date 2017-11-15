@@ -44,17 +44,17 @@ public class BidService extends CommonService {
     public List<?> queryBids(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
 
         SQLString sql = new SQLString("select t.* from t_bid t where 1 = 1");
-        sql.addCondition("and t.company_id = ?0", model.getCompanyId());
+        sql.addCondition("and t.company_id = ?", model.getCompanyId());
         if(ConditionUtils.checkNullOrBlank(model.getName())){
             sql.append(" and t.name like '%"+model.getName()+"%'");
         }
-        sql.addCondition("and t.apply_date >= ?2", model.getApply_date_min());
-        sql.addCondition("and t.apply_date <= ?3", model.getApply_date_max());
-        sql.addCondition("and t.deposit_deadline >= ?4", model.getDeposit_deadline_min());
-        sql.addCondition("and t.deposit_deadline <= ?5", model.getDeposit_deadline_max());
+        sql.addCondition("and t.apply_date >= ?", model.getApply_date_min());
+        sql.addCondition("and t.apply_date <= ?", model.getApply_date_max());
+        sql.addCondition("and t.deposit_deadline >= ?", model.getDeposit_deadline_min());
+        sql.addCondition("and t.deposit_deadline <= ?", model.getDeposit_deadline_max());
 
-        sql.addCondition("and t.bid_open_time >= ?6", model.getBid_open_time_min());
-        sql.addCondition("and t.bid_open_time <= ?7", model.getBid_open_time_max());
+        sql.addCondition("and t.bid_open_time >= ?", model.getBid_open_time_min());
+        sql.addCondition("and t.bid_open_time <= ?", model.getBid_open_time_max());
 
 
 

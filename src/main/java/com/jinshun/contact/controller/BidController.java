@@ -36,6 +36,8 @@ public class BidController extends ControllerSupport{
             LOGGER.error("对象不能为空！");
             return null;
         }
+        if(bid.getInWarehouse()==null)
+            bid.setInWarehouse(0);
         return bidService.saveOrUpdate(bid);
     }
 

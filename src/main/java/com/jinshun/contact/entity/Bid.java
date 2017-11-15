@@ -24,7 +24,7 @@ public class Bid {
     private String principal;
 
     //项目发布时间
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "pub_date")
     private Date pubDate;
 
@@ -51,6 +51,7 @@ public class Bid {
     private Integer depositPrice;
 
     //保证金截止日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "deposit_deadline")
     private Date depositDeadline;
 
@@ -59,10 +60,12 @@ public class Bid {
     private Integer depositApproval;
 
     //保证金汇出时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "deposit_remit_time")
     private Date depositRemitTime;
 
     //开标时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "bid_open_time")
     private Date bidOpenTime;
 
@@ -71,6 +74,7 @@ public class Bid {
     private Integer bidOpenResult;
 
     //保证金退回时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "deposit_return_time")
     private Date depositReturnTime;
 
