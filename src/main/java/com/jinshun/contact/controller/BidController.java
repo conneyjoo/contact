@@ -73,7 +73,7 @@ public class BidController extends ControllerSupport{
     public @ResponseBody
     Bid getById(Long id) {
         if (id == null) {
-            LOGGER.error("ID不能为空！");
+            LOGGER.error("ID不能为空!!");
             return null;
         }
         return bidService.getById(id);

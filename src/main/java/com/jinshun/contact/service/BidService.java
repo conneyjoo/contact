@@ -56,6 +56,9 @@ public class BidService extends CommonService {
         sql.addCondition("and t.bid_open_time >= ?6", model.getBid_open_time_min());
         sql.addCondition("and t.bid_open_time <= ?7", model.getBid_open_time_max());
 
+
+
+        sql.append(" and t.in_warehouse = 0");
         sort = StringUtils.isEmpty(sort) ? "id" : sort;
         direction = StringUtils.isEmpty(direction) ? "desc" : direction;
 
