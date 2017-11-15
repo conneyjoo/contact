@@ -5,6 +5,7 @@ import com.jinshun.contact.auth.Authorities;
 import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.entity.User;
 import com.jinshun.contact.service.sys.ActionService;
+import com.jinshun.contact.service.sys.CompanyService;
 import com.jinshun.contact.service.sys.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,9 @@ public class UserController extends ControllerSupport {
     private UserService userService;
 
     @Autowired
+    private CompanyService companyService;
+
+    @Autowired
     private ActionService actionService;
 
     @RequestMapping("login")
@@ -47,6 +51,7 @@ public class UserController extends ControllerSupport {
                 if (user.getPassword().equals(password)) {
                     user.setActions(actionService.getActionSet(user.getRole().getId()));
                     setCurrentUser(user);
+                    setCurrentCompany(companyService.get(1L));
                     message.setStatus(LOGIN_SUCCESS);
                 } else {
                     message.setStatus(LOGIN_PASSWORD_INCORRECT);
