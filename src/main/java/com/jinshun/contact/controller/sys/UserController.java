@@ -1,6 +1,7 @@
 package com.jinshun.contact.controller.sys;
 
 import com.jinshun.contact.auth.Access;
+import com.jinshun.contact.auth.Authorities;
 import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.entity.User;
 import com.jinshun.contact.service.sys.ActionService;
@@ -105,5 +106,11 @@ public class UserController extends ControllerSupport {
         }
 
         return message;
+    }
+
+    @Access(authorities = Authorities.LOGIN)
+    @RequestMapping("get")
+    public @ResponseBody User get(User user) {
+        return getCurrentUser();
     }
 }

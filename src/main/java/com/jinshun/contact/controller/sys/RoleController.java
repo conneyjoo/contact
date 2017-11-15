@@ -16,7 +16,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/role")
-public class RoleController {
+public class RoleController extends ControllerSupport {
 
     private Logger logger = LoggerFactory.getLogger(RoleController.class);
 
@@ -33,7 +33,7 @@ public class RoleController {
     @RequestMapping("save")
     public @ResponseBody
     ControllerSupport.Message save(Role role, @RequestParam(value = "menuIds[]") String[] menuIds, @RequestParam(value = "actionIds[]") String[] actionIds) {
-        ControllerSupport.Message message = new ControllerSupport.Message();
+        Message message = new Message();
 
         try {
             message.setData(roleService.save(role, menuIds, actionIds));

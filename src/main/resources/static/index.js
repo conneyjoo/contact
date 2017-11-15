@@ -5,7 +5,7 @@ initMenu = function () {
     $.ajax({
         type: 'POST',
         url: '/menu/getMenus',
-        success : function(msg) {
+        success: function(msg) {
             var menus = msg.data;
             var html = [];
             html.push('<ul class="nav">');
@@ -24,7 +24,7 @@ initMenu = function () {
                 content.attr('src', url);
             });
         },
-        error : function(msg) {
+        error: function(msg) {
             alert('注销失败');
         }
     });
@@ -46,4 +46,3 @@ $('#logout').click(function() {
         }
     });
 });
-

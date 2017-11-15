@@ -5,7 +5,7 @@ $('#submit').click(function() {
         type: 'POST',
         url: '/user/login',
         data: data,
-        success : function(msg) {
+        success: function(msg) {
             if (msg.status == 1) {
                 location.href = 'index.html';
             } else if (msg.status == -1) {
@@ -18,7 +18,7 @@ $('#submit').click(function() {
                 alert('登录失败');
             }
         },
-        error : function(msg) {
+        error: function(msg) {
             alert('登录失败');
         }
     });
