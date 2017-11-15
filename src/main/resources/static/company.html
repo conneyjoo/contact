@@ -28,35 +28,19 @@
 </head>
 <body>
 <div class="outer">
-    <div class="container mw-600px">
-        <div id="titlebar">
-            <div class="heading" style="padding-right: 0px;"><i class="icon-user"></i> 我的档案</div>
-            <div class="actions">
-            </div>
+    <div class="container">
+        <div class="">
+            <table class="table">
+                <tbody id="grid" class="grid">
+                <tr class="text-center">
+                    <td class="text-left">{name} <a href="javascript: selectCompany()" class="btn btn-link btn-mini" style="float: right;">切换</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <table class="table table-borderless table-data">
-            <tbody>
-            <tr>
-                <th class="rowhead w-100px">用户名</th>
-                <td id="username"></td>
-            </tr>
-            <tr>
-                <th>姓名</th>
-                <td id="name"></td>
-            </tr>
-            <tr>
-                <th>性别</th>
-                <td id="sex"></td>
-            </tr>
-            <tr>
-                <th>电话</th>
-                <td id="phone"></td>
-            </tr>
-            </tbody>
-        </table>
     </div>
 </div>
 
-<script src="personal.js" type="text/javascript"></script>
+<script src="company.js" type="text/javascript"></script>
 </body>
 </html>

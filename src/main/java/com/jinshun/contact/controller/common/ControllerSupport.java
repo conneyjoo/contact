@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.jinshun.contact.constant.Environment;
+import com.jinshun.contact.entity.Company;
 import com.jinshun.contact.entity.User;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -34,12 +35,21 @@ public class ControllerSupport {
 	}
 
 	public void setCurrentUser(User user) {
-		getSession().setAttribute(Environment.LOGIN_USER_KEY, user);
+		getSession().setAttribute(Environment.CURRENT_USER_KEY, user);
 	}
 
 	public User getCurrentUser() {
-		Object obj = getSession().getAttribute(Environment.LOGIN_USER_KEY);
+		Object obj = getSession().getAttribute(Environment.CURRENT_USER_KEY);
 		return obj != null ? (User) obj : null;
+	}
+
+	public void setCurrentCompany(Company company) {
+		getSession().setAttribute(Environment.CURRENT_COMPANY_KEY, company);
+	}
+
+	public Company getCurrentCompany() {
+		Object obj = getSession().getAttribute(Environment.CURRENT_COMPANY_KEY);
+		return obj != null ? (Company) obj : null;
 	}
 
 	public String getServerRootUrl() {

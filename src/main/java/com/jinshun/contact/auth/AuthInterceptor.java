@@ -28,7 +28,7 @@ public class AuthInterceptor implements HandlerInterceptor {
             }
         }
 
-        User user = (User) request.getSession().getAttribute(Environment.LOGIN_USER_KEY);
+        User user = (User) request.getSession().getAttribute(Environment.CURRENT_USER_KEY);
 
         if (user == null) {
             response.sendRedirect(LOGIN_PAGE);
