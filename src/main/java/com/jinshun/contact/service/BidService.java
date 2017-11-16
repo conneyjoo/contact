@@ -45,8 +45,8 @@ public class BidService extends CommonService {
 
         SQLString sql = new SQLString("select t.* from t_bid t where 1 = 1");
         sql.addCondition("and t.company_id = ?", model.getCompanyId());
-        if(ConditionUtils.checkNullOrBlank(model.getName())){
-            sql.append(" and t.name like '%"+model.getName()+"%'");
+        if (ConditionUtils.checkNullOrBlank(model.getName())) {
+            sql.append(" and t.name like '%" + model.getName() + "%'");
         }
         sql.addCondition("and t.apply_date >= ?", model.getApply_date_min());
         sql.addCondition("and t.apply_date <= ?", model.getApply_date_max());
@@ -55,7 +55,6 @@ public class BidService extends CommonService {
 
         sql.addCondition("and t.bid_open_time >= ?", model.getBid_open_time_min());
         sql.addCondition("and t.bid_open_time <= ?", model.getBid_open_time_max());
-
 
 
         sql.append(" and t.in_warehouse = 0");

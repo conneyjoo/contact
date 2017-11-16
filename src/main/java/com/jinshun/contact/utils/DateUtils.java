@@ -13,18 +13,20 @@ import com.jinshun.contact.utils.enums.Week;
 
 
 public class DateUtils {
-	
+
 	/**
 	 * 获取当前系统时间
+	 *
 	 * @return String
 	 * @throws RuntimeException 异常：非法日期格�??
 	 */
 	public static String getCurrentTime() throws RuntimeException {
 		return getDate(new Date(), DateStyle.YYYY_MM_DD_HH_MM_SS);
 	}
-	
+
 	/**
 	 * 获取SimpleDateFormat
+	 *
 	 * @param parttern 日期格式
 	 * @return SimpleDateFormat对象
 	 * @throws RuntimeException 异常：非法日期格�??
@@ -35,7 +37,8 @@ public class DateUtils {
 
 	/**
 	 * 获取日期中的某数值�?�如获取月份
-	 * @param date 日期
+	 *
+	 * @param date     日期
 	 * @param dateType 日期格式
 	 * @return 数�??
 	 */
@@ -44,12 +47,13 @@ public class DateUtils {
 		calendar.setTime(date);
 		return calendar.get(dateType);
 	}
-	
+
 	/**
 	 * 增加日期中某类型的某数�?��?�如增加日期
-	 * @param date 日期字符�??
+	 *
+	 * @param date     日期字符�??
 	 * @param dateType 类型
-	 * @param amount 数�??
+	 * @param amount   数�??
 	 * @return 计算后日期字符串
 	 */
 	private static String addInteger(String date, int dateType, int amount) {
@@ -62,12 +66,13 @@ public class DateUtils {
 		}
 		return dateString;
 	}
-	
+
 	/**
 	 * 增加日期中某类型的某数�?��?�如增加日期
-	 * @param date 日期
+	 *
+	 * @param date     日期
 	 * @param dateType 类型
-	 * @param amount 数�??
+	 * @param amount   数�??
 	 * @return 计算后日�??
 	 */
 	private static Date addInteger(Date date, int dateType, int amount) {
@@ -83,6 +88,7 @@ public class DateUtils {
 
 	/**
 	 * 获取精确的日�??
+	 *
 	 * @param timestamps 时间long集合
 	 * @return 日期
 	 */
@@ -98,7 +104,7 @@ public class DateUtils {
 					for (int j = i + 1; j < timestamps.size(); j++) {
 						long absoluteValue = Math.abs(timestamps.get(i) - timestamps.get(j));
 						absoluteValues.add(absoluteValue);
-						long[] timestampTmp = { timestamps.get(i), timestamps.get(j) };
+						long[] timestampTmp = {timestamps.get(i), timestamps.get(j)};
 						map.put(absoluteValue, timestampTmp);
 					}
 				}
@@ -152,6 +158,7 @@ public class DateUtils {
 
 	/**
 	 * 判断字符串是否为日期字符�??
+	 *
 	 * @param date 日期字符�??
 	 * @return true or false
 	 */
@@ -167,6 +174,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期字符串的日期风格。失敗返回null�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 日期风格
 	 */
@@ -187,6 +195,7 @@ public class DateUtils {
 
 	/**
 	 * 将日期字符串转化为日期�?�失败返回null�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 日期
 	 */
@@ -197,7 +206,8 @@ public class DateUtils {
 
 	/**
 	 * 将日期字符串转化为日期�?�失败返回null�??
-	 * @param date 日期字符�??
+	 *
+	 * @param date     日期字符�??
 	 * @param parttern 日期格式
 	 * @return 日期
 	 */
@@ -214,7 +224,8 @@ public class DateUtils {
 
 	/**
 	 * 将日期字符串转化为日期�?�失败返回null�??
-	 * @param date 日期字符�??
+	 *
+	 * @param date      日期字符�??
 	 * @param dateStyle 日期风格
 	 * @return 日期
 	 */
@@ -237,7 +248,8 @@ public class DateUtils {
 
 	/**
 	 * 将日期转化为日期字符串�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date     日期
 	 * @param parttern 日期格式
 	 * @return 日期字符�??
 	 */
@@ -254,7 +266,8 @@ public class DateUtils {
 
 	/**
 	 * 将日期转化为日期字符串�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date      日期
 	 * @param dateStyle 日期风格
 	 * @return 日期字符�??
 	 */
@@ -268,7 +281,8 @@ public class DateUtils {
 
 	/**
 	 * 将日期字符串转化为另�??日期字符串�?�失败返回null�??
-	 * @param date 旧日期字符串
+	 *
+	 * @param date     旧日期字符串
 	 * @param parttern 新日期格�??
 	 * @return 新日期字符串
 	 */
@@ -278,7 +292,8 @@ public class DateUtils {
 
 	/**
 	 * 将日期字符串转化为另�??日期字符串�?�失败返回null�??
-	 * @param date 旧日期字符串
+	 *
+	 * @param date      旧日期字符串
 	 * @param dateStyle 新日期风�??
 	 * @return 新日期字符串
 	 */
@@ -288,9 +303,10 @@ public class DateUtils {
 
 	/**
 	 * 将日期字符串转化为另�??日期字符串�?�失败返回null�??
-	 * @param date 旧日期字符串
+	 *
+	 * @param date         旧日期字符串
 	 * @param olddParttern 旧日期格�??
-	 * @param newParttern 新日期格�??
+	 * @param newParttern  新日期格�??
 	 * @return 新日期字符串
 	 */
 	public static String StringToString(String date, String olddParttern, String newParttern) {
@@ -310,7 +326,8 @@ public class DateUtils {
 
 	/**
 	 * 将日期字符串转化为另�??日期字符串�?�失败返回null�??
-	 * @param date 旧日期字符串
+	 *
+	 * @param date         旧日期字符串
 	 * @param olddDteStyle 旧日期风�??
 	 * @param newDateStyle 新日期风�??
 	 * @return 新日期字符串
@@ -328,47 +345,52 @@ public class DateUtils {
 
 	/**
 	 * 增加日期的年份�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date       日期
 	 * @param yearAmount 增加数量。可为负�??
 	 * @return 增加年份后的日期字符�??
 	 */
 	public static String addYear(String date, int yearAmount) {
 		return addInteger(date, Calendar.YEAR, yearAmount);
 	}
-	
+
 	/**
 	 * 增加日期的年份�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date       日期
 	 * @param yearAmount 增加数量。可为负�??
 	 * @return 增加年份后的日期
 	 */
 	public static Date addYear(Date date, int yearAmount) {
 		return addInteger(date, Calendar.YEAR, yearAmount);
 	}
-	
+
 	/**
 	 * 增加日期的月份�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date       日期
 	 * @param yearAmount 增加数量。可为负�??
 	 * @return 增加月份后的日期字符�??
 	 */
 	public static String addMonth(String date, int yearAmount) {
 		return addInteger(date, Calendar.MONTH, yearAmount);
 	}
-	
+
 	/**
 	 * 增加日期的月份�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date       日期
 	 * @param yearAmount 增加数量。可为负�??
 	 * @return 增加月份后的日期
 	 */
 	public static Date addMonth(Date date, int yearAmount) {
 		return addInteger(date, Calendar.MONTH, yearAmount);
 	}
-	
+
 	/**
 	 * 增加日期的天数�?�失败返回null�??
-	 * @param date 日期字符�??
+	 *
+	 * @param date      日期字符�??
 	 * @param dayAmount 增加数量。可为负�??
 	 * @return 增加天数后的日期字符�??
 	 */
@@ -378,17 +400,19 @@ public class DateUtils {
 
 	/**
 	 * 增加日期的天数�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date      日期
 	 * @param dayAmount 增加数量。可为负�??
 	 * @return 增加天数后的日期
 	 */
 	public static Date addDay(Date date, int dayAmount) {
 		return addInteger(date, Calendar.DATE, dayAmount);
 	}
-	
+
 	/**
 	 * 增加日期的小时�?�失败返回null�??
-	 * @param date 日期字符�??
+	 *
+	 * @param date      日期字符�??
 	 * @param dayAmount 增加数量。可为负�??
 	 * @return 增加小时后的日期字符�??
 	 */
@@ -398,17 +422,19 @@ public class DateUtils {
 
 	/**
 	 * 增加日期的小时�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date      日期
 	 * @param dayAmount 增加数量。可为负�??
 	 * @return 增加小时后的日期
 	 */
 	public static Date addHour(Date date, int hourAmount) {
 		return addInteger(date, Calendar.HOUR_OF_DAY, hourAmount);
 	}
-	
+
 	/**
 	 * 增加日期的分钟�?�失败返回null�??
-	 * @param date 日期字符�??
+	 *
+	 * @param date      日期字符�??
 	 * @param dayAmount 增加数量。可为负�??
 	 * @return 增加分钟后的日期字符�??
 	 */
@@ -418,17 +444,19 @@ public class DateUtils {
 
 	/**
 	 * 增加日期的分钟�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date      日期
 	 * @param dayAmount 增加数量。可为负�??
 	 * @return 增加分钟后的日期
 	 */
 	public static Date addMinute(Date date, int hourAmount) {
 		return addInteger(date, Calendar.MINUTE, hourAmount);
 	}
-	
+
 	/**
 	 * 增加日期的秒钟�?�失败返回null�??
-	 * @param date 日期字符�??
+	 *
+	 * @param date      日期字符�??
 	 * @param dayAmount 增加数量。可为负�??
 	 * @return 增加秒钟后的日期字符�??
 	 */
@@ -438,7 +466,8 @@ public class DateUtils {
 
 	/**
 	 * 增加日期的秒钟�?�失败返回null�??
-	 * @param date 日期
+	 *
+	 * @param date      日期
 	 * @param dayAmount 增加数量。可为负�??
 	 * @return 增加秒钟后的日期
 	 */
@@ -448,6 +477,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的年份�?�失败返�??0�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 年份
 	 */
@@ -457,6 +487,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的年份�?�失败返�??0�??
+	 *
 	 * @param date 日期
 	 * @return 年份
 	 */
@@ -466,6 +497,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的月份�?�失败返�??0�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 月份
 	 */
@@ -475,6 +507,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的月份�?�失败返�??0�??
+	 *
 	 * @param date 日期
 	 * @return 月份
 	 */
@@ -484,6 +517,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的天数�?�失败返�??0�??
+	 *
 	 * @param date 日期字符�??
 	 * @return �??
 	 */
@@ -493,15 +527,17 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的天数�?�失败返�??0�??
+	 *
 	 * @param date 日期
 	 * @return �??
 	 */
 	public static int getDay(Date date) {
 		return getInteger(date, Calendar.DATE);
 	}
-	
+
 	/**
 	 * 获取日期的小时�?�失败返�??0�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 小时
 	 */
@@ -511,15 +547,17 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的小时�?�失败返�??0�??
+	 *
 	 * @param date 日期
 	 * @return 小时
 	 */
 	public static int getHour(Date date) {
 		return getInteger(date, Calendar.HOUR_OF_DAY);
 	}
-	
+
 	/**
 	 * 获取日期的分钟�?�失败返�??0�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 分钟
 	 */
@@ -529,15 +567,17 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的分钟�?�失败返�??0�??
+	 *
 	 * @param date 日期
 	 * @return 分钟
 	 */
 	public static int getMinute(Date date) {
 		return getInteger(date, Calendar.MINUTE);
 	}
-	
+
 	/**
 	 * 获取日期的秒钟�?�失败返�??0�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 秒钟
 	 */
@@ -547,6 +587,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的秒钟�?�失败返�??0�??
+	 *
 	 * @param date 日期
 	 * @return 秒钟
 	 */
@@ -556,6 +597,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期 。默认yyyy-MM-dd格式。失败返回null�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 日期
 	 */
@@ -565,15 +607,17 @@ public class DateUtils {
 
 	/**
 	 * 获取日期。默认yyyy-MM-dd格式。失败返回null�??
+	 *
 	 * @param date 日期
 	 * @return 日期
 	 */
 	public static String getDate(Date date) {
 		return DateToString(date, DateStyle.YYYY_MM_DD);
 	}
-	
+
 	/**
 	 * 获取日期。默认yyyy-MM-dd格式。失败返回null�??
+	 *
 	 * @param date 日期
 	 * @return 日期
 	 */
@@ -583,6 +627,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的时间�?�默认HH:mm:ss格式。失败返回null�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 时间
 	 */
@@ -592,6 +637,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的时间�?�默认HH:mm:ss格式。失败返回null�??
+	 *
 	 * @param date 日期
 	 * @return 时间
 	 */
@@ -601,6 +647,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的星期�?�失败返回null�??
+	 *
 	 * @param date 日期字符�??
 	 * @return 星期
 	 */
@@ -616,6 +663,7 @@ public class DateUtils {
 
 	/**
 	 * 获取日期的星期�?�失败返回null�??
+	 *
 	 * @param date 日期
 	 * @return 星期
 	 */
@@ -625,66 +673,75 @@ public class DateUtils {
 		calendar.setTime(date);
 		int weekNumber = calendar.get(Calendar.DAY_OF_WEEK) - 1;
 		switch (weekNumber) {
-		case 0:
-			week = Week.SUNDAY;
-			break;
-		case 1:
-			week = Week.MONDAY;
-			break;
-		case 2:
-			week = Week.TUESDAY;
-			break;
-		case 3:
-			week = Week.WEDNESDAY;
-			break;
-		case 4:
-			week = Week.THURSDAY;
-			break;
-		case 5:
-			week = Week.FRIDAY;
-			break;
-		case 6:
-			week = Week.SATURDAY;
-			break;
+			case 0:
+				week = Week.SUNDAY;
+				break;
+			case 1:
+				week = Week.MONDAY;
+				break;
+			case 2:
+				week = Week.TUESDAY;
+				break;
+			case 3:
+				week = Week.WEDNESDAY;
+				break;
+			case 4:
+				week = Week.THURSDAY;
+				break;
+			case 5:
+				week = Week.FRIDAY;
+				break;
+			case 6:
+				week = Week.SATURDAY;
+				break;
 		}
 		return week;
 	}
-	
+
 	/**
 	 * 获取两个日期相差的天�??
-	 * @param date 日期字符�??
+	 *
+	 * @param date      日期字符�??
 	 * @param otherDate 另一个日期字符串
 	 * @return 相差天数
 	 */
 	public static int getIntervalDays(String date, String otherDate) {
 		return getIntervalDays(StringToDate(date), StringToDate(otherDate));
 	}
-	
+
 	/**
-	 * @param date 日期
+	 * @param date      日期
 	 * @param otherDate 另一个日�??
 	 * @return 相差天数
 	 */
 	public static int getIntervalDays(Date date, Date otherDate) {
 		date = DateUtils.StringToDate(DateUtils.getDate(date));
 		long time = Math.abs(date.getTime() - otherDate.getTime());
-		return (int)time/(24 * 60 * 60 * 1000);
+		return (int) (time / (24 * 60 * 60 * 1000));
 	}
-	
+
 	public static String getWeekFromDate(Date date) {
 		Calendar c = Calendar.getInstance();
 		c.setTime(date);
 		int week = c.get(Calendar.DAY_OF_WEEK);
-		
-		switch(week) {
-			case 1: return "星期�??";
-			case 2: return "星期�??";
-			case 3: return "星期�??";
-			case 4: return "星期�??";
-			case 5: return "星期�??";
-			case 6: return "星期�??";
-			case 7: return "星期�??";
-			default: return "";
+
+		switch (week) {
+			case 1:
+				return "星期�??";
+			case 2:
+				return "星期�??";
+			case 3:
+				return "星期�??";
+			case 4:
+				return "星期�??";
+			case 5:
+				return "星期�??";
+			case 6:
+				return "星期�??";
+			case 7:
+				return "星期�??";
+			default:
+				return "";
 		}
 	}
 }

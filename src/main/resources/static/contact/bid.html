@@ -43,6 +43,8 @@
     <script src="../lib/grid/zgrid.js" type="text/javascript"></script>
     <script src="../lib/zui/uploader/zui.uploader-ext.js"></script>
 
+    <link href="../lib/datatable/zui.datatable.min.css" rel="stylesheet">
+    <script src="../lib/datatable/zui.datatable.min.js"></script>
 
     <link href="../lib/zui/uploader/zui.uploader.min.css" rel="stylesheet">
     <link href="../lib/zui/css/zui.datatable.css" type="text/css" rel="stylesheet" media="screen">
@@ -121,7 +123,6 @@
         tbody > tr > td > .btn-icon {
             margin-right: 3px;
         }
-        .table{width:98.5%}
 
         #addButton {
             width: 100px;
@@ -133,7 +134,6 @@
         #querybox {
             width: 1200px;
             top: 30px;
-            right: 315px;
         }
         #featurebar{
             height: 220px;
@@ -147,15 +147,16 @@
     </style>
 </head>
 <body>
-<div id="wrap" style="width: 2500px; margin: 0 auto" class="mainpanel">
+<div id="wrap" style="width: 100%; margin: 0 auto" class="mainpanel">
     <div class="outer with-side with-transition" style="min-height: 900px;">
         <div id="featurebar">
             <ul class="nav">
                 <li><div class="label-angle">所有模块</div></li>
-                <li class="active"><a href="">用户管理</a></li>
-                <li><a href="">员工培训</a></li>
-                <li><a href="">未签责任书员工</a></li>
+                <li class="active"><a href="">招标管理</a></li>
             </ul>
+            <div class="actions">
+                <a href="javascript:" class="btn" id="add"><i class="icon-plus"></i> 新增</a>
+            </div>
             <div id="querybox" class="show" style="width:1200px">
                 <form id="searchform" class="form-condensed">
                     <table class="table table-condensed table-form" id="bug-search"
@@ -216,7 +217,6 @@
                                     <a type="submit" id="searchbtn" class="btn btn-primary" data-loading="稍候...">搜索</a>
                                     <button type="reset" class="btn btn-default">重置</button>
                                 </div>
-                                <button type="reset" id="addButton" class="btn btn-success" style="width:100px;height:35px"><i class="icon icon-plus"></i>新增记录</button>
                             </td>
                         </tr>
                         </tbody>
@@ -224,29 +224,29 @@
                 </form>
             </div>
         </div>
-        <div>
-            <table class="table table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;position: absolute;">
+        <div style="width:100%; height:225px;overflow-y:scroll;">
+            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
                 <thead>
                 <tr>
                     <th width="3%">编号</th>
-                    <th width="4%" data-sort="area">区域</th>
-                    <th width="5%" data-sort="principal">内部负责人</th>
-                    <th width="5%" data-sort="pub_date">信息发布时间</th>
-                    <th width="5%" data-sort="name">工程名称</th>
-                    <th width="5%" data-sort="type">工程类型</th>
-                    <th width="5%" data-sort="bid_price">招标价格</th>
-                    <th width="5%" data-sort="bid_price">报名时间</th>
-                    <th width="5%" data-sort="constructor">建造师</th>
-                    <th width="5%" data-sort="deposit_price">投标保证金数额</th>
-                    <th width="5%" data-sort="deposit_deadline">保证金截止日期</th>
-                    <th width="5%" data-sort="deposit_approval">交保证金审批</th>
-                    <th width="5%" data-sort="deposit_remit_time">保证金汇出时间</th>
-                    <th width="5%" data-sort="bid_open_time">开标时间</th>
-                    <th width="5%" data-sort="bid_open_result">开标结果</th>
-                    <th width="5%" data-sort="deposit_return_time">保证金退回时间</th>
-                    <th width="5%">银行凭证</th>
-                    <th width="10%">备注</th>
-                    <th>操作</th>
+                    <th width="4%" data-sort="area" class="flex-col">区域</th>
+                    <th width="5%" data-sort="principal" class="flex-col">内部负责人</th>
+                    <th width="5%" data-sort="pub_date" class="flex-col">信息发布时间</th>
+                    <th width="5%" data-sort="name" class="flex-col">工程名称</th>
+                    <th width="5%" data-sort="type" class="flex-col">工程类型</th>
+                    <th width="5%" data-sort="bid_price" class="flex-col">招标价格</th>
+                    <th width="5%" data-sort="bid_price" class="flex-col">报名时间</th>
+                    <th width="5%" data-sort="constructor" class="flex-col">建造师</th>
+                    <th width="5%" data-sort="deposit_price" class="flex-col">投标保证金数额</th>
+                    <th width="5%" data-sort="deposit_deadline" class="flex-col">保证金截止日期</th>
+                    <th width="5%" data-sort="deposit_approval" class="flex-col">交保证金审批</th>
+                    <th width="5%" data-sort="deposit_remit_time" class="flex-col">保证金汇出时间</th>
+                    <th width="5%" data-sort="bid_open_time" class="flex-col">开标时间</th>
+                    <th width="5%" data-sort="bid_open_result" class="flex-col">开标结果</th>
+                    <th width="5%" data-sort="deposit_return_time" class="flex-col">保证金退回时间</th>
+                    <th width="5%" class="flex-col">银行凭证</th>
+                    <th width="10%" class="flex-col">备注</th>
+                    <th class="flex-col">操作</th>
                 </tr>
                 </thead>
                 <tbody class="grid">
@@ -266,7 +266,7 @@
                     <td>{depositRemitTime}</td>
                     <td>{bidOpenTime}</td>
                     <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
-                    <td>{depositReturnTime}</td>
+                    <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
                     <td><button class="btn btn-info " type="button">上传/查看</button></td>
                     <td>{remark}</td>
                     <td><button class="btn btn-primary" type="button" name="editButton" onclick="bidEdit({id})">编辑</button>&nbsp;<button class="btn btn-success" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;<button class="btn btn-danger" type="button" name="deleteButton" onclick="bidDel({id})">删除</button></td>
@@ -274,8 +274,10 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="11">
+                    <td colspan="11" style="width: 1600px; position: absolute;">
                         <div class="table-actions clearfix">
+                            <span style="position: absolute;left: 40%;font-weight: bold;font-size: initial;">招标合计:<span id="bidPriceSum" style="color:red"></span></span>
+                            <span style="position: absolute;left: 62.5%;font-weight: bold;font-size: initial;">保证金合计:<span id="depositPriceSum" style="color:red"></span></span>
                         </div>
                         <div class="text-right">
                             <div style="float: right; clear: none;" class="pager form-inline" id="pagination">
@@ -392,9 +394,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="constructors" class="col-sm-2">建造师</label>
+                    <label for="constructor" class="col-sm-2">建造师</label>
                     <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control" id="constructors" name="constructors" placeholder="建造师">
+                        <input type="text" class="form-control" id="constructor" name="constructor" placeholder="建造师">
                     </div>
                 </div>
                 <div class="form-group">
@@ -446,6 +448,9 @@
     var editpanel = $('.editpanel');
     var editId = null;
 
+    var bidPriceSum = 0;
+    var depositPriceSum = 0;
+
     // 仅选择日期
     $(".form-date").datetimepicker(
         {
@@ -460,13 +465,19 @@
             format: "yyyy-mm-dd"
         });
 
+    clearSum = function () {
+        bidPriceSum = 0;
+        depositPriceSum = 0;
+    }
 
     var grid = $('.grid').grid({
         method: 'GET',
         url: '/bid/findBids',
         autoload: true,
         paginationRender: 'pagination',
+        afterLoad : clearSum,
         setData: function (data) {
+
             if(data.depositApproval == 0){
                 data.depositApprovalResult = "未审批";
             }
@@ -491,6 +502,16 @@
                 data.bidOpenResultColor = "#ff0800";
             }
 
+            if(data.warning){
+                data.warning = "已超过一个月";
+                data.warningColor = "#ff0800";
+            }
+
+            bidPriceSum = bidPriceSum + data.bidPrice;
+            depositPriceSum = depositPriceSum + data.depositPrice;
+
+            $("#bidPriceSum").html(bidPriceSum);
+            $("#depositPriceSum").html(depositPriceSum);
         }
     }).data('grid');
 
@@ -590,7 +611,7 @@
     }
 
     //新增
-    $("#addButton").click(function(){
+    $("#add").click(function(){
         togglePanel();
         $("#depositReturnTimeDiv").hide();
         editId = null;
@@ -637,14 +658,8 @@
     $("#save").click(function () {
         var data = $("#editform").serializeObject();
         data.id = editId;
-        data.constructor = data.constructors;
-        data.constructors = undefined;
-/*        data.pubDate = undefined;
-        data.applyDate = undefined;
-        data.depositDeadline = undefined;
-        data.depositRemitTime = undefined;
-        data.bidOpenTime = undefined;
-        data.depositReturnTime = undefined;*/
+        var constructor = data.constructor[0];
+        data.constructor = constructor;
 
         if($("#depositApproval0").attr("class")=="btn btn-primary active"){
             data.depositApproval = 0;
