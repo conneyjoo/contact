@@ -60,6 +60,22 @@ public class BidController extends ControllerSupport {
         return message;
     }
 
+    @RequestMapping("withdraw")
+    @Access()
+    public @ResponseBody
+    Message withdraw(Long id) {
+        Message message = new Message();
+        try {
+            Bid bid = bidService.getById(id);
+            bid.setInWarehouse(0);
+            bidService.saveOrUpdate(bid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            message.setSuccess(false);
+        }
+        return message;
+    }
+
     @Access(authorities = Authorities.LOGIN)
     @RequestMapping("remove")
     public @ResponseBody
@@ -90,13 +106,30 @@ public class BidController extends ControllerSupport {
     public @ResponseBody
     List<?> findBids(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
         model.setCompanyId(getCurrentCompany().getId());
-        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction);
+        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction , 0);
         for(Object obj : objs){
             HashMap map = (HashMap) obj;
             if(map.get("depositReturnTime")==null){
                 Date returnTime = (Date) map.get("depositRemitTime");
                 int intervalDays = DateUtils.getIntervalDays(new Date(),returnTime);
-                map.put("warning",intervalDays>30?true:false);
+                map.put("warning",intervalDays>30?true:null);
+            }
+        }
+        return objs;
+    }
+
+    @Access(authorities = Authorities.LOGIN)
+    @RequestMapping("findBidsForWarehouse")
+    public @ResponseBody
+    List<?> findBidsForWarehouse(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
+        model.setCompanyId(getCurrentCompany().getId());
+        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction , 1);
+        for(Object obj : objs){
+            HashMap map = (HashMap) obj;
+            if(map.get("depositReturnTime")==null){
+                Date returnTime = (Date) map.get("depositRemitTime");
+                int intervalDays = DateUtils.getIntervalDays(new Date(),returnTime);
+                map.put("warning",intervalDays>30?true:null);
             }
         }
         return objs;
