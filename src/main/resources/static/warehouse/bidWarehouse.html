@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>招标仓库</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="text/javascript">
+        var config = {
+            "webRoot": "\/",
+            "appName": "",
+            "cookieLife": 30,
+            "requestType": "PATH_INFO",
+            "requestFix": "-",
+            "moduleVar": "m",
+            "methodVar": "f",
+            "viewVar": "t",
+            "defaultView": "html",
+            "themeRoot": "\/theme\/",
+            "currentModule": "product",
+            "currentMethod": "browse",
+            "clientLang": "zh-cn",
+            "requiredFields": "",
+            "router": "\/index.php",
+            "save": "\u4fdd\u5b58",
+            "runMode": "",
+            "timeout": 30000,
+            "pingInterval": ""
+        };
+        var lang = {
+            "submitting": "\u7a0d\u5019...",
+            "save": "\u4fdd\u5b58",
+            "timeout": "\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"
+        };
+    </script>
+
+    <script src="../lib/zui/all.js" type="text/javascript"></script>
+    <script src="../lib/grid/util.js" type="text/javascript"></script>
+    <script src="../lib/grid/grid.js" type="text/javascript"></script>
+    <script src="../lib/grid/zgrid.js" type="text/javascript"></script>
+    <script src="../lib/zui/uploader/zui.uploader-ext.js"></script>
+
+    <link href="../lib/zui/uploader/zui.uploader.min.css" rel="stylesheet">
+    <link href="../lib/zui/css/zui.datatable.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zh-cn.default.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zui.min.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/grid/css/grid.css" type="text/css" rel="stylesheet" media="screen">
+
+    <style>
+        #createActionMenu .dropdown-menu {
+            width: 100%
+        }
+
+        .dropdown-menu.with-search {
+            padding: 0;
+            min-width: 150px;
+            overflow: hidden;
+            max-height: 302px;
+        }
+
+        .dropdown-menu > .menu-search .input-group {
+            width: 100%;
+        }
+
+        .dropdown-menu > .menu-search .input-group-addon {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            z-index: 10;
+            background: none;
+            border: none;
+            color: #666
+        }
+
+        .dropdown-menu > .menu-search .form-control {
+            border: none !important;
+            box-shadow: none !important;
+            border-top: 1px solid #ddd !important;
+        }
+
+        .dropdown-list {
+            display: block;
+            padding: 0;
+            max-height: 270px;
+            overflow-y: auto;
+        }
+
+        .dropdown-list > li > a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: 1.53846154;
+            color: #141414;
+            white-space: nowrap;
+        }
+
+        .dropdown-list > li > a:hover,
+        .dropdown-list > li > a:focus {
+            color: #1a4f85;
+            text-decoration: none;
+            background-color: #ddd;
+        }
+
+        .pl-5px {
+            padding-left: 5px;
+        }
+
+        a.removeModule {
+            color: #ddd
+        }
+
+        a.removeModule:hover {
+            color: red
+        }
+
+        tbody > tr > td > .btn-icon {
+            margin-right: 3px;
+        }
+
+        #addButton {
+            width: 100px;
+            height: 35px;
+            position: absolute;
+            right: 5%;
+            top: 40%;
+        }
+        #querybox {
+            width: 1200px;
+            top: 30px;
+        }
+        #featurebar{
+            height: 220px;
+        }
+        .division{
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .editpanel {display: none;}
+        .warning {display: none;}
+    </style>
+</head>
+<body>
+<div id="wrap" style="width: 100%; margin: 0 auto" class="mainpanel">
+    <div class="outer with-side with-transition" style="min-height: 900px;">
+        <div id="featurebar">
+            <ul class="nav">
+                <li><div class="label-angle">所有模块</div></li>
+                <li class="active"><a href="">招标仓库</a></li>
+            </ul>
+            <div id="querybox" class="show" style="width:1200px">
+                <form id="searchform" class="form-condensed">
+                    <table class="table table-condensed table-form" id="bug-search"
+                           style="max-width: 100%; margin: 0 auto">
+                        <tbody>
+                        <tr>
+                            <td class="w-400px">
+                                <table class="table active-disabled table-fixed">
+                                    <tbody>
+                                    <tr  class="" style="max-width: 100%; margin: 0 auto">
+                                        <td class="text-right w-90px"><span><strong>工程名称</strong></span></td>
+                                        <td id="" style="overflow: visible">
+                                            <input type="text" class="form-control  searchInput" name="name"
+                                                   placeholder="请输入工程名称（可模糊查询）">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right w-90px"><span><strong>报名时间</strong></span></td>
+                                        <td>
+                                            <input type="text" class="form-control form-date" name="apply_date_min"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                            <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
+                                            <input type="text" class="form-control form-date" name="apply_date_max"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right w-90px"><span><strong>保证金截止时间</strong></span></td>
+                                        <td>
+                                            <input type="text" class="form-control form-date" name="deposit_deadline_min"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                            <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
+                                            <input type="text" class="form-control form-date" name="deposit_deadline_max"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right w-90px"><span><strong>开标时间</strong></span></td>
+                                        <td>
+                                            <input type="text" class="form-control form-date" name="bid_open_time_min"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                            <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
+                                            <input type="text" class="form-control form-date" name="bid_open_time_max"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td class="w-160px" >
+                                <div class="btn-group">
+                                    <a type="submit" id="searchbtn" class="btn btn-primary" data-loading="稍候...">搜索</a>
+                                    <button type="reset" class="btn btn-default">重置</button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div style="width:100%; height:225px;overflow-y:scroll;">
+            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
+                <thead>
+                <tr>
+                    <th width="3%">编号</th>
+                    <th width="4%" data-sort="area" class="flex-col">区域</th>
+                    <th width="5%" data-sort="principal" class="flex-col">内部负责人</th>
+                    <th width="5%" data-sort="pub_date" class="flex-col">信息发布时间</th>
+                    <th width="5%" data-sort="name" class="flex-col">工程名称</th>
+                    <th width="5%" data-sort="type" class="flex-col">工程类型</th>
+                    <th width="5%" data-sort="bid_price" class="flex-col">招标价格</th>
+                    <th width="5%" data-sort="bid_price" class="flex-col">报名时间</th>
+                    <th width="5%" data-sort="constructor" class="flex-col">建造师</th>
+                    <th width="5%" data-sort="deposit_price" class="flex-col">投标保证金数额</th>
+                    <th width="5%" data-sort="deposit_deadline" class="flex-col">保证金截止日期</th>
+                    <th width="5%" data-sort="deposit_approval" class="flex-col">交保证金审批</th>
+                    <th width="5%" data-sort="deposit_remit_time" class="flex-col">保证金汇出时间</th>
+                    <th width="5%" data-sort="bid_open_time" class="flex-col">开标时间</th>
+                    <th width="5%" data-sort="bid_open_result" class="flex-col">开标结果</th>
+                    <th width="5%" data-sort="deposit_return_time" class="flex-col">保证金退回时间</th>
+                    <th width="5%" class="flex-col">银行凭证</th>
+                    <th width="10%" class="flex-col">备注</th>
+                    <th class="flex-col">操作</th>
+                </tr>
+                </thead>
+                <tbody class="grid">
+                <tr class="text-center">
+                    <td>{rowIndex}</td>
+                    <td>{area}</td>
+                    <td>{principal}</td>
+                    <td>{pubDate}</td>
+                    <td>{name}</td>
+                    <td>{type}</td>
+                    <td>{bidPrice}</td>
+                    <td>{applyDate}</td>
+                    <td>{constructor}</td>
+                    <td>{depositPrice}</td>
+                    <td>{depositDeadline}</td>
+                    <td style="color:{depositApprovalResultColor}">{depositApprovalResult}</td>
+                    <td>{depositRemitTime}</td>
+                    <td>{bidOpenTime}</td>
+                    <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
+                    <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
+                    <td><button class="btn btn-info " type="button">查看</button></td>
+                    <td>{remark}</td>
+                    <td><button class="btn btn-danger" type="button" name="deleteButton" onclick="withdraw({id})">撤回</button></td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> <span style="font-weight: bold;font-size: initial;">招标合计:<span id="bidPriceSum" style="color:red"></span></span></td>
+                    <td></td>
+                    <td></td>
+                    <td><span style="font-weight: bold;font-size: initial;">保证金合计:<span id="depositPriceSum" style="color:red"></span></span></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="text-right">
+                            <div style="float: right; clear: none;" class="pager form-inline" id="pagination">
+                            </div>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var bidPriceSum = 0;
+    var depositPriceSum = 0;
+
+    // 仅选择日期
+    $(".form-date").datetimepicker(
+        {
+            language: "zh-cn",
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: "yyyy-mm-dd"
+        });
+
+    clearSum = function () {
+        bidPriceSum = 0;
+        depositPriceSum = 0;
+    }
+
+    var grid = $('.grid').grid({
+        method: 'GET',
+        url: '/bid/findBidsForWarehouse',
+        autoload: true,
+        paginationRender: 'pagination',
+        afterLoad : clearSum,
+        setData: function (data) {
+
+            if(data.depositApproval == 0){
+                data.depositApprovalResult = "未审批";
+            }
+            if(data.depositApproval == 1){
+                data.depositApprovalResult = "同意";
+                data.depositApprovalResultColor = "#055bf5";
+            }
+            if(data.depositApproval == 2){
+                data.depositApprovalResult = "不同意";
+                data.depositApprovalResultColor = "#ff0800";
+            }
+
+            if(data.bidOpenResult == 0){
+                data.bidOpenResultMessage = "未开标";
+            }
+            if(data.bidOpenResult == 1){
+                data.bidOpenResultMessage = "中标";
+                data.bidOpenResultColor = "#055bf5";
+            }
+            if(data.bidOpenResult == 2){
+                data.bidOpenResultMessage = "未中标";
+                data.bidOpenResultColor = "#ff0800";
+            }
+
+            if(data.warning){
+                data.warning = "已超过一个月";
+                data.warningColor = "#ff0800";
+            }
+
+            bidPriceSum = bidPriceSum + data.bidPrice;
+            depositPriceSum = depositPriceSum + data.depositPrice;
+
+            $("#bidPriceSum").html(bidPriceSum);
+            $("#depositPriceSum").html(depositPriceSum);
+        }
+    }).data('grid');
+
+    $("#searchbtn").click(function () {
+        var data = $('#searchform').serializeObject();
+        grid.load(data);
+
+    })
+
+    withdraw = function(id){
+        if(confirm("确定删除该招标记录?")){
+            $.ajax({
+                type: 'POST',
+                url: '/bid/withdraw',
+                data: {id:id},
+                success : function(msg) {
+                    grid.load();
+                    new $.zui.Messager('提示消息：撤回成功', {
+                        type: 'success' // 定义颜色主题
+                    }).show();
+                },
+                error : function(msg) {
+                    new $.zui.Messager('提示消息：撤回失败', {
+                        type: 'danger' // 定义颜色主题
+                    }).show();
+                }
+            });
+        }
+    }
+
+</script>
+</html>
