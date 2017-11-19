@@ -9,32 +9,8 @@
     <meta http-equiv="expires" content="0">
 
     <script type="text/javascript">
-        var config = {
-            "webRoot": "\/",
-            "appName": "",
-            "cookieLife": 30,
-            "requestType": "PATH_INFO",
-            "requestFix": "-",
-            "moduleVar": "m",
-            "methodVar": "f",
-            "viewVar": "t",
-            "defaultView": "html",
-            "themeRoot": "\/theme\/",
-            "currentModule": "product",
-            "currentMethod": "browse",
-            "clientLang": "zh-cn",
-            "requiredFields": "",
-            "router": "\/index.php",
-            "save": "\u4fdd\u5b58",
-            "runMode": "",
-            "timeout": 30000,
-            "pingInterval": ""
-        };
-        var lang = {
-            "submitting": "\u7a0d\u5019...",
-            "save": "\u4fdd\u5b58",
-            "timeout": "\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"
-        };
+        var config = {"webRoot":"\/","appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/theme\/","currentModule":"product","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","router":"\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
+        var lang = {"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
     </script>
 
     <script src="../lib/zui/all.js" type="text/javascript"></script>
@@ -48,97 +24,7 @@
     <link href="../lib/grid/css/grid.css" type="text/css" rel="stylesheet" media="screen">
 
     <style>
-        #createActionMenu .dropdown-menu {
-            width: 100%
-        }
-
-        .dropdown-menu.with-search {
-            padding: 0;
-            min-width: 150px;
-            overflow: hidden;
-            max-height: 302px;
-        }
-
-        .dropdown-menu > .menu-search .input-group {
-            width: 100%;
-        }
-
-        .dropdown-menu > .menu-search .input-group-addon {
-            position: absolute;
-            right: 10px;
-            top: 0;
-            z-index: 10;
-            background: none;
-            border: none;
-            color: #666
-        }
-
-        .dropdown-menu > .menu-search .form-control {
-            border: none !important;
-            box-shadow: none !important;
-            border-top: 1px solid #ddd !important;
-        }
-
-        .dropdown-list {
-            display: block;
-            padding: 0;
-            max-height: 270px;
-            overflow-y: auto;
-        }
-
-        .dropdown-list > li > a {
-            display: block;
-            padding: 3px 20px;
-            clear: both;
-            font-weight: normal;
-            line-height: 1.53846154;
-            color: #141414;
-            white-space: nowrap;
-        }
-
-        .dropdown-list > li > a:hover,
-        .dropdown-list > li > a:focus {
-            color: #1a4f85;
-            text-decoration: none;
-            background-color: #ddd;
-        }
-
-        .pl-5px {
-            padding-left: 5px;
-        }
-
-        a.removeModule {
-            color: #ddd
-        }
-
-        a.removeModule:hover {
-            color: red
-        }
-
-        tbody > tr > td > .btn-icon {
-            margin-right: 3px;
-        }
-
-        #addButton {
-            width: 100px;
-            height: 35px;
-            position: absolute;
-            right: 5%;
-            top: 40%;
-        }
-        #querybox {
-            width: 1200px;
-            top: 30px;
-        }
-        #featurebar{
-            height: 220px;
-        }
-        .division{
-            margin-top: 10px;
-            margin-bottom: 8px;
-        }
         .editpanel {display: none;}
-        .warning {display: none;}
     </style>
 </head>
 <body>
@@ -152,10 +38,9 @@
             <div class="actions">
                 <a href="javascript:" class="btn" id="add"><i class="icon-plus"></i> 新增</a>
             </div>
-            <div id="querybox" class="show" style="width:1200px">
+            <div id="querybox" class="show">
                 <form id="searchform" class="form-condensed">
-                    <table class="table table-condensed table-form" id="bug-search"
-                           style="max-width: 100%; margin: 0 auto">
+                    <table class="table table-condensed table-form" id="bug-search" style="max-width: 1500px; margin: 0 auto">
                         <tbody>
                         <tr>
                             <td class="w-400px">
@@ -219,7 +104,7 @@
                 </form>
             </div>
         </div>
-        <div style="width:100%; height:225px;overflow-y:scroll;">
+        <div style="width:100%; height:255px;overflow-y:scroll;">
             <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
                 <thead>
                 <tr>
@@ -283,8 +168,6 @@
                     <td></td>
                     <td>
                         <div class="text-right">
-                            <div style="float: right; clear: none;" class="pager form-inline" id="pagination">
-                            </div>
                         </div>
                     </td>
                     <td></td>
@@ -296,6 +179,8 @@
                 </tr>
                 </tfoot>
             </table>
+        </div>
+        <div style="float: right; clear: none;" class="pager form-inline" id="pagination">
         </div>
     </div>
 </div>

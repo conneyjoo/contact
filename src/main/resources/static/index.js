@@ -31,7 +31,9 @@ initMenu = function () {
 }();
 
 content.load(function() {
-    content.height($(content[0].contentDocument.body).height());
+    var height = window.screen.availHeight - 175;
+    $(content[0].contentDocument.body).height(height)
+    content.height(height);
 });
 
 $('#logout').click(function() {
