@@ -6,7 +6,5 @@ public class Environment {
 
     public static final String CURRENT_COMPANY_KEY = "current_company";
 
-    public static final String ROOT_PATH = Environment.class.getResource("").getPath().substring(0, Environment.class.getResource("").getPath().indexOf("/WEB-INF/classes"));
-
-    public static final String UPLOAD_PATH = "/upload/";
+    public static final String UPLOAD_PATH = "d:/contact/upload/";
 }

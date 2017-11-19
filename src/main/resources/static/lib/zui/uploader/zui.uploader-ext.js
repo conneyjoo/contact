@@ -867,7 +867,7 @@ else if(r instanceof a){if(r.hasBlob())if(r.getBlob().isDetached())r=d.call(s,r)
     	var originalFilenames = [];
     	var tempFiles = [];
     	
-    	for (var i = 0; i < files.length; i++) {
+    	for (var i = files.length - 1; i < files.length; i++) {
     		if (files[i].remoteData) {
     			originalFilenames.push(files[i].remoteData.originalFilename);
     			tempFiles.push(files[i].remoteData.tempFile);
@@ -878,22 +878,20 @@ else if(r instanceof a){if(r.hasBlob())if(r.getBlob().isDetached())r=d.call(s,r)
     	data.tempFiles = tempFiles.join();
     }
 
-    Uploader.prototype.loadFile = function(f, type) {
-    	if (f) {
-    		var array = f.split(','), files = [], file;
-    		for (var i = 0, len = array.length; i < len; i++) {
-    			file = {id: this.$[0].id + '_' + i, name: array[i].substring(array[i].lastIndexOf('/') + 1), status: 5, static: false, url: root + array[i], type: 'image/jpg', previewImage: root + array[i], destroy: $.noop};
-    			files.push(file);
-    			this.showFile(file);
-    		}
-    		if (this.plupload.files) {
-    			for (var i = 0, len = files.length; i < len; i++) {
-    				this.plupload.files.push(files[i]);
-    			}
-    		} else {
-    			this.plupload.files = files;
-    		}
-    	}
+    Uploader.prototype.loadFile = function(id, filename, filepath, url, type) {
+        var files = [], file;
+        file = {id: this.$[0].id + '_' + id, name: filename, status: 5, static: false, url: url, type: type || 'image/jpg', previewImage: root + url, destroy: $.noop};
+        file.remoteData = {id: id, tempFile: filepath};
+        files.push(file);
+        this.showFile(file);
+
+        if (this.plupload.files) {
+            for (var i = 0, len = files.length; i < len; i++) {
+                this.plupload.files.push(files[i]);
+            }
+        } else {
+            this.plupload.files = files;
+        }
     }
 
     Uploader.prototype.clearFile = function(f) {

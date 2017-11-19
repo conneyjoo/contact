@@ -1,6 +1,7 @@
 package com.jinshun.contact.configuration;
 
 import com.jinshun.contact.auth.AuthInterceptor;
+import com.jinshun.contact.constant.Environment;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -11,6 +12,7 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
@@ -49,6 +51,12 @@ public class SampleConfigurerAdapter extends WebMvcConfigurerAdapter {
         registry.addInterceptor(new AuthInterceptor()).addPathPatterns("/**")
                 .excludePathPatterns("/user/login", "/user/login");
         super.addInterceptors(registry);
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/images/**").addResourceLocations("file:" + Environment.UPLOAD_PATH);
+        super.addResourceHandlers(registry);
     }
 
     @Bean
