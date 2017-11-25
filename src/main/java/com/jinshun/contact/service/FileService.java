@@ -8,6 +8,7 @@ import com.jinshun.contact.util.SQLString;
 import com.jinshun.contact.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
@@ -41,6 +42,9 @@ public class FileService extends CommonService {
 
     public void remove(File file) throws IOException {
         fileRepository.delete(file.getId());
-        FileUtils.forceDelete(new java.io.File(Environment.UPLOAD_PATH + file.getPath()));
+
+        if (!StringUtils.isEmpty(file.getPath())) {
+            FileUtils.forceDelete(new java.io.File(Environment.UPLOAD_PATH + file.getPath()));
+        }
     }
 }

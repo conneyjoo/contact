@@ -1,5 +1,7 @@
 package com.jinshun.contact.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -17,9 +19,12 @@ public class SuccessBidMoney {
     private SuccessBid successBid;
 
     //利润
+    @Column(name="profit")
     private Integer profit;
 
     //开票日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @Column(name="ticket_open_time")
     private Date ticketOpenTime;
 
     //开票不含税额
@@ -35,6 +40,7 @@ public class SuccessBidMoney {
     private Integer ticketOpenAmount;
 
     //收款额日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="collected_amount_time")
     private Date collectedAmountTime;
 
@@ -47,6 +53,7 @@ public class SuccessBidMoney {
     private String collectedAmountRemark;
 
     //付款额日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="payment_amount_time")
     private Date paymentAmountTime;
 
@@ -59,6 +66,7 @@ public class SuccessBidMoney {
     private String paymentAmountRemark;
 
     //收增值税专用发票日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="tax_bill_time")
     private Date taxBillTime;
 
@@ -79,6 +87,7 @@ public class SuccessBidMoney {
     private String taxBillRemark;
 
     //收普通发票日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="normal_bill_time")
     private Date normalBillTime;
 
@@ -91,6 +100,7 @@ public class SuccessBidMoney {
     private String normalBillRemark;
 
     //收工资单日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="payroll_time")
     private Date payrollTime;
 
@@ -99,6 +109,7 @@ public class SuccessBidMoney {
     private Integer payrollAmount;
 
     //备注
+    @Column(name="remark")
     private String remark;
 
     public Long getId() {

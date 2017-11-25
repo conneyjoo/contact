@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>中标管理-财务结算单</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="text/javascript">
+        var config = {"webRoot":"\/","appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/theme\/","currentModule":"product","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","router":"\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
+        var lang = {"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+    </script>
+
+    <script src="../lib/zui/all.js" type="text/javascript"></script>
+    <script src="../lib/grid/util.js" type="text/javascript"></script>
+    <script src="../lib/grid/grid.js" type="text/javascript"></script>
+    <script src="../lib/grid/zgrid.js" type="text/javascript"></script>
+    <script src="../lib/zui/uploader/zui.uploader-ext.js"></script>
+
+    <link href="../lib/zui/uploader/zui.uploader.min.css" rel="stylesheet">
+    <link href="../lib/zui/css/zui.datatable.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zh-cn.default.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zui.min.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/grid/css/grid.css" type="text/css" rel="stylesheet" media="screen">
+
+    <style>
+        .editpanel {display: none;}
+        .warning {display: none;}
+    </style>
+</head>
+<body>
+<div id="wrap" style="width: 100%; margin: 0 auto" class="mainpanel">
+    <div class="outer with-side with-transition" style="min-height: 900px;">
+        <div id="featurebar">
+            <ul class="nav">
+                <li><div class="label-angle">所有模块</div></li>
+                <li class="active"><a href="">财务结算单</a></li>
+            </ul>
+            <div class="actions">
+                <a href="successbid.html" class="btn"><i class="icon-chevron-left"></i> 返回</a>
+                <a href="javascript:" class="btn" id="add"><i class="icon-plus"></i> 新增</a>
+            </div>
+            <div id="querybox" class="show">
+                <form id="searchform" class="form-condensed">
+                    <table class="table table-condensed table-form" id="bug-search" style="max-width: 1500px; margin: 0 auto">
+                        <tbody>
+                        <tr>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div style="width:100%; height:225px;overflow-y:scroll;">
+            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
+                <thead>
+                <tr>
+                    <th width="3%">编号</th>
+                    <th width="4%" class="flex-col">利润</th>
+                    <th width="5%" class="flex-col">开票日期</th>
+                    <th width="5%" class="flex-col">开票不含税额</th>
+                    <th width="5%" class="flex-col">开票增值税</th>
+                    <th width="5%" class="flex-col">开票总额</th>
+                    <th width="5%" class="flex-col">收款额日期</th>
+                    <th width="5%" class="flex-col">收款额</th>
+                    <th width="5%" class="flex-col">收款额备注</th>
+                    <th width="5%" class="flex-col">付款额日期</th>
+                    <th width="6%" class="flex-col">付款额</th>
+                    <th width="6%" class="flex-col">付款额备注</th>
+                    <th width="10%" class="flex-col">收增值税专用发票日期</th>
+                    <th width="10%" class="flex-col">收增值税专用发票不含税额</th>
+                    <th width="10%" class="flex-col">收增值税专用发票增值税</th>
+                    <th width="10%" class="flex-col">收增值税专用发票合计</th>
+                    <th width="10%" class="flex-col">收增值税专用发票备注</th>
+                    <th width="8%" class="flex-col">收普通发票日期</th>
+                    <th width="8%" class="flex-col">收普通发票金额</th>
+                    <th width="8%" class="flex-col">收普通发票备注</th>
+                    <th width="8%" class="flex-col">收工资单日期</th>
+                    <th width="8%" class="flex-col">收工资单金额</th>
+                    <th width="5%" class="flex-col">备注</th>
+                    <th class="flex-col">操作</th>
+                </tr>
+                </thead>
+                <tbody id="successbidmoneygrid" class="grid">
+                <tr class="text-center">
+                    <td>{rowIndex}</td>
+                    <td>{profit}</td>
+                    <td>{ticketOpenTime}</td>
+                    <td>{ticketOpenNinTax}</td>
+                    <td>{ticketOpenTax}</td>
+                    <td>{ticketOpenAmount}</td>
+                    <td>{collectedAmountTime}</td>
+                    <td>{collectedAmount}</td>
+                    <td>{collectedAmountRemark}</td>
+                    <td>{paymentAmountTime}</td>
+                    <td>{paymentAmount}</td>
+                    <td>{paymentAmountRemark}</td>
+                    <td>{taxBillTime}</td>
+                    <td>{taxBillNinTax}</td>
+                    <td>{taxBillTax}</td>
+                    <td>{taxBillAmount}</td>
+                    <td>{taxBillRemark}</td>
+                    <td>{normalBillTime}</td>
+                    <td>{normalBillAmount}</td>
+                    <td>{normalBillRemark}</td>
+                    <td>{payrollTime}</td>
+                    <td>{payrollAmount}</td>
+                    <td>{remark}</td>
+                    <td>
+                        <a href="javascript: showEditPanel()" class="btn btn-primary btn-mini">编辑</a>&nbsp;
+                        <a href="javascript: removeRow()" class="btn btn-danger btn-mini">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="wrap" class="editpanel">
+    <div id="editouter" class="outer" style="overflow-y: scroll;">
+        <div id="featurebar">
+            <div class="heading" style="padding-right: 179px;" id="title">
+                <i class="icon-edit"></i> 编辑：
+            </div>
+            <div class="actions">
+                <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
+                <a id="save" href="javascript:" class="btn btn-save"><i class="icon-save"></i> 保存</a>
+            </div>
+        </div>
+        <div class="container mw-1400px" style="height: 1000px;">
+            <div id="titlebar">
+                <div class="heading">
+                    <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 中标信息：</strong>
+                </div>
+            </div>
+            <form id="editform" class="form-horizontal">
+                <input type="text" class="form-control empty" id="id" name="id" style="display: none;">
+                <input type="text" class="form-control" id="successBidId" name="successBid.id" style="display: none;">
+
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>利润</label>
+                        <input type="text" class="form-control numberField" name="profit" placeholder="利润">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>开票日期</label>
+                        <input type="text" class="form-control form-date" name="ticketOpenTime" placeholder="开票日期" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>开票不含税额</label>
+                        <input type="text" class="form-control numberField" name="ticketOpenNinTax" placeholder="开票不含税额">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>开票增值税</label>
+                        <input type="text" class="form-control numberField" name="ticketOpenTax" placeholder="开票增值税">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>开票总额</label>
+                        <input type="text" class="form-control numberField" name="ticketOpenAmount" placeholder="开票总额">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>收款额日期</label>
+                        <input type="text" class="form-control form-date" name="collectedAmountTime" placeholder="收款额日期" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>收款额</label>
+                        <input type="text" class="form-control numberField" name="collectedAmount" placeholder="收款额">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>收款额备注</label>
+                        <input type="text" class="form-control empty" name="collectedAmountRemark" placeholder="收款额备注">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>付款额日期</label>
+                        <input type="text" class="form-control form-date" name="paymentAmountTime" placeholder="付款额日期" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>付款额</label>
+                            <input type="text" class="form-control numberField" name="paymentAmount" placeholder="付款额">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>付款额备注</label>
+                        <input type="text" class="form-control empty" name="paymentAmountRemark" placeholder="付款额备注">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>收增值税专用发票日期</label>
+                        <input type="text" class="form-control form-date" name="taxBillTime" placeholder="收增值税专用发票日期" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>收增值税专用发票不含税</label>
+                        <input type="text" class="form-control numberField" name="taxBillNinTax" placeholder="收增值税专用发票不含税">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>收增值税专用发票增值税</label>
+                        <input type="text" class="form-control numberField" name="taxBillTax" placeholder="收增值税专用发票增值税">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>收增值税专用发票合计</label>
+                        <input type="text" class="form-control numberField" name="taxBillAmount" placeholder="收增值税专用发票合计">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>收增值税专用发票备注</label>
+                        <input type="text" class="form-control empty" name="taxBillRemark" placeholder="收增值税专用发票备注">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>收普通发票日期</label>
+                        <input type="text" class="form-control form-date" name="normalBillTime" placeholder="收普通发票日期" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>收普通发票金额</label>
+                        <input type="text" class="form-control numberField" name="normalBillAmount" placeholder="收普通发票金额">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>收普通发票备注</label>
+                        <input type="text" class="form-control empty" name="normalBillRemark" placeholder="收普通发票备注">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>收工资单日期</label>
+                        <input type="text" class="form-control form-date" name="payrollTime" placeholder="收工资单日期" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>收工资单金额</label>
+                        <input type="text" class="form-control numberField" name="payrollAmount" placeholder="收工资单金额">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>备注</label>
+                        <input type="text" class="form-control empty" name="remark" placeholder="备注">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="successbid-money.js" type="text/javascript"></script>
+</body>
+</html>

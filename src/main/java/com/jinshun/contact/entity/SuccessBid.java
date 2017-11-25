@@ -1,5 +1,7 @@
 package com.jinshun.contact.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,16 +18,20 @@ public class SuccessBid {
     private Company company;
 
     //区域
+    @Column(name = "area")
     private String area;
 
     //项目类型
+    @Column(name = "type")
     private String type;
 
     //订立时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "conclude_time")
     private Date concludeTime;
 
     //项目名称
+    @Column(name = "name")
     private String name;
 
     //工期
@@ -41,9 +47,11 @@ public class SuccessBid {
     private Integer judgementPrice;
 
     //建造师
-    private String constructor;
+    @Column(name = "constructer")
+    private String constructer;
 
     //分包负责人
+    @Column(name = "principal")
     private String principal;
 
     //管理费及所得税
@@ -54,9 +62,25 @@ public class SuccessBid {
     @Column(name = "premium_cost")
     private Integer premiumCost;
 
+    //备注
+    @Column(name = "remark")
+    private String remark;
+
     //是否入库（0未入库，1已入库）
     @Column(name = "in_warehouse")
     private Integer inWarehouse;
+
+    //订立开始时间(查询条件)
+    @Transient
+    private Date concludeTimeBegin;
+
+    //订立结束时间(查询条件)
+    @Transient
+    private Date concludeTimeEnd;
+
+    //合同价格范围(查询条件)
+    @Transient
+    private Integer contactPriceRange;
 
     public Long getId() {
         return id;
@@ -130,12 +154,12 @@ public class SuccessBid {
         this.judgementPrice = judgementPrice;
     }
 
-    public String getConstructor() {
-        return constructor;
+    public String getConstructer() {
+        return constructer;
     }
 
-    public void setConstructor(String constructor) {
-        this.constructor = constructor;
+    public void setConstructer(String constructer) {
+        this.constructer = constructer;
     }
 
     public String getPrincipal() {
@@ -162,11 +186,43 @@ public class SuccessBid {
         this.premiumCost = premiumCost;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
     public Integer getInWarehouse() {
         return inWarehouse;
     }
 
     public void setInWarehouse(Integer inWarehouse) {
         this.inWarehouse = inWarehouse;
+    }
+
+    public Date getConcludeTimeBegin() {
+        return concludeTimeBegin;
+    }
+
+    public void setConcludeTimeBegin(Date concludeTimeBegin) {
+        this.concludeTimeBegin = concludeTimeBegin;
+    }
+
+    public Date getConcludeTimeEnd() {
+        return concludeTimeEnd;
+    }
+
+    public void setConcludeTimeEnd(Date concludeTimeEnd) {
+        this.concludeTimeEnd = concludeTimeEnd;
+    }
+
+    public Integer getContactPriceRange() {
+        return contactPriceRange;
+    }
+
+    public void setContactPriceRange(Integer contactPriceRange) {
+        this.contactPriceRange = contactPriceRange;
     }
 }
