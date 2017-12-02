@@ -26,7 +26,6 @@ public class SuccessBid {
     private String type;
 
     //订立时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "conclude_time")
     private Date concludeTime;
 
@@ -71,10 +70,12 @@ public class SuccessBid {
     private Integer inWarehouse;
 
     //订立开始时间(查询条件)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Transient
     private Date concludeTimeBegin;
 
     //订立结束时间(查询条件)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Transient
     private Date concludeTimeEnd;
 

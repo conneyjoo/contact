@@ -28,7 +28,7 @@ public class SuccessBidService extends CommonService {
         SQLString sql = new SQLString("select t.* from t_success_bid t where 1 = 1");
 
         sql.addCondition("and t.company_id = ?", successBid.getCompany().getId());
-        sql.addCondition("and t.name = ?", successBid.getName());
+        sql.addCondition("and t.name like ?", StringUtils.isEmpty(successBid.getName()) ? null : "%" + successBid.getName() + "%");
         sql.addCondition("and t.conclude_time >= ?", successBid.getConcludeTimeBegin());
         sql.addCondition("and t.conclude_time <= ?", successBid.getConcludeTimeEnd());
 
