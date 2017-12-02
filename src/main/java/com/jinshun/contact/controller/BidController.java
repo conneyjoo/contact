@@ -76,7 +76,7 @@ public class BidController extends ControllerSupport {
         return message;
     }
 
-    @Access(authorities = Authorities.LOGIN)
+    @Access()
     @RequestMapping("remove")
     public @ResponseBody
     Message deleteBid(Long id) {
@@ -101,7 +101,7 @@ public class BidController extends ControllerSupport {
         return bidService.getById(id);
     }
 
-    @Access(authorities = Authorities.LOGIN)
+    @Access()
     @RequestMapping("findBids")
     public @ResponseBody
     List<?> findBids(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
@@ -118,7 +118,7 @@ public class BidController extends ControllerSupport {
         return objs;
     }
 
-    @Access(authorities = Authorities.LOGIN)
+    @Access()
     @RequestMapping("findBidsForWarehouse")
     public @ResponseBody
     List<?> findBidsForWarehouse(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
