@@ -143,3 +143,22 @@ removeRow = function() {
         }
     }
 }
+
+entrystorage = function() {
+    if (confirm('是否入库')) {
+        var row = successbidgrid.getSelected();
+
+        if (row) {
+            $.ajax({
+                type: 'POST',
+                url: '/successbid/updateInWarehouse',
+                data: {id: row.id, inWarehouse: 1},
+                success: function(msg) {
+                    successbidgrid.load();
+                },
+                error: function(msg) {
+                }
+            });
+        }
+    }
+}
