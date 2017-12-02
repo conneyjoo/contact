@@ -117,15 +117,17 @@
                     <th width="5%" data-sort="bid_price" class="flex-col">报名时间</th>
                     <th width="5%" data-sort="constructor" class="flex-col">建造师</th>
                     <th width="5%" data-sort="deposit_price" class="flex-col">投标保证金数额</th>
+                    <th width="8%" data-sort="borrower_import_time" class="flex-col borrower">借用人保证金汇入时间</th>
                     <th width="5%" data-sort="deposit_deadline" class="flex-col">保证金截止日期</th>
                     <th width="5%" data-sort="deposit_approval" class="flex-col">交保证金审批</th>
                     <th width="5%" data-sort="deposit_remit_time" class="flex-col">保证金汇出时间</th>
                     <th width="5%" data-sort="bid_open_time" class="flex-col">开标时间</th>
                     <th width="5%" data-sort="bid_open_result" class="flex-col">开标结果</th>
                     <th width="5%" data-sort="deposit_return_time" class="flex-col">保证金退回时间</th>
+                    <th width="8%" data-sort="borrower_return_time" class="flex-col borrower">保证金退回借用人时间</th>
                     <th width="5%" class="flex-col">银行凭证</th>
                     <th width="10%" class="flex-col">备注</th>
-                    <th class="flex-col">操作</th>
+                    <th width="10%" class="flex-col">操作</th>
                 </tr>
                 </thead>
                 <tbody class="grid">
@@ -140,12 +142,14 @@
                     <td>{applyDate}</td>
                     <td>{constructor}</td>
                     <td>{depositPrice}</td>
+                    <td class="borrower">{borrowerImportTime}</td>
                     <td>{depositDeadline}</td>
                     <td style="color:{depositApprovalResultColor}">{depositApprovalResult}</td>
                     <td>{depositRemitTime}</td>
                     <td>{bidOpenTime}</td>
                     <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
                     <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
+                    <td class="borrower">{borrowerReturnTime}</td>
                     <td><a href="bidWarehouse-upload.html?id={id}&type=BID" class="btn btn-info iframe" data-width="600">查看</a></td>
                     <td>{remark}</td>
                     <td><button class="btn btn-danger" type="button" name="deleteButton" onclick="withdraw({id})">撤回</button></td>
@@ -189,6 +193,10 @@
 <script>
     var bidPriceSum = 0;
     var depositPriceSum = 0;
+
+    if(localStorage.rowType == 0){
+        $(".borrower").hide();
+    }
 
     // 仅选择日期
     $(".form-date").datetimepicker(
