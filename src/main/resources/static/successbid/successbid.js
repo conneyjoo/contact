@@ -6,6 +6,7 @@ var editform = $('#editform');
 var successbidgrid = $('#successbidgrid').grid({
     method: 'GET',
     url: '/successbid/findSuccessBid',
+    params: {inWarehouse: 0},
     autoload: true,
     paginationRender: 'pagination',
     setData: function (data) {
