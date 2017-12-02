@@ -109,7 +109,7 @@ public class BidController extends ControllerSupport {
         List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction , 0);
         for(Object obj : objs){
             HashMap map = (HashMap) obj;
-            if(map.get("depositReturnTime")==null){
+            if(map.get("depositReturnTime")==null && map.get("depositRemitTime")!=null){
                 Date returnTime = (Date) map.get("depositRemitTime");
                 int intervalDays = DateUtils.getIntervalDays(new Date(),returnTime);
                 map.put("warning",intervalDays>30?true:null);

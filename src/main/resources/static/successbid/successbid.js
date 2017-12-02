@@ -6,35 +6,32 @@ var editform = $('#editform');
 var successbidgrid = $('#successbidgrid').grid({
     method: 'GET',
     url: '/successbid/findSuccessBid',
-    params: {inWarehouse: 0},
     autoload: true,
     paginationRender: 'pagination',
     setData: function (data) {
     },
     afterLoad: function(data) {
-        if (data.length > 0) {
-            var totalData = {contactPrice: 0, judgementPrice: 0, managementCost: 0, premiumCost: 0};
+        var totalData = {contactPrice: 0, judgementPrice: 0, managementCost: 0, premiumCost: 0};
 
-            for (var i = 0, len = data.length; i < len; i++) {
-                totalData.contactPrice += data[i].contactPrice;
-                totalData.judgementPrice += data[i].judgementPrice;
-                totalData.managementCost += data[i].managementCost;
-                totalData.premiumCost += data[i].premiumCost;
-            }
-
-            totalData.contactPrice = '<b style="color: red;">' + totalData.contactPrice + '</b>';
-            totalData.judgementPrice = '<b style="color: red;">' + totalData.judgementPrice + '</b>';
-            totalData.managementCost = '<b style="color: red;">' + totalData.managementCost + '</b>';
-            totalData.premiumCost = '<b style="color: red;">' + totalData.premiumCost + '</b>';
-
-            var children = this.append(totalData).children();
-            children.eq(0).html('<i class="icon-pie-chart"></i>');
-            children.eq(10).html('');
-            children.eq(10).html('');
-            children.eq(13).html('');
-            children.eq(14).html('');
-            children.eq(16).html('');
+        for (var i = 0, len = data.length; i < len; i++) {
+            totalData.contactPrice += data[i].contactPrice;
+            totalData.judgementPrice += data[i].judgementPrice;
+            totalData.managementCost += data[i].managementCost;
+            totalData.premiumCost += data[i].premiumCost;
         }
+
+        totalData.contactPrice = '<b style="color: red;">' + totalData.contactPrice + '</b>';
+        totalData.judgementPrice = '<b style="color: red;">' + totalData.judgementPrice + '</b>';
+        totalData.managementCost = '<b style="color: red;">' + totalData.managementCost + '</b>';
+        totalData.premiumCost = '<b style="color: red;">' + totalData.premiumCost + '</b>';
+
+        var children = this.append(totalData).children();
+        children.eq(0).html('<span style="color:red;font-weight: bold">金额合计</span>');
+        children.eq(10).html('');
+        children.eq(10).html('');
+        children.eq(13).html('');
+        children.eq(14).html('');
+        children.eq(16).html('');
     }
 }).data('grid');
 
@@ -137,25 +134,6 @@ removeRow = function() {
                 type: 'POST',
                 url: '/successbid/remove',
                 data: row,
-                success: function(msg) {
-                    successbidgrid.load();
-                },
-                error: function(msg) {
-                }
-            });
-        }
-    }
-}
-
-entrystorage = function() {
-    if (confirm('是否入库')) {
-        var row = successbidgrid.getSelected();
-
-        if (row) {
-            $.ajax({
-                type: 'POST',
-                url: '/successbid/updateInWarehouse',
-                data: {id: row.id, inWarehouse: 1},
                 success: function(msg) {
                     successbidgrid.load();
                 },
