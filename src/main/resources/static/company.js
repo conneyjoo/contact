@@ -13,6 +13,7 @@ selectCompany = function() {
             url: '/company/select',
             data: row,
             success: function(msg) {
+                localStorage.rowType = row.type;
                 window.parent.location.reload();
             },
             error: function(msg) {
