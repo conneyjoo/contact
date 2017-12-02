@@ -58,12 +58,6 @@ $('#searchbtn').click(function() {
     successbidgrid.load(data);
 });
 
-$('#add').click(function() {
-    successbidgrid.unSelected();
-    showEditPanel();
-    editform[0].reset();
-});
-
 $('#removeRow').click(function() {
     successbidgrid.unSelected();
     showEditPanel();

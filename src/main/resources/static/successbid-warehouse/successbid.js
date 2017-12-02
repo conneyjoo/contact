@@ -28,7 +28,7 @@ var successbidgrid = $('#successbidgrid').grid({
             totalData.premiumCost = '<b style="color: red;">' + totalData.premiumCost + '</b>';
 
             var children = this.append(totalData).children();
-            children.eq(0).html('<i class="icon-pie-chart"></i>');
+            children.eq(0).html('<span style="color:red;font-weight: bold">金额合计</span>');
             children.eq(10).html('');
             children.eq(10).html('');
             children.eq(13).html('');
@@ -37,10 +37,6 @@ var successbidgrid = $('#successbidgrid').grid({
         }
     }
 }).data('grid');
-
-successbidgrid.on('rowdoubleclick', function(event) {
-    showEditPanel();
-});
 
 $(".form-date").datetimepicker({
     language: 'zh-cn',
@@ -60,92 +56,6 @@ $('#searchbtn').click(function() {
     var data = searchform.serializeObject();
     successbidgrid.load(data);
 });
-
-$('#add').click(function() {
-    successbidgrid.unSelected();
-    showEditPanel();
-    editform[0].reset();
-});
-
-$('#removeRow').click(function() {
-    successbidgrid.unSelected();
-    showEditPanel();
-    editform[0].reset();
-});
-
-$('#back').click(function() {
-    togglePanel();
-});
-
-$('#save').click(function() {
-    var data = editform.serializeObject();
-
-    for (var p in data) {
-        if (!data[p]) {
-            var input = $('input[name="' + p + '"]');
-
-            if (input.hasClass('empty')) continue;
-
-            alert(input.attr('placeholder') + '不能为空');
-            input.focus();
-            return;
-        }
-    }
-
-    $.ajax({
-        type: 'POST',
-        url: '/successbid/save',
-        data: data,
-        success: function(msg) {
-            if (msg.success) {
-                editform.loadForm(msg);
-                togglePanel();
-            } else {
-                alert('保存失败');
-            }
-        },
-        error: function(msg) {
-            alert('保存失败');
-        }
-    });
-});
-
-togglePanel = function() {
-    editpanel.toggle();
-    mainpanel.toggle();
-
-    if (editpanel.is(':hidden')) {
-        successbidgrid.load();
-    }
-}
-
-showEditPanel = function() {
-    var row = successbidgrid.getSelected();
-
-    if (row && row.id) {
-        togglePanel();
-        editform.loadForm(row);
-    }
-}
-
-removeRow = function() {
-    if (confirm('是否删除')) {
-        var row = successbidgrid.getSelected();
-
-        if (row) {
-            $.ajax({
-                type: 'POST',
-                url: '/successbid/remove',
-                data: row,
-                success: function(msg) {
-                    successbidgrid.load();
-                },
-                error: function(msg) {
-                }
-            });
-        }
-    }
-}
 
 backstorage = function() {
     if (confirm('是否撤回')) {
