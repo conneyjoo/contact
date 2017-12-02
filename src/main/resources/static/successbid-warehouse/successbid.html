@@ -124,16 +124,14 @@
                     <td>{judgementPrice}</td>
                     <td>{constructer}</td>
                     <td>{principal}</td>
-                    <td><a href="successbid-info-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info btn-mini" data-width="600">资料上传</a></td>
+                    <td><a href="successbid-info-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info btn-mini" data-width="600">资料查看</a></td>
                     <td>{managementCost}</td>
                     <td>{premiumCost}</td>
-                    <td><a href="successbid-amount-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info btn-mini" data-width="600">结算单上传</a></td>
-                    <td><a href="successbid-money.html?successBidId={id}" class="btn btn-info btn-mini" data-width="600">详细金额录入</a></td>
+                    <td><a href="successbid-amount-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info btn-mini" data-width="600">结算单查看</a></td>
+                    <td><a href="successbid-money.html?successBidId={id}" class="btn btn-info btn-mini" data-width="600">详细金额查看</a></td>
                     <td>{remark}</td>
                     <td>
-                        <a href="javascript: showEditPanel()" class="btn btn-primary btn-mini">编辑</a>&nbsp;
-                        <a href="javascript: entrystorage()" class="btn btn-success btn-mini">入库</a>&nbsp;
-                        <a href="javascript: removeRow()" class="btn btn-danger btn-mini">删除</a>
+                        <a href="javascript: backstorage();" class="btn btn-danger btn-mini">撤回</a>&nbsp;
                     </td>
                 </tr>
                 </tbody>

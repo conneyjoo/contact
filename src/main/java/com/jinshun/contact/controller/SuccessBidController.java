@@ -66,4 +66,19 @@ public class SuccessBidController extends ControllerSupport {
 
         return message;
     }
+
+    @Access()
+    @RequestMapping("updateInWarehouse")
+    public @ResponseBody Message updateInWarehouse(SuccessBid successBid) {
+        Message message = new Message();
+
+        try {
+            successBidService.updateInWarehouse(successBid);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            message.setSuccess(false);
+        }
+
+        return message;
+    }
 }

@@ -4,13 +4,13 @@ var type = $.util.urlParam('type');
 $.ajax({
     type: 'POST',
     url: '/file/getFiles',
-    data: {successBidId: id, type: type},
+    data: {successBidId: id, type: type, businessType: 8},
     success: function(files) {
         var file;
 
         for (var i = 0, len = files.length; i < len; i++) {
             file = files[i];
-            if (file.businessType < 9) {
+            if (file.businessType > 8) {
                 $('#uploadPicture' + file.businessType).data('zui.uploader').loadFile(file.id, file.name, file.path, '/../images/' + file.path);
             }
         }
@@ -20,7 +20,7 @@ $.ajax({
     }
 });
 
-for (var i = 1; i <= 8; i++) {
+for (var i = 9; i <= 11; i++) {
     $('#uploadPicture' + i).uploader({
         autoUpload: true,
         chunk_size: 10485760,

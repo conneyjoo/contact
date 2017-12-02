@@ -59,4 +59,8 @@ public class SuccessBidService extends CommonService {
         executeUpdate("delete from t_success_bid_money where success_bid_id = ?", successBid.getId());
         successBidRepository.delete(successBid);
     }
+
+    public void updateInWarehouse(SuccessBid successBid) {
+        executeUpdate("update t_success_bid set in_warehouse = ? where id = ?", successBid.getInWarehouse(), successBid.getId());
+    }
 }

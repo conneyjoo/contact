@@ -6,7 +6,7 @@ var editform = $('#editform');
 var successbidgrid = $('#successbidgrid').grid({
     method: 'GET',
     url: '/successbid/findSuccessBid',
-    params: {inWarehouse: 0},
+    params: {inWarehouse: 1},
     autoload: true,
     paginationRender: 'pagination',
     setData: function (data) {
@@ -147,15 +147,15 @@ removeRow = function() {
     }
 }
 
-entrystorage = function() {
-    if (confirm('是否入库')) {
+backstorage = function() {
+    if (confirm('是否撤回')) {
         var row = successbidgrid.getSelected();
 
         if (row) {
             $.ajax({
                 type: 'POST',
                 url: '/successbid/updateInWarehouse',
-                data: {id: row.id, inWarehouse: 1},
+                data: {id: row.id, inWarehouse: 0},
                 success: function(msg) {
                     successbidgrid.load();
                 },
