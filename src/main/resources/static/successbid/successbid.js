@@ -26,7 +26,7 @@ var successbidgrid = $('#successbidgrid').grid({
         totalData.premiumCost = '<b style="color: red;">' + totalData.premiumCost + '</b>';
 
         var children = this.append(totalData).children();
-        children.eq(0).html('<i class="icon-pie-chart"></i>');
+        children.eq(0).html('<span style="color:red;font-weight: bold">金额合计</span>');
         children.eq(10).html('');
         children.eq(10).html('');
         children.eq(13).html('');
