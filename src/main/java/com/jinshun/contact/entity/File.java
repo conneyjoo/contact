@@ -11,7 +11,7 @@ public class File {
 
     public static final String FILE_TYPE_BID = "BID";
 
-    public static final String FILE_TYPE_BID_SUCCESS = "BID_SUCCESS";
+    public static final String FILE_TYPE_SUCCESS_BID = "SUCCESS_BID";
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,8 +32,12 @@ public class File {
     @Column(name = "bid_id")
     private Long bidId;
 
-    @Column(name = "bid_success_id")
-    private Long bidSuccessId;
+    @Column(name = "success_bid_id")
+    private Long successBidId;
+
+    /** 1:招标文件, 2:中标通知书, 3:工程合同, 4:分包合同, 5:工程保险单, 6:合同验收证书, 7:牢记报告, 8:其他, 9:银行进出凭证, 10:财务结算单，11：其他 */
+    @Column(name = "business_type")
+    private Integer businessType;
 
     public Long getId() {
         return id;
@@ -83,11 +87,19 @@ public class File {
         this.bidId = bidId;
     }
 
-    public Long getBidSuccessId() {
-        return bidSuccessId;
+    public Long getSuccessBidId() {
+        return successBidId;
     }
 
-    public void setBidSuccessId(Long bidSuccessId) {
-        this.bidSuccessId = bidSuccessId;
+    public void setSuccessBidId(Long successBidId) {
+        this.successBidId = successBidId;
+    }
+
+    public Integer getBusinessType() {
+        return businessType;
+    }
+
+    public void setBusinessType(Integer businessType) {
+        this.businessType = businessType;
     }
 }

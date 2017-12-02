@@ -114,7 +114,7 @@ removeRow = function() {
             $.ajax({
                 type: 'POST',
                 url: '/successbidmoney/remove',
-                data: row,
+                data: {id: row.id},
                 success: function(msg) {
                     successbidmoneygrid.load();
                 },

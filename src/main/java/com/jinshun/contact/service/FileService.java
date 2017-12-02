@@ -28,7 +28,7 @@ public class FileService extends CommonService {
         if (file.getType().equals(File.FILE_TYPE_BID)) {
             sql.addCondition("and f.bid_id = ?", file.getBidId());
         } else {
-            sql.addCondition("and f.bid_success_id = ?", file.getBidSuccessId());
+            sql.addCondition("and f.success_bid_id = ?", file.getSuccessBidId());
         }
 
         sql.append("order by id desc");

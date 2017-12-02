@@ -32,7 +32,7 @@ public class FileController extends ControllerSupport {
     @Access()
     @RequestMapping("getFiles")
     public @ResponseBody List<?> getFiles(File file) {
-        if (!StringUtils.isEmpty(file.getType()) && (!StringUtils.isEmpty(file.getBidId()) || !StringUtils.isEmpty(file.getBidSuccessId()))) {
+        if (!StringUtils.isEmpty(file.getType()) && (!StringUtils.isEmpty(file.getBidId()) || !StringUtils.isEmpty(file.getSuccessBidId()))) {
             return fileService.getFiles(file);
         }
 
