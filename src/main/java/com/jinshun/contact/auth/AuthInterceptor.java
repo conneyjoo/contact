@@ -39,9 +39,9 @@ public class AuthInterceptor implements HandlerInterceptor {
             if (authorities == Authorities.LOGIN) {
                 return true;
             } else if (authorities == Authorities.AUTHORIED) {
-                if (!user.getActions().contains(handlerMethod.toString())) {
-                    // response.sendRedirect(UNAUTHORIZED_PAGE);
-                    return true;
+                if (!user.getActions().contains(handlerMethod.getMethod().getDeclaringClass().getName() + "." + handlerMethod.getMethod().getName())) {
+                    response.sendRedirect(UNAUTHORIZED_PAGE);
+                    return false;
                 }
             }
         }
