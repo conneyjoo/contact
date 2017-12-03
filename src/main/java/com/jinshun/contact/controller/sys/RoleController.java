@@ -32,11 +32,11 @@ public class RoleController extends ControllerSupport {
     @Access()
     @RequestMapping("save")
     public @ResponseBody
-    ControllerSupport.Message save(Role role, @RequestParam(value = "menuIds[]") String[] menuIds, @RequestParam(value = "actionIds[]") String[] actionIds) {
+    ControllerSupport.Message save(Role role, @RequestParam(value = "menuIds[]") String[] menuIds/*, @RequestParam(value = "actionIds[]") String[] actionIds*/) {
         Message message = new Message();
 
         try {
-            message.setData(roleService.save(role, menuIds, actionIds));
+            message.setData(roleService.save(role, menuIds, null));
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             message.setSuccess(false);

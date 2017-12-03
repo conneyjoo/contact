@@ -23,7 +23,7 @@ $('#add').click(function() {
     showEditPanel();
     editform[0].reset();
     menugrid.load({id: null});
-    actiongrid.load({id: null});
+    // actiongrid.load({id: null});
 });
 
 $('#removeRow').click(function() {
@@ -122,7 +122,7 @@ showEditPanel = function() {
     if (row) {
         editform.loadForm(row);
         menugrid.load(row);
-        actiongrid.load(row);
+        // actiongrid.load(row);
     }
 }
 
