@@ -155,7 +155,6 @@
                     <td>{remark}</td>
                     <td>
                         <button class="btn btn-primary role" data-permission="1" type="button" name="editButton" onclick="bidEdit({id})">查看</button>&nbsp;
-                        <button class="btn btn-primary role" data-permission="65536" type="button" name="editButton" onclick="bidEdit({id})">编辑</button>&nbsp;
                         <button class="btn btn-success role" data-permission="65536" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;
                         <button class="btn btn-danger role" data-permission="65536" type="button" name="deleteButton" onclick="bidDel({id})">删除</button>
                     </td>
@@ -285,7 +284,7 @@
                 </div>
                 <div class="form-group">
                     <label for="bidPrice" class="col-sm-2">招标价格</label>
-              lass="col-md-8 col-sm-10" id="bidPriceDiv">
+                    <div class="col-md-8 col-sm-10" id="bidPriceDiv">
                         <input type="text" class="form-control" id="bidPrice" name="bidPrice" placeholder="招标价格">
                         <span id="bidPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
                     </div>
@@ -390,6 +389,7 @@
     clearSum = function () {
         bidPriceSum = 0;
         depositPriceSum = 0;
+        loadPermission();
     }
 
     var grid = $('.grid').grid({
@@ -434,8 +434,6 @@
 
             $("#bidPriceSum").html(bidPriceSum);
             $("#depositPriceSum").html(depositPriceSum);
-
-            loadPermission();
         }
     }).data('grid');
 
