@@ -5,8 +5,10 @@ import com.jinshun.contact.auth.Authorities;
 import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.controller.sys.MenuController;
 import com.jinshun.contact.entity.Bid;
+import com.jinshun.contact.entity.SuccessBid;
 import com.jinshun.contact.entity.User;
 import com.jinshun.contact.service.BidService;
+import com.jinshun.contact.service.SuccessBidService;
 import com.jinshun.contact.utils.DateUtils;
 import com.jinshun.contact.utils.model.BidQueryModel;
 import org.slf4j.Logger;
@@ -30,6 +32,9 @@ public class BidController extends ControllerSupport {
     @Autowired
     private BidService bidService;
 
+    @Autowired
+    private SuccessBidService successBidService;
+
     @RequestMapping("saveOrUpdate")
     @Access()
     public @ResponseBody
@@ -40,7 +45,24 @@ public class BidController extends ControllerSupport {
         }
         if (bid.getInWarehouse() == null)
             bid.setInWarehouse(0);
+
+        //如果是第一次置为中标
+        if(bid.getBidOpenResult() == 1){
+            if(bid.getId()!=null && bidService.getById(bid.getId()).getFirstApplied()==0){
+                SuccessBid successBid = new SuccessBid();
+                successBid.setCompany(getCurrentCompany());
+                successBid.setArea(bid.getArea());
+                successBid.setType(bid.getType());
+                successBid.setPrincipal(bid.getPrincipal());
+                successBid.setConstructer(bid.getConstructor());
+                successBid.setInWarehouse(0);
+                successBidService.save(successBid);
+                bid.setFirstApplied(1);
+            }
+        }
         bid.setCompany(getCurrentCompany());
+        if(bid.getFirstApplied() == null)
+            bid.setFirstApplied(0);
         return bidService.saveOrUpdate(bid);
     }
 
