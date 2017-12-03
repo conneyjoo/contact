@@ -26,6 +26,7 @@ public class SuccessBid {
     private String type;
 
     //订立时间
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "conclude_time")
     private Date concludeTime;
 
