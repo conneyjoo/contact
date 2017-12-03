@@ -96,6 +96,10 @@ public class Bid {
     @Column(name = "borrower_return_time")
     private Date borrowerReturnTime;
 
+    //是否被审批为中标（0未，1是）
+    @Column(name = "first_applied")
+    private Integer firstApplied;
+
     public Long getId() {
         return id;
     }
@@ -262,5 +266,13 @@ public class Bid {
 
     public void setBorrowerReturnTime(Date borrowerReturnTime) {
         this.borrowerReturnTime = borrowerReturnTime;
+    }
+
+    public Integer getFirstApplied() {
+        return firstApplied;
+    }
+
+    public void setFirstApplied(Integer firstApplied) {
+        this.firstApplied = firstApplied;
     }
 }
