@@ -52,7 +52,7 @@ $('#save').click(function() {
 
     var data = editform.serializeObject();
     data.menuIds = $('#menuIds').val();
-    data.actionIds = $('#actionIds').val();
+    /*data.actionIds = $('#actionIds').val();*/
 
     if (!data.name) {
         el.html(text);
@@ -66,11 +66,11 @@ $('#save').click(function() {
         return;
     }
 
-    if (!data.actionIds) {
+    /*if (!data.actionIds) {
         el.html(text);
         alert('请选择接口');
         return;
-    }
+    }*/
 
     $.ajax({
         type: 'POST',
