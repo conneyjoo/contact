@@ -33,6 +33,8 @@ var successbidgrid = $('#successbidgrid').grid({
         children.eq(13).html('');
         children.eq(14).html('');
         children.eq(16).html('');
+
+        loadPermission();
     }
 }).data('grid');
 

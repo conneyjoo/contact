@@ -145,3 +145,19 @@ var unitarea = {
 	'330119': '景区',
 	'330111': '大江东'
 };
+
+loadPermission = function(parent) {
+    var level = parseInt(localStorage.getItem('level'));
+
+    if (level > 0) {
+        $('.role', parent).each(function() {
+            var el = $(this);
+            var permission = parseInt(el.data('permission'));
+            if ((level & permission) == permission) {
+                el.show();
+            } else {
+            	el.hide();
+			}
+        })
+	}
+}

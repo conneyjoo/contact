@@ -127,13 +127,14 @@
                     <td><a href="successbid-info-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info" data-width="600">资料上传</a></td>
                     <td>{managementCost}</td>
                     <td>{premiumCost}</td>
-                    <td><a href="successbid-amount-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info" data-width="600">结算单上传</a></td>
-                    <td><a href="successbid-money.html?successBidId={id}" class="btn btn-info" data-width="600">详细金额录入</a></td>
+                    <td><a href="successbid-amount-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info role" data-width="600" data-permission="16">结算单上传</a></td>
+                    <td><a href="successbid-money.html?successBidId={id}" class="btn btn-info role" data-width="600" data-permission="16">详细金额录入</a></td>
                     <td>{remark}</td>
                     <td>
-                        <a href="javascript: showEditPanel()" class="btn btn-primary">编辑</a>&nbsp;
-                        <a href="javascript: entrystorage()" class="btn btn-success">入库</a>&nbsp;
-                        <a href="javascript: removeRow()" class="btn btn-danger">删除</a>
+                        <a href="javascript: showEditPanel()" class="btn btn-primary role" data-permission="1">查看</a>&nbsp;
+                        <a href="javascript: showEditPanel()" class="btn btn-primary role" data-permission="65536">编辑</a>&nbsp;
+                        <a href="javascript: entrystorage()" class="btn btn-success role" data-permission="65536">入库</a>&nbsp;
+                        <a href="javascript: removeRow()" class="btn btn-danger role" data-permission="65536">删除</a>
                     </td>
                 </tr>
                 </tbody>
@@ -152,7 +153,7 @@
             </div>
             <div class="actions">
                 <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
-                <a id="save" href="javascript:" class="btn btn-save"><i class="icon-save"></i> 保存</a>
+                <a id="save" href="javascript:" class="btn btn-save role" data-permission="65536"><i class="icon-save"></i> 保存</a>
             </div>
         </div>
         <div class="container mw-1400px">

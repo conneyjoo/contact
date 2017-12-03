@@ -4,6 +4,7 @@ import com.jinshun.contact.auth.AuthInterceptor;
 import com.jinshun.contact.constant.Environment;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +26,9 @@ import java.util.Map;
 @Configuration
 @ServletComponentScan
 public class SampleConfigurerAdapter extends WebMvcConfigurerAdapter {
+
+    @Value("${upload.path}")
+    private String uploadPath;
 
     @Autowired
     private RequestMappingHandlerMapping requestMappingHandlerMapping;
@@ -55,7 +59,7 @@ public class SampleConfigurerAdapter extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/images/**").addResourceLocations("file:" + Environment.UPLOAD_PATH);
+        registry.addResourceHandler("/images/**").addResourceLocations("file:" + uploadPath);
         super.addResourceHandlers(registry);
     }
 

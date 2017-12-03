@@ -7,6 +7,7 @@ import com.jinshun.contact.service.common.CommonService;
 import com.jinshun.contact.util.SQLString;
 import com.jinshun.contact.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -17,6 +18,9 @@ import java.util.List;
 @Service
 @Transactional
 public class FileService extends CommonService {
+
+    @Value("${upload.path}")
+    private String uploadPath;
 
     @Autowired
     private FileRepository fileRepository;
@@ -44,7 +48,7 @@ public class FileService extends CommonService {
         fileRepository.delete(file.getId());
 
         if (!StringUtils.isEmpty(file.getPath())) {
-            FileUtils.forceDelete(new java.io.File(Environment.UPLOAD_PATH + file.getPath()));
+            FileUtils.forceDelete(new java.io.File(uploadPath + file.getPath()));
         }
     }
 }

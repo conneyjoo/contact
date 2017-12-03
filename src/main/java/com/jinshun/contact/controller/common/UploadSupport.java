@@ -20,13 +20,16 @@ import java.util.UUID;
 @Controller
 public class UploadSupport extends ControllerSupport {
 
+	@Value("${upload.path}")
+	private String uploadPath;
+
 	@Value("${back.server}")
 	private String backServer;
 
 	@RequestMapping(value = "/uploadTmp")
 	public @ResponseBody Map<String, String> uploadTmp(@RequestParam(value = "file", required = false) MultipartFile mfile) throws IOException {
 		String now = DateUtils.getDate(new Date(), DateStyle.YYYY_MM_DD);
-		File dir = new File(Environment.UPLOAD_PATH + now);
+		File dir = new File(uploadPath + now);
 
 		if (!dir.exists()) {
 			dir.mkdir();

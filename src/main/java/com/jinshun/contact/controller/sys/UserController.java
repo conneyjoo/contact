@@ -52,6 +52,7 @@ public class UserController extends ControllerSupport {
                     // user.setActions(actionService.getActionSet(user.getRole().getId()));
                     setCurrentUser(user);
                     setCurrentCompany(companyService.get(1L));
+                    message.setData(user);
                     message.setStatus(LOGIN_SUCCESS);
                 } else {
                     message.setStatus(LOGIN_PASSWORD_INCORRECT);

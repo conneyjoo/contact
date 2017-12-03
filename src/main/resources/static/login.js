@@ -7,6 +7,7 @@ $('#submit').click(function() {
         data: data,
         success: function(msg) {
             if (msg.status == 1) {
+                localStorage.setItem('level', msg.data.role.level);
                 location.href = 'index.html';
             } else if (msg.status == -1) {
                 alert('用户名不正确');
