@@ -59,6 +59,12 @@ $('#searchbtn').click(function() {
     successbidgrid.load(data);
 });
 
+$('#add').click(function() {
+    successbidgrid.unSelected();
+    showEditPanel();
+    editform[0].reset();
+});
+
 $('#removeRow').click(function() {
     successbidgrid.unSelected();
     showEditPanel();
@@ -112,10 +118,10 @@ togglePanel = function() {
 }
 
 showEditPanel = function() {
+    togglePanel();
     var row = successbidgrid.getSelected();
 
     if (row && row.id) {
-        togglePanel();
         editform.loadForm(row);
     }
 }

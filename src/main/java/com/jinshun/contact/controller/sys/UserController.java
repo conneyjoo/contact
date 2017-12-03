@@ -49,7 +49,7 @@ public class UserController extends ControllerSupport {
 
             if (user != null) {
                 if (user.getPassword().equals(password)) {
-                    user.setActions(actionService.getActionSet(user.getRole().getId()));
+                    // user.setActions(actionService.getActionSet(user.getRole().getId()));
                     setCurrentUser(user);
                     setCurrentCompany(companyService.get(1L));
                     message.setStatus(LOGIN_SUCCESS);
