@@ -86,6 +86,16 @@ public class Bid {
     @Column(name = "in_warehouse")
     private Integer inWarehouse;
 
+    //借用人保证金汇入时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @Column(name = "borrower_import_time")
+    private Date borrowerImportTime;
+
+    //保证金退回借用人时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @Column(name = "borrower_return_time")
+    private Date borrowerReturnTime;
+
     public Long getId() {
         return id;
     }
@@ -236,5 +246,21 @@ public class Bid {
 
     public void setPrincipal(String principal) {
         this.principal = principal;
+    }
+
+    public Date getBorrowerImportTime() {
+        return borrowerImportTime;
+    }
+
+    public void setBorrowerImportTime(Date borrowerImportTime) {
+        this.borrowerImportTime = borrowerImportTime;
+    }
+
+    public Date getBorrowerReturnTime() {
+        return borrowerReturnTime;
+    }
+
+    public void setBorrowerReturnTime(Date borrowerReturnTime) {
+        this.borrowerReturnTime = borrowerReturnTime;
     }
 }
