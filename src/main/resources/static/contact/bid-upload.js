@@ -12,6 +12,8 @@ $.ajax({
             file = files[i];
             uploader.loadFile(file.id, file.name, file.path, '/../images/' + file.path);
         }
+        $('.btn-delete-file').addClass('role').attr('data-permission', '65536');
+        loadPermission();
     },
     error: function(msg) {
         alert('上传失败');

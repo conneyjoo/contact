@@ -153,7 +153,12 @@
                     <td class="borrower">{borrowerReturnTime}</td>
                     <td><a href="bid-upload.html?id={id}&type=BID" class="btn btn-info iframe" data-width="600">上传/查看</a></td>
                     <td>{remark}</td>
-                    <td><button class="btn btn-primary" type="button" name="editButton" onclick="bidEdit({id})">编辑</button>&nbsp;<button class="btn btn-success" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;<button class="btn btn-danger" type="button" name="deleteButton" onclick="bidDel({id})">删除</button></td>
+                    <td>
+                        <button class="btn btn-primary role" data-permission="1" type="button" name="editButton" onclick="bidEdit({id})">查看</button>&nbsp;
+                        <button class="btn btn-primary role" data-permission="65536" type="button" name="editButton" onclick="bidEdit({id})">编辑</button>&nbsp;
+                        <button class="btn btn-success role" data-permission="65536" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;
+                        <button class="btn btn-danger role" data-permission="65536" type="button" name="deleteButton" onclick="bidDel({id})">删除</button>
+                    </td>
                 </tr>
                 </tbody>
                 <tfoot>
@@ -197,16 +202,16 @@
             </div>
             <div class="actions">
                 <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
-                <a id="save" href="javascript:" class="btn btn-save"><i class="icon-save"></i> 保存</a>
+                <a id="save" href="javascript:" class="btn btn-save role" data-permission="65536"><i class="icon-save"></i> 保存</a>
             </div>
         </div>
         <div class="container mw-1400px">
-            <div id="titlebar">
+            <div id="titlebar" class="role" data-permission="65536">
                 <div class="heading">
                     <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 领导审批：</strong>
                 </div>
             </div>
-            <form id="approvalform" class="form-horizontal">
+            <form id="approvalform" class="form-horizontal role" data-permission="65536">
                 <div class="form-group">
                     <label for="depositApproval" class="col-sm-2">保证金审批</label>
                     <div class="col-md-8 col-sm-10">
@@ -280,7 +285,7 @@
                 </div>
                 <div class="form-group">
                     <label for="bidPrice" class="col-sm-2">招标价格</label>
-                    <div class="col-md-8 col-sm-10" id="bidPriceDiv">
+              lass="col-md-8 col-sm-10" id="bidPriceDiv">
                         <input type="text" class="form-control" id="bidPrice" name="bidPrice" placeholder="招标价格">
                         <span id="bidPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
                     </div>
@@ -316,7 +321,7 @@
                         <input type="text" class="form-control form-date" id="depositDeadline" name="depositDeadline" placeholder="保证金截止日期" readonly style="width: 100%; background-color: white; float: left;">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group role" data-permission="16">
                     <label for="depositRemitTime" class="col-sm-2">保证金汇出时间</label>
                     <div class="col-md-8 col-sm-10">
                         <input type="text" class="form-control form-date" id="depositRemitTime" name="depositRemitTime" placeholder="保证金汇出时间" readonly style="width: 100%; background-color: white; float: left;">
@@ -328,7 +333,7 @@
                         <input type="text" class="form-control form-date" id="bidOpenTime" name="bidOpenTime" placeholder="开标时间" readonly style="width: 100%; background-color: white; float: left;">
                     </div>
                 </div>
-                <div class="form-group" id="depositReturnTimeDiv">
+                <div class="form-gr      <div coup role" id="depositReturnTimeDiv" data-permission="16">
                     <label for="depositReturnTime" class="col-sm-2">保证金退回时间</label>
                     <div class="col-md-8 col-sm-10">
                         <input type="text" class="form-control form-date" id="depositReturnTime" name="depositReturnTime" placeholder="保证金退回时间" readonly style="width: 100%; background-color: white; float: left;">
@@ -429,6 +434,8 @@
 
             $("#bidPriceSum").html(bidPriceSum);
             $("#depositPriceSum").html(depositPriceSum);
+
+            loadPermission();
         }
     }).data('grid');
 
