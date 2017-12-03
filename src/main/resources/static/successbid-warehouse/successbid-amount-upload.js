@@ -14,6 +14,8 @@ $.ajax({
                 $('#uploadPicture' + file.businessType).data('zui.uploader').loadFile(file.id, file.name, file.path, '/../images/' + file.path);
             }
         }
+
+        $('.btn-delete-file').hide();
     },
     error: function(msg) {
         alert('上传失败');
