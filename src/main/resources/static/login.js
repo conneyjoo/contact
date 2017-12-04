@@ -8,6 +8,12 @@ $('#submit').click(function() {
         success: function(msg) {
             if (msg.status == 1) {
                 localStorage.setItem('level', msg.data.role.level);
+                var companyName = msg.data.companyName;
+                localStorage.setItem('companyName',companyName);
+                localStorage.rowType = 0;
+                if(companyName == "金舜借出投标" || companyName == "亚升借出投标"){
+                    localStorage.rowType = 1;
+                }
                 location.href = 'index.html';
             } else if (msg.status == -1) {
                 alert('用户名不正确');

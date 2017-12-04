@@ -64,7 +64,7 @@
 </head>
 <body>
     <header id="header">
-        <div id="topbar">
+        <span id="topbar">
             <div class="pull-right" id="topnav">
                 <div class="dropdown" style="margin-right: 20px;">
                     <a href="javascript:;" data-toggle="dropdown"><i class="icon-user"></i> <span class="caret"></span></a>
@@ -75,7 +75,7 @@
                 </div>
                 <a id="logout" href="javascript:;">退出</a>
             </div>
-            <h5 id="companyname">合同管理系统</h5>
+            <h5 id="companyname">投标管理系统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: greenyellow">当前登陆公司：<span id="companyName" style="color: greenyellow"></span></span></h5>
         </div>
 
         <nav id="mainmenu">
@@ -92,4 +92,7 @@
 
     <script src="index.js" type="text/javascript"></script>
 </body>
+<script>
+    $("#companyName").html(localStorage.getItem('companyName'));
+</script>
 </html>

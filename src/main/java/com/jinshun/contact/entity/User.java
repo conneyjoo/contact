@@ -34,6 +34,9 @@ public class User {
     private Role role;
 
     @Transient
+    private String companyName;
+
+    @Transient
     private Set<String> actions = new HashSet<String>();
 
     public Long getId() {
@@ -98,5 +101,13 @@ public class User {
 
     public void setActions(Set<String> actions) {
         this.actions = actions;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }
