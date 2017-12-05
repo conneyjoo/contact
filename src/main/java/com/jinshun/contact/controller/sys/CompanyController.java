@@ -6,6 +6,7 @@ import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.entity.Company;
 import com.jinshun.contact.service.sys.CompanyService;
 import com.jinshun.contact.service.sys.MenuService;
+import com.sun.net.httpserver.Authenticator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class CompanyController extends ControllerSupport {
     @Access(authorities = Authorities.LOGIN)
     public @ResponseBody Message select(Long id) {
         setCurrentCompany(companyService.get(id));
-        return SUCCESS;
+        Message message = new Message();
+        message.setSuccess(true);
+        message.setData(getCurrentCompany().getName());
+        return message;
     }
 }

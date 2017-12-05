@@ -64,6 +64,7 @@ $('#searchbtn').click(function() {
 $('#add').click(function() {
     successbidgrid.unSelected();
     showEditPanel();
+    $("#save").show();
     editform[0].reset();
 });
 
@@ -120,6 +121,9 @@ togglePanel = function() {
 }
 
 showEditPanel = function() {
+    if(localStorage.getItem("level")!=69905){
+        $("#save").hide();
+    }
     togglePanel();
     var row = successbidgrid.getSelected();
 
