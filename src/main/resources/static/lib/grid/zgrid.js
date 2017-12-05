@@ -45,6 +45,8 @@ $.fn.grid.defaults.template.pagination = '<div style="float: right; clear: none;
 $.fn.grid.defaults.prepagenum = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 100, 200, 500, 1000, 20000];
 
 $.fn.grid.Constructor.prototype.createSort = function() {
+	var self = this;
+
 	if (!this.sorted) {
         this.grid.prev().children().eq(0).children().each(function() {
             var el = $(this);
@@ -60,7 +62,7 @@ $.fn.grid.Constructor.prototype.createSort = function() {
                         el.removeClass('sort-down').addClass('sort-up');
                     }
 
-                    grid.load({sort: sort, direction: direction ? 'desc' : 'asc'});
+                    self.load({sort: sort, direction: direction ? 'desc' : 'asc'});
                 }).addClass('sort');
             }
         });
