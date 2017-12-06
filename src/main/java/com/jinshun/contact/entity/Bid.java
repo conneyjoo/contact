@@ -100,6 +100,9 @@ public class Bid {
     @Column(name = "first_applied")
     private Integer firstApplied;
 
+    //创建者
+    private String creator;
+
     public Long getId() {
         return id;
     }
@@ -274,5 +277,13 @@ public class Bid {
 
     public void setFirstApplied(Integer firstApplied) {
         this.firstApplied = firstApplied;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 }

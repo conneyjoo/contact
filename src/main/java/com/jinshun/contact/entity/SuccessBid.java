@@ -84,6 +84,9 @@ public class SuccessBid {
     @Transient
     private Integer contactPriceRange;
 
+    //创建者
+    private String creator;
+
     public Long getId() {
         return id;
     }
@@ -226,5 +229,13 @@ public class SuccessBid {
 
     public void setContactPriceRange(Integer contactPriceRange) {
         this.contactPriceRange = contactPriceRange;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 }

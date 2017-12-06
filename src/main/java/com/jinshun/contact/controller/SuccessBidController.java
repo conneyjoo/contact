@@ -43,6 +43,8 @@ public class SuccessBidController extends ControllerSupport {
 
         try {
             successBid.setCompany(getCurrentCompany());
+            if(successBid.getCreator()==null)
+                successBid.setCreator(getCurrentUser().getName());
             message.setData(successBidService.save(successBid));
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
