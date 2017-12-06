@@ -36,6 +36,8 @@ var successbidgrid = $('#successbidgrid').grid({
             children.eq(16).html('');
 
             loadPermission();
+
+            $("#backButton").hide();
         }
     }
 }).data('grid');
