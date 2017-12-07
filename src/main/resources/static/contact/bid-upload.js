@@ -22,7 +22,7 @@ $.ajax({
 
 var uploader = $('#uploadPicture').uploader({
     autoUpload: true,
-    chunk_size: 10485760,
+    chunk_size: 1048576000,
     url: '/uploadTmp',
     deleteActionOnDone: function(file, doRemoveFile) {
         $.ajax({

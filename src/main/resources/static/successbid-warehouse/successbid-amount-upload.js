@@ -25,7 +25,7 @@ $.ajax({
 for (var i = 9; i <= 11; i++) {
     $('#uploadPicture' + i).uploader({
         autoUpload: true,
-        chunk_size: 10485760,
+        chunk_size: 1048576000,
         url: '/uploadTmp',
         deleteActionOnDone: function(file, doRemoveFile) {
         },

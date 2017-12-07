@@ -38,7 +38,7 @@ public class UploadSupport extends ControllerSupport {
 		File file = new File(dir, UUID.randomUUID().toString() + "." + FileUtils.getFileSuffixName(mfile.getOriginalFilename()));
 		mfile.transferTo(file);
 
-		String cmd = String.format("xcopy %s \\\\%s\\contact\\upload\\%s\\", file.getPath(), backServer, now);
+		String cmd = String.format("xcopy %s \\\\%s\\%s\\", file.getPath(), backServer, now);
 		Runtime.getRuntime().exec(cmd);
 
 		Map<String, String> map = new HashMap<String, String>();

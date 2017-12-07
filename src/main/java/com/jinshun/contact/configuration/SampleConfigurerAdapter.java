@@ -2,7 +2,10 @@ package com.jinshun.contact.configuration;
 
 import com.jinshun.contact.auth.AuthInterceptor;
 import com.jinshun.contact.constant.Environment;
+import com.jinshun.contact.controller.BidController;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -26,6 +29,8 @@ import java.util.Map;
 @Configuration
 @ServletComponentScan
 public class SampleConfigurerAdapter extends WebMvcConfigurerAdapter {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BidController.class);
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -74,7 +79,9 @@ public class SampleConfigurerAdapter extends WebMvcConfigurerAdapter {
             list.add(String.format("('%s', '%s')", action, action));
         }
 
-        System.out.println("insert into t_action (name, method) values " + StringUtils.join(list, ",\n"));
+        if (LOGGER.isInfoEnabled()) {
+            System.out.println("insert into t_action (name, method) values " + StringUtils.join(list, ",\n"));
+        }
         return list;
     }
 }
