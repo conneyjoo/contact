@@ -622,6 +622,20 @@
             data.bidOpenResult = 2;
         }
 
+        var firstApplied = 0;
+        if(editId!=null){
+            $.ajax({
+                type: 'GET',
+                url: '/bid/getFirstApplied',
+                data: {"id":editId},
+                async:false,
+                success : function(msg) {
+                    firstApplied = msg.data;
+                }
+            });
+        }
+        data.firstApplied = firstApplied;
+
         $.ajax({
             type: 'GET',
             url: '/bid/saveOrUpdate',

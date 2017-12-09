@@ -46,15 +46,19 @@ public class BidController extends ControllerSupport {
         if (bid.getInWarehouse() == null)
             bid.setInWarehouse(0);
 
+        if(bid.getFirstApplied() == null)
+            bid.setFirstApplied(0);
+
         if(bid.getCreator()==null){
             bid.setCreator(getCurrentUser().getName());
         }
 
         //如果是第一次置为中标
         if(bid.getBidOpenResult() == 1){
-            if(bid.getId()!=null && bidService.getById(bid.getId()).getFirstApplied()==0){
+            if(bid.getFirstApplied()==0){
                 SuccessBid successBid = new SuccessBid();
                 successBid.setCompany(getCurrentCompany());
+                successBid.setName(bid.getName());
                 successBid.setArea(bid.getArea());
                 successBid.setType(bid.getType());
                 successBid.setPrincipal(bid.getPrincipal());
@@ -69,6 +73,21 @@ public class BidController extends ControllerSupport {
         if(bid.getFirstApplied() == null)
             bid.setFirstApplied(0);
         return bidService.saveOrUpdate(bid);
+    }
+
+    @RequestMapping("getFirstApplied")
+    @Access()
+    public @ResponseBody
+    Message getFirstApplied(Long id) {
+        Message message = new Message();
+        try {
+            Bid bid = bidService.getById(id);
+            message.setData(bid.getFirstApplied());
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            message.setSuccess(false);
+        }
+        return message;
     }
 
     @RequestMapping("submit")
