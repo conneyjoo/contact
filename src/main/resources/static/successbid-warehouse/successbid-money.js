@@ -12,6 +12,40 @@ var successbidmoneygrid = $('#successbidmoneygrid').grid({
     autoload: true,
     setData: function (data) {
         data.successBid = {id: data.successBidId};
+    },
+    afterLoad: function(data) {
+        if (!data || data.length == 0) return;
+
+        var totalData = {
+            profit: 0,
+            ticketOpenNinTax: 0,
+            ticketOpenTax: 0,
+            ticketOpenAmount: 0,
+            collectedAmount: 0,
+            paymentAmount: 0,
+            taxBillNinTax: 0,
+            taxBillTax: 0,
+            paymentAmount: 0,
+            taxBillAmount: 0,
+            normalBillAmount: 0,
+            payrollAmount: 0
+        };
+
+        for (var i = 0, len = data.length; i < len; i++) {
+            for (var p in totalData) {
+                totalData[p] += data[i][p];
+            }
+        }
+
+        for (var p in totalData) {
+            totalData[p] = '<b style="color: red;">' + totalData[p] + '</b>';
+        }
+
+        var children = this.append(totalData).children();
+        children.eq(0).html('<span style="color:red;font-weight: bold">金额合计</span>');
+        children.eq(23).html('');
+
+        loadPermission();
     }
 }).data('grid');
 

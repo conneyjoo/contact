@@ -18,10 +18,18 @@ initMenu = function () {
             $('.menu').click(function() {
                 var el = $(this);
                 var url = el.data('url');
+                localStorage.setItem('access-url', url);
 
                 $('.menu').each(function() { $(this).parent().removeClass('active'); });
                 el.parent().addClass("active");
                 content.attr('src', url);
+            });
+
+            accessUrl = localStorage.getItem('access-url') || 'contact/bid.html';
+
+            $('.menu').each(function() {
+                var el = $(this);
+                if (el.data('url') == accessUrl) el.click();
             });
         },
         error: function(msg) {

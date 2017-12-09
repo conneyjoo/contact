@@ -12,33 +12,30 @@ var successbidgrid = $('#successbidgrid').grid({
     setData: function (data) {
     },
     afterLoad: function(data) {
-        if (data.length > 0) {
-            var totalData = {contactPrice: 0, judgementPrice: 0, managementCost: 0, premiumCost: 0};
+        if (!data || data.length == 0) return;
 
-            for (var i = 0, len = data.length; i < len; i++) {
-                totalData.contactPrice += data[i].contactPrice;
-                totalData.judgementPrice += data[i].judgementPrice;
-                totalData.managementCost += data[i].managementCost;
-                totalData.premiumCost += data[i].premiumCost;
+        var totalData = {contactPrice: 0, judgementPrice: 0, managementCost: 0, premiumCost: 0};
+
+        for (var i = 0, len = data.length; i < len; i++) {
+            for (var p in totalData) {
+                totalData[p] += data[i][p];
             }
-
-            totalData.contactPrice = '<b style="color: red;">' + totalData.contactPrice + '</b>';
-            totalData.judgementPrice = '<b style="color: red;">' + totalData.judgementPrice + '</b>';
-            totalData.managementCost = '<b style="color: red;">' + totalData.managementCost + '</b>';
-            totalData.premiumCost = '<b style="color: red;">' + totalData.premiumCost + '</b>';
-
-            var children = this.append(totalData).children();
-            children.eq(0).html('<span style="color:red;font-weight: bold">金额合计</span>');
-            children.eq(10).html('');
-            children.eq(10).html('');
-            children.eq(13).html('');
-            children.eq(14).html('');
-            children.eq(16).html('');
-
-            loadPermission();
-
-            $("#backButton").hide();
         }
+
+        for (var p in totalData) {
+            totalData[p] = '<b style="color: red;">' + totalData[p] + '</b>';
+        }
+
+        var children = this.append(totalData).children();
+        children.eq(0).html('<span style="color:red;font-weight: bold">金额合计</span>');
+        children.eq(10).html('');
+        children.eq(10).html('');
+        children.eq(13).html('');
+        children.eq(14).html('');
+        children.eq(16).html('');
+        children.eq(17).html('');
+
+        loadPermission();
     }
 }).data('grid');
 

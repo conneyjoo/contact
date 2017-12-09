@@ -6,6 +6,7 @@ import com.jinshun.contact.entity.User;
 import com.jinshun.contact.service.common.CommonService;
 import com.jinshun.contact.util.ConditionUtils;
 import com.jinshun.contact.util.SQLString;
+import com.jinshun.contact.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.transaction.Transactional;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -57,6 +61,17 @@ public class SuccessBidService extends CommonService {
     }
 
     public void remove(SuccessBid successBid) {
+        List<Map<String, Object>> files = (List<Map<String, Object>>) find("select path from t_file where success_bid_id = ?", successBid.getId());
+
+        for (Map<String, Object> file : files) {
+            try {
+                FileUtils.forceDelete(new File(file.get("path").toString()));
+            } catch (IOException e) {
+                LOGGER.error("file not exsits {}", file.get("path").toString());
+            }
+        }
+
+        executeUpdate("delete from t_file where success_bid_id = ?", successBid.getId());
         executeUpdate("delete from t_success_bid_money where success_bid_id = ?", successBid.getId());
         successBidRepository.delete(successBid);
     }

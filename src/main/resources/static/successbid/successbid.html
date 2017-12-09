@@ -139,9 +139,9 @@
                     <td>{creator}</td>
                     <td>{remark}</td>
                     <td>
-                        <a href="javascript: showEditPanel()" id="editButton{id}" class="btn btn-primary role" data-permission="1">查看</a>&nbsp;
-                        <a href="javascript: entrystorage()" id="subButton{id}" class="btn btn-success role" data-permission="65536">入库</a>&nbsp;
-                        <a href="javascript: removeRow()" id="delButton{id}" class="btn btn-danger role" data-permission="65536">删除</a>
+                        <a href="javascript: showEditPanel()" class="btn btn-primary role" data-permission="1">查看</a>&nbsp;
+                        <a href="javascript: entrystorage()" class="btn btn-success role" data-permission="65536">入库</a>&nbsp;
+                        <a href="javascript: removeRow()" class="btn btn-danger role" data-permission="65536">删除</a>
                     </td>
                 </tr>
                 </tbody>
@@ -174,56 +174,56 @@
                 <input type="text" class="form-control empty" id="inWarehouse" name="inWarehouse" value="0" style="display: none;">
 
                 <div class="form-group">
+                    <div class="col-sm-12">
+                        <label>项目名称</label>
+                        <textarea id="name" name="name" class="form-control" placeholder="工程名称" cols="50" style="width:100%;"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>工程类型</label>
+                        <input type="text" class="form-control" name="type" placeholder="工程类型">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>订立时间</label>
+                        <input type="text" class="form-control form-date" name="concludeTime" placeholder="订立时间" readonly style="width: 100%; background-color: white; float: left;">
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-6">
                         <label>区域</label>
                         <input type="text" class="form-control" name="area" placeholder="区域">
                     </div>
                     <div class="col-sm-6">
-                        <label>工程类型</label>
-                        <input type="text" class="form-control" name="type" placeholder="工程类型">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>订立时间</label>
-                        <input type="text" class="form-control form-date" name="concludeTime" placeholder="订立时间" readonly style="width: 100%; background-color: white; float: left;">
-                    </div>
-                    <div class="col-sm-6">
-                        <label>项目名称</label>
-                        <input type="text" class="form-control" name="name" placeholder="项目名称">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
                         <label>工期</label>
                         <input type="text" class="form-control" name="timeLimit" placeholder="工期">
                     </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-6">
                         <label>合同价</label>
                         <input type="text" class="form-control numberField" name="contactPrice" placeholder="合同价">
                     </div>
-                </div>
-                <div class="form-group">
                     <div class="col-sm-6">
                         <label>审定价</label>
                         <input type="text" class="form-control numberField" name="judgementPrice" placeholder="审定价">
                     </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-6">
                         <label>建造师</label>
                         <input type="text" class="form-control" name="constructer" placeholder="建造师">
                     </div>
-                </div>
-                <div class="form-group">
                     <div class="col-sm-6">
                         <label>分包负责人</label>
                         <input type="text" class="form-control" name="principal" placeholder="分包负责人">
                     </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-6">
                         <label>净管理费及所得税</label>
                         <input type="text" class="form-control" name="managementCost" placeholder="净管理费及所得税">
                     </div>
-                </div>
-                <div class="form-group">
                     <div class="col-sm-6">
                         <label>工程保险费</label>
                         <input type="text" class="form-control numberField" name="premiumCost" placeholder="工程保险费">
@@ -232,7 +232,7 @@
                 <div class="form-group">
                     <div class="col-sm-12">
                         <label>备注</label>
-                        <input type="text" class="form-control empty" name="remark" placeholder="备注">
+                        <textarea name="remark" class="form-control empty" placeholder="备注" cols="50" style="width:100%;"></textarea>
                     </div>
                 </div>
             </form>
