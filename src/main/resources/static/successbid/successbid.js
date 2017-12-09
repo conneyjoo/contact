@@ -169,3 +169,5 @@ entrystorage = function() {
         }
     }
 }
+
+$('#editouter').height(window.screen.availHeight - 175);
