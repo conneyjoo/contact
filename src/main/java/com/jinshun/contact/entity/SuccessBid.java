@@ -56,7 +56,7 @@ public class SuccessBid {
 
     //管理费及所得税
     @Column(name = "management_cost")
-    private Integer managementCost;
+    private String managementCost;
 
     //工程保险费
     @Column(name = "premium_cost")
@@ -175,11 +175,11 @@ public class SuccessBid {
         this.principal = principal;
     }
 
-    public Integer getManagementCost() {
+    public String getManagementCost() {
         return managementCost;
     }
 
-    public void setManagementCost(Integer managementCost) {
+    public void setManagementCost(String managementCost) {
         this.managementCost = managementCost;
     }
 
