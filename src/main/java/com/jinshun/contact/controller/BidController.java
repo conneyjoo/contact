@@ -61,7 +61,7 @@ public class BidController extends ControllerSupport {
                 successBid.setName(bid.getName());
                 successBid.setArea(bid.getArea());
                 successBid.setType(bid.getType());
-                successBid.setPrincipal(bid.getPrincipal());
+                successBid.setPrincipal(bid.getCreator());
                 successBid.setConstructer(bid.getConstructor());
                 successBid.setInWarehouse(0);
                 successBid.setCreator(bid.getCreator());
