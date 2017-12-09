@@ -13,6 +13,8 @@ public class BidQueryModel {
 
     private String name;
 
+    private String area;
+
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date apply_date_min;
 
@@ -30,6 +32,14 @@ public class BidQueryModel {
 
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date bid_open_time_max;
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
 
     public Long getCompanyId() {
         return companyId;

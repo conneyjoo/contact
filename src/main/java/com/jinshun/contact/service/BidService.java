@@ -60,6 +60,10 @@ public class BidService extends CommonService {
         if( (model.getBid_open_time_min()!=null && model.getBid_open_time_max()!=null) && (model.getBid_open_time_min().getTime() != model.getBid_open_time_max().getTime()))
             sql.addCondition("and t.bid_open_time <= ?", model.getBid_open_time_max());
 
+        if (ConditionUtils.checkNullOrBlank(model.getArea())) {
+            sql.append(" and t.area like '%" + model.getArea() + "%'");
+        }
+
         sql.addCondition("and t.in_warehouse = ?", inWarehouse);
         sort = StringUtils.isEmpty(sort) ? "id" : sort;
         direction = StringUtils.isEmpty(direction) ? "desc" : direction;
