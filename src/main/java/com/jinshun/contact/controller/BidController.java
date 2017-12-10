@@ -49,8 +49,10 @@ public class BidController extends ControllerSupport {
         if(bid.getFirstApplied() == null)
             bid.setFirstApplied(0);
 
-        if(bid.getCreator()==null){
+        if(bid.getId() ==null){
             bid.setCreator(getCurrentUser().getName());
+        }else if(bid.getPrincipal() == null || bid.getPrincipal().length()==0){
+            bid.setPrincipal(getCurrentUser().getName());
         }
 
         //如果是第一次置为中标
@@ -61,7 +63,6 @@ public class BidController extends ControllerSupport {
                 successBid.setName(bid.getName());
                 successBid.setArea(bid.getArea());
                 successBid.setType(bid.getType());
-                successBid.setPrincipal(bid.getCreator());
                 successBid.setConstructer(bid.getConstructor());
                 successBid.setInWarehouse(0);
                 successBid.setCreator(bid.getCreator());

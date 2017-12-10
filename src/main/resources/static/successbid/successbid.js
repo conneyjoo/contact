@@ -81,18 +81,6 @@ $('#back').click(function() {
 $('#save').click(function() {
     var data = editform.serializeObject();
 
-    for (var p in data) {
-        if (!data[p]) {
-            var input = $('input[name="' + p + '"]');
-
-            if (input.hasClass('empty')) continue;
-
-            alert(input.attr('placeholder') + '不能为空');
-            input.focus();
-            return;
-        }
-    }
-
     $.ajax({
         type: 'POST',
         url: '/successbid/save',
