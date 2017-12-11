@@ -398,6 +398,8 @@
         });
 
     clearSum = function () {
+        $("#bidPriceSum").html(bidPriceSum);
+        $("#depositPriceSum").html(depositPriceSum);
         bidPriceSum = 0;
         depositPriceSum = 0;
         loadPermission();
@@ -440,11 +442,10 @@
                 data.warningColor = "#ff0800";
             }
 
-            bidPriceSum = bidPriceSum + data.bidPrice;
-            depositPriceSum = depositPriceSum + data.depositPrice;
-
-            $("#bidPriceSum").html(bidPriceSum);
-            $("#depositPriceSum").html(depositPriceSum);
+            if(data!=null){
+                bidPriceSum = bidPriceSum + data.bidPrice;
+                depositPriceSum = depositPriceSum + data.depositPrice;
+            }
         }
     }).data('grid');
 
