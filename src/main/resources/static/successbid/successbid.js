@@ -135,12 +135,14 @@ showEditPanel = function() {
 
                 if (row[p]) {
                     input.attr('readonly', '');
-
                     if (input.hasClass('form-date')) {
                         input.prop('disabled', true);
                     }
                 } else {
                     input.removeAttr('readonly');
+                    if (input.hasClass('form-date')) {
+                        input.removeAttr('disabled');
+                    }
                 }
             }
         }
