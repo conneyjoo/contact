@@ -14,7 +14,7 @@ var successbidgrid = $('#successbidgrid').grid({
     afterLoad: function(data) {
         if (!data || data.length == 0) return;
 
-        var totalData = {contactPrice: 0, judgementPrice: 0,premiumCost: 0};
+        var totalData = {contactPrice: 0, judgementPrice: 0, managementCost: 0, premiumCost: 0};
 
         for (var i = 0, len = data.length; i < len; i++) {
             for (var p in totalData) {
@@ -66,6 +66,8 @@ $('#add').click(function() {
     showEditPanel();
     $("#save").show();
     editform[0].reset();
+    editform.find(':input').removeAttr('readonly');
+    $(".form-date", editform).removeAttr('disabled');
 });
 
 $('#removeRow').click(function() {
@@ -109,14 +111,39 @@ togglePanel = function() {
 }
 
 showEditPanel = function() {
-    if(localStorage.getItem("level")!=69905){
-        $("#save").hide();
-    }
     togglePanel();
+
     var row = successbidgrid.getSelected();
 
     if (row && row.id) {
         editform.loadForm(row);
+
+        if (localStorage.getItem('level') != 69905) {
+            var flag = false;
+
+            editform.find(':input').each(function() {
+                if (!$(this).val()) {
+                    flag = true;
+                }
+            });
+
+            if (flag) $('#save').show();
+            else $('#save').hide();
+
+            for (var p in row) {
+                var input = $('input[name=' + p + ']', editform);
+
+                if (row[p]) {
+                    input.attr('readonly', '');
+
+                    if (input.hasClass('form-date')) {
+                        input.prop('disabled', true);
+                    }
+                } else {
+                    input.removeAttr('readonly');
+                }
+            }
+        }
     }
 }
 
