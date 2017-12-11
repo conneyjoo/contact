@@ -41,7 +41,7 @@ initMenu = function () {
 content.load(function() {
     var height = window.screen.availHeight - 175;
     $(content[0].contentDocument.body).height(height);
-    content.height(height);
+    content.height(height+2000);
     loadPermission(content[0].contentDocument.body);
 });
 

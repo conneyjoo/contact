@@ -111,7 +111,7 @@
                 </form>
             </div>
         </div>
-        <div style="width: 100%; overflow-y: scroll;">
+        <div style="width: 100%; overflow: scroll;">
             <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
                 <thead>
                 <tr>
@@ -636,7 +636,6 @@
     $("#add").click(function(){
         $("#save").show();
         togglePanel();
-        $("#depositReturnTimeDiv").hide();
         editId = null;
         $("#editform").find(':input').removeAttr('readonly');
         $(".form-date", $("#editform")).datetimepicker({
