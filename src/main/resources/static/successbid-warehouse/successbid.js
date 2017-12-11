@@ -14,7 +14,7 @@ var successbidgrid = $('#successbidgrid').grid({
     afterLoad: function(data) {
         if (!data || data.length == 0) return;
 
-        var totalData = {contactPrice: 0, judgementPrice: 0, managementCost: 0, premiumCost: 0};
+        var totalData = {contactPrice: 0, judgementPrice: 0, premiumCost: 0};
 
         for (var i = 0, len = data.length; i < len; i++) {
             for (var p in totalData) {

@@ -42,8 +42,8 @@ var successbidmoneygrid = $('#successbidmoneygrid').grid({
         }
 
         var children = this.append(totalData).children();
-        children.eq(0).html('<span style="color:red;font-weight: bold">金额合计</span>');
-        children.eq(23).html('');
+        children.eq(0).html('<span style="color:red;font-weight: bold">合计</span>');
+        children.eq(35).html('');
 
         loadPermission();
     }
