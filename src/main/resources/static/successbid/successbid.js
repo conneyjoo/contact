@@ -67,6 +67,7 @@ $('#add').click(function() {
     $("#save").show();
     editform[0].reset();
     editform.find(':input').removeAttr('readonly');
+    $(".form-date", editform).removeAttr('disabled');
 });
 
 $('#removeRow').click(function() {
@@ -117,23 +118,30 @@ showEditPanel = function() {
     if (row && row.id) {
         editform.loadForm(row);
 
-        var flag = false;
+        if (localStorage.getItem('level') != 69905) {
+            var flag = false;
 
-        editform.find(':input').each(function() {
-            if (!$(this).val()) {
-                flag = true;
-            }
-        });
+            editform.find(':input').each(function() {
+                if (!$(this).val()) {
+                    flag = true;
+                }
+            });
 
-        if (flag) $('#save').show();
-        else $('#save').hide();
+            if (flag) $('#save').show();
+            else $('#save').hide();
 
-        for (var p in row) {
-            if (row[p]) {
-                $('input[name=' + p + ']', editform).attr('readonly', '');
-            } else {
-                $('input[name=' + p + ']', editform).removeAttr('readonly');
-                flag = true;
+            for (var p in row) {
+                var input = $('input[name=' + p + ']', editform);
+
+                if (row[p]) {
+                    input.attr('readonly', '');
+
+                    if (input.hasClass('form-date')) {
+                        input.prop('disabled', true);
+                    }
+                } else {
+                    input.removeAttr('readonly');
+                }
             }
         }
     }
