@@ -14,7 +14,7 @@ var successbidgrid = $('#successbidgrid').grid({
     afterLoad: function(data) {
         if (!data || data.length == 0) return;
 
-        var totalData = {contactPrice: 0, judgementPrice: 0,premiumCost: 0};
+        var totalData = {contactPrice: 0, judgementPrice: 0, managementCost: 0, premiumCost: 0};
 
         for (var i = 0, len = data.length; i < len; i++) {
             for (var p in totalData) {
@@ -66,6 +66,7 @@ $('#add').click(function() {
     showEditPanel();
     $("#save").show();
     editform[0].reset();
+    editform.find(':input').removeAttr('readonly');
 });
 
 $('#removeRow').click(function() {
@@ -109,14 +110,32 @@ togglePanel = function() {
 }
 
 showEditPanel = function() {
-    if(localStorage.getItem("level")!=69905){
-        $("#save").hide();
-    }
     togglePanel();
+
     var row = successbidgrid.getSelected();
 
     if (row && row.id) {
         editform.loadForm(row);
+
+        var flag = false;
+
+        editform.find(':input').each(function() {
+            if (!$(this).val()) {
+                flag = true;
+            }
+        });
+
+        if (flag) $('#save').show();
+        else $('#save').hide();
+
+        for (var p in row) {
+            if (row[p]) {
+                $('input[name=' + p + ']', editform).attr('readonly', '');
+            } else {
+                $('input[name=' + p + ']', editform).removeAttr('readonly');
+                flag = true;
+            }
+        }
     }
 }
 
