@@ -77,6 +77,18 @@ $('#add').click(function() {
     showEditPanel();
     editform[0].reset();
     $('#successBidId').val(successBidId);
+    editform.find(':input').removeAttr('readonly');
+    $(".form-date", editform).datetimepicker({
+        language: 'zh-cn',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        format: 'yyyy-mm-dd'
+    });
 });
 
 $('#removeRow').click(function() {
@@ -137,6 +149,45 @@ showEditPanel = function() {
     if (row) {
         editform.loadForm(row);
         $('#successBidId').val(successBidId);
+
+        if (localStorage.getItem('level') != 69905) {
+            var flag = false;
+
+            editform.find(':input').each(function() {
+                if (!$(this).val()) {
+                    flag = true;
+                }
+            });
+
+            if (flag) $('#save').show();
+            else $('#save').hide();
+
+            for (var p in row) {
+                var input = $('input[name=' + p + ']', editform);
+
+                if (row[p]) {
+                    input.attr('readonly', '');
+                    if (input.hasClass('form-date')) {
+                        input.datetimepicker('remove');
+                    }
+                } else {
+                    input.removeAttr('readonly');
+                    if (input.hasClass('form-date')) {
+                        input.datetimepicker({
+                            language: 'zh-cn',
+                            weekStart: 1,
+                            todayBtn: 1,
+                            autoclose: 1,
+                            todayHighlight: 1,
+                            startView: 2,
+                            minView: 2,
+                            forceParse: 0,
+                            format: 'yyyy-mm-dd'
+                        });
+                    }
+                }
+            }
+        }
     }
 }
 

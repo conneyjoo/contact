@@ -67,7 +67,17 @@ $('#add').click(function() {
     $("#save").show();
     editform[0].reset();
     editform.find(':input').removeAttr('readonly');
-    $(".form-date", editform).removeAttr('disabled');
+    $(".form-date", editform).datetimepicker({
+        language: 'zh-cn',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        format: 'yyyy-mm-dd'
+    });
 });
 
 $('#removeRow').click(function() {
@@ -136,12 +146,22 @@ showEditPanel = function() {
                 if (row[p]) {
                     input.attr('readonly', '');
                     if (input.hasClass('form-date')) {
-                        input.prop('disabled', true);
+                        input.datetimepicker('remove');
                     }
                 } else {
                     input.removeAttr('readonly');
                     if (input.hasClass('form-date')) {
-                        input.removeAttr('disabled');
+                        input.datetimepicker({
+                            language: 'zh-cn',
+                            weekStart: 1,
+                            todayBtn: 1,
+                            autoclose: 1,
+                            todayHighlight: 1,
+                            startView: 2,
+                            minView: 2,
+                            forceParse: 0,
+                            format: 'yyyy-mm-dd'
+                        });
                     }
                 }
             }
