@@ -18,7 +18,7 @@ var successbidgrid = $('#successbidgrid').grid({
 
         for (var i = 0, len = data.length; i < len; i++) {
             for (var p in totalData) {
-                totalData[p] += data[i][p];
+                totalData[p] += data[i][p] || 0;
             }
         }
 
