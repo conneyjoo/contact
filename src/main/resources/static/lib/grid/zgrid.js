@@ -42,7 +42,7 @@ $.fn.grid.Constructor.prototype.createPrePageButton = function(pagination, grid)
 }
 
 $.fn.grid.defaults.template.pagination = '<div style="float: right; clear: none;" class="pager form-inline">';
-$.fn.grid.defaults.prepagenum = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 100, 200, 500, 1000, 20000];
+$.fn.grid.defaults.prepagenum = [5, 10, 15, 20, 25, 30];
 
 $.fn.grid.Constructor.prototype.createSort = function() {
 	var self = this;
