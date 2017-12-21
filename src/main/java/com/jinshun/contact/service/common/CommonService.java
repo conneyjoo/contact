@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class CommonService {
 
-    private static final int DEFAULT_PAGE_SIZE = 50;
+    private static final int DEFAULT_PAGE_SIZE = 10;
 
     @Autowired
     @PersistenceContext

@@ -2,7 +2,7 @@ $.fn.grid.Constructor.prototype.createPagination = function() {
 	this.createSort();
 
     this.params.curPage = this.params.curPage || 0;
-    this.params.pageSize = this.params.pageSize || 50;
+    this.params.pageSize = this.params.pageSize || 10;
 	var pagination = $(this.template.pagination);
 	
 	this.createPrePageButton(pagination, this);
