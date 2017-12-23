@@ -53,6 +53,7 @@ public class UserController extends ControllerSupport {
                 role.setId((long)1);
                 User admin = new User();
                 setCurrentCompany(companyService.get(1L));
+                admin.setCompanyName(getCurrentCompany().getName());
                 admin.setRole(role);
                 setCurrentUser(admin);
                 message.setData(admin);
