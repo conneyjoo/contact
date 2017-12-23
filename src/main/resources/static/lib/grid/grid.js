@@ -29,6 +29,7 @@
 			if (this.grid.hasClass('grid')) this.grid.show();
 			this.clean();
 			this.initColumn();
+            this.getHistoryParams();
 			
 			if (this.datas)
 				this.loadData(this.datas);
@@ -376,6 +377,8 @@
 				data: this.params,
 				async: this.async,
 				success: function(msg) {
+                    if (!msg || msg.length == 0) return
+
 					self.data = msg;
 					self.clean();
 					self.render(msg);
@@ -386,6 +389,9 @@
 						callback();
 					if (self.grid.hideLoading) 
 						self.grid.hideLoading()
+
+					self.setHistoryParams();
+                    self.getHistorySelected();
 				},
 				error: function(e) {
 					if (self.loadFailure) 
@@ -460,7 +466,9 @@
 				grid.selectRow.removeClass('active');
 			
 			el.addClass('active');
-			grid.selectRow = el
+			grid.selectRow = el;
+
+            grid.setHistorySelected();
 		},
 		
 		onRowDoubleClick: function(e) {
@@ -507,8 +515,31 @@
 		
 		isBind: function(eventName) {
 			return this.grid.data('events')[eventName]
-		}
-		
+		},
+
+		setHistoryParams: function() {
+            localStorage.setItem(this.grid[0].baseUR + '-grid.params', JSON.stringify(this.params));
+        },
+
+        getHistoryParams: function() {
+            var params = localStorage.getItem(this.grid[0].baseUR + '-grid.params');
+
+            if (params) {
+                $.extend(this.params, JSON.parse(params));
+			}
+        },
+
+        setHistorySelected: function() {
+            localStorage.setItem(this.grid[0].baseUR + '-grid.selected', this.selected.rowIndex);
+        },
+
+        getHistorySelected: function() {
+            var selectedIndex = localStorage.getItem(this.grid[0].baseUR + '-grid.selected');
+
+            if (selectedIndex) {
+            	this.rows[selectedIndex - 1].click();
+            }
+        }
 	};
 	
 	$.fn.grid = function(option) {
