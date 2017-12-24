@@ -121,10 +121,10 @@
                     <th width="5%" data-sort="pub_date" class="flex-col">信息发布时间</th>
                     <th width="5%" data-sort="name" class="flex-col">工程名称</th>
                     <th width="5%" data-sort="type" class="flex-col">工程类型</th>
-                    <th width="5%" data-sort="bid_price" class="flex-col">招标价格</th>
+                    <th width="5%" data-sort="bid_price" class="flex-col">招标价格(万元)</th>
                     <th width="5%" data-sort="bid_price" class="flex-col">报名时间</th>
                     <th width="5%" data-sort="constructor" class="flex-col">建造师</th>
-                    <th width="5%" data-sort="deposit_price" class="flex-col">投标保证金数额</th>
+                    <th width="5%" data-sort="deposit_price" class="flex-col">保证金(万元)</th>
                     <th width="8%" data-sort="borrower_import_time" class="flex-col borrower">借用人保证金汇入时间</th>
                     <th width="5%" data-sort="deposit_deadline" class="flex-col">保证金截止日期</th>
                     <th width="5%" data-sort="deposit_approval" class="flex-col">交保证金审批</th>
@@ -293,7 +293,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="bidPrice" class="col-sm-2">招标价格</label>
+                    <label for="bidPrice" class="col-sm-2">招标价格(万元)</label>
                     <div class="col-md-8 col-sm-10" id="bidPriceDiv">
                         <input type="text" class="form-control" id="bidPrice" name="bidPrice" placeholder="招标价格">
                         <span id="bidPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
@@ -312,7 +312,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="depositPrice" class="col-sm-2">投标保证金数额</label>
+                    <label for="depositPrice" class="col-sm-2">投标保证金数额(万元)</label>
                     <div class="col-md-8 col-sm-10" id="depositPriceDiv">
                         <input type="text" class="form-control" id="depositPrice" name="depositPrice" placeholder="投标保证金数额">
                         <span id="depositPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
@@ -750,7 +750,7 @@
     //数字校验
     $("#bidPrice").keyup(function(){
         var c=$(this);
-        if(/[^\d]/.test(c.val())){//替换非数字字符
+        if(/[^\d]/.test(c.val()) && !/^\d+\.\d+$/.test(c.val())){//替换非数字字符
             $("#bidPriceWarning").show();
             $("#bidPriceDiv").attr("class","col-md-8 col-sm-10 has-error");
         }else{
@@ -760,7 +760,7 @@
     })
     $("#depositPrice").keyup(function(){
         var c=$(this);
-        if(/[^\d]/.test(c.val())){//替换非数字字符
+        if(/[^\d]/.test(c.val()) && !/^\d+\.\d+$/.test(c.val())){//替换非数字字符
             $("#depositPriceWarning").show();
             $("#depositPriceDiv").attr("class","col-md-8 col-sm-10 has-error");
         }else{

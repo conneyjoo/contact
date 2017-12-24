@@ -36,7 +36,7 @@ public class Bid {
 
     //招标价格
     @Column(name = "bid_price")
-    private Integer bidPrice;
+    private Double bidPrice;
 
     //报名时间
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -48,7 +48,7 @@ public class Bid {
 
     //保证金
     @Column(name = "deposit_price")
-    private Integer depositPrice;
+    private Double depositPrice;
 
     //保证金截止日期
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -143,11 +143,11 @@ public class Bid {
         this.type = type;
     }
 
-    public Integer getBidPrice() {
+    public Double getBidPrice() {
         return bidPrice;
     }
 
-    public void setBidPrice(Integer bidPrice) {
+    public void setBidPrice(Double bidPrice) {
         this.bidPrice = bidPrice;
     }
 
@@ -167,11 +167,11 @@ public class Bid {
         this.constructor = constructor;
     }
 
-    public Integer getDepositPrice() {
+    public Double getDepositPrice() {
         return depositPrice;
     }
 
-    public void setDepositPrice(Integer depositPrice) {
+    public void setDepositPrice(Double depositPrice) {
         this.depositPrice = depositPrice;
     }
 

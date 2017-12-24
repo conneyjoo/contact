@@ -40,11 +40,11 @@ public class SuccessBid {
 
     //合同价
     @Column(name = "contact_price")
-    private Integer contactPrice;
+    private Double contactPrice;
 
     //审定价
     @Column(name = "judgement_price")
-    private Integer judgementPrice;
+    private Double judgementPrice;
 
     //建造师
     @Column(name = "constructer")
@@ -60,7 +60,7 @@ public class SuccessBid {
 
     //工程保险费
     @Column(name = "premium_cost")
-    private Integer premiumCost;
+    private Double premiumCost;
 
     //备注
     @Column(name = "remark")
@@ -143,19 +143,19 @@ public class SuccessBid {
         this.timeLimit = timeLimit;
     }
 
-    public Integer getContactPrice() {
+    public Double getContactPrice() {
         return contactPrice;
     }
 
-    public void setContactPrice(Integer contactPrice) {
+    public void setContactPrice(Double contactPrice) {
         this.contactPrice = contactPrice;
     }
 
-    public Integer getJudgementPrice() {
+    public Double getJudgementPrice() {
         return judgementPrice;
     }
 
-    public void setJudgementPrice(Integer judgementPrice) {
+    public void setJudgementPrice(Double judgementPrice) {
         this.judgementPrice = judgementPrice;
     }
 
@@ -183,11 +183,11 @@ public class SuccessBid {
         this.managementCost = managementCost;
     }
 
-    public Integer getPremiumCost() {
+    public Double getPremiumCost() {
         return premiumCost;
     }
 
-    public void setPremiumCost(Integer premiumCost) {
+    public void setPremiumCost(Double premiumCost) {
         this.premiumCost = premiumCost;
     }
 

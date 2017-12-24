@@ -20,7 +20,7 @@ public class SuccessBidMoney {
 
     //利润
     @Column(name="profit")
-    private Integer profit;
+    private Double profit;
 
     //开票日期
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -29,15 +29,15 @@ public class SuccessBidMoney {
 
     //开票不含税额
     @Column(name="ticket_open_nin_tax")
-    private Integer ticketOpenNinTax;
+    private Double ticketOpenNinTax;
 
     //开票增值税
     @Column(name="ticket_open_tax")
-    private Integer ticketOpenTax;
+    private Double ticketOpenTax;
 
     //开票总额
     @Column(name="ticket_open_amount")
-    private Integer ticketOpenAmount;
+    private Double ticketOpenAmount;
 
     //收款额日期
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -46,7 +46,7 @@ public class SuccessBidMoney {
 
     //收款额
     @Column(name="collected_amount")
-    private Integer collectedAmount;
+    private Double collectedAmount;
 
     //收款额备注
     @Column(name="collected_amount_remark")
@@ -59,7 +59,7 @@ public class SuccessBidMoney {
 
     //付款额
     @Column(name="payment_amount")
-    private Integer paymentAmount;
+    private Double paymentAmount;
 
     //付款额备注
     @Column(name="payment_amount_remark")
@@ -72,15 +72,15 @@ public class SuccessBidMoney {
 
     //收增值税专用发票不含税额
     @Column(name="tax_bill_nin_tax")
-    private Integer taxBillNinTax;
+    private Double taxBillNinTax;
 
     //收增值税专用发票增值税
     @Column(name="tax_bill_tax")
-    private Integer taxBillTax;
+    private Double taxBillTax;
 
     //收增值税专用发票合计
     @Column(name="tax_bill_amount")
-    private Integer taxBillAmount;
+    private Double taxBillAmount;
 
     //收增值税专用发票备注
     @Column(name="tax_bill_remark")
@@ -93,7 +93,7 @@ public class SuccessBidMoney {
 
     //收普通发票金额
     @Column(name="normal_bill_amount")
-    private Integer normalBillAmount;
+    private Double normalBillAmount;
 
     //收普通发票备注
     @Column(name="normal_bill_remark")
@@ -106,7 +106,7 @@ public class SuccessBidMoney {
 
     //收工资单金额
     @Column(name="payroll_amount")
-    private Integer payrollAmount;
+    private Double payrollAmount;
 
     //备注
     @Column(name="remark")
@@ -128,11 +128,11 @@ public class SuccessBidMoney {
         this.successBid = successBid;
     }
 
-    public Integer getProfit() {
+    public Double getProfit() {
         return profit;
     }
 
-    public void setProfit(Integer profit) {
+    public void setProfit(Double profit) {
         this.profit = profit;
     }
 
@@ -144,27 +144,27 @@ public class SuccessBidMoney {
         this.ticketOpenTime = ticketOpenTime;
     }
 
-    public Integer getTicketOpenNinTax() {
+    public Double getTicketOpenNinTax() {
         return ticketOpenNinTax;
     }
 
-    public void setTicketOpenNinTax(Integer ticketOpenNinTax) {
+    public void setTicketOpenNinTax(Double ticketOpenNinTax) {
         this.ticketOpenNinTax = ticketOpenNinTax;
     }
 
-    public Integer getTicketOpenTax() {
+    public Double getTicketOpenTax() {
         return ticketOpenTax;
     }
 
-    public void setTicketOpenTax(Integer ticketOpenTax) {
+    public void setTicketOpenTax(Double ticketOpenTax) {
         this.ticketOpenTax = ticketOpenTax;
     }
 
-    public Integer getTicketOpenAmount() {
+    public Double getTicketOpenAmount() {
         return ticketOpenAmount;
     }
 
-    public void setTicketOpenAmount(Integer ticketOpenAmount) {
+    public void setTicketOpenAmount(Double ticketOpenAmount) {
         this.ticketOpenAmount = ticketOpenAmount;
     }
 
@@ -176,11 +176,11 @@ public class SuccessBidMoney {
         this.collectedAmountTime = collectedAmountTime;
     }
 
-    public Integer getCollectedAmount() {
+    public Double getCollectedAmount() {
         return collectedAmount;
     }
 
-    public void setCollectedAmount(Integer collectedAmount) {
+    public void setCollectedAmount(Double collectedAmount) {
         this.collectedAmount = collectedAmount;
     }
 
@@ -200,11 +200,11 @@ public class SuccessBidMoney {
         this.paymentAmountTime = paymentAmountTime;
     }
 
-    public Integer getPaymentAmount() {
+    public Double getPaymentAmount() {
         return paymentAmount;
     }
 
-    public void setPaymentAmount(Integer paymentAmount) {
+    public void setPaymentAmount(Double paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 
@@ -224,27 +224,27 @@ public class SuccessBidMoney {
         this.taxBillTime = taxBillTime;
     }
 
-    public Integer getTaxBillNinTax() {
+    public Double getTaxBillNinTax() {
         return taxBillNinTax;
     }
 
-    public void setTaxBillNinTax(Integer taxBillNinTax) {
+    public void setTaxBillNinTax(Double taxBillNinTax) {
         this.taxBillNinTax = taxBillNinTax;
     }
 
-    public Integer getTaxBillTax() {
+    public Double getTaxBillTax() {
         return taxBillTax;
     }
 
-    public void setTaxBillTax(Integer taxBillTax) {
+    public void setTaxBillTax(Double taxBillTax) {
         this.taxBillTax = taxBillTax;
     }
 
-    public Integer getTaxBillAmount() {
+    public Double getTaxBillAmount() {
         return taxBillAmount;
     }
 
-    public void setTaxBillAmount(Integer taxBillAmount) {
+    public void setTaxBillAmount(Double taxBillAmount) {
         this.taxBillAmount = taxBillAmount;
     }
 
@@ -264,11 +264,11 @@ public class SuccessBidMoney {
         this.normalBillTime = normalBillTime;
     }
 
-    public Integer getNormalBillAmount() {
+    public Double getNormalBillAmount() {
         return normalBillAmount;
     }
 
-    public void setNormalBillAmount(Integer normalBillAmount) {
+    public void setNormalBillAmount(Double normalBillAmount) {
         this.normalBillAmount = normalBillAmount;
     }
 
@@ -288,11 +288,11 @@ public class SuccessBidMoney {
         this.payrollTime = payrollTime;
     }
 
-    public Integer getPayrollAmount() {
+    public Double getPayrollAmount() {
         return payrollAmount;
     }
 
-    public void setPayrollAmount(Integer payrollAmount) {
+    public void setPayrollAmount(Double payrollAmount) {
         this.payrollAmount = payrollAmount;
     }
 
