@@ -3,6 +3,10 @@ var editpanel = $('.editpanel');
 var searchform = $('#searchform');
 var editform = $('#editform');
 
+$("#print").click(function(){
+    window.print();
+})
+
 var successbidgrid = $('#successbidgrid').grid({
     method: 'GET',
     url: '/successbid/findSuccessBid',

@@ -211,6 +211,7 @@
             </div>
             <div class="actions">
                 <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
+                <a id="print" href="javascript:" class="btn btn-save"><i class="icon icon-print"></i> 打印</a>
                 <a id="save" href="javascript:" class="btn btn-save"><i class="icon-save"></i> 保存</a>
             </div>
         </div>
@@ -453,6 +454,10 @@
         var data = $('#searchform').serializeObject();
         grid.load(data);
 
+    })
+
+    $("#print").click(function(){
+        window.print();
     })
 
     grid.on('rowdoubleclick', function(event) {
