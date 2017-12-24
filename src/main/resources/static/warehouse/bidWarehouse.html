@@ -223,8 +223,8 @@
         });
 
     clearSum = function () {
-        $("#bidPriceSum").html(bidPriceSum);
-        $("#depositPriceSum").html(depositPriceSum);
+        $("#bidPriceSum").html(bidPriceSum.toFixed(4));
+        $("#depositPriceSum").html(depositPriceSum.toFixed(4));
         bidPriceSum = 0;
         depositPriceSum = 0;
         loadPermission();
