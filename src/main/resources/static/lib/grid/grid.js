@@ -377,8 +377,6 @@
 				data: this.params,
 				async: this.async,
 				success: function(msg) {
-                    if (!msg || msg.length == 0) return
-
 					self.data = msg;
 					self.clean();
 					self.render(msg);
@@ -390,8 +388,10 @@
 					if (self.grid.hideLoading) 
 						self.grid.hideLoading()
 
-					self.setHistoryParams();
-                    self.getHistorySelected();
+                    if (msg && msg.length > 0) {
+                        self.setHistoryParams();
+                        self.getHistorySelected();
+					}
 				},
 				error: function(e) {
 					if (self.loadFailure) 

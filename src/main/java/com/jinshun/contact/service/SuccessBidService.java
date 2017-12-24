@@ -39,12 +39,12 @@ public class SuccessBidService extends CommonService {
 
         if (successBid.getContactPriceRange() != null) {
             if (successBid.getContactPriceRange() == 1) {
-                sql.addCondition("and t.contact_price <= ?", 5000000);
+                sql.addCondition("and t.contact_price <= ?", 500);
             } else if (successBid.getContactPriceRange() == 2) {
-                sql.addCondition("and t.contact_price >= ?", 5000000);
-                sql.addCondition("and t.contact_price <= ?", 10000000);
+                sql.addCondition("and t.contact_price >= ?", 500);
+                sql.addCondition("and t.contact_price <= ?", 1000);
             } else if (successBid.getContactPriceRange() == 3) {
-                sql.addCondition("and t.contact_price >= ?", 10000000);
+                sql.addCondition("and t.contact_price >= ?", 1000);
             }
         }
 
