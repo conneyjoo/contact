@@ -518,11 +518,11 @@
 		},
 
 		setHistoryParams: function() {
-            localStorage.setItem(this.grid[0].baseUR + '-grid.params', JSON.stringify(this.params));
+            localStorage.setItem(this.grid[0].baseURI + '-grid.params', JSON.stringify(this.params));
         },
 
         getHistoryParams: function() {
-            var params = localStorage.getItem(this.grid[0].baseUR + '-grid.params');
+            var params = localStorage.getItem(this.grid[0].baseURI + '-grid.params');
 
             if (params) {
                 $.extend(this.params, JSON.parse(params));
@@ -530,11 +530,11 @@
         },
 
         setHistorySelected: function() {
-            localStorage.setItem(this.grid[0].baseUR + '-grid.selected', this.selected.rowIndex);
+            localStorage.setItem(this.grid[0].baseURI + '-grid.selected', this.selected.rowIndex);
         },
 
         getHistorySelected: function() {
-            var selectedIndex = localStorage.getItem(this.grid[0].baseUR + '-grid.selected');
+            var selectedIndex = localStorage.getItem(this.grid[0].baseURI + '-grid.selected');
 
             if (selectedIndex) {
             	this.rows[selectedIndex - 1].click();
