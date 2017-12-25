@@ -26,6 +26,15 @@
     <style>
         .editpanel {display: none;}
     </style>
+
+    <style media=print>
+        .datetimepicker{display: none;}
+        #content{height:1000px}
+        .form-control{ background:no-repeat 0 0 scroll ＃EEEEEE;
+            border:none;
+            outline:medium;}
+        .actions,#title,#lines{display: none;}
+    </style>
 </head>
 <body>
 <div id="wrap" style="width: 100%; margin: 0 auto" class="mainpanel">
@@ -361,7 +370,7 @@
                         <input type="text" class="form-control" id="remark" name="remark" placeholder="备注">
                     </div>
                 </div>
-                <hr><hr><hr><hr><hr>
+                <div id="lines"><hr><hr><hr><hr><hr></div>
             </form>
         </div>
     </div>
