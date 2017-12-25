@@ -25,15 +25,34 @@
 
     <style>
         .editpanel {display: none;}
+        .editpanel1 {display: none;}
     </style>
 
     <style media=print>
-        .datetimepicker{display: none;}
-        #content{height:1000px}
-        .form-control{ background:no-repeat 0 0 scroll ＃EEEEEE;
-            border:none;
-            outline:medium;}
-        .actions,#title,#lines{display: none;}
+        input {font-size: 18px;}
+        .datetimepicker {
+            display: none;
+        }
+        .editpanel1 {
+            height: 1000px;
+        }
+        .form-control {
+            background: no-repeat 0 0 scroll ＃EEEEEE;
+            border: none;
+            outline: medium;
+        }
+        .col-sm-2-print {
+            width: 30%;
+            float: left;
+        }
+        .col-sm-10-print {
+            width: 70%;
+            float: left;
+            display: block;
+        }
+        .actions, #title, #lines {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -273,100 +292,100 @@
             </div>
             <form id="editform" class="form-horizontal">
                 <div class="form-group">
-                    <label for="area" class="col-sm-2">区域</label>
+                    <label for="area" class="col-sm-2 col-sm-2-print">区域</label>
                     <div class="col-md-8 col-sm-10">
                         <input type="text" class="form-control" id="area" name="area" placeholder="区域">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="principal" class="col-sm-2">内部负责人</label>
-                    <div class="col-md-8 col-sm-10">
+                    <label for="principal" class="col-sm-2 col-sm-2-print">内部负责人</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
                         <input type="text" class="form-control" id="principal" name="principal" placeholder="内部负责人">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="pubDate" class="col-sm-2">信息发布时间</label>
-                    <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control form-date" id="pubDate" name="pubDate" placeholder="信息发布时间" readonly style="width: 100%; background-color: white; float: left;">
+                    <label for="pubDate" class="col-sm-2 col-sm-2-print">信息发布时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="pubDate" name="pubDate" placeholder="信息发布时间" readonly style="background-color: white;">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="name" class="col-sm-2">工程名称</label>
-                    <div class="col-md-8 col-sm-10">
+                    <label for="name" class="col-sm-2 col-sm-2-print">工程名称</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
                         <input id="name" name="name" class="form-control" placeholder="工程名称"></input>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="type" class="col-sm-2">工程类型</label>
-                    <div class="col-md-8 col-sm-10">
+                    <label for="type" class="col-sm-2 col-sm-2-print">工程类型</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
                         <input type="text" class="form-control" id="type" name="type" placeholder="工程类型">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="bidPrice" class="col-sm-2">招标价格(万元)</label>
-                    <div class="col-md-8 col-sm-10" id="bidPriceDiv">
+                    <label for="bidPrice" class="col-sm-2 col-sm-2-print">招标价格(万元)</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print" id="bidPriceDiv">
                         <input type="text" class="form-control" id="bidPrice" name="bidPrice" placeholder="招标价格">
                         <span id="bidPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="applyDate" class="col-sm-2">报名时间</label>
-                    <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control form-date" id="applyDate" name="applyDate" placeholder="报名时间" readonly style="width: 100%; background-color: white; float: left;">
+                    <label for="applyDate" class="col-sm-2 col-sm-2-print">报名时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="applyDate" name="applyDate" placeholder="报名时间" readonly style="background-color: white;">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="constructor" class="col-sm-2">建造师</label>
-                    <div class="col-md-8 col-sm-10">
+                    <label for="constructor" class="col-sm-2 col-sm-2-print">建造师</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
                         <input type="text" class="form-control" id="constructor" name="constructor" placeholder="建造师">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="depositPrice" class="col-sm-2">投标保证金数额(万元)</label>
-                    <div class="col-md-8 col-sm-10" id="depositPriceDiv">
+                    <label for="depositPrice" class="col-sm-2 col-sm-2-print">投标保证金数额(万元)</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print" id="depositPriceDiv">
                         <input type="text" class="form-control" id="depositPrice" name="depositPrice" placeholder="投标保证金数额">
                         <span id="depositPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
                     </div>
                 </div>
                 <div class="form-group borrower">
-                    <label for="borrowerImportTime" class="col-sm-2">借用人保证金汇入时间</label>
-                    <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control form-date" id="borrowerImportTime" name="borrowerImportTime" placeholder="借用人保证金汇入时间" readonly style="width: 100%; background-color: white; float: left;">
+                    <label for="borrowerImportTime" class="col-sm-2 col-sm-2-print">借用人保证金汇入时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="borrowerImportTime" name="borrowerImportTime" placeholder="借用人保证金汇入时间" readonly style="background-color: white;">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="depositDeadline" class="col-sm-2">保证金截止日期</label>
-                    <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control form-date" id="depositDeadline" name="depositDeadline" placeholder="保证金截止日期" readonly style="width: 100%; background-color: white; float: left;">
+                    <label for="depositDeadline" class="col-sm-2 col-sm-2-print">保证金截止日期</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="depositDeadline" name="depositDeadline" placeholder="保证金截止日期" readonly style=" background-color: white;">
                     </div>
                 </div>
                 <div class="form-group role" data-permission="16">
-                    <label for="depositRemitTime" class="col-sm-2">保证金汇出时间</label>
-                    <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control form-date" id="depositRemitTime" name="depositRemitTime" placeholder="保证金汇出时间" readonly style="width: 100%; background-color: white; float: left;">
+                    <label for="depositRemitTime" class="col-sm-2 col-sm-2-print">保证金汇出时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="depositRemitTime" name="depositRemitTime" placeholder="保证金汇出时间" readonly style="background-color: white;">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="bidOpenTime" class="col-sm-2">开标时间</label>
-                    <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control form-date" id="bidOpenTime" name="bidOpenTime" placeholder="开标时间" readonly style="width: 100%; background-color: white; float: left;">
+                    <label for="bidOpenTime" class="col-sm-2 col-sm-2-print">开标时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="bidOpenTime" name="bidOpenTime" placeholder="开标时间" readonly style="background-color: white;">
                     </div>
                 </div>
                 <div class="form-group role" id="depositReturnTimeDiv" data-permission="16">
-                    <label for="depositReturnTime" class="col-sm-2">保证金退回时间</label>
-                    <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control form-date" id="depositReturnTime" name="depositReturnTime" placeholder="保证金退回时间" readonly style="width: 100%; background-color: white; float: left;">
+                    <label for="depositReturnTime" class="col-sm-2 col-sm-2-print">保证金退回时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="depositReturnTime" name="depositReturnTime" placeholder="保证金退回时间" readonly style="background-color: white;">
                     </div>
                 </div>
                 <div class="form-group borrower">
-                    <label for="borrowerReturnTime" class="col-sm-2">保证金退回借用人时间</label>
-                    <div class="col-md-8 col-sm-10">
-                        <input type="text" class="form-control form-date" id="borrowerReturnTime" name="borrowerReturnTime" placeholder="保证金退回借用人时间" readonly style="width: 100%; background-color: white; float: left;">
+                    <label for="borrowerReturnTime" class="col-sm-2 col-sm-2-print">保证金退回借用人时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="borrowerReturnTime" name="borrowerReturnTime" placeholder="保证金退回借用人时间" readonly style="background-color: white;">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="remark" class="col-sm-2">备注</label>
-                    <div class="col-md-8 col-sm-10">
+                    <label for="remark" class="col-sm-2 col-sm-2-print">备注</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
                         <input type="text" class="form-control" id="remark" name="remark" placeholder="备注">
                     </div>
                 </div>
@@ -380,7 +399,7 @@
 </body>
 <script>
     var mainpanel = $('.mainpanel');
-    var editpanel = $('.editpanel');
+    var editpanel = $('.editpanel1');
     $("#bidPriceWarning").hide();
     $("#depositPriceWarning").hide();
     $('.outer').height(window.screen.availHeight - 175);
@@ -681,6 +700,12 @@
         $("#openResult0").attr("class","btn btn-primary active");
         $("#openResult1").attr("class","btn btn-success");
         $("#openResult2").attr("class","btn btn-danger");
+
+        if (editpanel.is(':hidden')) {
+            $('#content', window.parent.document).height(2500);
+        } else {
+            $('#content', window.parent.document).height(1000);
+        }
     }
 
     //编辑时改变单选按钮状态
@@ -784,5 +809,6 @@
     })
 
     $('#editouter').height(window.screen.availHeight - 175);
+
 </script>
 </html>
