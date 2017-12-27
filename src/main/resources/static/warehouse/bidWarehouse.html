@@ -281,10 +281,9 @@
     })
 
     $("#resetButton").click(function(){
-        setTimeout(function () {
-            var data = $('#searchform').serializeObject();
-            grid.load(data);
-        }, 100);
+        $('#searchform')[0].reset();
+        var data = $('#searchform').serializeObject();
+        grid.load(data);
     })
 
     withdraw = function(id){

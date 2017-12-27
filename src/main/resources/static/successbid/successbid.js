@@ -62,10 +62,9 @@ $('#searchbtn').click(function() {
 });
 
 $("#resetButton").click(function(){
-    setTimeout(function () {
-        var data = $('#searchform').serializeObject();
-        successbidgrid.load(data);
-    }, 100);
+    $('#searchform')[0].reset();
+    var data = $('#searchform').serializeObject();
+    successbidgrid.load(data);
 })
 
 $('#add').click(function() {
