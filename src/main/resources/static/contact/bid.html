@@ -127,7 +127,7 @@
                             <td class="w-160px" >
                                 <div class="btn-group">
                                     <a type="submit" id="searchbtn" class="btn btn-primary" data-loading="稍候...">搜索</a>
-                                    <button type="reset" class="btn btn-default">重置</button>
+                                    <button type="reset" id="resetButton" class="btn btn-default">重置</button>
                                 </div>
                             </td>
                         </tr>
@@ -479,6 +479,13 @@
         var data = $('#searchform').serializeObject();
         grid.load(data);
 
+    })
+
+    $("#resetButton").click(function(){
+        setTimeout(function () {
+            var data = $('#searchform').serializeObject();
+            grid.load(data);
+        }, 100);
     })
 
     $("#print").click(function(){

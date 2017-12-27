@@ -58,6 +58,13 @@ $('#searchbtn').click(function() {
     successbidgrid.load(data);
 });
 
+$("#resetButton").click(function(){
+    setTimeout(function () {
+        var data = $('#searchform').serializeObject();
+        successbidgrid.load(data);
+    }, 100);
+})
+
 backstorage = function() {
     if (confirm('是否撤回')) {
         var row = successbidgrid.getSelected();
