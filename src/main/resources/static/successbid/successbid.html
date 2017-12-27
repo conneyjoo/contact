@@ -121,7 +121,7 @@
                 </thead>
                 <tbody id="successbidgrid" class="grid">
                 <tr class="text-center">
-                    <td>{rowIndex}</td>
+                    <td>{rowNo}</td>
                     <td>{area}</td>
                     <td>{concludeTime}</td>
                     <td>{type}</td>
@@ -131,11 +131,11 @@
                     <td>{judgementPrice}</td>
                     <td>{constructer}</td>
                     <td>{principal}</td>
-                    <td><a href="successbid-info-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info" data-width="600">资料上传</a></td>
+                    <td><a data-url="successbid-info-upload.html?id={id}&type=SUCCESSBID" data-index={rowIndex} class="btn btn-info forword" data-width="600">资料上传</a></td>
                     <td>{managementCost}</td>
                     <td>{premiumCost}</td>
-                    <td><a href="successbid-amount-upload.html?id={id}&type=SUCCESSBID" class="btn btn-info role" data-width="600" data-permission="16">结算单上传</a></td>
-                    <td><a href="successbid-money.html?successBidId={id}" class="btn btn-info role" data-width="600" data-permission="16">详细金额录入</a></td>
+                    <td><a data-url="successbid-amount-upload.html?id={id}&type=SUCCESSBID" data-index={rowIndex} class="btn btn-info role forword" data-width="600" data-permission="16">结算单上传</a></td>
+                    <td><a data-url="successbid-money.html?successBidId={id}" data-index={rowIndex} class="btn btn-info role forword" data-width="600" data-permission="16">详细金额录入</a></td>
                     <td>{creator}</td>
                     <td>{remark}</td>
                     <td>

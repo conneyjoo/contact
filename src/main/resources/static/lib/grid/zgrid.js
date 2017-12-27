@@ -26,7 +26,7 @@ $.fn.grid.Constructor.prototype.createPageButton = function(parent, disabled, ic
 }
 
 $.fn.grid.Constructor.prototype.createPrePageButton = function(pagination, grid) {
-	$('<span>第 <strong>' + (grid.params.curPage + 1) + '</strong> 页，</span>').appendTo(pagination);
+	$('<span>第 <strong>' + (parseInt(grid.params.curPage) + 1) + '</strong> 页，</span>').appendTo(pagination);
     $('<span>记录数 <strong>' + grid.rows.length + '</strong> ，</span>').appendTo(pagination);
 	
 	var prePage = $('<div class="dropdown dropup"><a data-toggle="dropdown" style="text-decoration: none; cursor: pointer;">每页 <strong>' + grid.params.pageSize + '</strong> 条<span class="caret"></span></a></div>').appendTo(pagination);

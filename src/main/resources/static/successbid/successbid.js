@@ -1,3 +1,7 @@
+var curPage = $.util.urlParam('curPage');
+var pageSize = $.util.urlParam('pageSize');
+var selectedIndex = $.util.urlParam('selectedIndex');
+
 var mainpanel = $('.mainpanel');
 var editpanel = $('.editpanel');
 var searchform = $('#searchform');
@@ -6,10 +10,11 @@ var editform = $('#editform');
 var successbidgrid = $('#successbidgrid').grid({
     method: 'GET',
     url: '/successbid/findSuccessBid',
-    params: {inWarehouse: 0},
+    params: {inWarehouse: 0, curPage: curPage || 0, pageSize: pageSize || $.fn.grid.defaults.pageMax},
     autoload: true,
     paginationRender: 'pagination',
-    setData: function (data) {
+    setData: function (data, i) {
+        data.rowNo = i + 1 + (this.params.curPage  * this.params.pageSize);
     },
     afterLoad: function(data) {
         if (!data || data.length == 0) return;
@@ -35,6 +40,19 @@ var successbidgrid = $('#successbidgrid').grid({
         children.eq(16).html('');
         children.eq(17).html('');
         loadPermission();
+
+        $('.forword').click(function() {
+            var el = $(this);
+            successbidgrid.rows[el.data('index') - 1].click();
+            var curPage = successbidgrid.params.curPage;
+            var pageSize = successbidgrid.params.pageSize;
+            var selectedIndex = successbidgrid.getSelected() ? successbidgrid.getSelected().rowIndex - 1 : '';
+            window.location.href = el.data('url') + '&curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+        });
+
+        if (selectedIndex) {
+            this.rows[selectedIndex].click();
+        }
     }
 }).data('grid');
 
@@ -122,7 +140,6 @@ togglePanel = function() {
     mainpanel.toggle();
 
     if (editpanel.is(':hidden')) {
-        successbidgrid.load();
     }
 }
 

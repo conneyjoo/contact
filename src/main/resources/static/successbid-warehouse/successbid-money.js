@@ -1,4 +1,7 @@
 var successBidId = $.util.urlParam('successBidId');
+var curPage = $.util.urlParam('curPage');
+var pageSize = $.util.urlParam('pageSize');
+var selectedIndex = $.util.urlParam('selectedIndex');
 
 var mainpanel = $('.mainpanel');
 var editpanel = $('.editpanel');
@@ -158,5 +161,9 @@ removeRow = function() {
         }
     }
 }
+
+$('#back').click(function() {
+    window.location.href = 'successbid.html?curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+});
 
 $('#editouter').height(window.screen.availHeight - 175);

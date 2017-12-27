@@ -166,7 +166,7 @@
                 </thead>
                 <tbody class="grid">
                 <tr class="text-center">
-                    <td>{rowIndex}</td>
+                    <td>{rowNo}</td>
                     <td>{area}</td>
                     <td>{principal}</td>
                     <td>{pubDate}</td>
@@ -184,7 +184,7 @@
                     <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
                     <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
                     <td class="borrower">{borrowerReturnTime}</td>
-                    <td><a href="bid-upload.html?id={id}&type=BID" class="btn btn-info iframe" data-width="600">上传/查看</a></td>
+                    <td><a data-url="bid-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info iframe forword" data-width="600">上传/查看</a></td>
                     <td>{creator}</td>
                     <td>{remark}</td>
                     <td>
@@ -395,6 +395,10 @@
 
 </body>
 <script>
+    var curPage = $.util.urlParam('curPage');
+    var pageSize = $.util.urlParam('pageSize');
+    var selectedIndex = $.util.urlParam('selectedIndex');
+
     var mainpanel = $('.mainpanel');
     var editpanel = $('.editpanel1');
     $("#bidPriceWarning").hide();
@@ -429,15 +433,30 @@
         bidPriceSum = 0;
         depositPriceSum = 0;
         loadPermission();
+
+        $('.forword').click(function() {
+            var el = $(this);
+            grid.rows[el.data('index') - 1].click();
+            var curPage = grid.params.curPage;
+            var pageSize = grid.params.pageSize;
+            var selectedIndex = grid.getSelected() ? grid.getSelected().rowIndex - 1 : '';
+            window.location.href = el.data('url') + '&curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+        });
+
+        if (selectedIndex) {
+            this.rows[selectedIndex].click();
+        }
     }
 
     var grid = $('.grid').grid({
         method: 'GET',
         url: '/bid/findBids',
         autoload: true,
+        params: {curPage: curPage || 0, pageSize: pageSize || $.fn.grid.defaults.pageMax},
         paginationRender: 'pagination',
         afterLoad : clearSum,
-        setData: function (data) {
+        setData: function (data, i) {
+            data.rowNo = i + 1 + (this.params.curPage  * this.params.pageSize);
 
             if(data.depositApproval == 0){
                 data.depositApprovalResult = "未审批";

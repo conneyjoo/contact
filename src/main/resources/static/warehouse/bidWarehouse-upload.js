@@ -1,5 +1,8 @@
 var id = $.util.urlParam('id');
 var type = $.util.urlParam('type');
+var curPage = $.util.urlParam('curPage');
+var pageSize = $.util.urlParam('pageSize');
+var selectedIndex = $.util.urlParam('selectedIndex');
 
 $.ajax({
     type: 'POST',
@@ -27,3 +30,7 @@ var uploader = $('#uploadPicture').uploader({
 }).on('onBeforeUpload', function(event, file) {
 }).on('onFileUploaded', function(event, file) {
 }).data('zui.uploader');
+
+$('#back').click(function() {
+    window.location.href = 'bidWarehouse.html?curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+});

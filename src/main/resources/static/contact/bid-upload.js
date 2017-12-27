@@ -1,5 +1,8 @@
 var id = $.util.urlParam('id');
 var type = $.util.urlParam('type');
+var curPage = $.util.urlParam('curPage');
+var pageSize = $.util.urlParam('pageSize');
+var selectedIndex = $.util.urlParam('selectedIndex');
 
 $.ajax({
     type: 'POST',
@@ -62,3 +65,7 @@ save = function(file) {
         }
     });
 }
+
+$('#back').click(function() {
+    window.location.href = 'bid.html?curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+});

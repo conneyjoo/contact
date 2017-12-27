@@ -110,7 +110,7 @@
                 </form>
             </div>
         </div>
-        <div style="width:100%; height:255px;overflow-y:scroll;">
+        <div style="width:100%; overflow-y:scroll;">
             <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
                 <thead>
                 <tr>
@@ -140,7 +140,7 @@
                 </thead>
                 <tbody class="grid">
                 <tr class="text-center">
-                    <td>{rowIndex}</td>
+                    <td>{rowNo}</td>
                     <td>{area}</td>
                     <td>{principal}</td>
                     <td>{pubDate}</td>
@@ -158,7 +158,7 @@
                     <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
                     <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
                     <td class="borrower">{borrowerReturnTime}</td>
-                    <td><a href="bidWarehouse-upload.html?id={id}&type=BID" class="btn btn-info iframe" data-width="600">查看</a></td>
+                    <td><a data-url="bidWarehouse-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info iframe forword" data-width="600">查看</a></td>
                     <td>{creator}</td>
                     <td>{remark}</td>
                     <td><button class="btn btn-danger role" data-permission="65536" type="button" name="deleteButton" onclick="withdraw({id})">撤回</button></td>
@@ -201,6 +201,9 @@
 </div>
 </body>
 <script>
+    var curPage = $.util.urlParam('curPage');
+    var pageSize = $.util.urlParam('pageSize');
+    var selectedIndex = $.util.urlParam('selectedIndex');
     var bidPriceSum = 0;
     var depositPriceSum = 0;
 
@@ -228,6 +231,19 @@
         bidPriceSum = 0;
         depositPriceSum = 0;
         loadPermission();
+
+        $('.forword').click(function() {
+            var el = $(this);
+            grid.rows[el.data('index') - 1].click();
+            var curPage = grid.params.curPage;
+            var pageSize = grid.params.pageSize;
+            var selectedIndex = grid.getSelected() ? grid.getSelected().rowIndex - 1 : '';
+            window.location.href = el.data('url') + '&curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+        });
+
+        if (selectedIndex) {
+            this.rows[selectedIndex].click();
+        }
     }
 
     var grid = $('.grid').grid({
@@ -235,8 +251,10 @@
         url: '/bid/findBidsForWarehouse',
         autoload: true,
         paginationRender: 'pagination',
+        params: {curPage: curPage || 0, pageSize: pageSize || $.fn.grid.defaults.pageMax},
         afterLoad : clearSum,
-        setData: function (data) {
+        setData: function (data, i) {
+            data.rowNo = i + 1 + (this.params.curPage  * this.params.pageSize);
 
             if(data.depositApproval == 0){
                 data.depositApprovalResult = "未审批";

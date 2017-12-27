@@ -1,5 +1,8 @@
 var id = $.util.urlParam('id');
 var type = $.util.urlParam('type');
+var curPage = $.util.urlParam('curPage');
+var pageSize = $.util.urlParam('pageSize');
+var selectedIndex = $.util.urlParam('selectedIndex');
 
 $.ajax({
     type: 'POST',
@@ -68,5 +71,9 @@ save = function(file, businessType) {
         }
     });
 }
+
+$('#back').click(function() {
+    window.location.href = 'successbid.html?curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+});
 
 $('#mainouter').height(window.screen.availHeight - 175);
