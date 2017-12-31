@@ -97,32 +97,32 @@
                     <th width="3%">编号</th>
                     <th width="4%" class="flex-col">利润</th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="5%" class="flex-col">开票日期</th>
-                    <th width="5%" class="flex-col">开票不含税额</th>
-                    <th width="6%" class="flex-col">开票增值税</th>
+                    <th width="6%" class="flex-col">开票日</th>
+                    <th width="5%" class="flex-col">开不含税额</th>
+                    <th width="6%" class="flex-col">开增值税</th>
                     <th width="5%" class="flex-col">开票总额</th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="6%" class="flex-col">收款额日期</th>
+                    <th width="6%" class="flex-col">收款日</th>
                     <th width="5%" class="flex-col">收款额</th>
-                    <th width="6%" class="flex-col">收款额备注</th>
+                    <th width="6%" class="flex-col">收款备注</th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="6%" class="flex-col">付款额日期</th>
+                    <th width="6%" class="flex-col">付款日</th>
                     <th width="6%" class="flex-col">付款额</th>
-                    <th width="6%" class="flex-col">付款额备注</th>
+                    <th width="6%" class="flex-col">付款备注</th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="11%" class="flex-col">收增值税专用发票日期</th>
-                    <th width="13%" class="flex-col">收增值税专用发票不含税额</th>
-                    <th width="12%" class="flex-col">收增值税专用发票增值税</th>
-                    <th width="11%" class="flex-col">收增值税专用发票合计</th>
-                    <th width="11%" class="flex-col">收增值税专用发票备注</th>
+                    <th width="11%" class="flex-col">收抵扣票日期</th>
+                    <th width="13%" class="flex-col">收抵扣票不含税额</th>
+                    <th width="12%" class="flex-col">收抵扣票增值税</th>
+                    <th width="11%" class="flex-col">收抵扣票合计</th>
+                    <th width="11%" class="flex-col">收抵扣票备注</th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="8%" class="flex-col">收普通发票日期</th>
-                    <th width="8%" class="flex-col">收普通发票金额</th>
-                    <th width="8%" class="flex-col">收普通发票备注</th>
+                    <th width="8%" class="flex-col">收普票日期</th>
+                    <th width="8%" class="flex-col">收普票金额</th>
+                    <th width="8%" class="flex-col">收普票备注</th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
                     <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
                     <th width="8%" class="flex-col">收工资单日期</th>
@@ -187,7 +187,7 @@
                 <i class="icon-edit"></i> 编辑：
             </div>
             <div class="actions">
-                <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
+                <a id="backButton" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
             </div>
         </div>
         <div class="container mw-1400px" style="height: 1000px;">
@@ -219,8 +219,8 @@
                         <input type="text" class="form-control form-date" name="ticketOpenTime" placeholder="开票日期" readonly style="width: 100%; background-color: white; float: left;">
                     </div>
                     <div class="col-sm-6">
-                        <label>开票不含税额</label>
-                        <input type="text" class="form-control numberField" name="ticketOpenNinTax" placeholder="开票不含税额">
+                        <label>开票总额</label>
+                        <input type="text" class="form-control numberField" name="ticketOpenAmount" placeholder="开票总额">
                     </div>
                 </div>
                 <div class="form-group">
@@ -229,8 +229,8 @@
                         <input type="text" class="form-control numberField" name="ticketOpenTax" placeholder="开票增值税">
                     </div>
                     <div class="col-sm-6">
-                        <label>开票总额</label>
-                        <input type="text" class="form-control numberField" name="ticketOpenAmount" placeholder="开票总额">
+                        <label>开票不含税额</label>
+                        <input type="text" class="form-control numberField" name="ticketOpenNinTax" placeholder="开票不含税额">
                     </div>
                 </div>
                 <br>

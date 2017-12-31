@@ -100,9 +100,14 @@ $('#removeRow').click(function() {
     editform[0].reset();
 });
 
-$('#back').click(function() {
+$('#backButton').click(function() {
     togglePanel();
+    //window.location.href = 'successbid.html?curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
 });
+
+$("#back").click(function(){
+    window.location.href = 'successbid.html?curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+    })
 
 $('#save').click(function() {
     var data = editform.serializeObject();
@@ -212,9 +217,5 @@ removeRow = function() {
         }
     }
 }
-
-$('#back').click(function() {
-    window.location.href = 'successbid.html?curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
-});
 
 $('#editouter').height(window.screen.availHeight - 175);

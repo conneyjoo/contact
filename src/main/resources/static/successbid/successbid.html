@@ -52,27 +52,27 @@
                                     <tr  class="" style="max-width: 100%; margin: 0 auto">
                                         <td class="text-right w-90px"><span><strong>工程名称</strong></span></td>
                                         <td style="overflow: visible">
-                                            <input type="text" class="form-control  searchInput" name="name" placeholder="请输入工程名称（可模糊查询）">
+                                            <input id="name_succ" type="text" class="form-control  searchInput" name="name" placeholder="请输入工程名称（可模糊查询）">
                                         </td>
                                     </tr>
                                     <tr  class="" style="max-width: 100%; margin: 0 auto">
                                         <td class="text-right w-90px"><span><strong>区域</strong></span></td>
                                         <td style="overflow: visible">
-                                            <input type="text" class="form-control  searchInput" name="area" placeholder="请输入区域（可模糊查询）">
+                                            <input id="area_succ" type="text" class="form-control  searchInput" name="area" placeholder="请输入区域（可模糊查询）">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>订立时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="concludeTimeBegin" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
+                                            <input id="concludeTimeBegin" type="text" class="form-control form-date" name="concludeTimeBegin" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="concludeTimeEnd" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
+                                            <input id="concludeTimeEnd" type="text" class="form-control form-date" name="concludeTimeEnd" placeholder="yyyy-mm-dd" readonly style="width: 49%; background-color: white; float: left;">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>合同价格</strong></span></td>
                                         <td>
-                                            <select name="contactPriceRange" class="form-control" style="height:5%; background-color: white; float: left;">
+                                            <select id="contactPriceRange" name="contactPriceRange" class="form-control" style="height:5%; background-color: white; float: left;">
                                                 <option value="0">全部</option>
                                                 <option value="1">500万以下</option>
                                                 <option value="2">500万一1000万</option>
@@ -95,26 +95,26 @@
                 </form>
             </div>
         </div>
-        <div style="width: 100%; overflow-y: scroll;">
-            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
+        <div style="width: 100%; overflow-y: scroll;font-size: xx-small">
+            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2200px" id="table">
                 <thead>
                 <tr>
-                    <th width="3%">编号</th>
-                    <th width="4%" data-sort="area" class="flex-col">区域</th>
-                    <th width="5%" data-sort="principal" class="flex-col">订立时间</th>
-                    <th width="5%" data-sort="type" class="flex-col">工程类型</th>
+                    <th width="2%">编号</th>
+                    <th width="3%" data-sort="area" class="flex-col">区域</th>
+                    <th width="4%" data-sort="principal" class="flex-col">订立日</th>
+                    <th width="4%" data-sort="type" class="flex-col">工程类型</th>
                     <th width="5%" data-sort="name" class="flex-col">工程名称</th>
-                    <th width="5%" data-sort="time_limit" class="flex-col">工期</th>
-                    <th width="5%" data-sort="contact_price" class="flex-col">合同价(万元)</th>
-                    <th width="5%" data-sort="judgement_price" class="flex-col">审定价(万元)</th>
-                    <th width="5%" data-sort="constructer" class="flex-col">建造师</th>
-                    <th width="5%" data-sort="principal" class="flex-col">分包负责人</th>
+                    <th width="4%" data-sort="time_limit" class="flex-col">工期</th>
+                    <th width="4%" data-sort="contact_price" class="flex-col">合同价(万元)</th>
+                    <th width="4.5%" data-sort="judgement_price" class="flex-col">审定价(万元)</th>
+                    <th width="4.5%" data-sort="constructer" class="flex-col">建造师</th>
+                    <th width="4%" data-sort="principal" class="flex-col">分包人</th>
                     <th width="6%" class="flex-col">资料收集情况</th>
                     <th width="6%" data-sort="management_cost" class="flex-col">净管理费及所得税</th>
-                    <th width="6%" data-sort="premium_cost" class="flex-col">保险费(万元)</th>
+                    <th width="4%" data-sort="premium_cost" class="flex-col">保险费(万元)</th>
                     <th width="6%" class="flex-col">财务结算单录入</th>
                     <th width="6%" class="flex-col">相关详细金额</th>
-                    <th width="5%" data-sort="creator" class="flex-col">创建人</th>
+                    <th width="4%" data-sort="creator" class="flex-col">创建人</th>
                     <th width="10%" class="flex-col">备注</th>
                     <th class="flex-col">操作</th>
                 </tr>

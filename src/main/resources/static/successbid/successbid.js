@@ -7,6 +7,11 @@ var editpanel = $('.editpanel');
 var searchform = $('#searchform');
 var editform = $('#editform');
 
+$("#name_succ").val(localStorage.getItem("name_succ"));
+$("#area_succ").val(localStorage.getItem("area_succ"));
+$("#concludeTimeBegin").val(localStorage.getItem("concludeTimeBegin_succ"));
+$("#concludeTimeEnd").val(localStorage.getItem("concludeTimeEnd_succ"));
+
 var successbidgrid = $('#successbidgrid').grid({
     method: 'GET',
     url: '/successbid/findSuccessBid',
@@ -77,12 +82,19 @@ $(".numberField").numberField({});
 $('#searchbtn').click(function() {
     var data = searchform.serializeObject();
     successbidgrid.load(data);
+
+    for(var key in data){
+        localStorage.setItem(key+"_succ",data[key])
+    }
 });
 
 $("#resetButton").click(function(){
     $('#searchform')[0].reset();
     var data = $('#searchform').serializeObject();
     successbidgrid.load(data);
+    for(var key in data){
+        localStorage.setItem(key+"_succ",data[key])
+    }
 })
 
 $('#add').click(function() {
@@ -125,6 +137,7 @@ $('#save').click(function() {
             if (msg.success) {
                 editform.loadForm(msg);
                 togglePanel();
+                successbidgrid.load();
             } else {
                 alert('保存失败');
             }

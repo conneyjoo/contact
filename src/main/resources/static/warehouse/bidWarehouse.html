@@ -47,26 +47,26 @@
                                     <tbody>
                                     <tr  class="" style="max-width: 100%; margin: 0 auto">
                                         <td class="text-right w-90px"><span><strong>工程名称</strong></span></td>
-                                        <td id="" style="overflow: visible">
-                                            <input type="text" class="form-control  searchInput" name="name"
+                                        <td style="overflow: visible">
+                                            <input id="name_search" type="text" class="form-control  searchInput" name="name"
                                                    placeholder="请输入工程名称（可模糊查询）">
                                         </td>
                                     </tr>
                                     <tr  class="" style="max-width: 100%; margin: 0 auto">
                                         <td class="text-right w-90px"><span><strong>区域</strong></span></td>
-                                        <td id="" style="overflow: visible">
-                                            <input type="text" class="form-control  searchInput" name="area"
+                                        <td style="overflow: visible">
+                                            <input id="area_search" type="text" class="form-control  searchInput" name="area"
                                                    placeholder="请输入区域（可模糊查询）">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>报名时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="apply_date_min"
+                                            <input id="apply_date_min" type="text" class="form-control form-date" name="apply_date_min"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="apply_date_max"
+                                            <input id="apply_date_max" type="text" class="form-control form-date" name="apply_date_max"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                         </td>
@@ -74,11 +74,11 @@
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>保证金截止时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="deposit_deadline_min"
+                                            <input id="deposit_deadline_min" type="text" class="form-control form-date" name="deposit_deadline_min"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="deposit_deadline_max"
+                                            <input id="deposit_deadline_max" type="text" class="form-control form-date" name="deposit_deadline_max"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                         </td>
@@ -86,11 +86,11 @@
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>开标时间</strong></span></td>
                                         <td>
-                                            <input type="text" class="form-control form-date" name="bid_open_time_min"
+                                            <input id="bid_open_time_min" type="text" class="form-control form-date" name="bid_open_time_min"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input type="text" class="form-control form-date" name="bid_open_time_max"
+                                            <input id="bid_open_time_max" type="text" class="form-control form-date" name="bid_open_time_max"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                         </td>
@@ -110,30 +110,30 @@
                 </form>
             </div>
         </div>
-        <div style="width:100%; overflow-y:scroll;">
-            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
+        <div style="width:100%; overflow-y:scroll;font-size: xx-small">
+            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2200px" id="table">
                 <thead>
                 <tr>
-                    <th width="3%">编号</th>
-                    <th width="4%" data-sort="area" class="flex-col">区域</th>
-                    <th width="5%" data-sort="principal" class="flex-col">内部负责人</th>
-                    <th width="5%" data-sort="pub_date" class="flex-col">信息发布时间</th>
+                    <th width="2%">编号</th>
+                    <th width="3%" data-sort="area" class="flex-col">区域</th>
+                    <th width="4%" data-sort="principal" class="flex-col">内部负责人</th>
+                    <th width="4%" data-sort="pub_date" class="flex-col">发布时间</th>
                     <th width="5%" data-sort="name" class="flex-col">工程名称</th>
-                    <th width="5%" data-sort="type" class="flex-col">工程类型</th>
-                    <th width="5%" data-sort="bid_price" class="flex-col">招标价格(万元)</th>
-                    <th width="5%" data-sort="bid_price" class="flex-col">报名时间</th>
-                    <th width="5%" data-sort="constructor" class="flex-col">建造师</th>
-                    <th width="5%" data-sort="deposit_price" class="flex-col">保证金(万元)</th>
-                    <th width="8%" data-sort="borrower_import_time" class="flex-col borrower">借用人保证金汇入时间</th>
-                    <th width="5%" data-sort="deposit_deadline" class="flex-col">保证金截止日期</th>
-                    <th width="5%" data-sort="deposit_approval" class="flex-col">交保证金审批</th>
-                    <th width="5%" data-sort="deposit_remit_time" class="flex-col">保证金汇出时间</th>
+                    <th width="4%" data-sort="type" class="flex-col">工程类型</th>
+                    <th width="4%" data-sort="bid_price" class="flex-col">招标价(万元)</th>
+                    <th width="4%" data-sort="bid_price" class="flex-col">报名时间</th>
+                    <th width="3%" data-sort="constructor" class="flex-col">建造师</th>
+                    <th width="4%" data-sort="deposit_price" class="flex-col">保证金(万元)</th>
+                    <th width="7%" data-sort="borrower_import_time" class="flex-col borrower">借用人保金汇入日</th>
+                    <th width="4%" data-sort="deposit_deadline" class="flex-col">保金截止日</th>
+                    <th width="4%" data-sort="deposit_approval" class="flex-col">审批</th>
+                    <th width="4%" data-sort="deposit_remit_time" class="flex-col">保金汇出日</th>
                     <th width="5%" data-sort="bid_open_time" class="flex-col">开标时间</th>
-                    <th width="5%" data-sort="bid_open_result" class="flex-col">开标结果</th>
-                    <th width="5%" data-sort="deposit_return_time" class="flex-col">保证金退回时间</th>
-                    <th width="8%" data-sort="borrower_return_time" class="flex-col borrower">保证金退回借用人时间</th>
+                    <th width="4%" data-sort="bid_open_result" class="flex-col">开标结果</th>
+                    <th width="4%" data-sort="deposit_return_time" class="flex-col">保金退回日</th>
+                    <th width="7%" data-sort="borrower_return_time" class="flex-col borrower">保金退回借用人日</th>
                     <th width="5%" class="flex-col">银行凭证</th>
-                    <th width="5%" data-sort="creator" class="flex-col">创建人</th>
+                    <th width="4%" data-sort="creator" class="flex-col">创建人</th>
                     <th width="10%" class="flex-col">备注</th>
                     <th width="10%" class="flex-col">操作</th>
                 </tr>
@@ -173,10 +173,10 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td> <span style="font-weight: bold;font-size: initial;">招标合计:<span id="bidPriceSum" style="color:red"></span></span></td>
+                    <td> <span style="font-weight: bold;font-size: small;">招标合计:<span id="bidPriceSum" style="color:red"></span></span></td>
                     <td></td>
                     <td></td>
-                    <td><span style="font-weight: bold;font-size: initial;">保证金合计:<span id="depositPriceSum" style="color:red"></span></span></td>
+                    <td><span style="font-weight: bold;font-size: small;">保证金合计:<span id="depositPriceSum" style="color:red"></span></span></td>
                     <td></td>
                     <td></td>
                     <td>
@@ -210,6 +210,15 @@
     if(localStorage.rowType == 0){
         $(".borrower").hide();
     }
+
+    $("#name_search").val(localStorage.getItem("name_ware"));
+    $("#area_search").val(localStorage.getItem("area_ware"));
+    $("#apply_date_min").val(localStorage.getItem("apply_date_min_ware"));
+    $("#apply_date_max").val(localStorage.getItem("apply_date_max_ware"));
+    $("#deposit_deadline_min").val(localStorage.getItem("deposit_deadline_min_ware"));
+    $("#deposit_deadline_max").val(localStorage.getItem("deposit_deadline_max_ware"));
+    $("#bid_open_time_min").val(localStorage.getItem("bid_open_time_min_ware"));
+    $("#bid_open_time_max").val(localStorage.getItem("bid_open_time_max_ware"));
 
     // 仅选择日期
     $(".form-date").datetimepicker(
@@ -296,12 +305,18 @@
         var data = $('#searchform').serializeObject();
         grid.load(data);
 
+        for(var key in data){
+            localStorage.setItem(key+"_ware",data[key])
+        }
     })
 
     $("#resetButton").click(function(){
         $('#searchform')[0].reset();
         var data = $('#searchform').serializeObject();
         grid.load(data);
+        for(var key in data){
+            localStorage.setItem(key+"_ware",data[key])
+        }
     })
 
     withdraw = function(id){

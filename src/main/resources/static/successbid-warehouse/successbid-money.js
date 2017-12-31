@@ -88,7 +88,7 @@ $('#removeRow').click(function() {
     editform[0].reset();
 });
 
-$('#back').click(function() {
+$('#backButton').click(function() {
     togglePanel();
 });
 

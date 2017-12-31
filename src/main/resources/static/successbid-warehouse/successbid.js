@@ -7,6 +7,11 @@ var editpanel = $('.editpanel');
 var searchform = $('#searchform');
 var editform = $('#editform');
 
+$("#name_succ_ware").val(localStorage.getItem("name_succ_ware"));
+$("#area_succ_ware").val(localStorage.getItem("area_succ_ware"));
+$("#concludeTimeBegin_ware").val(localStorage.getItem("concludeTimeBegin_succ_ware"));
+$("#concludeTimeEnd_ware").val(localStorage.getItem("concludeTimeEnd_succ_ware"));
+
 var successbidgrid = $('#successbidgrid').grid({
     method: 'GET',
     url: '/successbid/findSuccessBid',
@@ -74,12 +79,18 @@ $(".numberField").numberField({});
 $('#searchbtn').click(function() {
     var data = searchform.serializeObject();
     successbidgrid.load(data);
+    for(var key in data){
+        localStorage.setItem(key+"_succ_ware",data[key])
+    }
 });
 
 $("#resetButton").click(function(){
     $('#searchform')[0].reset();
     var data = $('#searchform').serializeObject();
     successbidgrid.load(data);
+    for(var key in data){
+        localStorage.setItem(key+"_succ_ware",data[key])
+    }
 })
 
 backstorage = function() {
