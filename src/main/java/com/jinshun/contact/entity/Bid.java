@@ -100,6 +100,31 @@ public class Bid {
     @Column(name = "first_applied")
     private Integer firstApplied;
 
+    //状态（0进行中，1已完成）
+    private Integer status;
+
+    @Column(name = "remark2")
+    private String remark2;
+
+    public String getRemark2() {
+        return remark2;
+    }
+
+    public void setRemark2(String remark2) {
+        this.remark2 = remark2;
+    }
+
+    public String getRemark3() {
+        return remark3;
+    }
+
+    public void setRemark3(String remark3) {
+        this.remark3 = remark3;
+    }
+
+    @Column(name = "remark3")
+    private String remark3;
+
     //创建者
     private String creator;
 
@@ -285,5 +310,13 @@ public class Bid {
 
     public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

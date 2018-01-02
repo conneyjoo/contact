@@ -132,8 +132,8 @@
                     <th width="4%" data-sort="bid_open_result" class="flex-col">开标结果</th>
                     <th width="4%" data-sort="deposit_return_time" class="flex-col">保金退回日</th>
                     <th width="7%" data-sort="borrower_return_time" class="flex-col borrower">保金退回借用人日</th>
-                    <th width="5%" class="flex-col">银行凭证</th>
                     <th width="4%" data-sort="creator" class="flex-col">创建人</th>
+                    <th width="5%" class="flex-col">银行凭证</th>
                     <th width="10%" class="flex-col">备注</th>
                     <th width="10%" class="flex-col">操作</th>
                 </tr>
@@ -158,8 +158,8 @@
                     <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
                     <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
                     <td class="borrower">{borrowerReturnTime}</td>
-                    <td><a data-url="bidWarehouse-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info iframe forword" data-width="600">查看</a></td>
                     <td>{creator}</td>
+                    <td><a data-url="bidWarehouse-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info iframe forword" data-width="600">查看</a></td>
                     <td>{remark}</td>
                     <td><button class="btn btn-danger role" data-permission="65536" type="button" name="deleteButton" onclick="withdraw({id})">撤回</button></td>
                 </tr>

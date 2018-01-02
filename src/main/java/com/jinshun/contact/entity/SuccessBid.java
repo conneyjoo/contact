@@ -84,6 +84,9 @@ public class SuccessBid {
     @Transient
     private Integer contactPriceRange;
 
+    //状态（0进行中，1已完成）
+    private Integer status;
+
     //创建者
     private String creator;
 
@@ -237,5 +240,13 @@ public class SuccessBid {
 
     public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }
