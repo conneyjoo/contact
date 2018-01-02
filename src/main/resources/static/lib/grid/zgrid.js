@@ -2,7 +2,7 @@ $.fn.grid.Constructor.prototype.createPagination = function() {
 	this.createSort();
 
     this.params.curPage = this.params.curPage || 0;
-    this.params.pageSize = this.params.pageSize || 10;
+    this.params.pageSize = this.params.pageSize || $.fn.grid.defaults.pageMax;
 	var pagination = $(this.template.pagination);
 	
 	this.createPrePageButton(pagination, this);
@@ -26,8 +26,10 @@ $.fn.grid.Constructor.prototype.createPageButton = function(parent, disabled, ic
 }
 
 $.fn.grid.Constructor.prototype.createPrePageButton = function(pagination, grid) {
+    $('<span>共 <strong>' + (this.rows.length > 0 ? this.rows[0].data('data').totalPage : 0) + '</strong> 页，</span>').appendTo(pagination);
+    $('<span>共 <strong>' + (this.rows.length > 0 ? this.rows[0].data('data').totalCount : 0) + '</strong> 条，</span>').appendTo(pagination);
 	$('<span>第 <strong>' + (parseInt(grid.params.curPage) + 1) + '</strong> 页，</span>').appendTo(pagination);
-    $('<span>记录数 <strong>' + grid.rows.length + '</strong> ，</span>').appendTo(pagination);
+    $('<span>当前记录数 <strong>' + grid.rows.length + '</strong> ，</span>').appendTo(pagination);
 	
 	var prePage = $('<div class="dropdown dropup"><a data-toggle="dropdown" style="text-decoration: none; cursor: pointer;">每页 <strong>' + grid.params.pageSize + '</strong> 条<span class="caret"></span></a></div>').appendTo(pagination);
 	var ul = $('<ul class="dropdown-menu">').appendTo(prePage);

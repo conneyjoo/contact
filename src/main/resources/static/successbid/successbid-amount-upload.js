@@ -23,7 +23,7 @@ $.ajax({
     }
 });
 
-for (var i = 9; i <= 11; i++) {
+for (var i = 9; i <= 15; i++) {
     $('#uploadPicture' + i).uploader({
         autoUpload: true,
         chunk_size: 1048576000,

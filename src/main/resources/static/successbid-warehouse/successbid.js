@@ -37,7 +37,7 @@ var successbidgrid = $('#successbidgrid').grid({
         }
 
         var children = this.append(totalData).children();
-        children.eq(0).html('<span style="color:red;font-weight: bold">金额合计</span>');
+        children.eq(0).html('<span style="color:red;font-weight: bold">合计</span>');
         children.eq(10).html('');
         children.eq(11).html('');
         children.eq(13).html('');

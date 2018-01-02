@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class CommonService {
 
-    private static final int DEFAULT_PAGE_SIZE = 10;
+    private static final int DEFAULT_PAGE_SIZE = 20;
 
     @Autowired
     @PersistenceContext
@@ -50,11 +50,11 @@ public class CommonService {
         return convertEntityList(query.getResultList());
     }
 
-    public List<?> findPage(SQLString sql, Integer curPage, Integer pageSize, String sort, String direction) {
+    public List<Map<String, Object>> findPage(SQLString sql, Integer curPage, Integer pageSize, String sort, String direction) {
         return findPage(sql.toString(), curPage, pageSize, sort, direction, sql.getParams());
     }
 
-   public List<?> findPage(String sql, Integer curPage, Integer pageSize, String sort, String direction, Object ...params) {
+   public List<Map<String, Object>> findPage(String sql, Integer curPage, Integer pageSize, String sort, String direction, Object ...params) {
        if (!StringUtils.isEmpty(sort) && !StringUtils.isEmpty(direction)) {
            sql += " order by " + sort + " " + direction;
        }
@@ -69,7 +69,24 @@ public class CommonService {
        pageSize = pageSize == null ? DEFAULT_PAGE_SIZE : pageSize;
        query.unwrap(SQLQuery.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP).setFirstResult(curPage * pageSize).setMaxResults(pageSize);
 
-       return convertEntityList(query.getResultList());
+       List<Map<String, Object>> list = convertEntityList(query.getResultList());
+
+       if (list.size() > 0) {
+           String countSql = String.format("select count(1) total_count from (%s) t", sql);
+           query = em.createNativeQuery(countSql);
+
+           for (int i = 0, len = params.length; i < len; i++) {
+               query.setParameter(i + 1, params[i]);
+           }
+
+           int totalCount = Integer.parseInt(query.getSingleResult().toString());
+           int totalPage = totalCount % pageSize == 0 ? totalCount / pageSize : (totalCount / pageSize) + 1;
+
+           list.get(0).put("totalCount", totalCount);
+           list.get(0).put("totalPage", totalPage);
+       }
+
+       return list;
    }
 
     protected List convertEntityList(List list) {

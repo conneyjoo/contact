@@ -35,7 +35,7 @@ public class File {
     @Column(name = "success_bid_id")
     private Long successBidId;
 
-    /** 1:招标文件, 2:中标通知书, 3:工程合同, 4:分包合同, 5:工程保险单, 6:合同验收证书, 7:牢记报告, 8:其他, 9:银行进出凭证, 10:财务结算单，11：其他 */
+    /** 1:招标文件, 2:中标通知书, 3:工程合同, 4:分包合同, 5:工程保险单, 6:合同验收证书, 7:牢记报告, 8:其他, 9:银行进出凭证, 10:工程发票, 11:抵扣发票, 12:成本发票, 13:工资单, 14:财务结算单，15：其他 */
     @Column(name = "business_type")
     private Integer businessType;
 

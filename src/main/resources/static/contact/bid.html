@@ -137,7 +137,7 @@
             </div>
         </div>
         <div style="width: 100%; overflow: scroll;font-size: xx-small">
-            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2200px" id="table">
+            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed table-bordered" style="top: 230px;;width:2200px" id="table">
                 <thead>
                 <tr>
                     <th width="2%">编号</th>
@@ -158,8 +158,8 @@
                     <th width="4%" data-sort="bid_open_result" class="flex-col">开标结果</th>
                     <th width="4%" data-sort="deposit_return_time" class="flex-col">保金退回日</th>
                     <th width="7%" data-sort="borrower_return_time" class="flex-col borrower">保金退回借用人日</th>
-                    <th width="6%" data-sort="creator" class="flex-col">状态</th>
                     <th width="5%" class="flex-col">银行凭证</th>
+                    <th width="4%" data-sort="creator" class="flex-col">创建人</th>
                     <th width="10%" class="flex-col">备注</th>
                     <th width="10%" class="flex-col">操作</th>
                 </tr>
@@ -184,8 +184,8 @@
                     <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
                     <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
                     <td class="borrower">{borrowerReturnTime}</td>
-                    <td style="color:{statusColor}">{statusView}&nbsp;&nbsp;<button class="btn btn-danger role" data-permission="16" type="button" onclick="changeStatus({id})" id="statusButton{id}">状态切换</button></td>
                     <td><a data-url="bid-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info iframe forword" data-width="600">上传/查看</a></td>
+                    <td>{creator}</td>
                     <td>{remark}</td>
                     <td>
                         <button class="btn btn-primary role" data-permission="1" type="button" name="editButton" onclick="bidEdit({id})">查看</button>&nbsp;
@@ -506,14 +506,6 @@
             if(data.warning){
                 data.warning = "已超过一个月";
                 data.warningColor = "#ff0800";
-            }
-
-            if(data.status==0){
-                data.statusView='进行中';
-                data.statusColor='#055bf5';
-            }else if(data.status==1){
-                data.statusView='已结束';
-                data.statusColor='#ff0800';
             }
 
             if(data!=null){

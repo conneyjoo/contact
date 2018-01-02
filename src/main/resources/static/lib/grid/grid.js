@@ -535,7 +535,7 @@
 		showLoading: true,
 		autoload: false,
 		async: true,
-		pageMax: 10,
+		pageMax: 20,
 		params: {}
 	};
 	
