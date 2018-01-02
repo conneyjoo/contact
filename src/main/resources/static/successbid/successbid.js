@@ -33,7 +33,7 @@ var successbidgrid = $('#successbidgrid').grid({
         }
 
         for (var p in totalData) {
-            totalData[p] = '<b style="color: red;">' + totalData[p].toFixed(4) + '</b>';
+            totalData[p] = '<b style="color: red;">' + totalData[p].toFixed(6) + '</b>';
         }
 
         var children = this.append(totalData).children();

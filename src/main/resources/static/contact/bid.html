@@ -449,8 +449,8 @@
         });
 
     clearSum = function () {
-        $("#bidPriceSum").html(bidPriceSum.toFixed(4));
-        $("#depositPriceSum").html(depositPriceSum.toFixed(4));
+        $("#bidPriceSum").html(bidPriceSum.toFixed(6));
+        $("#depositPriceSum").html(depositPriceSum.toFixed(6));
         bidPriceSum = 0;
         depositPriceSum = 0;
         loadPermission();
@@ -548,9 +548,10 @@
         var result = row['bidOpenResultMessage'];
         var principal = row['principal'];
         if(result=="未开标" && principal==localStorage.getItem('name')){
-/*            $("#titlebar").attr('data-permission','1');
-            $("#approvalform").attr('data-permission','1');
-            $("approveOpenResult").attr('data-permission','1');*/
+           $("#titlebar").data("permission",'1');
+            $("#approvalform").data("permission",'1');
+            $("#approveOpenResult").data("permission",'1');
+            loadPermission();
         }
 
         changeActive(row.depositApproval,row.bidOpenResult);
