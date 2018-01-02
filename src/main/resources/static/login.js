@@ -7,6 +7,7 @@ $('#submit').click(function() {
         data: data,
         success: function(msg) {
             if (msg.status == 1) {
+                localStorage.setItem('name',msg['data']['name']);
                 localStorage.setItem('level', msg.data.role.level);
                 var companyName = msg.data.companyName;
                 localStorage.setItem('companyName',companyName);

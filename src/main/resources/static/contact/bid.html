@@ -247,7 +247,7 @@
                 </div>
             </div>
             <form id="approvalform" class="form-horizontal role" data-permission="65536">
-                <div class="form-group">
+                <div class="form-group role" data-permission="65536">
                     <label for="depositApproval" class="col-sm-2">保证金审批</label>
                     <div class="col-md-8 col-sm-10">
                         <div class="btn-group" data-toggle="buttons">
@@ -263,7 +263,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div id="approveOpenResult" class="form-group role" data-permission="65536">
                     <label for="openResult" class="col-sm-2">开标结果</label>
                     <div class="col-md-8 col-sm-10">
                         <div class="btn-group" data-toggle="buttons">
@@ -386,6 +386,18 @@
                         <input type="text" class="form-control" id="remark" name="remark" placeholder="备注">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="remark2" class="col-sm-2 col-sm-2-print">备注二</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control" id="remark2" name="remark2" placeholder="备注2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="remark3" class="col-sm-2 col-sm-2-print">备注三</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control" id="remark3" name="remark3" placeholder="备注3">
+                    </div>
+                </div>
                 <div id="lines"><hr><hr><hr><hr><hr></div>
             </form>
         </div>
@@ -413,14 +425,14 @@
         $(".borrower").hide();
     }
 
-    $("#name_search").val(localStorage.getItem("name"));
-    $("#area_search").val(localStorage.getItem("area"));
-    $("#apply_date_min").val(localStorage.getItem("apply_date_min"));
-    $("#apply_date_max").val(localStorage.getItem("apply_date_max"));
-    $("#deposit_deadline_min").val(localStorage.getItem("deposit_deadline_min"));
-    $("#deposit_deadline_max").val(localStorage.getItem("deposit_deadline_max"));
-    $("#bid_open_time_min").val(localStorage.getItem("bid_open_time_min"));
-    $("#bid_open_time_max").val(localStorage.getItem("bid_open_time_max"));
+    $("#name_search").val(localStorage.getItem("name_bid"));
+    $("#area_search").val(localStorage.getItem("area_bid"));
+    $("#apply_date_min").val(localStorage.getItem("apply_date_min_bid"));
+    $("#apply_date_max").val(localStorage.getItem("apply_date_max_bid"));
+    $("#deposit_deadline_min").val(localStorage.getItem("deposit_deadline_min_bid"));
+    $("#deposit_deadline_max").val(localStorage.getItem("deposit_deadline_max_bid"));
+    $("#bid_open_time_min").val(localStorage.getItem("bid_open_time_min_bid"));
+    $("#bid_open_time_max").val(localStorage.getItem("bid_open_time_max_bid"));
 
     // 仅选择日期
     $(".form-date").datetimepicker(
@@ -508,7 +520,7 @@
         grid.load(data);
 
         for(var key in data){
-            localStorage.setItem(key,data[key])
+            localStorage.setItem(key+"_bid",data[key])
         }
     })
 
@@ -517,7 +529,7 @@
         var data = $('#searchform').serializeObject();
         grid.load(data);
         for(var key in data){
-            localStorage.setItem(key,data[key])
+            localStorage.setItem(key+"_bid",data[key])
         }
     })
 
@@ -532,6 +544,15 @@
         var row = grid.getSelected();
         editId = row.id;
         togglePanel();
+
+        var result = row['bidOpenResultMessage'];
+        var principal = row['principal'];
+        if(result=="未开标" && principal==localStorage.getItem('name')){
+/*            $("#titlebar").attr('data-permission','1');
+            $("#approvalform").attr('data-permission','1');
+            $("approveOpenResult").attr('data-permission','1');*/
+        }
+
         changeActive(row.depositApproval,row.bidOpenResult);
         fillBlanks(row);
 
@@ -593,6 +614,8 @@
         $("#bidOpenTime").val(row.bidOpenTime);
         $("#depositReturnTime").val(row.depositReturnTime);
         $("#remark").val(row.remark);
+        $("#remark2").val(row.remark2);
+        $("#remark3").val(row.remark3);
         $("#borrowerImportTime").val(row.borrowerImportTime);
         $("#borrowerReturnTime").val(row.borrowerReturnTime);
     }
