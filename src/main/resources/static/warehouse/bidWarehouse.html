@@ -86,11 +86,11 @@
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>开标时间</strong></span></td>
                                         <td>
-                                            <input id="bid_open_time_min" type="text" class="form-control form-date" name="bid_open_time_min"
+                                            <input id="bid_open_time_min" type="text" class="form-control form-datetime" name="bid_open_time_min"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input id="bid_open_time_max" type="text" class="form-control form-date" name="bid_open_time_max"
+                                            <input id="bid_open_time_max" type="text" class="form-control form-datetime" name="bid_open_time_max"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                         </td>
@@ -158,10 +158,10 @@
                     <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
                     <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
                     <td class="borrower">{borrowerReturnTime}</td>
-                    <td><a data-url="bidWarehouse-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info iframe forword" data-width="600">查看</a></td>
+                    <td><a data-url="bidWarehouse-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info btn-sm iframe forword" data-width="600">查看</a></td>
                     <td>{creator}</td>
                     <td>{remark}</td>
-                    <td><button class="btn btn-danger role" data-permission="65536" type="button" name="deleteButton" onclick="withdraw({id})">撤回</button></td>
+                    <td><button class="btn btn-danger btn-sm role" data-permission="65536" type="button" name="deleteButton" onclick="withdraw({id})">撤回</button></td>
                 </tr>
                 </tbody>
                 <tfoot>
@@ -173,10 +173,10 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td> <span style="font-weight: bold;font-size: small;">招标合计:<span id="bidPriceSum" style="color:red"></span></span></td>
+                    <td> <span style="font-weight: bold;font-size: small;"><span id="bidPriceSum" style="color:red"></span></span></td>
                     <td></td>
                     <td></td>
-                    <td><span style="font-weight: bold;font-size: small;">保证金合计:<span id="depositPriceSum" style="color:red"></span></span></td>
+                    <td><span style="font-weight: bold;font-size: small;"><span id="depositPriceSum" style="color:red"></span></span></td>
                     <td></td>
                     <td></td>
                     <td>
@@ -232,6 +232,20 @@
             minView: 2,
             forceParse: 0,
             format: "yyyy-mm-dd"
+        });
+
+    $(".form-datetime").datetimepicker(
+        {
+            language: "zh-cn",
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 1,
+            forceParse: 0,
+            showMeridian: 1,
+            format: "yyyy-mm-dd hh"
         });
 
     clearSum = function () {

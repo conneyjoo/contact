@@ -49,6 +49,9 @@ public class BidController extends ControllerSupport {
         if(bid.getFirstApplied() == null)
             bid.setFirstApplied(0);
 
+        if(bid.getStatus() == null)
+            bid.setStatus(0);
+
         if(bid.getId() ==null){
             bid.setCreator(getCurrentUser().getName());
         }else if(bid.getPrincipal() == null || bid.getPrincipal().length()==0){

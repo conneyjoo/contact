@@ -1,5 +1,6 @@
 package com.jinshun.contact.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -65,9 +66,8 @@ public class Bid {
     private Date depositRemitTime;
 
     //开标时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "bid_open_time")
-    private Date bidOpenTime;
+    private String bidOpenTime;
 
     //开标结果（0未开标，1中标，2未中标）
     @Column(name = "bid_open_result")
@@ -224,11 +224,11 @@ public class Bid {
         this.depositRemitTime = depositRemitTime;
     }
 
-    public Date getBidOpenTime() {
+    public String getBidOpenTime() {
         return bidOpenTime;
     }
 
-    public void setBidOpenTime(Date bidOpenTime) {
+    public void setBidOpenTime(String bidOpenTime) {
         this.bidOpenTime = bidOpenTime;
     }
 

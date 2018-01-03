@@ -1,12 +1,12 @@
 package com.jinshun.contact.controller.common.converter;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.support.WebBindingInitializer;
 import org.springframework.web.context.request.WebRequest;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DateConverter implements WebBindingInitializer {
 	
