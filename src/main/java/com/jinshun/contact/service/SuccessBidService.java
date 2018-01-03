@@ -79,4 +79,13 @@ public class SuccessBidService extends CommonService {
     public void updateInWarehouse(SuccessBid successBid) {
         executeUpdate("update t_success_bid set in_warehouse = ? where id = ?", successBid.getInWarehouse(), successBid.getId());
     }
+
+    public SuccessBid getById(Long id) {
+        return successBidRepository.findOne(id);
+    }
+
+    public SuccessBid saveOrUpdate(SuccessBid bid) {
+        return successBidRepository.save(bid);
+    }
+
 }

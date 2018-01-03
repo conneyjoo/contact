@@ -79,6 +79,27 @@ public class BidController extends ControllerSupport {
         return bidService.saveOrUpdate(bid);
     }
 
+    @RequestMapping("changeStatus")
+    @Access()
+    public @ResponseBody
+    Message changeStatus(Long id) {
+        Message message = new Message();
+        try {
+            Bid bid = bidService.getById(id);
+            Integer status = bid.getStatus();
+            if(status==1 && getCurrentUser().getRole().getLevel()!=69905){
+                message.setData("f");
+            }else{
+                bid.setStatus(status==0?1:0);
+                bidService.saveOrUpdate(bid);
+            }
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+            message.setSuccess(false);
+        }
+        return message;
+    }
+
     @RequestMapping("getFirstApplied")
     @Access()
     public @ResponseBody

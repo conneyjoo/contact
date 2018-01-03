@@ -41,6 +41,9 @@ public class SuccessBidController extends ControllerSupport {
     public @ResponseBody Message save(SuccessBid successBid) {
         Message message = new Message();
 
+        if(successBid.getStatus()==null)
+            successBid.setStatus(0);
+
         try {
             successBid.setCompany(getCurrentCompany());
             if(successBid.getCreator()==null)
@@ -51,6 +54,27 @@ public class SuccessBidController extends ControllerSupport {
             message.setSuccess(false);
         }
 
+        return message;
+    }
+
+    @RequestMapping("changeStatus")
+    @Access()
+    public @ResponseBody
+    Message changeStatus(Long id) {
+        Message message = new Message();
+        try {
+            SuccessBid bid = successBidService.getById(id);
+            Integer status = bid.getStatus();
+            if(status==1 && getCurrentUser().getRole().getLevel()!=69905){
+                message.setData("f");
+            }else{
+                bid.setStatus(status==0?1:0);
+                successBidService.saveOrUpdate(bid);
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            message.setSuccess(false);
+        }
         return message;
     }
 

@@ -20,6 +20,13 @@ var successbidgrid = $('#successbidgrid').grid({
     paginationRender: 'pagination',
     setData: function (data, i) {
         data.rowNo = i + 1 + (this.params.curPage  * this.params.pageSize);
+        if(data.status==0){
+            data.statusView='进行中';
+            data.statusColor='#055bf5';
+        }else if(data.status==1){
+            data.statusView='已结束';
+            data.statusColor='#ff0800';
+        }
     },
     afterLoad: function(data) {
         if (!data || data.length == 0) return;
@@ -64,6 +71,22 @@ var successbidgrid = $('#successbidgrid').grid({
 successbidgrid.on('rowdoubleclick', function(event) {
     showEditPanel();
 });
+
+changeStatus = function (id) {
+    $.ajax({
+        type: 'POST',
+        url: '/successbid/changeStatus',
+        data: {"id":id},
+        async:false,
+        success : function(msg) {
+            if(msg.data=="f"){
+                alert("您没有更改此条状态的权限！！！")
+            }else{
+                successbidgrid.load();
+            }
+        }
+    });
+}
 
 $(".form-date").datetimepicker({
     language: 'zh-cn',

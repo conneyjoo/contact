@@ -112,11 +112,11 @@
                                     <tr>
                                         <td class="text-right w-90px"><span><strong>开标时间</strong></span></td>
                                         <td>
-                                            <input id="bid_open_time_min" type="text" class="form-control form-datetime" name="bid_open_time_min"
+                                            <input id="bid_open_time_min" type="text" class="form-control form-date" name="bid_open_time_min"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                             <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
-                                            <input id="bid_open_time_max" type="text" class="form-control form-datetime" name="bid_open_time_max"
+                                            <input id="bid_open_time_max" type="text" class="form-control form-date" name="bid_open_time_max"
                                                    placeholder="yyyy-mm-dd" readonly
                                                    style="width: 49%; background-color: white; float: left;">
                                         </td>
@@ -158,8 +158,8 @@
                     <th width="4%" data-sort="bid_open_result" class="flex-col">开标结果</th>
                     <th width="4%" data-sort="deposit_return_time" class="flex-col">保金退回日</th>
                     <th width="7%" data-sort="borrower_return_time" class="flex-col borrower">保金退回借用人日</th>
+                    <th width="6%" data-sort="creator" class="flex-col">状态</th>
                     <th width="5%" class="flex-col">银行凭证</th>
-                    <th width="4%" data-sort="creator" class="flex-col">创建人</th>
                     <th width="10%" class="flex-col">备注</th>
                     <th width="10%" class="flex-col">操作</th>
                 </tr>
@@ -184,19 +184,19 @@
                     <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
                     <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
                     <td class="borrower">{borrowerReturnTime}</td>
-                    <td><a data-url="bid-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info btn-sm iframe forword" data-width="600">上传/查看</a></td>
-                    <td>{creator}</td>
+                    <td style="color:{statusColor}">{statusView}&nbsp;&nbsp;<button class="btn btn-danger role" data-permission="16" type="button" onclick="changeStatus({id})" >状态切换</button></td>
+                    <td><a data-url="bid-upload.html?id={id}&type=BID" data-index="{rowIndex}" class="btn btn-info iframe forword" data-width="600">上传/查看</a></td>
                     <td>{remark}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm role" data-permission="1" type="button" name="editButton" onclick="bidEdit({id})">查看</button>&nbsp;
-                        <button class="btn btn-success btn-sm role" data-permission="65536" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;
-                        <button class="btn btn-danger btn-sm role" data-permission="65536" type="button" name="deleteButton" onclick="bidDel({id})">删除</button>
+                        <button class="btn btn-primary role" data-permission="1" type="button" name="editButton" onclick="bidEdit({id})">查看</button>&nbsp;
+                        <button class="btn btn-success role" data-permission="65536" type="button" name="submitButton" onclick="bidSubmit({id})">入库</button>&nbsp;
+                        <button class="btn btn-danger role" data-permission="65536" type="button" name="deleteButton" onclick="bidDel({id})">删除</button>
                     </td>
                 </tr>
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td></td>
+                    <td><span style="color:red">合计</span></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -365,7 +365,7 @@
                 <div class="form-group">
                     <label for="bidOpenTime" class="col-sm-2 col-sm-2-print">开标时间</label>
                     <div class="col-md-8 col-sm-10 col-sm-10-print">
-                        <input type="text" class="form-control form-datetime" id="bidOpenTime" name="bidOpenTime" placeholder="开标时间" readonly style="background-color: white;">
+                        <input type="text" class="form-control form-date" id="bidOpenTime" name="bidOpenTime" placeholder="开标时间" readonly style="background-color: white;">
                     </div>
                 </div>
                 <div class="form-group role" id="depositReturnTimeDiv" data-permission="16">
@@ -445,22 +445,7 @@
             startView: 2,
             minView: 2,
             forceParse: 0,
-            showMeridian: 1,
             format: "yyyy-mm-dd"
-        });
-
-    $(".form-datetime").datetimepicker(
-        {
-            language: "zh-cn",
-            weekStart: 1,
-            todayBtn:  1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            minView: 1,
-            forceParse: 0,
-            showMeridian: 1,
-            format: "yyyy-mm-dd hh"
         });
 
     clearSum = function () {
@@ -523,6 +508,14 @@
                 data.warningColor = "#ff0800";
             }
 
+            if(data.status==0){
+                data.statusView='进行中';
+                data.statusColor='#055bf5';
+            }else if(data.status==1){
+                data.statusView='已结束';
+                data.statusColor='#ff0800';
+            }
+
             if(data!=null){
                 bidPriceSum = bidPriceSum + data.bidPrice;
                 depositPriceSum = depositPriceSum + data.depositPrice;
@@ -567,6 +560,11 @@
             $("#approvalform").data("permission",'1');
             $("#approveOpenResult").data("permission",'1');
             loadPermission();
+        }else{
+                $("#titlebar").data("permission",'65536');
+                $("#approvalform").data("permission",'65536');
+                $("#approveOpenResult").data("permission",'65536');
+                loadPermission();
         }
 
         changeActive(row.depositApproval,row.bidOpenResult);
@@ -608,25 +606,10 @@
                             format: 'yyyy-mm-dd'
                         });
                     }
-
-                    if (input.hasClass('form-datetime')) {
-                        input.datetimepicker({
-                            language: 'zh-cn',
-                            weekStart: 1,
-                            todayBtn:  1,
-                            autoclose: 1,
-                            todayHighlight: 1,
-                            startView: 2,
-                            forceParse: 0,
-                            showMeridian: 1,
-                            format: "yyyy-mm-dd hh"
-                        });
-                    }
                 }
             }
         }
     });
-
 
     //为编辑页面赋值
     fillBlanks = function(row){
@@ -648,6 +631,22 @@
         $("#remark3").val(row.remark3);
         $("#borrowerImportTime").val(row.borrowerImportTime);
         $("#borrowerReturnTime").val(row.borrowerReturnTime);
+    }
+
+    changeStatus = function (id) {
+        $.ajax({
+            type: 'POST',
+            url: '/bid/changeStatus',
+            data: {"id":id},
+            async:false,
+            success : function(msg) {
+                if(msg.data=="f"){
+                    alert("您没有更改此条状态的权限！！！")
+                }else{
+                    grid.load();
+                }
+            }
+        });
     }
 
     //编辑
@@ -704,20 +703,6 @@
                             minView: 2,
                             forceParse: 0,
                             format: 'yyyy-mm-dd'
-                        });
-                    }
-
-                    if (input.hasClass('form-datetime')) {
-                        input.datetimepicker({
-                            language: 'zh-cn',
-                            weekStart: 1,
-                            todayBtn:  1,
-                            autoclose: 1,
-                            todayHighlight: 1,
-                            startView: 2,
-                            forceParse: 0,
-                            showMeridian: 1,
-                            format: "yyyy-mm-dd hh"
                         });
                     }
                 }
@@ -785,18 +770,6 @@
             minView: 2,
             forceParse: 0,
             format: 'yyyy-mm-dd'
-        });
-
-        $(".form-datetime", $("#editform")).datetimepicker({
-            language: 'zh-cn',
-            weekStart: 1,
-            todayBtn:  1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            forceParse: 0,
-            showMeridian: 1,
-            format: "yyyy-mm-dd hh"
         });
     })
 
