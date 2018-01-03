@@ -36,12 +36,12 @@ var successbidmoneygrid = $('#successbidmoneygrid').grid({
 
         for (var i = 0, len = data.length; i < len; i++) {
             for (var p in totalData) {
-                totalData[p] += data[i][p];
+                totalData[p] += data[i][p] || 0;
             }
         }
 
         for (var p in totalData) {
-            totalData[p] = '<b style="color: red;">' + totalData[p] + '</b>';
+            totalData[p] = '<b style="color: red;">' + totalData[p].toFixed(6) + '</b>';
         }
 
         var children = this.append(totalData).children();
