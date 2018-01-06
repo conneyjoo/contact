@@ -34,6 +34,7 @@ public class SuccessBidMoneyController extends ControllerSupport {
         Message message = new Message();
 
         try {
+            successBidMoney.setCreator(getCurrentUser().getName());
             message.setData(successBidMoneyService.save(successBidMoney));
         } catch (Exception e) {
             logger.error(e.getMessage(), e);

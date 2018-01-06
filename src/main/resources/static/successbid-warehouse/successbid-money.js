@@ -20,18 +20,24 @@ var successbidmoneygrid = $('#successbidmoneygrid').grid({
         if (!data || data.length == 0) return;
 
         var totalData = {
-            profit: 0,
-            ticketOpenNinTax: 0,
-            ticketOpenTax: 0,
             ticketOpenAmount: 0,
             collectedAmount: 0,
-            paymentAmount: 0,
-            taxBillNinTax: 0,
-            taxBillTax: 0,
-            paymentAmount: 0,
-            taxBillAmount: 0,
-            normalBillAmount: 0,
-            payrollAmount: 0
+            managementCost: 0,
+            incomeTax: 0,
+            addedTax: 0,
+            constructionCost: 0,
+            constructionIncomeTax: 0,
+            printingTax: 0,
+            accountInvoice: 0,
+            insurancePremium: 0,
+            deductibleTax: 0,
+            paiedTax: 0,
+            temporaryPayment: 0,
+            projectPayment: 0,
+            receivableInvoice: 0,
+            receiptInvoice: 0,
+            lackInvoice: 0,
+            surplusTax: 0,
         };
 
         for (var i = 0, len = data.length; i < len; i++) {

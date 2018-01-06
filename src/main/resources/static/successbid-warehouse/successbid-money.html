@@ -56,122 +56,57 @@
             <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed" style="top: 230px;;width:2500px" id="table">
                 <thead>
                 <tr>
-                    <th width="3%"></th>
-                    <th width="5%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="5%" class="flex-col"></th>
-                    <th width="8%" class="flex-col" style="color: red;">开票额数据</th>
-                    <th width="6%" class="flex-col"></th>
-                    <th width="5%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="6%" class="flex-col"></th>
-                    <th width="5%" class="flex-col" style="color: red;">收款额数据</th>
-                    <th width="6%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="6%" class="flex-col"></th>
-                    <th width="6%" class="flex-col" style="color: red;">付款额数据</th>
-                    <th width="6%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="11%" class="flex-col"></th>
-                    <th width="13%" class="flex-col"></th>
-                    <th width="12%" class="flex-col" style="color: red;">收增值税专用发票数据</th>
-                    <th width="11%" class="flex-col"></th>
-                    <th width="11%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="8%" class="flex-col"></th>
-                    <th width="8%" class="flex-col" style="color: red;">收普通发票数据</th>
-                    <th width="8%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="8%" class="flex-col" style="color: red;">收工资单数据</th>
-                    <th width="8%" class="flex-col"></th>
-                    <th width="2%" class="flex-col"></th>
-                    <th width="5%" class="flex-col">备注</th>
-                    <th width="12%" class="flex-col">操作</th>
-                </tr>
-                <tr>
-                    <th width="3%">编号</th>
-                    <th width="5%" class="flex-col">利润</th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="6%" class="flex-col">开票日</th>
-                    <th width="5%" class="flex-col">开不含税额</th>
-                    <th width="6%" class="flex-col">开增值税</th>
-                    <th width="5%" class="flex-col">开票总额</th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="6%" class="flex-col">收款日</th>
-                    <th width="5%" class="flex-col">收款额</th>
-                    <th width="6%" class="flex-col">收款备注</th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="6%" class="flex-col">付款日</th>
-                    <th width="6%" class="flex-col">付款额</th>
-                    <th width="6%" class="flex-col">付款备注</th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="11%" class="flex-col">收抵扣票日期</th>
-                    <th width="13%" class="flex-col">收抵扣票不含税额</th>
-                    <th width="12%" class="flex-col">收抵扣票增值税</th>
-                    <th width="11%" class="flex-col">收抵扣票合计</th>
-                    <th width="11%" class="flex-col">收抵扣票备注</th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="8%" class="flex-col">收普票日期</th>
-                    <th width="8%" class="flex-col">收普票金额</th>
-                    <th width="8%" class="flex-col">收普票备注</th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-left"></i></th>
-                    <th width="8%" class="flex-col">收工资单日期</th>
-                    <th width="8%" class="flex-col">收工资单金额</th>
-                    <th width="2%" class="flex-col"><i class="icon icon-chevron-right"></i></th>
-                    <th width="5%" class="flex-col">备注</th>
+                    <th width="4%">结算合计</th>
+                    <th width="4%" class="flex-col">开票日</th>
+                    <th width="4%" class="flex-col">开票金额</th>
+                    <th width="4%" class="flex-col">收款日</th>
+                    <th width="4%" class="flex-col">收款金额</th>
+                    <th width="5%" class="flex-col">(扣)管理费用</th>
+                    <th width="5%" class="flex-col">(扣)企业所得税</th>
+                    <th width="5%" class="flex-col">(扣)应交增值税</th>
+                    <th width="5%" class="flex-col">(扣)城建及教费</th>
+                    <th width="5%" class="flex-col">(扣)个所税</th>
+                    <th width="5%" class="flex-col">(扣)印花税</th>
+                    <th width="6%" class="flex-col">(扣)暂扣做账发票</th>
+                    <th width="4%" class="flex-col">(扣)保险费</th>
+                    <th width="6%" class="flex-col">(退还)抵扣增值税</th>
+                    <th width="6%" class="flex-col">(退还)已交增值税</th>
+                    <th width="4%" class="flex-col">暂付款</th>
+                    <th width="6%" class="flex-col">应付项目工程款</th>
+                    <th width="5%" class="flex-col">应收材料发票</th>
+                    <th width="5%" class="flex-col">已收材料发票</th>
+                    <th width="5%" class="flex-col">尚缺材料发票</th>
+                    <th width="6%" class="flex-col">多余的扣增值税</th>
+                    <th width="4%" class="flex-col">录入人</th>
                     <th width="12%" class="flex-col">操作</th>
                 </tr>
                 </thead>
                 <tbody id="successbidmoneygrid" class="grid">
                 <tr class="text-center">
                     <td>{rowIndex}</td>
-                    <td>{profit}</td>
-                    <td></td>
                     <td>{ticketOpenTime}</td>
-                    <td>{ticketOpenNinTax}</td>
-                    <td>{ticketOpenTax}</td>
                     <td>{ticketOpenAmount}</td>
-                    <td></td>
-                    <td></td>
                     <td>{collectedAmountTime}</td>
                     <td>{collectedAmount}</td>
-                    <td>{collectedAmountRemark}</td>
-                    <td></td>
-                    <td></td>
-                    <td>{paymentAmountTime}</td>
-                    <td>{paymentAmount}</td>
-                    <td>{paymentAmountRemark}</td>
-                    <td></td>
-                    <td></td>
-                    <td>{taxBillTime}</td>
-                    <td>{taxBillNinTax}</td>
-                    <td>{taxBillTax}</td>
-                    <td>{taxBillAmount}</td>
-                    <td>{taxBillRemark}</td>
-                    <td></td>
-                    <td></td>
-                    <td>{normalBillTime}</td>
-                    <td>{normalBillAmount}</td>
-                    <td>{normalBillRemark}</td>
-                    <td></td>
-                    <td></td>
-                    <td>{payrollTime}</td>
-                    <td>{payrollAmount}</td>
-                    <td></td>
-                    <td>{remark}</td>
+                    <td>{managementCost}</td>
+                    <td>{incomeTax}</td>
+                    <td>{addedTax}</td>
+                    <td>{constructionCost}</td>
+                    <td>{constructionIncomeTax}</td>
+                    <td>{printingTax}</td>
+                    <td>{accountInvoice}</td>
+                    <td>{insurancePremium}</td>
+                    <td>{deductibleTax}</td>
+                    <td>{paiedTax}</td>
+                    <td>{temporaryPayment}</td>
+                    <td>{projectPayment}</td>
+                    <td>{receivableInvoice}</td>
+                    <td>{receiptInvoice}</td>
+                    <td>{lackInvoice}</td>
+                    <td>{surplusTax}</td>
+                    <td>{creator}</td>
                     <td>
-                        <a href="javascript: showEditPanel()" class="btn btn-primary btn-sm role" data-permission="1">查看</a>&nbsp;
-                        <a href="javascript: removeRow()" class="btn btn-danger btn-sm role" data-permission="65536">删除</a>
+                        <a href="javascript: showEditPanel()" class="btn btn-primary btn-sm role" data-permission="1">查看</a>
                     </td>
                 </tr>
                 </tbody>
@@ -190,10 +125,10 @@
                 <a id="backButton" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
             </div>
         </div>
-        <div class="container mw-1400px" style="height: 1000px;">
+        <div class="container mw-1400px" style="height: 1500px;">
             <div id="titlebar">
                 <div class="heading">
-                    <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 中标信息：</strong>
+                    <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 相关金额信息：</strong>
                 </div>
             </div>
             <form id="editform" class="form-horizontal">
@@ -202,155 +137,134 @@
 
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label>利润(万元)</label>
-                        <input type="text" class="form-control numberField" name="profit" placeholder="利润">
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label style="color: red">开票额(万元)</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-6">
                         <label>开票日期</label>
                         <input type="text" class="form-control form-date" name="ticketOpenTime" placeholder="开票日期" readonly style="width: 100%; background-color: white; float: left;">
                     </div>
                     <div class="col-sm-6">
-                        <label>开票总额</label>
-                        <input type="text" class="form-control numberField" name="ticketOpenAmount" placeholder="开票总额">
+                        <label>开票金额</label>
+                        <input type="text" class="form-control" name="ticketOpenAmount" placeholder="开票金额">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label>开票增值税</label>
-                        <input type="text" class="form-control numberField" name="ticketOpenTax" placeholder="开票增值税">
+                        <label>收款日期</label>
+                        <input type="text" class="form-control form-date" name="collectedAmountTime" placeholder="收款日期" readonly style="width: 100%; background-color: white; float: left;">
                     </div>
                     <div class="col-sm-6">
-                        <label>开票不含税额</label>
-                        <input type="text" class="form-control numberField" name="ticketOpenNinTax" placeholder="开票不含税额">
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label style="color: red">收款额(万元)</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>收款额日期</label>
-                        <input type="text" class="form-control form-date" name="collectedAmountTime" placeholder="收款额日期" readonly style="width: 100%; background-color: white; float: left;">
-                    </div>
-                    <div class="col-sm-6">
-                        <label>收款额</label>
-                        <input type="text" class="form-control numberField" name="collectedAmount" placeholder="收款额">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>收款额备注</label>
-                        <input type="text" class="form-control empty" name="collectedAmountRemark" placeholder="收款额备注">
+                        <label>收款金额</label>
+                        <input type="text" class="form-control" name="collectedAmount" placeholder="收款金额">
                     </div>
                 </div>
                 <br>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label style="color: red">付款额(万元)</label>
+                        <label style="color: red">扣：</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label>付款额日期</label>
-                        <input type="text" class="form-control form-date" name="paymentAmountTime" placeholder="付款额日期" readonly style="width: 100%; background-color: white; float: left;">
+                        <label>扣：管理费用</label>
+                        <input type="text" class="form-control" name="managementCost" placeholder="收款额">
                     </div>
                     <div class="col-sm-6">
-                        <label>付款额</label>
-                        <input type="text" class="form-control numberField" name="paymentAmount" placeholder="付款额">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>付款额备注</label>
-                        <input type="text" class="form-control empty" name="paymentAmountRemark" placeholder="付款额备注">
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label style="color: red">收增值税专用发票(万元)</label>
+                        <label>扣：企业所得税</label>
+                        <input type="text" class="form-control" name="incomeTax" placeholder="扣：企业所得税">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label>收增值税专用发票日期</label>
-                        <input type="text" class="form-control form-date" name="taxBillTime" placeholder="收增值税专用发票日期" readonly style="width: 100%; background-color: white; float: left;">
-                    </div>
-                    <div class="col-sm-6">
-                        <label>收增值税专用发票不含税</label>
-                        <input type="text" class="form-control numberField" name="taxBillNinTax" placeholder="收增值税专用发票不含税">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>收增值税专用发票增值税</label>
-                        <input type="text" class="form-control numberField" name="taxBillTax" placeholder="收增值税专用发票增值税">
-                    </div>
-                    <div class="col-sm-6">
-                        <label>收增值税专用发票合计</label>
-                        <input type="text" class="form-control numberField" name="taxBillAmount" placeholder="收增值税专用发票合计">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>收增值税专用发票备注</label>
-                        <input type="text" class="form-control empty" name="taxBillRemark" placeholder="收增值税专用发票备注">
+                        <label>扣：应交增值税</label>
+                        <input type="text" class="form-control" name="addedTax" placeholder="扣：应交增值税">
                     </div>
                 </div>
                 <br>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label style="color: red">收普通发票(万元)</label>
+                        <label style="color: red">扣：地税费用</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label>收普通发票日期</label>
-                        <input type="text" class="form-control form-date" name="normalBillTime" placeholder="收普通发票日期" readonly style="width: 100%; background-color: white; float: left;">
+                        <label>扣：城建及教费</label>
+                        <input type="text" class="form-control" name="constructionCost" placeholder="扣：城建及教费">
                     </div>
                     <div class="col-sm-6">
-                        <label>收普通发票金额</label>
-                        <input type="text" class="form-control numberField" name="normalBillAmount" placeholder="收普通发票金额">
+                        <label>扣：个所税</label>
+                        <input type="text" class="form-control" name="constructionIncomeTax" placeholder="扣：城建个所税">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label>收普通发票备注</label>
-                        <input type="text" class="form-control empty" name="normalBillRemark" placeholder="收普通发票备注">
+                        <label>扣：印花税</label>
+                        <input type="text" class="form-control" name="printingTax" placeholder="扣：印花税">
                     </div>
                 </div>
                 <br>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label style="color: red">收工资单(万元)</label>
+                        <label>暂扣做账发票</label>
+                        <input type="text" class="form-control" name="accountInvoice" placeholder="暂扣做账发票">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>扣：保险费</label>
+                        <input type="text" class="form-control" name="insurancePremium" placeholder="扣：保险费">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label style="color: red">退还</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label>收工资单日期</label>
-                        <input type="text" class="form-control form-date" name="payrollTime" placeholder="收工资单日期" readonly style="width: 100%; background-color: white; float: left;">
+                        <label>退还：抵扣增值税</label>
+                        <input type="text" class="form-control" name="deductibleTax" placeholder="退还：抵扣增值税">
                     </div>
                     <div class="col-sm-6">
-                        <label>收工资单金额</label>
-                        <input type="text" class="form-control numberField" name="payrollAmount" placeholder="收工资单金额">
+                        <label>退还：已交增值税</label>
+                        <input type="text" class="form-control" name="paiedTax" placeholder="退还：已交增值税">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>暂付款</label>
+                        <input type="text" class="form-control" name="temporaryPayment" placeholder="暂付款">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>应付项目工程款</label>
+                        <input type="text" class="form-control empty" name="projectPayment" placeholder="应付项目工程款">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label style="color: red">材料发票</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <label>备注</label>
-                        <input type="text" class="form-control empty" name="remark" placeholder="备注">
+                        <label>应收材料发票</label>
+                        <input type="text" class="form-control" name="receivableInvoice" placeholder="应收材料发票">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>已收材料发票</label>
+                        <input type="text" class="form-control" name="receiptInvoice" placeholder="已收材料发票">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>尚缺材料发票尚缺材料发票</label>
+                        <input type="text" class="form-control" name="lackInvoice" placeholder="尚缺材料发票">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>多余的扣增值税</label>
+                        <input type="text" class="form-control" name="surplusTax" placeholder="多余的扣增值税">
                     </div>
                 </div>
             </form>

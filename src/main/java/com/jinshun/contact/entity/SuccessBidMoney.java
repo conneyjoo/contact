@@ -18,28 +18,16 @@ public class SuccessBidMoney {
     @JoinColumn(name = "success_bid_id")
     private SuccessBid successBid;
 
-    //利润
-    @Column(name="profit")
-    private Double profit;
-
     //开票日期
     @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="ticket_open_time")
     private Date ticketOpenTime;
 
-    //开票不含税额
-    @Column(name="ticket_open_nin_tax")
-    private Double ticketOpenNinTax;
-
-    //开票增值税
-    @Column(name="ticket_open_tax")
-    private Double ticketOpenTax;
-
-    //开票总额
+    //开票金额
     @Column(name="ticket_open_amount")
     private Double ticketOpenAmount;
 
-    //收款额日期
+    //收款日期
     @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="collected_amount_time")
     private Date collectedAmountTime;
@@ -48,69 +36,80 @@ public class SuccessBidMoney {
     @Column(name="collected_amount")
     private Double collectedAmount;
 
-    //收款额备注
-    @Column(name="collected_amount_remark")
-    private String collectedAmountRemark;
+    //扣：管理费用
+    @Column(name="management_cost")
+    private Double managementCost;
 
-    //付款额日期
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @Column(name="payment_amount_time")
-    private Date paymentAmountTime;
+    //扣：企业所得税
+    @Column(name="income_tax")
+    private Double incomeTax;
 
-    //付款额
-    @Column(name="payment_amount")
-    private Double paymentAmount;
+    //扣：应交增值税
+    @Column(name="added_tax")
+    private Double addedTax;
 
-    //付款额备注
-    @Column(name="payment_amount_remark")
-    private String paymentAmountRemark;
+    //扣：城建及教费
+    @Column(name="construction_cost")
+    private Double constructionCost;
 
-    //收增值税专用发票日期
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @Column(name="tax_bill_time")
-    private Date taxBillTime;
+    //扣：城建个所税
+    @Column(name="construction_income_tax")
+    private Double constructionIncomeTax;
 
-    //收增值税专用发票不含税额
-    @Column(name="tax_bill_nin_tax")
-    private Double taxBillNinTax;
+    //扣：印花税
+    @Column(name="printing_tax")
+    private Double printingTax;
 
-    //收增值税专用发票增值税
-    @Column(name="tax_bill_tax")
-    private Double taxBillTax;
+    //扣：暂扣做账发票
+    @Column(name="account_invoice")
+    private Double accountInvoice;
 
-    //收增值税专用发票合计
-    @Column(name="tax_bill_amount")
-    private Double taxBillAmount;
+    //扣：保险费
+    @Column(name="insurance_premium")
+    private Double insurancePremium;
 
-    //收增值税专用发票备注
-    @Column(name="tax_bill_remark")
-    private String taxBillRemark;
+    //退还：抵扣增值税
+    @Column(name="deductible_tax")
+    private Double deductibleTax;
 
-    //收普通发票日期
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @Column(name="normal_bill_time")
-    private Date normalBillTime;
+    //退还：已交增值税
+    @Column(name="paied_tax")
+    private Double paiedTax;
 
-    //收普通发票金额
-    @Column(name="normal_bill_amount")
-    private Double normalBillAmount;
+    //暂付款
+    @Column(name="temporary_payment")
+    private Double temporaryPayment;
 
-    //收普通发票备注
-    @Column(name="normal_bill_remark")
-    private String normalBillRemark;
+    //应付项目工程款
+    @Column(name="project_payment")
+    private Double projectPayment;
 
-    //收工资单日期
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    @Column(name="payroll_time")
-    private Date payrollTime;
+    //应收材料发票
+    @Column(name="receivable_invoice")
+    private Double receivableInvoice;
 
-    //收工资单金额
-    @Column(name="payroll_amount")
-    private Double payrollAmount;
+    //已收材料发票
+    @Column(name="receipt_invoice")
+    private Double receiptInvoice;
 
-    //备注
-    @Column(name="remark")
-    private String remark;
+    //尚缺材料发票
+    @Column(name="lack_invoice")
+    private Double lackInvoice;
+
+    //多余的扣增值税
+    @Column(name="surplus_tax")
+    private Double surplusTax;
+
+    //录入人
+    private String creator;
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
 
     public Long getId() {
         return id;
@@ -128,36 +127,12 @@ public class SuccessBidMoney {
         this.successBid = successBid;
     }
 
-    public Double getProfit() {
-        return profit;
-    }
-
-    public void setProfit(Double profit) {
-        this.profit = profit;
-    }
-
     public Date getTicketOpenTime() {
         return ticketOpenTime;
     }
 
     public void setTicketOpenTime(Date ticketOpenTime) {
         this.ticketOpenTime = ticketOpenTime;
-    }
-
-    public Double getTicketOpenNinTax() {
-        return ticketOpenNinTax;
-    }
-
-    public void setTicketOpenNinTax(Double ticketOpenNinTax) {
-        this.ticketOpenNinTax = ticketOpenNinTax;
-    }
-
-    public Double getTicketOpenTax() {
-        return ticketOpenTax;
-    }
-
-    public void setTicketOpenTax(Double ticketOpenTax) {
-        this.ticketOpenTax = ticketOpenTax;
     }
 
     public Double getTicketOpenAmount() {
@@ -184,124 +159,131 @@ public class SuccessBidMoney {
         this.collectedAmount = collectedAmount;
     }
 
-    public String getCollectedAmountRemark() {
-        return collectedAmountRemark;
+    public Double getManagementCost() {
+        return managementCost;
     }
 
-    public void setCollectedAmountRemark(String collectedAmountRemark) {
-        this.collectedAmountRemark = collectedAmountRemark;
+    public void setManagementCost(Double managementCost) {
+        this.managementCost = managementCost;
     }
 
-    public Date getPaymentAmountTime() {
-        return paymentAmountTime;
+    public Double getIncomeTax() {
+        return incomeTax;
     }
 
-    public void setPaymentAmountTime(Date paymentAmountTime) {
-        this.paymentAmountTime = paymentAmountTime;
+    public void setIncomeTax(Double incomeTax) {
+        this.incomeTax = incomeTax;
     }
 
-    public Double getPaymentAmount() {
-        return paymentAmount;
+    public Double getAddedTax() {
+        return addedTax;
     }
 
-    public void setPaymentAmount(Double paymentAmount) {
-        this.paymentAmount = paymentAmount;
+    public void setAddedTax(Double addedTax) {
+        this.addedTax = addedTax;
     }
 
-    public String getPaymentAmountRemark() {
-        return paymentAmountRemark;
+    public Double getConstructionCost() {
+        return constructionCost;
     }
 
-    public void setPaymentAmountRemark(String paymentAmountRemark) {
-        this.paymentAmountRemark = paymentAmountRemark;
+    public void setConstructionCost(Double constructionCost) {
+        this.constructionCost = constructionCost;
     }
 
-    public Date getTaxBillTime() {
-        return taxBillTime;
+    public Double getConstructionCostIncomeTax() {
+        return constructionIncomeTax;
     }
 
-    public void setTaxBillTime(Date taxBillTime) {
-        this.taxBillTime = taxBillTime;
+    public void setConstructionCostIncomeTax(Double constructionIncomeTax) {
+        this.constructionIncomeTax = constructionIncomeTax;
     }
 
-    public Double getTaxBillNinTax() {
-        return taxBillNinTax;
+    public Double getPrintingTax() {
+        return printingTax;
     }
 
-    public void setTaxBillNinTax(Double taxBillNinTax) {
-        this.taxBillNinTax = taxBillNinTax;
+    public void setPrintingTax(Double printingTax) {
+        this.printingTax = printingTax;
     }
 
-    public Double getTaxBillTax() {
-        return taxBillTax;
+    public Double getAccountInvoice() {
+        return accountInvoice;
     }
 
-    public void setTaxBillTax(Double taxBillTax) {
-        this.taxBillTax = taxBillTax;
+    public void setAccountInvoice(Double accountInvoice) {
+        this.accountInvoice = accountInvoice;
     }
 
-    public Double getTaxBillAmount() {
-        return taxBillAmount;
+    public Double getInsurancePremium() {
+        return insurancePremium;
     }
 
-    public void setTaxBillAmount(Double taxBillAmount) {
-        this.taxBillAmount = taxBillAmount;
+    public void setInsurancePremium(Double insurancePremium) {
+        this.insurancePremium = insurancePremium;
     }
 
-    public String getTaxBillRemark() {
-        return taxBillRemark;
+    public Double getDeductibleTax() {
+        return deductibleTax;
     }
 
-    public void setTaxBillRemark(String taxBillRemark) {
-        this.taxBillRemark = taxBillRemark;
+    public void setDeductibleTax(Double deductibleTax) {
+        this.deductibleTax = deductibleTax;
     }
 
-    public Date getNormalBillTime() {
-        return normalBillTime;
+    public Double getPaiedTax() {
+        return paiedTax;
     }
 
-    public void setNormalBillTime(Date normalBillTime) {
-        this.normalBillTime = normalBillTime;
+    public void setPaiedTax(Double paiedTax) {
+        this.paiedTax = paiedTax;
     }
 
-    public Double getNormalBillAmount() {
-        return normalBillAmount;
+    public Double getTemporaryPayment() {
+        return temporaryPayment;
     }
 
-    public void setNormalBillAmount(Double normalBillAmount) {
-        this.normalBillAmount = normalBillAmount;
+    public void setTemporaryPayment(Double temporaryPayment) {
+        this.temporaryPayment = temporaryPayment;
     }
 
-    public String getNormalBillRemark() {
-        return normalBillRemark;
+    public Double getProjectPayment() {
+        return projectPayment;
     }
 
-    public void setNormalBillRemark(String normalBillRemark) {
-        this.normalBillRemark = normalBillRemark;
+    public void setProjectPayment(Double projectPayment) {
+        this.projectPayment = projectPayment;
     }
 
-    public Date getPayrollTime() {
-        return payrollTime;
+    public Double getReceivableInvoice() {
+        return receivableInvoice;
     }
 
-    public void setPayrollTime(Date payrollTime) {
-        this.payrollTime = payrollTime;
+    public void setReceivableInvoice(Double receivableInvoice) {
+        this.receivableInvoice = receivableInvoice;
     }
 
-    public Double getPayrollAmount() {
-        return payrollAmount;
+    public Double getReceiptInvoice() {
+        return receiptInvoice;
     }
 
-    public void setPayrollAmount(Double payrollAmount) {
-        this.payrollAmount = payrollAmount;
+    public void setReceiptInvoice(Double receiptInvoice) {
+        this.receiptInvoice = receiptInvoice;
     }
 
-    public String getRemark() {
-        return remark;
+    public Double getLackInvoice() {
+        return lackInvoice;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setLackInvoice(Double lackInvoice) {
+        this.lackInvoice = lackInvoice;
     }
 
+    public Double getSurplusTax() {
+        return surplusTax;
+    }
+
+    public void setSurplusTax(Double surplusTax) {
+        this.surplusTax = surplusTax;
+    }
 }
