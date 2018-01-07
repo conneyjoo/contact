@@ -286,4 +286,12 @@ public class SuccessBidMoney {
     public void setSurplusTax(Double surplusTax) {
         this.surplusTax = surplusTax;
     }
+
+    public Double getConstructionIncomeTax() {
+        return constructionIncomeTax;
+    }
+
+    public void setConstructionIncomeTax(Double constructionIncomeTax) {
+        this.constructionIncomeTax = constructionIncomeTax;
+    }
 }
