@@ -191,6 +191,10 @@ $('#save').click(function() {
     });
 });
 
+$('#print').click(function() {
+    doPrint();
+});
+
 togglePanel = function() {
     editpanel.toggle();
     mainpanel.toggle();
@@ -269,3 +273,14 @@ removeRow = function() {
 }
 
 $('#editouter').height(window.screen.availHeight - 175);
+
+function doPrint() {
+    var body = $(document.body), wrap = $('#wrap'), table = $($('.datatable').parent().html());
+    wrap.hide();
+    table.width('100%');
+    body.append(table);
+    window.print();
+    table.remove();
+    wrap.show();
+    return false;
+}

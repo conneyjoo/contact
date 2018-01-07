@@ -29,6 +29,12 @@
         .editpanel {display: none;}
         .warning {display: none;}
     </style>
+
+    <style media=print>
+        .datetimepicker {display: none;}
+        .op {display: none;}
+        table {font-size: xx-small;}
+    </style>
 </head>
 <body>
 <div id="wrap" style="width: 100%; margin: 0 auto" class="mainpanel">
@@ -40,6 +46,7 @@
             </ul>
             <div class="actions">
                 <a id="back" class="btn"><i class="icon-chevron-left"></i> 返回</a>
+                <a id="print" class="btn"><i class="icon icon-print"></i> 打印</a>
                 <a href="javascript:" class="btn" id="add"><i class="icon-plus"></i> 新增</a>
             </div>
             <div id="querybox" class="show">
@@ -79,7 +86,7 @@
                     <th width="5%" class="flex-col">尚缺材料发票</th>
                     <th width="6%" class="flex-col">多余的扣增值税</th>
                     <th width="4%" class="flex-col">录入人</th>
-                    <th width="12%" class="flex-col">操作</th>
+                    <th width="12%" class="flex-col op">操作</th>
                 </tr>
                 </thead>
                 <tbody id="successbidmoneygrid" class="grid">
@@ -106,7 +113,7 @@
                     <td>{lackInvoice}</td>
                     <td>{surplusTax}</td>
                     <td>{creator}</td>
-                    <td>
+                    <td class="op">
                         <a href="javascript: showEditPanel()" class="btn btn-primary btn-sm role" data-permission="1">查看</a>&nbsp;
                         <a href="javascript: removeRow()" class="btn btn-danger btn-sm role" data-permission="65536">删除</a>
                     </td>
