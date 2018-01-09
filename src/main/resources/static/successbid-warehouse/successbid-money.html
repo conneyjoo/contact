@@ -70,7 +70,6 @@
                     <th width="6%" class="flex-col">(扣)暂扣做账发票</th>
                     <th width="4%" class="flex-col">(扣)保险费</th>
                     <th width="6%" class="flex-col">(退还)抵扣增值税</th>
-                    <th width="6%" class="flex-col">(退还)已交增值税</th>
                     <th width="4%" class="flex-col">暂付款</th>
                     <th width="6%" class="flex-col">应付项目工程款</th>
                     <th width="5%" class="flex-col">应收材料发票</th>
@@ -97,7 +96,6 @@
                     <td>{accountInvoice}</td>
                     <td>{insurancePremium}</td>
                     <td>{deductibleTax}</td>
-                    <td>{paiedTax}</td>
                     <td>{temporaryPayment}</td>
                     <td>{projectPayment}</td>
                     <td>{receivableInvoice}</td>
@@ -222,17 +220,12 @@
                         <input type="text" class="form-control" name="deductibleTax" placeholder="退还：抵扣增值税">
                     </div>
                     <div class="col-sm-6">
-                        <label>退还：已交增值税</label>
-                        <input type="text" class="form-control" name="paiedTax" placeholder="退还：已交增值税">
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="form-group">
-                    <div class="col-sm-6">
                         <label>暂付款</label>
                         <input type="text" class="form-control" name="temporaryPayment" placeholder="暂付款">
                     </div>
+                </div>
+                <br>
+                <div class="form-group">
                     <div class="col-sm-6">
                         <label>应付项目工程款</label>
                         <input type="text" class="form-control empty" name="projectPayment" placeholder="应付项目工程款">

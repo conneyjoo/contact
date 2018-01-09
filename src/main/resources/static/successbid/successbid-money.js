@@ -1,4 +1,5 @@
 var successBidId = $.util.urlParam('successBidId');
+var name = $.util.urlParam('name');
 var curPage = $.util.urlParam('curPage');
 var pageSize = $.util.urlParam('pageSize');
 var selectedIndex = $.util.urlParam('selectedIndex');
@@ -31,7 +32,6 @@ var successbidmoneygrid = $('#successbidmoneygrid').grid({
             accountInvoice: 0,
             insurancePremium: 0,
             deductibleTax: 0,
-            paiedTax: 0,
             temporaryPayment: 0,
             projectPayment: 0,
             receivableInvoice: 0,
@@ -94,13 +94,12 @@ $("#autoCalculate").click(function () {
     var printingTax = $("input[name='printingTax']").val() //(8)
     var accountInvoice = $("input[name='accountInvoice']").val(); //(9)
     var insurancePremium = $("input[name='insurancePremium']").val();   // (10)
-    var paiedTax = $("input[name='paiedTax']").val();   // (12)
-    if(isNotPirce(accountInvoice)&&isNotPirce(insurancePremium)&&isNotPirce(paiedTax)&&isNotPirce(managementCost)){
-        alert("保存失败，暂扣做账发票和保险费以及已交增值税 管理费用必须是数字！！！");
+    if(isNotPirce(accountInvoice)&&isNotPirce(insurancePremium)&&isNotPirce(managementCost)){
+        alert("保存失败，暂扣做账发票和保险费以及管理费用必须是数字！！！");
         return;
     }else{
         $("input[name='projectPayment']").val(collectedAmount-managementCost-incomeTax-addedTax-constructionCost-constructionIncomeTax-printingTax
-        -accountInvoice-insurancePremium+(deductibleTax/1+paiedTax/1));//应付项目工程款 （14=2-3-4-5-6-7-8-9-10+11+12）
+        -accountInvoice-insurancePremium+(deductibleTax/1));//应付项目工程款 （14=2-3-4-5-6-7-8-9-10+11）
     }
 
     var receivableInvoice = $("input[name='receivableInvoice']").val(); //(15)
@@ -274,7 +273,38 @@ removeRow = function() {
 
 $('#editouter').height(window.screen.availHeight - 175);
 
+//将URL中的UTF-8字符串转成中文字符串
+function getCharFromUtf8(str) {
+    var cstr = "";
+    var nOffset = 0;
+    if (str == "")
+        return "";
+    str = str.toLowerCase();
+    nOffset = str.indexOf("%e");
+    if (nOffset == -1)
+        return str;
+    while (nOffset != -1) {
+        cstr += str.substr(0, nOffset);
+        str = str.substr(nOffset, str.length - nOffset);
+        if (str == "" || str.length < 9)
+            return cstr;
+        cstr += utf8ToChar(str.substr(0, 9));
+        str = str.substr(9, str.length - 9);
+        nOffset = str.indexOf("%e");
+    }
+    return cstr + str;
+}
+
+function utf8ToChar(str) {
+    var iCode, iCode1, iCode2;
+    iCode = parseInt("0x" + str.substr(1, 2));
+    iCode1 = parseInt("0x" + str.substr(4, 2));
+    iCode2 = parseInt("0x" + str.substr(7, 2));
+    return String.fromCharCode(((iCode & 0x0F) << 12) | ((iCode1 & 0x3F) << 6) | (iCode2 & 0x3F));
+}
+
 function doPrint() {
+    document.title = getCharFromUtf8(name);
     var body = $(document.body), wrap = $('#wrap'), table = $($('.datatable').parent().html());
     wrap.hide();
     table.width('100%');

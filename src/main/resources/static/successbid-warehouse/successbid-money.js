@@ -31,7 +31,6 @@ var successbidmoneygrid = $('#successbidmoneygrid').grid({
             accountInvoice: 0,
             insurancePremium: 0,
             deductibleTax: 0,
-            paiedTax: 0,
             temporaryPayment: 0,
             projectPayment: 0,
             receivableInvoice: 0,
