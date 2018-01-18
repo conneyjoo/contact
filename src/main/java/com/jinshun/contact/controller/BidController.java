@@ -69,6 +69,7 @@ public class BidController extends ControllerSupport {
                 successBid.setConstructer(bid.getConstructor());
                 successBid.setInWarehouse(0);
                 successBid.setCreator(bid.getCreator());
+                successBid.setStatus(0);
                 successBidService.save(successBid);
                 bid.setFirstApplied(1);
             }
