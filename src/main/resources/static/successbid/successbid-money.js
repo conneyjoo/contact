@@ -304,7 +304,7 @@ function utf8ToChar(str) {
 }
 
 function doPrint() {
-    document.title = getCharFromUtf8(name);
+    document.title = getCharFromUtf8(name) + "("+localStorage.getItem("companyName")+")";
     var body = $(document.body), wrap = $('#wrap'), table = $($('.datatable').parent().html());
     wrap.hide();
     table.width('100%');
