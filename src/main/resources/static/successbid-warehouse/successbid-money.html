@@ -62,13 +62,10 @@
                     <th width="4%" class="flex-col">收款日</th>
                     <th width="4%" class="flex-col">收款金额</th>
                     <th width="5%" class="flex-col">(扣)管理费用</th>
-                    <th width="5%" class="flex-col">(扣)企业所得税</th>
-                    <th width="5%" class="flex-col">(扣)应交增值税</th>
-                    <th width="5%" class="flex-col">(扣)城建及教费</th>
-                    <th width="5%" class="flex-col">(扣)个所税</th>
-                    <th width="5%" class="flex-col">(扣)印花税</th>
-                    <th width="6%" class="flex-col">(扣)暂扣做账发票</th>
-                    <th width="4%" class="flex-col">(扣)保险费</th>
+                    <th width="5%" class="flex-col">(扣)税金</th>
+                    <th width="6%" class="flex-col">暂扣做账发票</th>
+                    <th width="6%" class="flex-col">(扣)保险费及其他</th>
+                    <th width="6%" class="flex-col">(退还)外地已交税金</th>
                     <th width="6%" class="flex-col">(退还)抵扣增值税</th>
                     <th width="4%" class="flex-col">暂付款</th>
                     <th width="6%" class="flex-col">应付项目工程款</th>
@@ -77,7 +74,7 @@
                     <th width="5%" class="flex-col">尚缺材料发票</th>
                     <th width="6%" class="flex-col">多余的扣增值税</th>
                     <th width="4%" class="flex-col">录入人</th>
-                    <th width="12%" class="flex-col">操作</th>
+                    <th width="12%" class="flex-col op">操作</th>
                 </tr>
                 </thead>
                 <tbody id="successbidmoneygrid" class="grid">
@@ -89,12 +86,9 @@
                     <td>{collectedAmount}</td>
                     <td>{managementCost}</td>
                     <td>{incomeTax}</td>
-                    <td>{addedTax}</td>
-                    <td>{constructionCost}</td>
-                    <td>{constructionIncomeTax}</td>
-                    <td>{printingTax}</td>
                     <td>{accountInvoice}</td>
                     <td>{insurancePremium}</td>
+                    <td>{addedTax}</td>
                     <td>{deductibleTax}</td>
                     <td>{temporaryPayment}</td>
                     <td>{projectPayment}</td>
@@ -165,36 +159,8 @@
                         <input type="text" class="form-control" name="managementCost" placeholder="收款额">
                     </div>
                     <div class="col-sm-6">
-                        <label>扣：企业所得税</label>
-                        <input type="text" class="form-control" name="incomeTax" placeholder="扣：企业所得税">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>扣：应交增值税</label>
-                        <input type="text" class="form-control" name="addedTax" placeholder="扣：应交增值税">
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label style="color: red">扣：地税费用</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>扣：城建及教费</label>
-                        <input type="text" class="form-control" name="constructionCost" placeholder="扣：城建及教费">
-                    </div>
-                    <div class="col-sm-6">
-                        <label>扣：个所税</label>
-                        <input type="text" class="form-control" name="constructionIncomeTax" placeholder="扣：城建个所税">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label>扣：印花税</label>
-                        <input type="text" class="form-control" name="printingTax" placeholder="扣：印花税">
+                        <label>扣：税金</label>
+                        <input type="text" class="form-control" name="incomeTax" placeholder="扣：税金">
                     </div>
                 </div>
                 <br>
@@ -204,28 +170,28 @@
                         <input type="text" class="form-control" name="accountInvoice" placeholder="暂扣做账发票">
                     </div>
                     <div class="col-sm-6">
-                        <label>扣：保险费</label>
-                        <input type="text" class="form-control" name="insurancePremium" placeholder="扣：保险费">
+                        <label>扣：保险费及其他</label>
+                        <input type="text" class="form-control" name="insurancePremium" placeholder="扣：保险费及其他">
                     </div>
                 </div>
                 <br>
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <label style="color: red">退还</label>
-                    </div>
-                </div>
+                <br>
                 <div class="form-group">
                     <div class="col-sm-6">
                         <label>退还：抵扣增值税</label>
                         <input type="text" class="form-control" name="deductibleTax" placeholder="退还：抵扣增值税">
                     </div>
                     <div class="col-sm-6">
-                        <label>暂付款</label>
-                        <input type="text" class="form-control" name="temporaryPayment" placeholder="暂付款">
+                        <label>退还：外地已交税金</label>
+                        <input type="text" class="form-control" name="addedTax" placeholder="退还：外地已交税金">
                     </div>
                 </div>
                 <br>
                 <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>暂付款</label>
+                        <input type="text" class="form-control" name="temporaryPayment" placeholder="暂付款">
+                    </div>
                     <div class="col-sm-6">
                         <label>应付项目工程款</label>
                         <input type="text" class="form-control empty" name="projectPayment" placeholder="应付项目工程款">

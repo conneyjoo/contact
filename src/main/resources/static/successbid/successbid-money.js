@@ -25,12 +25,9 @@ var successbidmoneygrid = $('#successbidmoneygrid').grid({
             collectedAmount: 0,
             managementCost: 0,
             incomeTax: 0,
-            addedTax: 0,
-            constructionCost: 0,
-            constructionIncomeTax: 0,
-            printingTax: 0,
             accountInvoice: 0,
             insurancePremium: 0,
+            addedTax: 0,
             deductibleTax: 0,
             temporaryPayment: 0,
             projectPayment: 0,
@@ -69,46 +66,43 @@ $("#autoCalculate").click(function () {
         alert("保存失败，开票金额必须是数字！！！");
         return;
     }else{
-        $("input[name='incomeTax']").val((ticketOpenAmount/100).toFixed(6));//扣：企业所得税 (4=(1)*1%)
-        $("input[name='addedTax']").val((ticketOpenAmount/1.11*0.11).toFixed(6));//扣：应交增值税 (5=(1)/1.11*0.11)
-        $("input[name='constructionIncomeTax']").val((ticketOpenAmount/200).toFixed(6));//扣：个所税 (7=(1)*0.5%)
-        $("input[name='printingTax']").val((ticketOpenAmount/100*0.03).toFixed(6));//扣：印花税 (8=(1)*0.03%)
+        $("input[name='incomeTax']").val((ticketOpenAmount*0.125).toFixed(6));//扣：税金 (4=(1)*12.5%)
+        $("input[name='receivableInvoice']").val((ticketOpenAmount*0.7).toFixed(6));//应收材料发票 (11=(1)*70%)
     }
 
     //其他金额计算
     var collectedAmount = $("input[name='collectedAmount']").val(); //(2)
-    var addedTax = $("input[name='addedTax']").val();   // (5)
-    var constructionIncomeTax = $("input[name='constructionIncomeTax']").val(); //(7)
-    var deductibleTax = $("input[name='deductibleTax']").val();   // (11)
-    if(isNotPirce(collectedAmount)&&isNotPirce(addedTax)&&isNotPirce(deductibleTax)){
+    var managementCost = $("input[name='managementCost']").val(); //(3)
+    var incomeTax = $("input[name='incomeTax']").val() //(4)
+    var accountInvoice = $("input[name='accountInvoice']").val(); // (5)
+    var insurancePremium = $("input[name='insurancePremium']").val();   // (6)
+    var deductibleTax = $("input[name='deductibleTax']").val();   // (7)
+    var addedTax = $("input[name='addedTax']").val();   // (8)
+    var temporaryPayment = $("input[name='temporaryPayment']").val(); //(9)
+    /*if(isNotPirce(collectedAmount)&&isNotPirce(addedTax)&&isNotPirce(deductibleTax)){
         alert("保存失败，收款金额和应交增值税以及抵扣增值税必须是数字！！！");
         return;
     }else{
         $("input[name='constructionCost']").val(((addedTax-deductibleTax)/100*12).toFixed(6));//扣：城建及教费 （6=（5-11）*12%）
-    }
+    }*/
 
     //应付项目工程款计算
-    var managementCost = $("input[name='managementCost']").val(); //(3)
-    var incomeTax = $("input[name='incomeTax']").val() //(4)
-    var constructionCost = $("input[name='constructionCost']").val() //(6)
-    var printingTax = $("input[name='printingTax']").val() //(8)
-    var accountInvoice = $("input[name='accountInvoice']").val(); //(9)
-    var insurancePremium = $("input[name='insurancePremium']").val();   // (10)
-    if(isNotPirce(accountInvoice)&&isNotPirce(insurancePremium)&&isNotPirce(managementCost)){
-        alert("保存失败，暂扣做账发票和保险费以及管理费用必须是数字！！！");
+    if(isNotPirce(collectedAmount)||isNotPirce(managementCost)||isNotPirce(incomeTax)||isNotPirce(accountInvoice)
+        ||isNotPirce(insurancePremium)||isNotPirce(deductibleTax)||isNotPirce(addedTax)){
+        alert("保存失败，金额必须是数字！！！");
         return;
     }else{
-        $("input[name='projectPayment']").val(collectedAmount-managementCost-incomeTax-addedTax-constructionCost-constructionIncomeTax-printingTax
-        -accountInvoice-insurancePremium+(deductibleTax/1));//应付项目工程款 （14=2-3-4-5-6-7-8-9-10+11）
+        $("input[name='projectPayment']").val(collectedAmount-managementCost-incomeTax-accountInvoice-insurancePremium+deductibleTax/1
+        +addedTax/1-temporaryPayment);//应付项目工程款 （10=2-3-4-5-6+7+8-9）
     }
 
-    var receivableInvoice = $("input[name='receivableInvoice']").val(); //(15)
-    var receiptInvoice = $("input[name='receiptInvoice']").val() //(16)
+    var receivableInvoice = $("input[name='receivableInvoice']").val(); //(11)
+    var receiptInvoice = $("input[name='receiptInvoice']").val() //(12)
     if(isNotPirce(receivableInvoice)&&isNotPirce(receiptInvoice)){
         alert("保存失败，暂扣做账发票和保险费以及已交增值税 管理费用必须是数字！！！");
         return;
     }else{
-        $("input[name='lackInvoice']").val(receivableInvoice-receiptInvoice);//尚缺材料发票 （17=15-16）
+        $("input[name='lackInvoice']").val(receivableInvoice-receiptInvoice);//尚缺材料发票 （13=11-12）
     }
 
 })
@@ -304,7 +298,7 @@ function utf8ToChar(str) {
 }
 
 function doPrint() {
-    document.title = getCharFromUtf8(name) + "("+localStorage.getItem("companyName")+")";
+    document.title = getCharFromUtf8(name) + "("+localStorage.getItem("companyName")+"工程款申请单)";
     var body = $(document.body), wrap = $('#wrap'), table = $($('.datatable').parent().html());
     wrap.hide();
     table.width('100%');
