@@ -58,6 +58,10 @@ public class SuccessBid {
     @Column(name = "management_cost")
     private String managementCost;
 
+    //建造师费
+    @Column(name = "builder_cost")
+    private String builderCost;
+
     //工程保险费
     @Column(name = "premium_cost")
     private Double premiumCost;
@@ -248,5 +252,13 @@ public class SuccessBid {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getBuilderCost() {
+        return builderCost;
+    }
+
+    public void setBuilderCost(String builderCost) {
+        this.builderCost = builderCost;
     }
 }

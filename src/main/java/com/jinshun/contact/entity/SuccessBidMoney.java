@@ -32,6 +32,19 @@ public class SuccessBidMoney {
     @Column(name="collected_amount_time")
     private Date collectedAmountTime;
 
+    public Date getPayTime() {
+        return payTime;
+    }
+
+    public void setPayTime(Date payTime) {
+        this.payTime = payTime;
+    }
+
+    //付款日期
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @Column(name="pay_time")
+    private Date payTime;
+
     //收款额
     @Column(name="collected_amount")
     private Double collectedAmount;
@@ -40,11 +53,11 @@ public class SuccessBidMoney {
     @Column(name="management_cost")
     private Double managementCost;
 
-    //扣：企业所得税
+    //扣：税金
     @Column(name="income_tax")
     private Double incomeTax;
 
-    //扣：应交增值税
+    //退还: 外地已交税金
     @Column(name="added_tax")
     private Double addedTax;
 

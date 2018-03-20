@@ -69,6 +69,7 @@
                     <th width="4%" class="flex-col">开票金额</th>
                     <th width="4%" class="flex-col">收款日</th>
                     <th width="4%" class="flex-col">收款金额</th>
+                    <th width="4%" class="flex-col">付款日</th>
                     <th width="5%" class="flex-col">(扣)管理费用</th>
                     <th width="5%" class="flex-col">(扣)税金</th>
                     <th width="6%" class="flex-col">暂扣做账发票</th>
@@ -92,6 +93,7 @@
                     <td>{ticketOpenAmount}</td>
                     <td>{collectedAmountTime}</td>
                     <td>{collectedAmount}</td>
+                    <td>{payTime}</td>
                     <td>{managementCost}</td>
                     <td>{incomeTax}</td>
                     <td>{accountInvoice}</td>
@@ -156,6 +158,12 @@
                     <div class="col-sm-6">
                         <label>收款金额</label>
                         <input type="text" class="form-control" name="collectedAmount" placeholder="收款金额">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label>付款日期</label>
+                        <input type="text" class="form-control form-date" name="payTime" placeholder="付款日期" readonly style="width: 100%; background-color: white; float: left;">
                     </div>
                 </div>
                 <br>
