@@ -18,6 +18,9 @@ public class Bid {
     @JoinColumn(name = "company_id")
     private Company company;
 
+    //标的种类（0普通，1乡镇标）
+    private Integer bidType;
+
     //区域
     private String area;
 
@@ -25,7 +28,7 @@ public class Bid {
     private String principal;
 
     //项目发布时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "pub_date")
     private Date pubDate;
 
@@ -40,7 +43,7 @@ public class Bid {
     private Double bidPrice;
 
     //报名时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "apply_date")
     private Date applyDate;
 
@@ -52,7 +55,7 @@ public class Bid {
     private Double depositPrice;
 
     //保证金截止日期
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "deposit_deadline")
     private Date depositDeadline;
 
@@ -61,7 +64,7 @@ public class Bid {
     private Integer depositApproval;
 
     //保证金汇出时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "deposit_remit_time")
     private Date depositRemitTime;
 
@@ -74,7 +77,7 @@ public class Bid {
     private Integer bidOpenResult;
 
     //保证金退回时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "deposit_return_time")
     private Date depositReturnTime;
 
@@ -87,12 +90,12 @@ public class Bid {
     private Integer inWarehouse;
 
     //借用人保证金汇入时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "borrower_import_time")
     private Date borrowerImportTime;
 
     //保证金退回借用人时间
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "borrower_return_time")
     private Date borrowerReturnTime;
 
@@ -318,5 +321,13 @@ public class Bid {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Integer getBidType() {
+        return bidType;
+    }
+
+    public void setBidType(Integer bidType) {
+        this.bidType = bidType;
     }
 }

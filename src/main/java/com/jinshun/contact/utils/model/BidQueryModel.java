@@ -15,22 +15,24 @@ public class BidQueryModel {
 
     private String area;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Integer bigType;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date apply_date_min;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date apply_date_max;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deposit_deadline_min;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deposit_deadline_max;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date bid_open_time_min;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date bid_open_time_max;
 
     public String getArea() {
@@ -103,5 +105,13 @@ public class BidQueryModel {
 
     public void setBid_open_time_max(Date bid_open_time_max) {
         this.bid_open_time_max = bid_open_time_max;
+    }
+
+    public Integer getBigType() {
+        return bigType;
+    }
+
+    public void setBigType(Integer bigType) {
+        this.bigType = bigType;
     }
 }

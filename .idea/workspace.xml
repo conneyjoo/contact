@@ -1,1201 +1,458 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a679bd0b-f5b2-4f41-978c-0fcdd88fd59f" name="Default" comment="upload maven support">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid.html" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid.html" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid.html" />
+    <list default="true" id="15dbe8fa-078a-48ef-b234-5c4896513013" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_72.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_transaction_javax_transaction_api_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_43.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_0_12_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_0_12_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_1_5_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_1_5_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_11_6_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/contact.log.2021-04-04.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/contact.log.2021-04-08.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/CreditController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/DocumentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/LicenseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/SealController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/dao/CreditRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/dao/DocumentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/dao/LicenseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/dao/SealRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/Credit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/Document.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/License.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/Seal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/CreditService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/DocumentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/LicenseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/SealService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/utils/model/CreditQueryModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/utils/model/DocumentQueryModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/utils/model/LicenseQueryModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/utils/model/SealQueryModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/credits/credit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/credits/credit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/credits/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/credits/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/document/document.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/document/document.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/document/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/document/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/license/license.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/license/license.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/license/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/license/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/seal/seal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/seal/seal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/town/bid-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/town/bid-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/town/townBid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/conney/club/utils/JsonUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/Bootstrap.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/auth/Access.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/auth/AuthFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/auth/AuthInterceptor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/auth/Authorities.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/configuration/SampleConfigurerAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/constant/Environment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/BidController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/CreditController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/DocumentController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/FileController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/LicenseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/SealController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/SuccessBidController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/SuccessBidMoneyController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/common/ControllerSupport$Message.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/common/ControllerSupport.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/common/UploadSupport.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/common/converter/DateConverter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/sys/ActionController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/sys/CompanyController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/sys/MenuController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/sys/RoleController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/controller/sys/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/BidRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/CreditRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/DocumentRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/FileRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/LicenseRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/SealRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/SuccessBidMoneyRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/SuccessBidRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/sys/ActionRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/sys/CompanyRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/sys/MenuRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/sys/RoleRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/dao/sys/UserRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/Action.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/Bid.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/Company.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/Credit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/Document.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/File.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/License.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/Menu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/Role.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/Seal.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/SuccessBid.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/SuccessBidMoney.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/UploadFile.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/BidService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/CreditService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/DocumentService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/FileService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/LicenseService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/SealService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/SuccessBidMoneyService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/SuccessBidService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/common/CommonService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/sys/ActionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/sys/CompanyService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/sys/MenuService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/sys/RoleService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/service/sys/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/util/ConditionUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/util/SQLString.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/DateUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/FileUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/LanguageEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/LanguageExplain.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/ReflectUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/XmlWebRquestUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/enums/DateStyle.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/enums/Week.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/model/BidQueryModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/model/CreditQueryModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/model/DocumentQueryModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/model/LicenseQueryModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/jinshun/contact/utils/model/SealQueryModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/company.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/company.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/contact/bid-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/contact/bid-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/contact/bid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/contact/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/credits/credit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/credits/credit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/credits/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/credits/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/document/document.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/document/document.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/document/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/document/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/bootstrap/tagsinput/bootstrap-tagsinput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/bootstrap/tagsinput/bootstrap-tagsinput.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/bootstrap/tagsinput/css/bootstrap-tagsinput.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/grid/css/grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/grid/grid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/grid/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/grid/zgrid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/metro/grid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/metro/modern.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/metro/responsive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/metro/simple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/css/doc.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/css/zh-cn.default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/css/zui.datatable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/css/zui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/fonts/zenicon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/fonts/zenicon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/html5shiv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/placeholder.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/respond.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/uploader/Moxie.swf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/uploader/Moxie.xap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/uploader/zui.uploader-ext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/uploader/zui.uploader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/uploader/zui.uploader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/uploader/zui.uploader.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/lib/zui/uploader/zui.uploader.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/license/license.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/license/license.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/license/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/license/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/personal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/personal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/seal/seal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/seal/seal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid-warehouse/successbid-amount-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid-warehouse/successbid-amount-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid-warehouse/successbid-info-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid-warehouse/successbid-info-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid-warehouse/successbid-money.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid-warehouse/successbid-money.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid-warehouse/successbid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid-warehouse/successbid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid/successbid-amount-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid/successbid-amount-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid/successbid-info-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid/successbid-info-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid/successbid-money.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid/successbid-money.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid/successbid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/successbid/successbid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/sys/role.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/sys/role.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/sys/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/sys/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/town/bid-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/town/bid-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/town/townBid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/unauthorized.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/warehouse/bidWarehouse-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/warehouse/bidWarehouse-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/warehouse/bidWarehouse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/contact-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/contact-1.0.jar.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/upload_maven_support.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/contact.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/contact.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/constant/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/constant/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/BidController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/BidController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/dao/sys/MenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/dao/sys/MenuRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/Bid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/Bid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/SuccessBidMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/SuccessBidMoney.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/BidService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/BidService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/utils/model/BidQueryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jinshun/contact/utils/model/BidQueryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/contact/bid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/contact/bid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid-info-upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid-info-upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid-info-upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid-info-upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid-money.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid-money.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid-money.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid-money.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid-info-upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid-info-upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid-info-upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid-info-upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid-money.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid-money.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid-money.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid-money.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/successbid/successbid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/warehouse/bidWarehouse.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/warehouse/bidWarehouse.html" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bid.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/contact/bid.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="187" column="29" lean-forward="false" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#6;n#tr#0;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#span#0;n#td#6;n#tr#0;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#9;n#tr#0;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#span#0;n#td#9;n#tr#0;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#6;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#9;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#10;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#11;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#12;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#13;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#14;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BidController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/BidController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="155" column="88" lean-forward="false" selection-start-line="155" selection-start-column="88" selection-end-line="155" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SuccessBidController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/SuccessBidController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="successbid.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/successbid/successbid.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="110" selection-end-column="80" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1512563144547" expanded="false" signature="9093:9111" ph="..." />
-                <marker date="1512563144547" expanded="false" signature="9184:9205" ph="..." />
-                <marker date="1512563144547" expanded="false" signature="10161:10175" ph="..." />
-                <marker date="1512563144547" expanded="false" signature="10916:10966" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bidWarehouse.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/warehouse/bidWarehouse.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3021">
-              <caret line="183" column="29" lean-forward="false" selection-start-line="183" selection-start-column="29" selection-end-line="183" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="successbid.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="107" column="80" lean-forward="false" selection-start-line="107" selection-start-column="80" selection-end-line="107" selection-end-column="80" />
-              <folding>
-                <marker date="1512563184574" expanded="false" signature="8532:8558" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="successbid-money.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/successbid/successbid-money.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="135" column="156" lean-forward="false" selection-start-line="135" selection-start-column="156" selection-end-line="135" selection-end-column="156" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BidService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/BidService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLString.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/util/SQLString.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="e#240#248#0" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>com.javachen.example</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>com.jinshun.contact</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jinshun/contact/Bootstrap.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/logback-spring.xml" />
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application-dev.properties" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\工作盘\IntelliJ IDEA Community Edition 2020.2.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="786" />
-    <option name="y" value="62" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Class structureJava</id>
-          </State>
-          <State>
-            <id>Code maturity issuesJava</id>
-          </State>
-          <State>
-            <id>Code style issuesJava</id>
-          </State>
-          <State>
-            <id>Google Web Toolkit issues</id>
-          </State>
-          <State>
-            <id>JUnit issuesJava</id>
-          </State>
-          <State>
-            <id>Java</id>
-          </State>
-          <State>
-            <id>Java 5Java language level migration aidsJava</id>
-          </State>
-          <State>
-            <id>Java 7Java language level migration aidsJava</id>
-          </State>
-          <State>
-            <id>Java 8Java language level migration aidsJava</id>
-          </State>
-          <State>
-            <id>Java language level migration aidsJava</id>
-          </State>
-          <State>
-            <id>Javadoc issuesJava</id>
-          </State>
-          <State>
-            <id>Performance issuesJava</id>
-          </State>
-          <State>
-            <id>Spring</id>
-          </State>
-          <State>
-            <id>Spring AOPSpring</id>
-          </State>
-          <State>
-            <id>TestNGJava</id>
-          </State>
-          <State>
-            <id>Threading issuesJava</id>
-          </State>
-        </expanded-state>
-      </profile-state>
-    </entry>
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="successbid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="contact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="successbid-warehouse" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectId" id="1qFl9iMexbMD2SFqtkNtN2QL7aP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/seal" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Users\Administrator\IdeaProjects\contact\src\main\resources" />
+      <recent name="D:\projects\contact\src\main\resources\static\seal" />
+      <recent name="D:\projects\contact\src\main\resources\static\credit" />
+      <recent name="D:\projects\contact\src\main\resources\static\document" />
+      <recent name="D:\projects\contact\src\main\resources\static\license" />
+      <recent name="D:\projects\contact\src\main\resources\static\town" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Bootstrap">
+  <component name="RunManager" selected="Application.SealController">
     <configuration name="Bootstrap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="MAIN_CLASS_NAME" value="com.jinshun.contact.Bootstrap" />
+      <module name="contact" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.jinshun.contact.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.jinshun.contact.Bootstrap" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-Dspring.profiles.active=dev" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SealController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jinshun.contact.controller.SealController" />
       <module name="contact" />
-      <envs />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jinshun.contact.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration name="package" type="MavenRunConfiguration" factoryName="Maven">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="clean" />
-                <option value="package" />
-              </list>
-            </option>
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-    </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Maven.package" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Bootstrap" />
-    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.Bootstrap" />
+      <list>
+        <item itemvalue="Application.SealController" />
+        <item itemvalue="Application.Bootstrap" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a679bd0b-f5b2-4f41-978c-0fcdd88fd59f" name="Default" comment="" />
-      <created>1509975061604</created>
+      <changelist id="15dbe8fa-078a-48ef-b234-5c4896513013" name="Default Changelist" comment="" />
+      <created>1616683069308</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1509975061604</updated>
-      <workItem from="1509975064286" duration="3921000" />
-      <workItem from="1509979057628" duration="682000" />
-      <workItem from="1509979765600" duration="360000" />
-      <workItem from="1509980138755" duration="10000" />
+      <updated>1616683069308</updated>
     </task>
-    <task id="LOCAL-00001" summary="first c">
-      <created>1509975355352</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1509975355352</updated>
-    </task>
-    <task id="LOCAL-00002" summary="upload maven support">
-      <created>1509976668592</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1509976668592</updated>
-    </task>
-    <task id="LOCAL-00003" summary="upload spring boot bootstrap">
-      <created>1509978392474</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1509978392474</updated>
-    </task>
-    <task id="LOCAL-00004" summary="upload spring boot bootstrap">
-      <created>1509979507969</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1509979507969</updated>
-    </task>
-    <task id="LOCAL-00005" summary="upload maven support">
-      <created>1509979581783</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1509979581783</updated>
-    </task>
-    <task id="LOCAL-00006" summary="upload maven support">
-      <created>1509979637194</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1509979637194</updated>
-    </task>
-    <task id="LOCAL-00007" summary="upload maven support">
-      <created>1509980062616</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1509980062616</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4985000" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43217665" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22254759" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43533123" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-    </layout>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="first c" />
-    <MESSAGE value="upload spring boot bootstrap" />
-    <MESSAGE value="upload maven support" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload maven support" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/company.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/successbid/successbid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="38" />
-          <folding>
-            <marker date="1512478049076" expanded="true" signature="854:865" ph="..." />
-            <marker date="1512478049076" expanded="true" signature="950:961" ph="..." />
-            <marker date="1512478049076" expanded="true" signature="1048:1059" ph="..." />
-            <marker date="1512478049076" expanded="true" signature="1143:1154" ph="..." />
-            <marker date="1512478049076" expanded="true" signature="1293:1320" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/SuccessBidService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/successbid/successbid-money.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2413">
-          <caret line="127" column="13" lean-forward="false" selection-start-line="127" selection-start-column="4" selection-end-line="127" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/Bid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="9" />
-          <folding>
-            <element signature="e#5951#5952#0" expanded="true" />
-            <element signature="e#5981#5982#0" expanded="true" />
-            <element signature="e#6027#6028#0" expanded="true" />
-            <element signature="e#6065#6066#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/entity/SuccessBid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="235" column="5" lean-forward="true" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
-          <folding>
-            <element signature="e#2872#2873#0" expanded="true" />
-            <element signature="e#2920#2921#0" expanded="true" />
-            <element signature="e#4766#4767#0" expanded="true" />
-            <element signature="e#4796#4797#0" expanded="true" />
-            <element signature="e#4842#4843#0" expanded="true" />
-            <element signature="e#4880#4881#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/SuccessBidController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/successbid/successbid-money.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="135" column="156" lean-forward="false" selection-start-line="135" selection-start-column="156" selection-end-line="135" selection-end-column="156" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/util/SQLString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#240#248#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/service/BidService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/controller/BidController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="155" column="88" lean-forward="false" selection-start-line="155" selection-start-column="88" selection-end-line="155" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/contact/bid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="187" column="29" lean-forward="false" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#6;n#tr#0;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#td#6;n#tr#0;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#9;n#tr#0;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#td#9;n#tr#0;n#tfoot#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#6;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#9;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#10;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#11;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#12;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#13;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#14;n#form#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-117">
-          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/warehouse/bidWarehouse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3021">
-          <caret line="183" column="29" lean-forward="false" selection-start-line="183" selection-start-column="29" selection-end-line="183" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/successbid/successbid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="110" selection-end-column="80" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1512563144547" expanded="false" signature="9093:9111" ph="..." />
-            <marker date="1512563144547" expanded="false" signature="9184:9205" ph="..." />
-            <marker date="1512563144547" expanded="false" signature="10161:10175" ph="..." />
-            <marker date="1512563144547" expanded="false" signature="10916:10966" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/successbid-warehouse/successbid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="107" column="80" lean-forward="false" selection-start-line="107" selection-start-column="80" selection-end-line="107" selection-end-column="80" />
-          <folding>
-            <marker date="1512563184574" expanded="false" signature="8532:8558" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="48" column="19" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="19">
-            <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="48" column="19" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="19">
-            <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="19">
-            <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="55" lean-forward="true" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="19">
-            <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="48" column="19" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jinshun/contact/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>contact</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: ch.qos.logback:logback-classic:1.1.11</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616683359827">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1616683359827" />
+    <state width="449" height="438" key="DebuggerActiveHint" timestamp="1617976739863">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="449" height="438" key="DebuggerActiveHint/0.0.1280.680@0.0.1280.680" timestamp="1617976739863" />
+    <state width="1237" height="289" key="GridCell.Tab.0.bottom" timestamp="1617977227367">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="289" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1617977227367" />
+    <state width="1237" height="289" key="GridCell.Tab.0.center" timestamp="1617977227367">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="289" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1617977227367" />
+    <state width="1237" height="289" key="GridCell.Tab.0.left" timestamp="1617977227367">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="289" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1617977227367" />
+    <state width="1237" height="289" key="GridCell.Tab.0.right" timestamp="1617977227367">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="289" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1617977227367" />
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1617977227364">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1617977227364" />
+    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1617977227364">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1617977227364" />
+    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1617977227364">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1617977227364" />
+    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1617977227364">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1617977227364" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1617454189078">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1617454189078" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1617501654610">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1617501654610" />
+    <state width="647" height="347" key="XDebugger.FullValuePopup" timestamp="1617976739860">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="647" height="347" key="XDebugger.FullValuePopup/0.0.1280.680@0.0.1280.680" timestamp="1617976739860" />
+    <state x="339" y="72" width="603" height="536" key="find.popup" timestamp="1617524937336">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="339" y="72" width="603" height="536" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1617524937336" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1617505602180">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1617505602180" />
   </component>
 </project>

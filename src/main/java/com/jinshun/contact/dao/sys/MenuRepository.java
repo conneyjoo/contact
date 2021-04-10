@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface MenuRepository extends CrudRepository<Menu, Long> {
 
-    @Query(value = "select m.* from t_menu m, t_role_menu rm where rm.menu_id = m.id and rm.role_id = :roleId", nativeQuery = true)
+    @Query(value = "select m.* from t_menu m, t_role_menu rm where rm.menu_id = m.id and rm.role_id = :roleId order by id asc", nativeQuery = true)
     public List<Menu> getMenus(@Param("roleId") Long roleId);
 }

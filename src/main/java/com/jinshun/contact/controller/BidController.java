@@ -2,6 +2,7 @@ package com.jinshun.contact.controller;
 
 import com.jinshun.contact.auth.Access;
 import com.jinshun.contact.auth.Authorities;
+import com.jinshun.contact.constant.Environment;
 import com.jinshun.contact.controller.common.ControllerSupport;
 import com.jinshun.contact.controller.sys.MenuController;
 import com.jinshun.contact.entity.Bid;
@@ -46,21 +47,21 @@ public class BidController extends ControllerSupport {
         if (bid.getInWarehouse() == null)
             bid.setInWarehouse(0);
 
-        if(bid.getFirstApplied() == null)
+        if (bid.getFirstApplied() == null)
             bid.setFirstApplied(0);
 
-        if(bid.getStatus() == null)
+        if (bid.getStatus() == null)
             bid.setStatus(0);
 
-        if(bid.getId() ==null){
+        if (bid.getId() == null) {
             bid.setCreator(getCurrentUser().getName());
-        }else if(bid.getPrincipal() == null || bid.getPrincipal().length()==0){
+        } else if (bid.getPrincipal() == null || bid.getPrincipal().length() == 0) {
             bid.setPrincipal(getCurrentUser().getName());
         }
 
         //如果是第一次置为中标
-        if(bid.getBidOpenResult() == 1){
-            if(bid.getFirstApplied()==0){
+        if (bid.getBidOpenResult() == 1) {
+            if (bid.getFirstApplied() == 0) {
                 SuccessBid successBid = new SuccessBid();
                 successBid.setCompany(getCurrentCompany());
                 successBid.setName(bid.getName());
@@ -75,7 +76,7 @@ public class BidController extends ControllerSupport {
             }
         }
         bid.setCompany(getCurrentCompany());
-        if(bid.getFirstApplied() == null)
+        if (bid.getFirstApplied() == null)
             bid.setFirstApplied(0);
         return bidService.saveOrUpdate(bid);
     }
@@ -88,10 +89,10 @@ public class BidController extends ControllerSupport {
         try {
             Bid bid = bidService.getById(id);
             Integer status = bid.getStatus();
-            if(status==1 && getCurrentUser().getRole().getLevel()!=69905){
+            if (status == 1 && getCurrentUser().getRole().getLevel() != 69905) {
                 message.setData("f");
-            }else{
-                bid.setStatus(status==0?1:0);
+            } else {
+                bid.setStatus(status == 0 ? 1 : 0);
                 bidService.saveOrUpdate(bid);
             }
         } catch (Exception e) {
@@ -177,14 +178,15 @@ public class BidController extends ControllerSupport {
     @RequestMapping("findBids")
     public @ResponseBody
     List<?> findBids(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
+        model.setBigType(Environment.NORMAL_TYPE);
         model.setCompanyId(getCurrentCompany().getId());
-        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction , 0);
-        for(Object obj : objs){
+        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction, 0);
+        for (Object obj : objs) {
             HashMap map = (HashMap) obj;
-            if(map.get("depositReturnTime")==null && map.get("depositRemitTime")!=null){
+            if (map.get("depositReturnTime") == null && map.get("depositRemitTime") != null) {
                 Date returnTime = (Date) map.get("depositRemitTime");
-                int intervalDays = DateUtils.getIntervalDays(new Date(),returnTime);
-                map.put("warning",intervalDays>30?true:null);
+                int intervalDays = DateUtils.getIntervalDays(new Date(), returnTime);
+                map.put("warning", intervalDays > 30 ? true : null);
             }
         }
         return objs;
@@ -194,14 +196,51 @@ public class BidController extends ControllerSupport {
     @RequestMapping("findBidsForWarehouse")
     public @ResponseBody
     List<?> findBidsForWarehouse(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
+        model.setBigType(null);
         model.setCompanyId(getCurrentCompany().getId());
-        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction , 1);
-        for(Object obj : objs){
+        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction, 1);
+        for (Object obj : objs) {
             HashMap map = (HashMap) obj;
-            if(map.get("depositReturnTime")==null && map.get("depositRemitTime")!=null){
+            if (map.get("depositReturnTime") == null && map.get("depositRemitTime") != null) {
                 Date returnTime = (Date) map.get("depositRemitTime");
-                int intervalDays = DateUtils.getIntervalDays(new Date(),returnTime);
-                map.put("warning",intervalDays>30?true:null);
+                int intervalDays = DateUtils.getIntervalDays(new Date(), returnTime);
+                map.put("warning", intervalDays > 30 ? true : null);
+            }
+        }
+        return objs;
+    }
+
+    @Access()
+    @RequestMapping("findBidsForTown")
+    public @ResponseBody
+    List<?> findBidsForTown(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
+        model.setBigType(Environment.TOWN_TYPE);
+        model.setCompanyId(getCurrentCompany().getId());
+        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction, 0);
+        for (Object obj : objs) {
+            HashMap map = (HashMap) obj;
+            if (map.get("depositReturnTime") == null && map.get("depositRemitTime") != null) {
+                Date returnTime = (Date) map.get("depositRemitTime");
+                int intervalDays = DateUtils.getIntervalDays(new Date(), returnTime);
+                map.put("warning", intervalDays > 30 ? true : null);
+            }
+        }
+        return objs;
+    }
+
+    @Access()
+    @RequestMapping("findBidsForWarehouseForTown")
+    public @ResponseBody
+    List<?> findBidsForWarehouseForTown(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction) {
+        model.setBigType(Environment.TOWN_TYPE);
+        model.setCompanyId(getCurrentCompany().getId());
+        List<?> objs = bidService.queryBids(model, curPage, pageSize, sort, direction, 1);
+        for (Object obj : objs) {
+            HashMap map = (HashMap) obj;
+            if (map.get("depositReturnTime") == null && map.get("depositRemitTime") != null) {
+                Date returnTime = (Date) map.get("depositRemitTime");
+                int intervalDays = DateUtils.getIntervalDays(new Date(), returnTime);
+                map.put("warning", intervalDays > 30 ? true : null);
             }
         }
         return objs;

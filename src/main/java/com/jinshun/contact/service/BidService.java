@@ -41,23 +41,26 @@ public class BidService extends CommonService {
         return bidRepository.findOne(id);
     }
 
-    public List<?> queryBids(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction , Integer inWarehouse) {
+    public List<?> queryBids(BidQueryModel model, Integer curPage, Integer pageSize, String sort, String direction, Integer inWarehouse) {
 
         SQLString sql = new SQLString("select t.* from t_bid t where 1 = 1");
         sql.addCondition("and t.company_id = ?", model.getCompanyId());
         if (ConditionUtils.checkNullOrBlank(model.getName())) {
             sql.append(" and t.name like '%" + model.getName() + "%'");
         }
+        if (null != model.getBigType()) {
+            sql.append(" and t.bid_type = ?", model.getBigType());
+        }
         sql.addCondition("and t.apply_date >= ?", model.getApply_date_min());
-        if( (model.getApply_date_min()!=null && model.getApply_date_max()!=null) && (model.getApply_date_min().getTime() != model.getApply_date_max().getTime()))
+        if ((model.getApply_date_min() != null && model.getApply_date_max() != null) && (model.getApply_date_min().getTime() != model.getApply_date_max().getTime()))
             sql.addCondition("and t.apply_date <= ?", model.getApply_date_max());
 
         sql.addCondition("and t.deposit_deadline >= ?", model.getDeposit_deadline_min());
-        if( (model.getDeposit_deadline_min()!=null && model.getDeposit_deadline_max()!=null) && (model.getDeposit_deadline_min().getTime() != model.getDeposit_deadline_max().getTime()))
+        if ((model.getDeposit_deadline_min() != null && model.getDeposit_deadline_max() != null) && (model.getDeposit_deadline_min().getTime() != model.getDeposit_deadline_max().getTime()))
             sql.addCondition("and t.deposit_deadline <= ?", model.getDeposit_deadline_max());
 
         sql.addCondition("and t.bid_open_time >= ?", model.getBid_open_time_min());
-        if( (model.getBid_open_time_min()!=null && model.getBid_open_time_max()!=null) && (model.getBid_open_time_min().getTime() != model.getBid_open_time_max().getTime()))
+        if ((model.getBid_open_time_min() != null && model.getBid_open_time_max() != null) && (model.getBid_open_time_min().getTime() != model.getBid_open_time_max().getTime()))
             sql.addCondition("and t.bid_open_time <= ?", model.getBid_open_time_max());
 
         if (ConditionUtils.checkNullOrBlank(model.getArea())) {

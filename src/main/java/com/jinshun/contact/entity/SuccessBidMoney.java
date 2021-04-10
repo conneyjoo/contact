@@ -81,6 +81,26 @@ public class SuccessBidMoney {
     @Column(name="insurance_premium")
     private Double insurancePremium;
 
+    //实际已抵扣税
+    @Column(name="labour_cost")
+    private Double labourCost;
+
+    //应收劳务
+    @Column(name="labour_total")
+    private Double labourTotal;
+
+    //已收劳务
+    @Column(name="labour_received")
+    private Double labourReceived;
+
+    //尚缺劳务
+    @Column(name="labour_lack")
+    private Double labourLack;
+
+    //扣：建造师费用
+    @Column(name="builder_cost")
+    private Double builderCost;
+
     //退还：抵扣增值税
     @Column(name="deductible_tax")
     private Double deductibleTax;
@@ -306,5 +326,45 @@ public class SuccessBidMoney {
 
     public void setConstructionIncomeTax(Double constructionIncomeTax) {
         this.constructionIncomeTax = constructionIncomeTax;
+    }
+
+    public Double getBuilderCost() {
+        return builderCost;
+    }
+
+    public void setBuilderCost(Double builderCost) {
+        this.builderCost = builderCost;
+    }
+
+    public Double getLabourCost() {
+        return labourCost;
+    }
+
+    public void setLabourCost(Double labourCost) {
+        this.labourCost = labourCost;
+    }
+
+    public Double getLabourTotal() {
+        return labourTotal;
+    }
+
+    public void setLabourTotal(Double labourTotal) {
+        this.labourTotal = labourTotal;
+    }
+
+    public Double getLabourReceived() {
+        return labourReceived;
+    }
+
+    public void setLabourReceived(Double labourReceived) {
+        this.labourReceived = labourReceived;
+    }
+
+    public Double getLabourLack() {
+        return labourLack;
+    }
+
+    public void setLabourLack(Double labourLack) {
+        this.labourLack = labourLack;
     }
 }

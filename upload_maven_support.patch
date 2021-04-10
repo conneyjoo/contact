@@ -1,0 +1,76 @@
+Index: src/main/resources/static/successbid-warehouse/successbid.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/static/successbid-warehouse/successbid.html	(date 1512562854000)
++++ src/main/resources/static/successbid-warehouse/successbid.html	(revision )
+@@ -93,18 +93,18 @@
+                     <th width="3%">编号</th>
+                     <th width="4%" data-sort="area" class="flex-col">区域</th>
+                     <th width="5%" data-sort="principal" class="flex-col">订立时间</th>
+-                    <th width="5%" data-sort="pub_date" class="flex-col">工程类型</th>
+-                    <th width="5%" data-sort="pub_date" class="flex-col">工程名称</th>
+-                    <th width="5%" data-sort="name" class="flex-col">工期</th>
+-                    <th width="5%" data-sort="type" class="flex-col">合同价</th>
+-                    <th width="5%" data-sort="bid_price" class="flex-col">审定价</th>
+-                    <th width="5%" data-sort="bid_price" class="flex-col">建造师</th>
+-                    <th width="5%" data-sort="constructor" class="flex-col">分包负责人</th>
+-                    <th width="6%" data-sort="deposit_price" class="flex-col">资料收集情况</th>
+-                    <th width="6%" data-sort="deposit_deadline" class="flex-col">管理费及所得税</th>
+-                    <th width="6%" data-sort="deposit_approval" class="flex-col">工程保险费</th>
+-                    <th width="6%" data-sort="deposit_remit_time" class="flex-col">财务结算单录入</th>
+-                    <th width="6%" data-sort="bid_open_time" class="flex-col">相关详细金额</th>
++                    <th width="5%" data-sort="type" class="flex-col">工程类型</th>
++                    <th width="5%" data-sort="name" class="flex-col">工程名称</th>
++                    <th width="5%" data-sort="time_limit" class="flex-col">工期</th>
++                    <th width="5%" data-sort="contact_price" class="flex-col">合同价</th>
++                    <th width="5%" data-sort="judgement_price" class="flex-col">审定价</th>
++                    <th width="5%" data-sort="constructer" class="flex-col">建造师</th>
++                    <th width="5%" data-sort="principal" class="flex-col">分包负责人</th>
++                    <th width="6%" class="flex-col">资料收集情况</th>
++                    <th width="6%" data-sort="management_cost" class="flex-col">管理费及所得税</th>
++                    <th width="6%" data-sort="premium_cost" class="flex-col">工程保险费</th>
++                    <th width="6%" class="flex-col">财务结算单录入</th>
++                    <th width="6%" class="flex-col">相关详细金额</th>
+                     <th width="5%" data-sort="creator" class="flex-col">创建人</th>
+                     <th width="10%" class="flex-col">备注</th>
+                     <th class="flex-col">操作</th>
+Index: src/main/resources/static/successbid/successbid.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/static/successbid/successbid.html	(date 1512562854000)
++++ src/main/resources/static/successbid/successbid.html	(revision )
+@@ -96,18 +96,18 @@
+                     <th width="3%">编号</th>
+                     <th width="4%" data-sort="area" class="flex-col">区域</th>
+                     <th width="5%" data-sort="principal" class="flex-col">订立时间</th>
+-                    <th width="5%" data-sort="pub_date" class="flex-col">工程类型</th>
+-                    <th width="5%" data-sort="pub_date" class="flex-col">工程名称</th>
+-                    <th width="5%" data-sort="name" class="flex-col">工期</th>
+-                    <th width="5%" data-sort="type" class="flex-col">合同价</th>
+-                    <th width="5%" data-sort="bid_price" class="flex-col">审定价</th>
+-                    <th width="5%" data-sort="bid_price" class="flex-col">建造师</th>
+-                    <th width="5%" data-sort="constructor" class="flex-col">分包负责人</th>
+-                    <th width="6%" data-sort="deposit_price" class="flex-col">资料收集情况</th>
+-                    <th width="6%" data-sort="deposit_deadline" class="flex-col">管理费及所得税</th>
+-                    <th width="6%" data-sort="deposit_approval" class="flex-col">工程保险费</th>
+-                    <th width="6%" data-sort="deposit_remit_time" class="flex-col">财务结算单录入</th>
+-                    <th width="6%" data-sort="bid_open_time" class="flex-col">相关详细金额</th>
++                    <th width="5%" data-sort="type" class="flex-col">工程类型</th>
++                    <th width="5%" data-sort="name" class="flex-col">工程名称</th>
++                    <th width="5%" data-sort="time_limit" class="flex-col">工期</th>
++                    <th width="5%" data-sort="contact_price" class="flex-col">合同价</th>
++                    <th width="5%" data-sort="judgement_price" class="flex-col">审定价</th>
++                    <th width="5%" data-sort="constructer" class="flex-col">建造师</th>
++                    <th width="5%" data-sort="principal" class="flex-col">分包负责人</th>
++                    <th width="6%" class="flex-col">资料收集情况</th>
++                    <th width="6%" data-sort="management_cost" class="flex-col">管理费及所得税</th>
++                    <th width="6%" data-sort="premium_cost" class="flex-col">工程保险费</th>
++                    <th width="6%" class="flex-col">财务结算单录入</th>
++                    <th width="6%" class="flex-col">相关详细金额</th>
+                     <th width="5%" data-sort="creator" class="flex-col">创建人</th>
+                     <th width="10%" class="flex-col">备注</th>
+                     <th class="flex-col">操作</th>

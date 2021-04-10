@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>场所培训</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="text/javascript">
+        var config = {"webRoot":"\/","appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/theme\/","currentModule":"product","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","router":"\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
+        var lang = {"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+    </script>
+
+    <script src="../lib/zui/all.js" type="text/javascript"></script>
+    <script src="../lib/grid/util.js" type="text/javascript"></script>
+    <script src="../lib/grid/grid.js" type="text/javascript"></script>
+    <script src="../lib/grid/zgrid.js" type="text/javascript"></script>
+
+    <link href="../lib/zui/css/zh-cn.default.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zui.min.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zui.datatable.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/grid/css/grid.css" type="text/css" rel="stylesheet" media="screen">
+
+    <style>
+        .editpanel {display: none;}
+    </style>
+</head>
+<body>
+    <div id="wrap" class="mainpanel">
+        <div class="outer with-side with-transition" style="height: 600px;">
+            <div id="featurebar">
+                <ul class="nav">
+                    <li><div class="label-angle">所有模块</div></li>
+                    <li ><a href="user.html">用户管理</a></li>
+                    <li class="active"><a href="role.html">角色</a></li>
+                </ul>
+                <div class="actions">
+                    <a href="javascript:" class="btn" id="add"><i class="icon-plus"></i> 新增</a>
+                </div>
+                <div id="querybox" class="" style="display: none;">
+                    <form id="searchform" class="form-condensed">
+                        <table class="table table-condensed table-form" id="bug-search" style="max-width: 1200px; margin: 0 auto">
+                            <tbody>
+                            <tr>
+                                <td class="w-400px">
+                                    <table class="table active-disabled table-fixed">
+                                        <tbody>
+                                            <tr id="searchbox1" class="">
+                                                <td class="text-right w-70px"><span><strong>用户名</strong></span></td>
+                                                <td id="" style="overflow: visible">
+                                                    <input type="text" class="form-control" name="username" placeholder="角色名：">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td class="w-160px">
+                                    <div class="btn-group">
+                                        <a type="submit" id="searchbtn" class="btn btn-primary" data-loading="稍候...">搜索</a>
+                                        <button type="reset" class="btn btn-default">重置</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <table class="table table-condensed table-hover table-striped tablesorter table-fixed table-datatable">
+                    <thead>
+                        <tr>
+                            <th class="w-id">#</th>
+                            <th class="text-left">角色名</th>
+                            <th class="w-200px">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rolegrid" class="grid">
+                        <tr class="text-center">
+                            <td>{rowIndex}</td>
+                            <td class="text-left">{name}</td>
+                            <td>
+                                <a href="javascript: showEditPanel();" class="btn-icon iframe" title="修改">修改</a>
+                                &nbsp;&nbsp;
+                                <a href="javascript: removeRow();" class="btn-icon iframe" title="删除">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrap" class="editpanel">
+        <div class="outer" style="min-height: 501px;">
+            <div id="featurebar">
+                <div class="heading" style="padding-right: 179px;" id="title">
+                    <i class="icon-edit"></i> 编辑：
+                </div>
+                <div class="actions">
+                    <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
+                    <a id="save" href="javascript:" class="btn btn-save"><i class="icon-save"></i> 保存</a>
+                </div>
+            </div>
+            <div class="container mw-1400px">
+                <div id="titlebar">
+                    <div class="heading">
+                        <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 角色信息：</strong>
+                    </div>
+                </div>
+                <form id="editform" class="form-horizontal">
+                    <input type="text" class="form-control" id="id" name="id" style="display: none;">
+                    <input type="text" class="form-control" id="level" name="level" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2">角色名</label>
+                        <div class="col-md-8 col-sm-10">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="角色名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="menuIds" class="col-sm-2">菜单</label>
+                        <div class="col-md-8 col-sm-10">
+                            <select id="menuIds" name="menuIds" class="form-control grid" style="height: 200px;" multiple>
+                                <option value="{id}" {selected}>{name}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <label for="actionIds" class="col-sm-2">接口</label>
+                        <div class="col-md-8 col-sm-10">
+                            <select id="actionIds" name="actionIds" class="form-control grid" style="height: 200px;" multiple>
+                                <option value="{id}" {selected}>{name}</option>
+                            </select>
+                        </div>
+                    </div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="role.js" type="text/javascript"></script>
+</body>
+</html>

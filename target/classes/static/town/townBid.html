@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>投标管理</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="text/javascript">
+        var config = {"webRoot":"\/","appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/theme\/","currentModule":"product","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","router":"\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
+        var lang = {"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+
+
+
+    </script>
+
+    <script src="../lib/zui/all.js" type="text/javascript"></script>
+    <script src="../lib/grid/util.js" type="text/javascript"></script>
+    <script src="../lib/grid/grid.js" type="text/javascript"></script>
+    <script src="../lib/grid/zgrid.js" type="text/javascript"></script>
+
+    <link href="../lib/zui/css/zui.datatable.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zh-cn.default.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zui.min.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/grid/css/grid.css" type="text/css" rel="stylesheet" media="screen">
+
+    <style>
+        .editpanel {display: none;}
+        .editpanel1 {display: none;}
+
+
+
+    </style>
+
+    <style media=print>
+        input {font-size: 18px;}
+        .datetimepicker {
+            display: none;
+        }
+        .form-control {
+            background: no-repeat 0 0 scroll ＃EEEEEE;
+            border: none;
+            outline: medium;
+        }
+        .col-sm-2-print {
+            width: 30%;
+            float: left;
+        }
+        .col-sm-10-print {
+            width: 70%;
+            float: left;
+            display: block;
+        }
+        .actions, #title, #lines {
+            display: none;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="wrap" style="width: 100%; margin: 0 auto" class="mainpanel">
+    <div class="outer with-side with-transition" style="min-height: 900px;">
+        <div id="featurebar">
+            <ul class="nav">
+                <li>
+                    <div class="label-angle">所有模块</div>
+                </li>
+                <li class="active"><a href="">乡镇标管理</a></li>
+            </ul>
+            <div class="actions">
+                <a href="javascript:" class="btn" id="add"><i class="icon-plus"></i> 新增</a>
+            </div>
+            <div id="querybox" class="show">
+                <form id="searchform" class="form-condensed">
+                    <table class="table table-condensed table-form" id="bug-search"
+                           style="max-width: 1500px; margin: 0 auto">
+                        <tbody>
+                        <tr>
+                            <td class="w-400px">
+                                <table class="table active-disabled table-fixed">
+                                    <tbody>
+                                    <tr class="" style="max-width: 100%; margin: 0 auto">
+                                        <td class="text-right w-90px"><span><strong>工程名称</strong></span></td>
+                                        <td style="overflow: visible">
+                                            <input id="name_search" type="text" class="form-control  searchInput"
+                                                   name="name"
+                                                   placeholder="请输入工程名称（可模糊查询）">
+                                        </td>
+                                    </tr>
+                                    <tr class="" style="max-width: 100%; margin: 0 auto">
+                                        <td class="text-right w-90px"><span><strong>区域</strong></span></td>
+                                        <td style="overflow: visible">
+                                            <input id="area_search" type="text" class="form-control  searchInput"
+                                                   name="area"
+                                                   placeholder="请输入区域（可模糊查询）">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right w-90px"><span><strong>报名时间</strong></span></td>
+                                        <td>
+                                            <input id="apply_date_min" type="text" class="form-control form-date"
+                                                   name="apply_date_min"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                            <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
+                                            <input id="apply_date_max" type="text" class="form-control form-date"
+                                                   name="apply_date_max"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right w-90px"><span><strong>保证金截止时间</strong></span></td>
+                                        <td>
+                                            <input id="deposit_deadline_min" type="text" class="form-control form-date"
+                                                   name="deposit_deadline_min"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                            <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
+                                            <input id="deposit_deadline_max" type="text" class="form-control form-date"
+                                                   name="deposit_deadline_max"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right w-90px"><span><strong>开标时间</strong></span></td>
+                                        <td>
+                                            <input id="bid_open_time_min" type="text" class="form-control form-date"
+                                                   name="bid_open_time_min"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                            <span style="float: left; margin-top: 5px;">&nbsp;-&nbsp;&nbsp;</span>
+                                            <input id="bid_open_time_max" type="text" class="form-control form-date"
+                                                   name="bid_open_time_max"
+                                                   placeholder="yyyy-mm-dd" readonly
+                                                   style="width: 49%; background-color: white; float: left;">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td class="w-160px">
+                                <div class="btn-group">
+                                    <a type="submit" id="searchbtn" class="btn btn-primary" data-loading="稍候...">搜索</a>
+                                    <button type="reset" id="resetButton" class="btn btn-default">重置</button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div style="width: 100%; overflow: scroll;font-size: xx-small">
+            <table class="table datatable table-condensed table-hover table-striped tablesorter tablesorter table-fixed table-bordered"
+                   style="top: 230px;;width:2200px" id="table">
+                <thead>
+                <tr>
+                    <th width="2%">编号</th>
+                    <th width="3%" data-sort="area" class="flex-col">区域</th>
+                    <th width="4%" data-sort="principal" class="flex-col">内部负责人</th>
+                    <th width="4%" data-sort="pub_date" class="flex-col">发布时间</th>
+                    <th width="5%" data-sort="name" class="flex-col">工程名称</th>
+                    <th width="4%" data-sort="type" class="flex-col">工程类型</th>
+                    <th width="4%" data-sort="bid_price" class="flex-col">招标价(万元)</th>
+                    <th width="4%" data-sort="bid_price" class="flex-col">报名时间</th>
+                    <th width="3%" data-sort="constructor" class="flex-col">建造师</th>
+                    <th width="4%" data-sort="deposit_price" class="flex-col">保证金(万元)</th>
+                    <th width="7%" data-sort="borrower_import_time" class="flex-col borrower">借用人保金汇入日</th>
+                    <th width="4%" data-sort="deposit_deadline" class="flex-col">保金截止日</th>
+                    <th width="4%" data-sort="deposit_approval" class="flex-col">审批</th>
+                    <th width="4%" data-sort="deposit_remit_time" class="flex-col">保金汇出日</th>
+                    <th width="5%" data-sort="bid_open_time" class="flex-col">开标时间</th>
+                    <th width="4%" data-sort="bid_open_result" class="flex-col">开标结果</th>
+                    <th width="4%" data-sort="deposit_return_time" class="flex-col">保金退回日</th>
+                    <th width="7%" data-sort="borrower_return_time" class="flex-col borrower">保金退回借用人日</th>
+                    <th width="6%" data-sort="creator" class="flex-col">状态</th>
+                    <th width="5%" class="flex-col">银行凭证</th>
+                    <th width="5%" class="flex-col">备注一</th>
+                    <th width="5%" class="flex-col">备注二</th>
+                    <th width="5%" class="flex-col">备注三</th>
+                    <th width="10%" class="flex-col">操作</th>
+                </tr>
+                </thead>
+                <tbody class="grid">
+                <tr class="text-center">
+                    <td>{rowNo}</td>
+                    <td>{area}</td>
+                    <td>{principal}</td>
+                    <td>{pubDate}</td>
+                    <td title="{name}">{name}</td>
+                    <td>{type}</td>
+                    <td>{bidPrice}</td>
+                    <td>{applyDate}</td>
+                    <td>{constructor}</td>
+                    <td>{depositPrice}</td>
+                    <td class="borrower">{borrowerImportTime}</td>
+                    <td>{depositDeadline}</td>
+                    <td style="color:{depositApprovalResultColor}">{depositApprovalResult}</td>
+                    <td>{depositRemitTime}</td>
+                    <td>{bidOpenTime}</td>
+                    <td style="color:{bidOpenResultColor}">{bidOpenResultMessage}</td>
+                    <td style="background:{warningColor}">{depositReturnTime}{warning}</td>
+                    <td class="borrower">{borrowerReturnTime}</td>
+                    <td style="color:{statusColor}">{statusView}&nbsp;&nbsp;<button class="btn btn-danger role"
+                                                                                    data-permission="16" type="button"
+                                                                                    onclick="changeStatus({id})">状态切换
+                    </button>
+                    </td>
+                    <td><a data-url="../town/bid-upload.html?id={id}&type=BID" data-index="{rowIndex}"
+                           class="btn btn-info iframe forword" data-width="600">上传/查看</a></td>
+                    <td>{remark}</td>
+                    <td>{remark2}</td>
+                    <td>{remark3}</td>
+                    <td>
+                        <button class="btn btn-primary role" data-permission="1" type="button" name="editButton"
+                                onclick="bidEdit({id})">查看
+                        </button>&nbsp;
+                        <button class="btn btn-success role" data-permission="65536" type="button" name="submitButton"
+                                onclick="bidSubmit({id})">入库
+                        </button>&nbsp;
+                        <button class="btn btn-danger role" data-permission="65536" type="button" name="deleteButton"
+                                onclick="bidDel({id})">删除
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td><span style="color:red">合计</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><span style="font-weight: bold;font-size: small;"><span id="bidPriceSum"
+                                                                                style="color:red"></span></span></td>
+                    <td></td>
+                    <td></td>
+                    <td><span style="font-weight: bold;font-size: small;"><span id="depositPriceSum"
+                                                                                style="color:red"></span></span></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="text-right">
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div style="float: right; clear: none;" class="pager form-inline" id="pagination">
+        </div>
+    </div>
+</div>
+
+<div id="wrap" class="editpanel1">
+    <div id="editouter" class="outer" style="overflow-y: scroll;">
+        <div id="featurebar" style="height:75px">
+            <div class="heading" style="padding-right: 179px;" id="title">
+                <i class="icon-edit"></i> 编辑：
+            </div>
+            <div class="actions">
+                <a id="back" href="javascript:" class="btn btn-back"><i class="icon-chevron-left"></i> 返回</a>
+                <a id="print" href="javascript:" class="btn btn-save"><i class="icon icon-print"></i> 打印</a>
+                <a id="save" href="javascript:" class="btn btn-save"><i class="icon-save"></i> 保存</a>
+            </div>
+        </div>
+        <div class="container mw-1400px">
+            <div id="titlebar" class="role" data-permission="65536">
+                <div class="heading">
+                    <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i
+                        class="icon icon-plus"></i></small> 领导审批：</strong>
+                </div>
+            </div>
+            <form id="approvalform" class="form-horizontal role" data-permission="65536">
+                <div class="form-group role" data-permission="65536">
+                    <label for="depositApproval" class="col-sm-2">保证金审批</label>
+                    <div class="col-md-8 col-sm-10">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary active" style="width:75px" id="depositApproval0">
+                                <input type="radio" name="options" checked> 未审批
+                            </label>
+                            <label class="btn btn-success" style="width:75px" id="depositApproval1">
+                                <input type="radio" name="options"> 同意
+                            </label>
+                            <label class="btn btn-danger" style="width:75px" id="depositApproval2">
+                                <input type="radio" name="options"> 否决
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="approveOpenResult" class="form-group role" data-permission="65536">
+                    <label for="openResult" class="col-sm-2">开标结果</label>
+                    <div class="col-md-8 col-sm-10">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary active" style="width:75px" id="openResult0">
+                                <input type="radio" name="options" checked> 未开标
+                            </label>
+                            <label class="btn btn-success" style="width:75px" id="openResult1">
+                                <input type="radio" name="options"> 中标
+                            </label>
+                            <label class="btn btn-danger" style="width:75px" id="openResult2">
+                                <input type="radio" name="options"> 未中标
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <hr class="division">
+            <div id="titlebar">
+                <div class="heading">
+                    <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i
+                        class="icon icon-plus"></i></small> 招标信息：</strong>
+                </div>
+            </div>
+            <form id="editform" class="form-horizontal">
+                <div class="form-group">
+                    <label for="area" class="col-sm-2 col-sm-2-print">区域</label>
+                    <div class="col-md-8 col-sm-10">
+                        <input type="text" class="form-control" id="area" name="area" placeholder="区域">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="principal" class="col-sm-2 col-sm-2-print">内部负责人</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control" id="principal" name="principal" placeholder="内部负责人">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pubDate" class="col-sm-2 col-sm-2-print">信息发布时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="pubDate" name="pubDate"
+                               placeholder="信息发布时间" readonly style="background-color: white;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 col-sm-2-print">工程名称</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input id="name" name="name" class="form-control" placeholder="工程名称"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type" class="col-sm-2 col-sm-2-print">工程类型</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control" id="type" name="type" placeholder="工程类型">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bidPrice" class="col-sm-2 col-sm-2-print">招标价格(万元)</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print" id="bidPriceDiv">
+                        <input type="text" class="form-control" id="bidPrice" name="bidPrice" placeholder="招标价格">
+                        <span id="bidPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="applyDate" class="col-sm-2 col-sm-2-print">报名时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="applyDate" name="applyDate"
+                               placeholder="报名时间" readonly style="background-color: white;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="constructor" class="col-sm-2 col-sm-2-print">建造师</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control" id="constructor" name="constructor" placeholder="建造师">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="depositPrice" class="col-sm-2 col-sm-2-print">投标保证金数额(万元)</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print" id="depositPriceDiv">
+                        <input type="text" class="form-control" id="depositPrice" name="depositPrice"
+                               placeholder="投标保证金数额">
+                        <span id="depositPriceWarning" class="warning">本输入框只支持纯数字内容！！</span>
+                    </div>
+                </div>
+                <div class="form-group borrower">
+                    <label for="borrowerImportTime" class="col-sm-2 col-sm-2-print">借用人保证金汇入时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="borrowerImportTime"
+                               name="borrowerImportTime" placeholder="借用人保证金汇入时间" readonly
+                               style="background-color: white;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="depositDeadline" class="col-sm-2 col-sm-2-print">保证金截止日期</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="depositDeadline" name="depositDeadline"
+                               placeholder="保证金截止日期" readonly style=" background-color: white;">
+                    </div>
+                </div>
+                <div class="form-group role" data-permission="16">
+                    <label for="depositRemitTime" class="col-sm-2 col-sm-2-print">保证金汇出时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="depositRemitTime" name="depositRemitTime"
+                               placeholder="保证金汇出时间" readonly style="background-color: white;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bidOpenTime" class="col-sm-2 col-sm-2-print">开标时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="bidOpenTime" name="bidOpenTime"
+                               placeholder="开标时间" readonly style="background-color: white;">
+                    </div>
+                </div>
+                <div class="form-group role" id="depositReturnTimeDiv" data-permission="16">
+                    <label for="depositReturnTime" class="col-sm-2 col-sm-2-print">保证金退回时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="depositReturnTime"
+                               name="depositReturnTime" placeholder="保证金退回时间" readonly style="background-color: white;">
+                    </div>
+                </div>
+                <div class="form-group borrower">
+                    <label for="borrowerReturnTime" class="col-sm-2 col-sm-2-print">保证金退回借用人时间</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control form-date" id="borrowerReturnTime"
+                               name="borrowerReturnTime" placeholder="保证金退回借用人时间" readonly
+                               style="background-color: white;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="remark" class="col-sm-2 col-sm-2-print">备注</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control" id="remark" name="remark" placeholder="备注">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="remark2" class="col-sm-2 col-sm-2-print">备注二</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control" id="remark2" name="remark2" placeholder="备注2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="remark3" class="col-sm-2 col-sm-2-print">备注三</label>
+                    <div class="col-md-8 col-sm-10 col-sm-10-print">
+                        <input type="text" class="form-control" id="remark3" name="remark3" placeholder="备注3">
+                    </div>
+                </div>
+                <div id="lines">
+                    <hr>
+                    <hr>
+                    <hr>
+                    <hr>
+                    <hr>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script>
+    var curPage = $.util.urlParam('curPage');
+    var pageSize = $.util.urlParam('pageSize');
+    var selectedIndex = $.util.urlParam('selectedIndex');
+
+    var mainpanel = $('.mainpanel');
+    var editpanel = $('.editpanel1');
+    $("#bidPriceWarning").hide();
+    $("#depositPriceWarning").hide();
+    $('.outer').height(window.screen.availHeight - 175);
+    var editId = null;
+
+    var bidPriceSum = 0;
+    var depositPriceSum = 0;
+
+    if(localStorage.rowType == 0){
+        $(".borrower").hide();
+    }
+
+    $("#name_search").val(localStorage.getItem("name_bid"));
+    $("#area_search").val(localStorage.getItem("area_bid"));
+    $("#apply_date_min").val(localStorage.getItem("apply_date_min_bid"));
+    $("#apply_date_max").val(localStorage.getItem("apply_date_max_bid"));
+    $("#deposit_deadline_min").val(localStorage.getItem("deposit_deadline_min_bid"));
+    $("#deposit_deadline_max").val(localStorage.getItem("deposit_deadline_max_bid"));
+    $("#bid_open_time_min").val(localStorage.getItem("bid_open_time_min_bid"));
+    $("#bid_open_time_max").val(localStorage.getItem("bid_open_time_max_bid"));
+
+    // 仅选择日期
+    $(".form-date").datetimepicker(
+        {
+            language: "zh-cn",
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: "yyyy-mm-dd"
+        });
+
+    clearSum = function () {
+        $("#bidPriceSum").html(bidPriceSum.toFixed(6));
+        $("#depositPriceSum").html(depositPriceSum.toFixed(6));
+        bidPriceSum = 0;
+        depositPriceSum = 0;
+        loadPermission();
+
+        $('.forword').click(function() {
+            var el = $(this);
+            grid.rows[el.data('index') - 1].click();
+            var curPage = grid.params.curPage;
+            var pageSize = grid.params.pageSize;
+            var selectedIndex = grid.getSelected() ? grid.getSelected().rowIndex - 1 : '';
+            window.location.href = el.data('url') + '&curPage=' + curPage + '&pageSize=' + pageSize + '&selectedIndex=' + selectedIndex;
+        });
+
+        if (selectedIndex) {
+            this.rows[selectedIndex].click();
+        }
+    }
+
+    var grid = $('.grid').grid({
+        method: 'GET',
+        url: '/bid/findBidsForTown',
+        autoload: true,
+        params: {curPage: curPage || 0, pageSize: pageSize || $.fn.grid.defaults.pageMax},
+        paginationRender: 'pagination',
+        afterLoad : clearSum,
+        setData: function (data, i) {
+            data.rowNo = i + 1 + (this.params.curPage  * this.params.pageSize);
+
+            if(data.depositApproval == 0){
+                data.depositApprovalResult = "未审批";
+            }
+            if(data.depositApproval == 1){
+                data.depositApprovalResult = "同意";
+                data.depositApprovalResultColor = "#055bf5";
+            }
+            if(data.depositApproval == 2){
+                data.depositApprovalResult = "不同意";
+                data.depositApprovalResultColor = "#ff0800";
+            }
+
+            if(data.bidOpenResult == 0){
+                data.bidOpenResultMessage = "未开标";
+            }
+            if(data.bidOpenResult == 1){
+                data.bidOpenResultMessage = "中标";
+                data.bidOpenResultColor = "#055bf5";
+            }
+            if(data.bidOpenResult == 2){
+                data.bidOpenResultMessage = "未中标";
+                data.bidOpenResultColor = "#ff0800";
+            }
+
+            if(data.warning){
+                data.warning = "已超过一个月";
+                data.warningColor = "#ff0800";
+            }
+
+            if(data.status==0){
+                data.statusView='进行中';
+                data.statusColor='#055bf5';
+            }else if(data.status==1){
+                data.statusView='已结束';
+                data.statusColor='#ff0800';
+            }
+
+            if(data!=null){
+                bidPriceSum = bidPriceSum + data.bidPrice;
+                depositPriceSum = depositPriceSum + data.depositPrice;
+            }
+        }
+    }).data('grid');
+
+    $("#searchbtn").click(function () {
+        var data = $('#searchform').serializeObject();
+        grid.load(data);
+
+        for(var key in data){
+            localStorage.setItem(key+"_bid",data[key])
+        }
+    })
+
+    $("#resetButton").click(function(){
+        $('#searchform')[0].reset();
+        var data = $('#searchform').serializeObject();
+        grid.load(data);
+        for(var key in data){
+            localStorage.setItem(key+"_bid",data[key])
+        }
+    })
+
+    $("#print").click(function(){
+        window.print();
+    })
+
+    grid.on('rowdoubleclick', function(event) {
+        if(localStorage.getItem("level")!=69905){
+            $("#save").hide();
+        }
+        var row = grid.getSelected();
+        editId = row.id;
+        togglePanel();
+
+        var result = row['bidOpenResultMessage'];
+        var principal = row['principal'];
+        if(result=="未开标" && principal==localStorage.getItem('name')){
+           $("#titlebar").data("permission",'1');
+            $("#approvalform").data("permission",'1');
+            $("#approveOpenResult").data("permission",'1');
+            loadPermission();
+        }else{
+                $("#titlebar").data("permission",'65536');
+                $("#approvalform").data("permission",'65536');
+                $("#approveOpenResult").data("permission",'65536');
+                loadPermission();
+        }
+
+        changeActive(row.depositApproval,row.bidOpenResult);
+        fillBlanks(row);
+
+        if (localStorage.getItem('level') != 69905) {
+            editform = $("#editform");
+            var flag = false;
+
+            editform.find(':input').each(function() {
+                if (!$(this).val()) {
+                    flag = true;
+                }
+            });
+
+            if (flag) $('#save').show();
+            else $('#save').hide();
+
+            for (var p in row) {
+                var input = $('input[name=' + p + ']', editform);
+
+                if (row[p]) {
+                    input.attr('readonly', '');
+                    if (input.hasClass('form-date')) {
+                        input.datetimepicker('remove');
+                    }
+                } else {
+                    input.removeAttr('readonly');
+                    if (input.hasClass('form-date')) {
+                        input.datetimepicker({
+                            language: 'zh-cn',
+                            weekStart: 1,
+                            todayBtn: 1,
+                            autoclose: 1,
+                            todayHighlight: 1,
+                            startView: 2,
+                            minView: 2,
+                            forceParse: 0,
+                            format: 'yyyy-mm-dd'
+                        });
+                    }
+                }
+            }
+        }
+    });
+
+    //为编辑页面赋值
+    fillBlanks = function(row){
+        $("#area").val(row.area);
+        $("#principal").val(row.principal);
+        $("#pubDate").val(row.pubDate);
+        $("#name").val(row.name);
+        $("#type").val(row.type);
+        $("#bidPrice").val(row.bidPrice);
+        $("#applyDate").val(row.applyDate);
+        $("#constructor").val(row.constructor);
+        $("#depositPrice").val(row.depositPrice);
+        $("#depositDeadline").val(row.depositDeadline);
+        $("#depositRemitTime").val(row.depositRemitTime);
+        $("#bidOpenTime").val(row.bidOpenTime);
+        $("#depositReturnTime").val(row.depositReturnTime);
+        $("#remark").val(row.remark);
+        $("#remark2").val(row.remark2);
+        $("#remark3").val(row.remark3);
+        $("#borrowerImportTime").val(row.borrowerImportTime);
+        $("#borrowerReturnTime").val(row.borrowerReturnTime);
+    }
+
+    changeStatus = function (id) {
+        $.ajax({
+            type: 'POST',
+            url: '/bid/changeStatus',
+            data: {"id":id},
+            async:false,
+            success : function(msg) {
+                if(msg.data=="f"){
+                    alert("您没有更改此条状态的权限！！！")
+                }else{
+                    grid.load();
+                }
+            }
+        });
+    }
+
+    //编辑
+    bidEdit = function(id){
+        if(localStorage.getItem("level")!=69905){
+            $("#save").hide();
+        }
+        togglePanel();
+        editId = id;
+        var data = null;
+        $.ajax({
+            type: 'POST',
+            url: '/bid/getById',
+            data: {id:editId},
+            async: false,
+            success : function(msg) {
+                data = msg;
+            }
+        });
+        changeActive(data.depositApproval,data.bidOpenResult);
+        fillBlanks(data);
+
+        if (localStorage.getItem('level') != 69905) {
+            editform = $("#editform");
+            var flag = false;
+
+            editform.find(':input').each(function() {
+                if (!$(this).val()) {
+                    flag = true;
+                }
+            });
+
+            if (flag) $('#save').show();
+            else $('#save').hide();
+
+            for (var p in data) {
+                var input = $('input[name=' + p + ']', editform);
+
+                if (data[p]) {
+                    input.attr('readonly', '');
+                    if (input.hasClass('form-date')) {
+                        input.datetimepicker('remove');
+                    }
+                } else {
+                    input.removeAttr('readonly');
+                    if (input.hasClass('form-date')) {
+                        input.datetimepicker({
+                            language: 'zh-cn',
+                            weekStart: 1,
+                            todayBtn: 1,
+                            autoclose: 1,
+                            todayHighlight: 1,
+                            startView: 2,
+                            minView: 2,
+                            forceParse: 0,
+                            format: 'yyyy-mm-dd'
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    //提交入库
+    bidSubmit = function(id){
+        if(confirm("确定提交该招标记录入库?")){
+            $.ajax({
+                type: 'POST',
+                url: '/bid/submit',
+                data: {id:id},
+                success : function(msg) {
+                    grid.load();
+                    new $.zui.Messager('提示消息：入库成功', {
+                        type: 'success' // 定义颜色主题
+                    }).show();
+                },
+                error : function(msg) {
+                    new $.zui.Messager('提示消息：入库失败', {
+                        type: 'danger' // 定义颜色主题
+                    }).show();
+                }
+            });
+        }
+    }
+
+    //删除
+    bidDel = function(id){
+        if(confirm("确定删除该招标记录?")){
+            $.ajax({
+                type: 'POST',
+                url: '/bid/remove',
+                data: {id:id},
+                success : function(msg) {
+                    grid.load();
+                    new $.zui.Messager('提示消息：删除成功', {
+                        type: 'success' // 定义颜色主题
+                    }).show();
+                },
+                error : function(msg) {
+                    new $.zui.Messager('提示消息：删除失败', {
+                        type: 'danger' // 定义颜色主题
+                    }).show();
+                }
+            });
+        }
+    }
+
+    //新增
+    $("#add").click(function(){
+        $("#save").show();
+        togglePanel();
+        editId = null;
+        $("#editform").find(':input').removeAttr('readonly');
+        $(".form-date", $("#editform")).datetimepicker({
+            language: 'zh-cn',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: 'yyyy-mm-dd'
+        });
+    })
+
+    //返回
+    $("#back").click(function(){
+        togglePanel();
+    })
+
+    togglePanel = function(){
+        mainpanel.toggle();
+        editpanel.toggle();
+        //编辑面板初始化
+        $(':input','#editform').val('');
+        $("#depositApproval0").attr("class","btn btn-primary active");
+        $("#depositApproval1").attr("class","btn btn-success");
+        $("#depositApproval2").attr("class","btn btn-danger");
+        $("#openResult0").attr("class","btn btn-primary active");
+        $("#openResult1").attr("class","btn btn-success");
+        $("#openResult2").attr("class","btn btn-danger");
+
+        if (editpanel.is(':hidden')) {
+            $('#content', window.parent.document).height(2500);
+        } else {
+            $('#content', window.parent.document).height(1000);
+        }
+    }
+
+    //编辑时改变单选按钮状态
+    changeActive = function(depositOption,openOption){
+        if(depositOption == 1){
+            $("#depositApproval0").attr("class","btn btn-primary");
+            $("#depositApproval1").attr("class","btn btn-success active");
+        }else if(depositOption == 2){
+            $("#depositApproval0").attr("class","btn btn-primary");
+            $("#depositApproval2").attr("class","btn btn-danger active");
+        }
+
+        if(openOption == 1){
+            $("#openResult0").attr("class","btn btn-primary");
+            $("#openResult1").attr("class","btn btn-success active");
+        }else if(openOption == 2){
+            $("#openResult0").attr("class","btn btn-primary");
+            $("#openResult2").attr("class","btn btn-danger active");
+        }
+    }
+
+    //保存
+    $("#save").click(function () {
+        var data = $("#editform").serializeObject();
+        data.id = editId;
+        data.bidType = 1;
+        var constructor = data.constructor[0];
+        data.constructor = constructor;
+
+        if($("#depositApproval0").attr("class")=="btn btn-primary active"){
+            data.depositApproval = 0;
+        }
+        if($("#depositApproval1").attr("class")=="btn btn-success active"){
+            data.depositApproval = 1;
+        }
+        if($("#depositApproval2").attr("class")=="btn btn-danger active"){
+            data.depositApproval = 2;
+        }
+        if($("#openResult0").attr("class")=="btn btn-primary active"){
+            data.bidOpenResult = 0;
+        }
+        if($("#openResult1").attr("class")=="btn btn-success active"){
+            data.bidOpenResult = 1;
+        }
+        if($("#openResult2").attr("class")=="btn btn-danger active"){
+            data.bidOpenResult = 2;
+        }
+
+        var firstApplied = 0;
+        if(editId!=null){
+            $.ajax({
+                type: 'GET',
+                url: '/bid/getFirstApplied',
+                data: {"id":editId},
+                async:false,
+                success : function(msg) {
+                    firstApplied = msg.data;
+                }
+            });
+        }
+        data.firstApplied = firstApplied;
+
+        $.ajax({
+            type: 'GET',
+            url: '/bid/saveOrUpdate',
+            data: data,
+            success : function(msg) {
+                new $.zui.Messager('提示消息：操作成功', {
+                    type: 'success' // 定义颜色主题
+                }).show();
+                togglePanel();
+                grid.load();
+            },
+            error : function(msg) {
+                new $.zui.Messager('提示消息：操作失败', {
+                    type: 'danger' // 定义颜色主题
+                }).show();
+            }
+        });
+    })
+
+    //数字校验
+    $("#bidPrice").keyup(function(){
+        var c=$(this);
+        if(/[^\d]/.test(c.val()) && !/^\d+\.\d+$/.test(c.val())){//替换非数字字符
+            $("#bidPriceWarning").show();
+            $("#bidPriceDiv").attr("class","col-md-8 col-sm-10 has-error");
+        }else{
+            $("#bidPriceWarning").hide();
+            $("#bidPriceDiv").attr("class","col-md-8 col-sm-10");
+        };
+    })
+    $("#depositPrice").keyup(function(){
+        var c=$(this);
+        if(/[^\d]/.test(c.val()) && !/^\d+\.\d+$/.test(c.val())){//替换非数字字符
+            $("#depositPriceWarning").show();
+            $("#depositPriceDiv").attr("class","col-md-8 col-sm-10 has-error");
+        }else{
+            $("#depositPriceWarning").hide();
+            $("#depositPriceDiv").attr("class","col-md-8 col-sm-10");
+        };
+    })
+
+    $('#editouter').height(window.screen.availHeight - 175);
+
+
+
+
+</script>
+</html>

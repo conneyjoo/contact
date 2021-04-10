@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>投标管理</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <script type="text/javascript">
+        var config = {"webRoot":"\/","appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/theme\/","currentModule":"product","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","router":"\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
+        var lang = {"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+    </script>
+
+    <script src="../lib/zui/all.js" type="text/javascript"></script>
+    <script src="../lib/grid/util.js" type="text/javascript"></script>
+    <script src="../lib/grid/grid.js" type="text/javascript"></script>
+    <script src="../lib/grid/zgrid.js" type="text/javascript"></script>
+    <script src="../lib/zui/uploader/zui.uploader-ext.js"></script>
+
+
+    <link href="../lib/zui/uploader/zui.uploader.min.css" rel="stylesheet">
+    <link href="../lib/zui/css/zui.datatable.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zh-cn.default.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/zui/css/zui.min.css" type="text/css" rel="stylesheet" media="screen">
+    <link href="../lib/grid/css/grid.css" type="text/css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div id="wrap">
+    <div class="outer" style="min-height: 501px;">
+        <div id="featurebar">
+            <div class="heading" style="padding-right: 179px;" id="title">
+                <i class="icon-edit"></i> 编辑：
+            </div>
+            <div class="actions">
+                <a id="back" href="javascript:;" class="btn"><i class="icon-chevron-left"></i> 返回</a>
+            </div>
+        </div>
+        <div class="container mw-1400px">
+            <div id="titlebar">
+                <div class="heading">
+                    <span class="prefix"><i class="icon-file-text"></i></span> <strong><small class="text-muted"><i class="icon icon-plus"></i></small> 合同信息：</strong>
+                </div>
+            </div>
+            <form class="form-condensed" id="editform">
+                <input type="hidden" name="id" id="id" />
+
+                <table class="table table-form">
+                    <tbody>
+                    <tr>
+                        <th class="w-100px">合同文件</th>
+                        <td>
+                            <div id="uploadPicture" class="uploader" data-ride="uploader">
+                                <div class="uploader-message text-center">
+                                    <div class="content"></div>
+                                    <button type="button" class="close">×</button>
+                                </div>
+                                <div class="uploader-files file-list file-list-grid"></div>
+                                <div>
+                                    <hr class="divider">
+                                    <div class="uploader-status pull-right text-muted"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="bidWarehouse-upload.js" type="text/javascript"></script>
+</body>
+</html>
